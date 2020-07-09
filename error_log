@@ -1,0 +1,322 @@
+[28-Feb-2020 10:43:44 Etc/GMT] PHP Fatal error:  require_once(): Failed opening required '/home/alphafk6/public_html/Freelance/application//third_party/PHPExcel-1.8.php' (include_path='.:/opt/alt/php71/usr/share/pear') in /home/alphafk6/public_html/Freelance/application/libraries/Excel.php on line 11
+[28-Feb-2020 10:46:30 Etc/GMT] PHP Fatal error:  require_once(): Failed opening required '/home/alphafk6/public_html/Freelance/application/third_party/PHPExcel-1.8' (include_path='.:/opt/alt/php71/usr/share/pear') in /home/alphafk6/public_html/Freelance/application/libraries/Excel.php on line 11
+[28-Feb-2020 10:47:52 Etc/GMT] PHP Fatal error:  require_once(): Failed opening required '/home/alphafk6/public_html/Freelance/application//third_party/PHPExcel-1.8' (include_path='.:/opt/alt/php71/usr/share/pear') in /home/alphafk6/public_html/Freelance/application/libraries/Excel.php on line 11
+[28-Feb-2020 10:47:53 Etc/GMT] PHP Fatal error:  require_once(): Failed opening required '/home/alphafk6/public_html/Freelance/application//third_party/PHPExcel-1.8' (include_path='.:/opt/alt/php71/usr/share/pear') in /home/alphafk6/public_html/Freelance/application/libraries/Excel.php on line 11
+[28-Feb-2020 10:47:59 Etc/GMT] PHP Fatal error:  require_once(): Failed opening required '/home/alphafk6/public_html/Freelance/application//third_party/PHPExcel-1.8' (include_path='.:/opt/alt/php71/usr/share/pear') in /home/alphafk6/public_html/Freelance/application/libraries/Excel.php on line 11
+[28-Feb-2020 10:48:58 Etc/GMT] PHP Fatal error:  require_once(): Failed opening required '/home/alphafk6/public_html/Freelance/application//third_party/PHPExcel-1.8' (include_path='.:/opt/alt/php71/usr/share/pear') in /home/alphafk6/public_html/Freelance/application/libraries/Excel.php on line 11
+[27-Mar-2020 12:24:23 Etc/GMT] PHP Fatal error:  Uncaught Error: Call to undefined function mysql_connect() in /home/alphafk6/public_html/Freelance/change_password.php:6
+Stack trace:
+#0 {main}
+  thrown in /home/alphafk6/public_html/Freelance/change_password.php on line 6
+[27-Mar-2020 12:34:34 Etc/GMT] PHP Notice:  Undefined index: key in /home/alphafk6/public_html/Freelance/change_pass.php on line 2
+[27-Mar-2020 12:35:17 Etc/GMT] PHP Notice:  Undefined index: key in /home/alphafk6/public_html/Freelance/change_pass.php on line 2
+[27-Mar-2020 12:35:20 Etc/GMT] PHP Notice:  Undefined index: key in /home/alphafk6/public_html/Freelance/change_pass.php on line 2
+[27-Mar-2020 12:45:21 Etc/GMT] PHP Fatal error:  Uncaught Error: Call to undefined function mysql_fetch_array() in /home/alphafk6/public_html/Freelance/change_password.php:11
+Stack trace:
+#0 {main}
+  thrown in /home/alphafk6/public_html/Freelance/change_password.php on line 11
+[31-Mar-2020 07:13:28 Etc/GMT] PHP Fatal error:  Cannot redeclare ClientApiModel::getabout1() in /home/alphafk6/public_html/Freelance/application/models/Api_models/ClientApiModel.php on line 62
+[01-Apr-2020 10:53:08 Etc/GMT] PHP Warning:  session_write_close(): Cannot call session save handler in a recursive manner in Unknown on line 0
+[01-Apr-2020 10:53:08 Etc/GMT] PHP Warning:  session_write_close(): Failed to write session data using user defined save handler. (session.save_path: /tmp) in Unknown on line 0
+[03-Apr-2020 11:33:57 Etc/GMT] PHP Fatal error:  require(): Failed opening required '/home/alphafk6/public_html/Freelance/application//libraries/stripe/vendor/autoload.php' (include_path='.:/opt/alt/php71/usr/share/pear') in /home/alphafk6/public_html/Freelance/application/controllers/Api_controllers/Client.php on line 5
+[04-Apr-2020 12:51:56 Etc/GMT] PHP Fatal error:  Cannot redeclare Client::getmissionAmount_post() in /home/alphafk6/public_html/Freelance/application/controllers/Api_controllers/Client.php on line 1634
+[04-Apr-2020 12:52:19 Etc/GMT] PHP Fatal error:  Cannot redeclare Client::getmissionAmount_post() in /home/alphafk6/public_html/Freelance/application/controllers/Api_controllers/Client.php on line 1634
+[06-Apr-2020 14:38:36 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:38:39 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:38:42 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:38:45 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:38:48 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:38:51 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:38:54 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:38:57 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:39:00 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:39:03 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:39:06 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:39:09 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:39:12 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:39:15 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:39:18 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:39:21 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:39:24 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:39:27 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:39:30 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:39:33 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:39:36 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:39:39 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:39:42 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:39:45 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:39:48 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:39:51 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:39:54 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:39:57 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:40:00 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:40:03 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:40:06 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:40:09 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:40:12 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:40:15 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:40:18 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:40:21 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:40:24 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:40:27 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:40:30 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:40:33 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:40:36 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:40:39 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:40:42 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:40:45 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:40:48 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:40:51 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:40:54 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:40:57 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:41:00 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:41:03 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:41:06 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:41:09 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:41:12 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:41:15 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:41:18 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:41:21 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:41:24 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:41:27 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:41:30 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:41:33 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:41:36 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:41:39 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:41:42 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:41:45 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:41:48 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:41:51 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:41:54 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:41:57 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:42:00 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:42:03 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:42:06 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:42:09 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:42:12 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:42:15 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:42:18 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:42:21 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:42:24 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:42:27 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:42:30 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:42:33 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:42:36 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:42:39 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:42:42 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:42:45 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:42:48 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:42:51 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:42:54 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:42:57 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:43:00 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:43:03 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:43:06 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:43:09 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:43:12 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:43:15 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:43:18 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:43:21 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:43:24 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:43:27 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:43:30 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:43:33 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:43:36 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:43:39 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:43:42 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:43:45 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:43:48 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:43:51 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:43:54 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:43:57 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:44:00 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:44:03 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:44:06 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:44:09 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:44:12 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:44:15 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:44:18 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:44:21 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:44:24 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:44:27 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:44:30 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:44:33 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:44:36 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:44:39 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:44:42 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:44:45 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:44:48 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:44:51 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:44:54 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:44:57 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:45:00 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:45:03 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:45:06 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:45:09 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:45:12 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:45:15 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:45:18 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:45:21 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:45:24 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:45:27 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:45:30 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:45:33 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:45:36 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:45:39 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:45:42 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:45:45 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:45:48 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:45:51 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:45:54 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:45:57 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:46:00 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:46:03 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:46:06 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:46:09 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:46:12 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:46:15 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:46:18 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:46:21 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:46:24 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:46:27 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:46:30 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:46:33 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:46:36 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:46:39 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:46:42 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:46:45 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:46:48 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:46:51 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:46:54 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:46:57 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:47:00 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:47:03 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:47:06 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:47:09 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:47:12 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:47:15 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:47:18 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:47:21 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:47:24 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:47:27 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:47:30 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:47:33 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:47:36 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:47:39 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:47:42 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:47:45 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:47:48 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:47:51 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:47:54 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:47:57 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:48:00 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:48:03 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:48:06 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:48:09 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:48:12 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:48:15 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:48:18 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:48:21 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:48:24 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:48:27 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:48:30 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:48:33 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:48:36 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:48:39 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:48:42 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:48:45 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:48:48 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:48:51 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:48:54 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:48:57 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:49:00 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:49:03 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:49:06 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:49:09 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:49:12 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:49:15 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:49:18 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:49:21 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:49:24 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:49:27 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:49:30 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:49:33 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:49:36 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:49:39 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:49:42 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:49:45 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:49:48 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:49:51 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:49:54 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:49:57 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:50:00 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:50:03 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:50:06 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:50:09 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:50:12 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:50:15 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:50:18 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:50:21 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:50:24 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:50:27 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:50:30 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:50:33 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:50:36 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:50:39 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:50:42 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:50:45 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:50:48 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:50:51 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:50:54 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:50:57 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:51:00 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:51:03 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:51:06 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:51:09 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:51:12 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:51:15 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:51:18 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:51:21 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:51:24 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:51:27 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:51:30 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:51:33 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:51:36 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:51:39 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:51:42 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:51:45 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:51:48 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:51:51 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:51:54 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 14:51:57 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[06-Apr-2020 18:40:40 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[07-Apr-2020 00:27:31 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[07-Apr-2020 05:17:24 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[07-Apr-2020 05:17:39 Etc/GMT] PHP Fatal error:  Cannot redeclare ChatModel::GetReciverChatHistory() in /home/alphafk6/public_html/Freelance/application/models/ChatModel.php on line 39
+[08-Apr-2020 15:54:41 Etc/GMT] PHP Fatal error:  Cannot redeclare LoginApiModel::editProfile() in /home/alphafk6/public_html/Freelance/application/models/Api_models/LoginApiModel.php on line 261
+[22-Apr-2020 14:44:35 Etc/GMT] Stripe Notice: Undefined property of Stripe\Customer instance: customer
+[24-Apr-2020 13:32:19 Etc/GMT] Stripe Notice: Undefined property of Stripe\Customer instance: customer
+[24-Apr-2020 13:32:19 Etc/GMT] Stripe Notice: Undefined property of Stripe\Customer instance: customer
+[24-Apr-2020 16:31:45 Etc/GMT] Stripe Notice: Undefined property of Stripe\Customer instance: customer
+[24-Apr-2020 17:19:31 Etc/GMT] Stripe Notice: Undefined property of Stripe\Customer instance: customer
+[28-Apr-2020 11:49:09 Etc/GMT] Stripe Notice: Undefined property of Stripe\Customer instance: customer
+[29-Apr-2020 04:21:27 Etc/GMT] Stripe Notice: Undefined property of Stripe\Customer instance: customer
+[29-Apr-2020 08:12:34 Etc/GMT] Stripe Notice: Undefined property of Stripe\Customer instance: customer
+[04-May-2020 15:08:06 Etc/GMT] Stripe Notice: Undefined property of Stripe\Customer instance: customer
+[09-May-2020 18:28:36 Etc/GMT] Stripe Notice: Undefined property of Stripe\Customer instance: customer
+[13-May-2020 12:22:51 Etc/GMT] Stripe Notice: Undefined property of Stripe\Customer instance: customer
+[13-May-2020 12:22:51 Etc/GMT] Stripe Notice: Undefined property of Stripe\Customer instance: customer
+[13-May-2020 12:24:03 Etc/GMT] Stripe Notice: Undefined property of Stripe\Customer instance: customer
+[13-May-2020 12:54:24 Etc/GMT] Stripe Notice: Undefined property of Stripe\Customer instance: customer
+[13-May-2020 12:57:12 Etc/GMT] Stripe Notice: Undefined property of Stripe\Customer instance: customer
+[13-May-2020 13:22:10 Etc/GMT] Stripe Notice: Undefined property of Stripe\Customer instance: customer
+[13-May-2020 13:56:22 Etc/GMT] Stripe Notice: Undefined property of Stripe\Customer instance: customer
+[13-May-2020 13:56:25 Etc/GMT] Stripe Notice: Undefined property of Stripe\Customer instance: customer
+[13-May-2020 13:56:26 Etc/GMT] Stripe Notice: Undefined property of Stripe\Customer instance: customer
+[13-May-2020 14:09:33 Etc/GMT] Stripe Notice: Undefined property of Stripe\Customer instance: customer
+[13-May-2020 14:10:41 Etc/GMT] Stripe Notice: Undefined property of Stripe\Customer instance: customer
+[01-Jul-2020 13:48:35 UTC] PHP Parse error:  syntax error, unexpected end of file in /home/alphafk6/public_html/Freelance/change_password.php on line 382
+[01-Jul-2020 13:48:39 UTC] PHP Parse error:  syntax error, unexpected end of file in /home/alphafk6/public_html/Freelance/change_password.php on line 382
+[01-Jul-2020 13:49:06 UTC] PHP Parse error:  syntax error, unexpected end of file in /home/alphafk6/public_html/Freelance/change_password.php on line 382
+[01-Jul-2020 13:49:15 UTC] PHP Parse error:  syntax error, unexpected end of file in /home/alphafk6/public_html/Freelance/change_password.php on line 382
+[01-Jul-2020 13:49:15 UTC] PHP Parse error:  syntax error, unexpected end of file in /home/alphafk6/public_html/Freelance/change_password.php on line 382

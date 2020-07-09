@@ -1,0 +1,12 @@
+<?php
+if(isset($_POST['submit_password']))
+{
+  $email=$_POST['email'];
+  $pass=md5($_POST['password']);
+ $at = mysqli_connect('localhost','alphafk6_heelp','XA%Csh-~5AnO','alphafk6_heelp');
+
+  $select=mysqli_query($at,"update users set password='$pass' where email='$email'");
+
+
+}
+?>
