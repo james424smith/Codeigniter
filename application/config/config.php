@@ -23,7 +23,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | a PHP script and you can easily do that on your own.
 |
 */
-$config['base_url'] = 'http://91.234.194.165/';
+$config['base_url'] = 'http://local.heelp.com:9898/';
 
 //admin email for enquiry
 

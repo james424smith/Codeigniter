@@ -103,14 +103,14 @@ class Posts_model extends CI_Model
     }
     public function mission($project_data){
 
-        $this->db->insert('Project_offer',$project_data);
+        $this->db->insert('project_offer',$project_data);
         
         return true;
     }
     public function fetchofferedmission($user_id)
     {
       $this->db->select("project_id");
-      $this->db->from('Project_offer');
+      $this->db->from('project_offer');
       $this->db->where('user_id', $user_id);
       $offered_id_array = $this->db->get()->result();
       //echo ($this->db->last_query());die();
@@ -175,54 +175,54 @@ class Posts_model extends CI_Model
         //print_r($this->db->last_query());die();
         //var_dump($result); die();
 
-        // $this->db->insert('Project_offer',$project_data);
+        // $this->db->insert('project_offer',$project_data);
         
         return $result;
     }
     public function demand_posted($project) {
 
-        $this->db->select('Project_offer.*, users.username,users.picture_url');
-        $this->db->from('Project_offer'); 
+        $this->db->select('project_offer.*, users.username,users.picture_url');
+        $this->db->from('project_offer'); 
         // $this->db->where('client_id',$this->session->userdata['id']);
-        $this->db->join('users','users.id = Project_offer.user_id');
-        $this->db->where('Project_offer.project_id',$project);
+        $this->db->join('users','users.id = project_offer.user_id');
+        $this->db->where('project_offer.project_id',$project);
         $result= $this->db->get()->result_array();           
         return $result;
     }
 
     public function mission_posted($project,$user_id){
 
-        $this->db->select('Project_offer.*,users.username,users.picture_url');
-        $this->db->from('Project_offer'); 
+        $this->db->select('project_offer.*,users.username,users.picture_url');
+        $this->db->from('project_offer'); 
         // $this->db->where('client_id',$this->session->userdata['id']);
-        $this->db->join('users','users.id = Project_offer.user_id');
-        $this->db->where('Project_offer.project_id',$project);
-        $this->db->where('Project_offer.user_id',$user_id);
+        $this->db->join('users','users.id = project_offer.user_id');
+        $this->db->where('project_offer.project_id',$project);
+        $this->db->where('project_offer.user_id',$user_id);
         $result= $this->db->get()->result_array();           
         
         return $result;
     }
          public function demand_posted2($project){
 
-             $this->db->select('Project_offer.*,users.username,users.picture_url');
-            $this->db->from('Project_offer'); 
+             $this->db->select('project_offer.*,users.username,users.picture_url');
+            $this->db->from('project_offer'); 
             // $this->db->where('client_id',$this->session->userdata['id']);
-             $this->db->join('users','users.id = Project_offer.user_id');
-             $this->db->where('Project_offer.project_id',$project);
-             $this->db->order_by("Project_offer.offer_budget", "DESC");
+             $this->db->join('users','users.id = project_offer.user_id');
+             $this->db->where('project_offer.project_id',$project);
+             $this->db->order_by("project_offer.offer_budget", "DESC");
             $result= $this->db->get()->result_array();           
             
             return $result;
         }
          public function demand_posted3($project){
 
-             $this->db->select('Project_offer.*,users.username,users.picture_url');
-            $this->db->from('Project_offer'); 
+             $this->db->select('project_offer.*,users.username,users.picture_url');
+            $this->db->from('project_offer'); 
             // $this->db->where('client_id',$this->session->userdata['id']);
-             $this->db->join('users','users.id = Project_offer.user_id');
-             $this->db->where('Project_offer.project_id',$project);
+             $this->db->join('users','users.id = project_offer.user_id');
+             $this->db->where('project_offer.project_id',$project);
             
-             $this->db->order_by("Project_offer.created_date", "DESC");
+             $this->db->order_by("project_offer.created_date", "DESC");
             $result= $this->db->get()->result_array();           
             // /echo ($this->db->last_query());die();
             return $result;
@@ -232,7 +232,7 @@ class Posts_model extends CI_Model
             $data= array('accept_status' => 2);
             $this->db->set($data);
             $this->db->where('user_id', $user_id);
-            $status = $this->db->update('Project_offer');
+            $status = $this->db->update('project_offer');
             if($status) {
                 $data= array('mission_status' => 1);
                 $this->db->set($data);
