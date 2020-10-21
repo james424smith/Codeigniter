@@ -1,12 +1,12 @@
 <?php $this->load->view('Front/common/header');  ?>
 <?php
-$obj=&get_instance();
-$obj->load->model('Front/Posts_model');
-$id =$this->uri->segment(4);
-//$profile_url = $obj->RegisterModel->PictureUrl();
-//$posts=$obj->Posts_model->display_alldemand();
-$categories=$obj->Posts_model->display_cat();
-$posts=$this->db->query("select * from mission  where mission_category=".$id)->result_array();
+	$obj=&get_instance();
+	$obj->load->model('Front/Posts_model');
+	$id =$this->uri->segment(4);
+	//$profile_url = $obj->RegisterModel->PictureUrl();
+	//$posts=$obj->Posts_model->display_alldemand();
+	$categories=$obj->Posts_model->display_cat();
+	$posts=$this->db->query("select * from mission  where mission_category=".$id)->result_array();
  //print_r($posts);die();
 
 ?> 
@@ -44,7 +44,7 @@ $posts=$this->db->query("select * from mission  where mission_category=".$id)->r
 		
 	      <div class="row grid">  
 	      	<?php  foreach ($posts as $post) {
-	            			?>
+	        ?>
 
 	        <div class="col-md-6 all corporate">
 	          <div class="item row">

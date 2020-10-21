@@ -1,27 +1,27 @@
 <?php $this->load->view('Front/common/header');  ?>
 <?php
-$obj=&get_instance();
-$obj->load->model('Front/Payment_model');
-$id =$this->uri->segment(4);
-//$profile_url = $obj->RegisterModel->PictureUrl();
-$offer_amount=$obj->Payment_model->get_offer_amount($id);
+      $obj = &get_instance();
+      $obj->load->model('Front/Payment_model');
+      $id = $this->uri->segment(4);
+      //$profile_url = $obj->RegisterModel->PictureUrl();
+      $offer_amount = $obj->Payment_model->get_offer_amount($id);
 
 
-$get_offer_amount = $offer_amount[0]['offer_budget'];
-$get_offer_user_id = $offer_amount[0]['user_id'];
-$get_offer_project_id = $offer_amount[0]['project_id'];
+      $get_offer_amount = $offer_amount[0]['offer_budget'];
+      $get_offer_user_id = $offer_amount[0]['user_id'];
+      $get_offer_project_id = $offer_amount[0]['project_id'];
 
-$offer_username=$obj->Payment_model->get_username($get_offer_user_id);
-$get_offer_username = $get_offer_project_id[0]['username'];
+      $offer_username = $obj->Payment_model->get_username($get_offer_user_id);
+      $get_offer_username = $get_offer_project_id[0]['username'];
 
-$offer_mission_name=$obj->Payment_model->get_mission_name($get_offer_project_id);
-$get_offer_mission_name = $offer_mission_name[0]['mission_title'];
+      $offer_mission_name = $obj->Payment_model->get_mission_name($get_offer_project_id);
+      $get_offer_mission_name = $offer_mission_name[0]['mission_title'];
 
-$amount_12 =($get_offer_amount*12)/100;
+      $amount_12 = ($get_offer_amount*12)/100;
 
-        $amount_with_tax = $get_offer_amount+0.25;
+      $amount_with_tax = $get_offer_amount+0.25;
 
-        $total_amount = round($amount_with_tax + $amount_12);
+      $total_amount = round($amount_with_tax + $amount_12);
 
 ?>
 <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
@@ -47,10 +47,10 @@ $amount_12 =($get_offer_amount*12)/100;
               <form action="<?php echo base_url('Front/Payment/payment_success/')?>" method="POST" id="paymentForm">
 
                 <div class="card_number_input">
-                <p>Name on Card</p>
-                <input type="text" name="custName" placeholder="Name on Card" id="" >
-                <input type="hidden" name="custEmail" class="form-control">
-              </div>
+                  <p>Name on Card</p>
+                  <input type="text" name="custName" placeholder="Name on Card" id="" >
+                  <input type="hidden" name="custEmail" class="form-control">
+                </div>
 
               <div class="card_number_input">
                 <p>Card Number</p>

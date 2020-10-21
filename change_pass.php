@@ -90,8 +90,8 @@ $fetch_email= $fetch[0];
     measurementId: "G-KTYVEDFM2E"
   };
   // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
-  firebase.analytics();
+  //firebase.initializeApp(firebaseConfig);
+  //firebase.analytics();
 </script>
 <script type="text/javascript">
   var bellIcon = document.querySelector('.bell-icon');
@@ -109,25 +109,25 @@ $fetch_email= $fetch[0];
       return newTime;
     }
     function bellCheck(event){
-      var isClickInside = bellIcon.contains(event.target);
-        if (isClickInside) {
-          dropdownMenu.classList.toggle('hide');
-          if(dropdownMenu.classList.contains('hide')){
-            clearInterval(notificationInterval);
-            notificationInterval = setInterval(randomNumber, 2000);  
-          }
-          else{
-          for(var i = 0; i < notificationNumber.length;i++){
-             notificationNumber[i].textContent = 0;
-             clearInterval(notificationInterval);
-          }
-        }
-        }
-        else {
-          dropdownMenu.classList.add('hide');
-          clearInterval(notificationInterval);
-          notificationInterval = setInterval(randomNumber, randomRange(timeDelay));
-        }
+      //var isClickInside = bellIcon.contains(event.target);
+      //  if (isClickInside) {
+      //    dropdownMenu.classList.toggle('hide');
+      //    if(dropdownMenu.classList.contains('hide')){
+      //      clearInterval(notificationInterval);
+      //      notificationInterval = setInterval(randomNumber, 2000);  
+      //    }
+      //    else{
+      //    for(var i = 0; i < notificationNumber.length;i++){
+      //       notificationNumber[i].textContent = 0;
+      //       clearInterval(notificationInterval);
+      //    }
+      //  }
+      //  }
+      //  else {
+      //    dropdownMenu.classList.add('hide');
+      //    clearInterval(notificationInterval);
+      //    notificationInterval = setInterval(randomNumber, randomRange(timeDelay));
+      //  }
     }
     var notificationInterval = setInterval(randomNumber, randomRange(timeDelay));
     window.addEventListener('click', bellCheck);

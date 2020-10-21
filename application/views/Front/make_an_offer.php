@@ -1,12 +1,9 @@
 <?php $this->load->view('Front/common/header');  ?>
 <?php
-$obj=&get_instance();
-$obj->load->model('Front/Posts_model');
-$id =$this->uri->segment(4);
-//$profile_url = $obj->RegisterModel->PictureUrl();
-$mission=$this->db->query("select * from mission  where mission_id=".$id)->row();
-//print_r($user);die();
-
+	$obj=&get_instance();
+	$obj->load->model('Front/Posts_model');
+	$id =$this->uri->segment(4);
+	$mission=$this->db->query("select * from mission  where mission_id=".$id)->row();
 ?> 
 
 <section>
@@ -21,6 +18,12 @@ $mission=$this->db->query("select * from mission  where mission_id=".$id)->row()
 	
 <section class="make_an_offer_section">
 	<div class="container">
+		<?php if($this->session->flashdata('error')){ ?>
+			<div class="alert alert-danger" style="margin-top:20px;">
+				<a href="#" class="close" data-dismiss="alert">&times;</a>
+				<strong>Error!</strong> <?php echo $this->session->flashdata('error'); ?>
+			</div>
+		<?php } ?>
 		<div class="row">
 			<div class="col-md-2"></div>
 			<div class="col-md-8">
@@ -28,20 +31,31 @@ $mission=$this->db->query("select * from mission  where mission_id=".$id)->row()
 					<form action="<?php echo base_url('Front/Posts/offerpost')?>" method="post">
 						<div class="post_form_content post_form_content_title">
 							<label>Title</label>
-							<input type="text" name="" value="<?php echo $mission->mission_title;?>">
+							<input type="text" name="" value="<?php echo $mission->mission_title;?>" disabled>
 						</div>
 						<div class="post_form_content post_form_content_budget">
 							<label>Ton Budget</label>
-							<input type="text" name="missionbudget" value="<?php echo $mission->mission_budget;?>">
+							<input type="text" name="missionbudget" value="<?php echo $mission->budget;?>" disabled>
 						</div>
 						<div class="post_form_content">
 							<label>Description</label>
-							<textarea><?php echo $mission->mission_description;?></textarea>
+							<textarea disabled><?php echo $mission->description;?></textarea>
 						</div>
 						<div class="make_an_offfer_checkbox">
 							<div class="demand_details_upload_btn">
 								<a href="<?php if($mission->mission_doc){ echo base_url()?>Front/Posts/download/<?php echo $mission->mission_doc;}
-								else { ?>#<?php }?>">File Name <i class="fas fa-download"></i></a>								
+								else { ?>#<?php }?>">
+								<?php
+									if($mission->file){ 
+										echo $mission->file;
+									}
+									else { 
+								?>
+								 No File
+								 <?php 
+									}
+								 ?>
+								<i class="fas fa-download"></i></a>								
 							</div>
 							<div class="make_an_offfer_checkbox_input">
 								<label class="container_check">Accept budget
@@ -57,7 +71,7 @@ $mission=$this->db->query("select * from mission  where mission_id=".$id)->row()
 						</div>
 						<div class="post_form_content">
 							<label>Write your message</label>
-							<textarea placeholder="ex: Je peux le faire pour vous" name="message"></textarea>
+							<textarea placeholder="ex: Je peux le faire pour vous" name="message" required></textarea>
 							 <input type="hidden" name="project_id" value="<?php echo $mission->mission_id ?>" >
 							 <input type="hidden" name="client_id" value="<?php echo $mission->user_id ?>" >
 						</div>

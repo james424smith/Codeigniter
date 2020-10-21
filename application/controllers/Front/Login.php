@@ -5,7 +5,6 @@ class Login extends CI_Controller {
   public function __construct()
   {
     parent::__construct();
-
   }   
   
   function login_validation()  
@@ -22,17 +21,17 @@ class Login extends CI_Controller {
     }  
     else  
     { 
-
       $email = $this->input->post('email');  
-      $password = md5($this->input->post('password'));  
-
+      $password = md5($this->input->post('password'));
+      
       $this->load->model('Front/RegisterModel');  
-      if($this->RegisterModel->can_login($email,$password))  
+      if($this->RegisterModel->can_login($email, $password))  
       {  
+        //echo "Login"; die();
         $session_data = array(  
           'email' => $email  
           );  
-        $this->session->set_userdata('users',$session_data);
+        $this->session->set_userdata('users', $session_data);
           
         redirect(base_url() . 'Front/home');  
       }  
@@ -44,7 +43,6 @@ class Login extends CI_Controller {
 
     }  
   }   
-
 
   function logout()  
   {  

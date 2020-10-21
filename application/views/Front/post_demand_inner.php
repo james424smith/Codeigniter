@@ -1,12 +1,11 @@
 <?php $this->load->view('Front/common/header');  ?>
 <?php
-$obj=&get_instance();
-$obj->load->model('Front/Posts_model');
-$id =$this->uri->segment(4);
-//$profile_url = $obj->RegisterModel->PictureUrl();
-$user=$this->db->query("select * from project_category  where project_id=".$id)->row();
-//print_r($user);die();
-
+	$obj=&get_instance();
+	$obj->load->model('Front/Posts_model');
+	$id =$this->uri->segment(4);
+	//$profile_url = $obj->RegisterModel->PictureUrl();
+	$user=$this->db->query("select * from project_category  where project_id=".$id)->row();
+	//print_r($user);die();
 ?> 
 
 <section>
@@ -50,7 +49,6 @@ $user=$this->db->query("select * from project_category  where project_id=".$id)-
 						</div>
 						 <input type="hidden"  name="project_category" value="<?php echo $id?>"> 
 						
-
 						<div class="post_demand_form_btn">
 							<!-- <a href="#" class="btn btn-defult" data-toggle="modal" data-target="#myModal">Post Your Demand</a> -->
 							  <button type="submit" class="btn btn-primary" >Post </button> 

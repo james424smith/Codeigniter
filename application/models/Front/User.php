@@ -3,6 +3,8 @@ class User extends CI_Model{
     function __construct() {
         $this->tableName = 'users';
         $this->primaryKey = 'id';
+        $this->load->database();
+        $this->load->library('session');
     }
     
     public function insert($data = array()){
@@ -18,5 +20,24 @@ class User extends CI_Model{
         }else{
             return false;    
         }
+    }
+
+    public function getAllUsers() {
+        $this->db->select('*');
+        $this->db->from('users');
+        $this->db->where('role', 'client');
+        $query = $this->db->get();
+        //var_dump($query->result_array());die();
+        return $query->result_array();
+    }
+
+    public function getSelfUser() {
+        $user_id = $this->session->userdata['id'];
+        $this->db->select('*');
+        $this->db->from('users');
+        $this->db->where('id', $user_id);
+        $query = $this->db->get();
+        //var_dump($query->result_array());die();
+        return $query->result_array();
     }
 }

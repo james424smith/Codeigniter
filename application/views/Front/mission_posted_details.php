@@ -1,75 +1,75 @@
 
  <?php $this->load->view('Front/common/header');  ?>
  <?php
-$obj=&get_instance();
-$obj->load->model('Front/Posts_model');
-$id =$this->uri->segment(4);
-$user_id = $this->session->userdata['id'];
-$demands=$obj->Posts_model->mission_posted($id,$user_id);
+	$obj = &get_instance();
+	$obj->load->model('Front/Posts_model');
+	$id = $this->uri->segment(4);
+	$user_id = $this->session->userdata['id'];
+	$demands = $obj->Posts_model->mission_posted($id,$user_id);
 
  //$user_id = $value['user_id'];
-$avg = $this->Posts_model->selectAvgOfRating($user_id);
+	$avg = $this->Posts_model->selectAvgOfRating($user_id);
 
-            $count = 0;
-            $total = 0;
-            for($j=0;$j<count($avg);$j++)
-            {
-                $total += $avg[$j]->rating;
-                $count++;
-            }
-            if($count != 0)
-            {
-                $av =$total/$count;
-                $user_detail = number_format($av, 2, '.', '');
-            }
-            else
-            {
-                $user_detail = 0;
-            }
-            if($user_detail == 0)
-            {
-            	$class_star = "stars-0";
-            }
-            elseif($user_detail == 0.50)
-            {
-            	$class_star = "stars-10";
-            }
-            elseif($user_detail == 1.00)
-            {
-            	$class_star = "stars-20";
-            }
-            elseif($user_detail == 1.50)
-            {
-            	$class_star = "stars-30";
-            }
-            elseif($user_detail == 2.00)
-            {
-            	$class_star = "stars-40";
-            }
-            elseif($user_detail == 2.50)
-            {
-            	$class_star = "stars-50";
-            }
-            elseif($user_detail == 3.00)
-            {
-            	$class_star = "stars-60";
-            }
-            elseif($user_detail == 3.50)
-            {
-            	$class_star = "stars-70";
-            }
-            elseif($user_detail == 4.00)
-            {
-            	$class_star = "stars-80";
-            }
-            elseif($user_detail == 4.50)
-            {
-            	$class_star = "stars-90";
-            }
-            elseif($user_detail == 5.00)
-            {
-            	$class_star = "stars-100";
-            }
+	$count = 0;
+	$total = 0;
+	for($j = 0; $j < count($avg); $j ++)
+	{
+		$total += $avg[$j]->rating;
+		$count++;
+	}
+	if($count != 0)
+	{
+		$av =$total/$count;
+		$user_detail = number_format($av, 2, '.', '');
+	}
+	else
+	{
+		$user_detail = 0;
+	}
+	if($user_detail == 0)
+	{
+		$class_star = "stars-0";
+	}
+	elseif($user_detail == 0.50)
+	{
+		$class_star = "stars-10";
+	}
+	elseif($user_detail == 1.00)
+	{
+		$class_star = "stars-20";
+	}
+	elseif($user_detail == 1.50)
+	{
+		$class_star = "stars-30";
+	}
+	elseif($user_detail == 2.00)
+	{
+		$class_star = "stars-40";
+	}
+	elseif($user_detail == 2.50)
+	{
+		$class_star = "stars-50";
+	}
+	elseif($user_detail == 3.00)
+	{
+		$class_star = "stars-60";
+	}
+	elseif($user_detail == 3.50)
+	{
+		$class_star = "stars-70";
+	}
+	elseif($user_detail == 4.00)
+	{
+		$class_star = "stars-80";
+	}
+	elseif($user_detail == 4.50)
+	{
+		$class_star = "stars-90";
+	}
+	elseif($user_detail == 5.00)
+	{
+		$class_star = "stars-100";
+	}
  ?>
 
 
@@ -90,24 +90,72 @@ $avg = $this->Posts_model->selectAvgOfRating($user_id);
 		  	<ul class="tabs_list">
 
 		  		<?php foreach ($demands as $value) { ?>
-		  			
-		  		
+		  				
 			    <li class="project option-1">
 				    <div class="col-md-6 all corporate">
 			          <div class="item row">
 			          	<div class="col-md-3 img_box">
-			          		<img src="https://www.alphawizz.com/Freelance/uploads/profiles/<?php echo $value['picture_url']; ?>" alt="<?php echo  $value['username']; ?>">
+						  	<?php
+								$url = $value['picture_url'];
+								if($url == "")
+									$url = "default.png";
+							?>
+			          		<img src="<?php echo base_url('uploads/profiles/' . $url) ;?>" alt="<?php echo  $value['username']; ?>" style="border-radius:70px !important;">
 			          	</div>            
 			            <div class="col-md-9 cat_content">
 			        		<p class="cat_date"><?php echo  $value->created_date; ?></p>
-			                <h5><?php echo $value['message'];?></h5>
+			                <h5>
+								<?php 
+									$show_text = $value['message'];
+									if(strlen($show_text) > 30)
+										$show_text = substr($show_text, 0, 30) . "...";
+									echo $show_text;
+								?>
+							</h5>
+
+							<a href="" data-toggle="modal" data-target="#myModal<?php echo $value['offer_id'];?>">read more</a><hr>
+							<!-- The Modal -->
+							<div class="modal fade" id="myModal<?php echo $value['offer_id'];?>">
+								<div class="modal-dialog modal-dialog-centered">
+									<div class="modal-content">
+										<!-- Modal Header -->
+										<div class="modal-header" style="background-color: #5cb85c;">
+										<h4 class="modal-title">Mission</h4>
+										<button type="button" class="close" data-dismiss="modal">&times;</button>
+										</div>
+										
+										<!-- Modal body -->
+										<div class="modal-body">
+											<P>
+												Proposals
+											</p>
+											<form>
+											<div class="from-group">
+												<Label><h6>Description</h6></Label>
+												<textarea class="form-control"><?php echo $value['message']; ?></textarea>
+											</div>
+											<br>  
+											<div class="from-group">
+												<Label><h6>Offer Budget</h6></Label>
+												<input type="text" class="form-control" value="<?php echo $value['offer_budget']; ?>">
+				  							</div>
+										</div>
+										
+										<!-- Modal footer -->
+										<div class="modal-footer">
+										<button type="submit" class="btn btn-secondary" data-dismiss="modal">Update</button>
+				  						</form>
+										<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+										</div>
+									</div>
+								</div>
+							</div>
+
+
 			                <span><b>Offer:</b> € <?php echo $value['offer_budget']; ?></span>
 			                <div><span class="stars-container <?php echo $class_star;?>">★★★★★</span></div>
 
 			              	<div class="row">
-			              		<!-- <div class="col-md-6 make_btn">
-					            	<a href="#" class="discuss_btn_cat">Discuss</a>
-					            </div>	 -->
 			              		<div class="col-md-6 profile_img">
 					            </div>		            
 			              	</div>	              
@@ -116,111 +164,6 @@ $avg = $this->Posts_model->selectAvgOfRating($user_id);
 		           </div>
 			    </li>
 			   <?php } ?>
-			    <!-- <li class="project option-1">
-				    <div class="col-md-6 all corporate">
-			          <div class="item row">
-			          	<div class="col-md-3 img_box">
-			          		<img src="https://www.alphawizz.com/Heelp_admin/uploads/ae02fb24c057129c98cd261bb1098470.png" alt="Work 1">
-			          	</div>            
-			            <div class="col-md-9 cat_content">
-			        		<p class="cat_date">2 Days ago</p>
-			                <h5>I can do the job for you</h5>
-			                <span><b>Offer:</b> 100€</span>
-			              	<div class="row">
-			              		<div class="col-md-6 make_btn">
-					            	<a href="#" class="discuss_btn_cat">Discuss</a>
-					            </div>	
-			              		<div class="col-md-6 profile_img">
-					            </div>		            
-			              	</div>	              
-			            </div>	            
-			          </div>
-		           </div>
-			    </li>
-			    <li class="project option-1">
-				    <div class="col-md-6 all corporate">
-			          <div class="item row">
-			          	<div class="col-md-3 img_box">
-			          		<img src="https://www.alphawizz.com/Heelp_admin/uploads/ae02fb24c057129c98cd261bb1098470.png" alt="Work 1">
-			          	</div>            
-			            <div class="col-md-9 cat_content">
-			        		<p class="cat_date">2 Days ago</p>
-			                <h5>I can do the job for you</h5>
-			                <span><b>Offer:</b> 100€</span>
-			              	<div class="row">
-			              		<div class="col-md-6 make_btn">
-					            	<a href="#" class="discuss_btn_cat">Discuss</a>
-					            </div>	
-			              		<div class="col-md-6 profile_img">
-					            </div>		            
-			              	</div>	              
-			            </div>	            
-			          </div>
-		           </div> 
-			    </li>
-			    <li class="project option-1">
-				    <div class="col-md-6 all corporate">
-			          <div class="item row">
-			          	<div class="col-md-3 img_box">
-			          		<img src="https://www.alphawizz.com/Heelp_admin/uploads/ae02fb24c057129c98cd261bb1098470.png" alt="Work 1">
-			          	</div>            
-			            <div class="col-md-9 cat_content">
-			        		<p class="cat_date">2 Days ago</p>
-			                <h5>I can do the job for you</h5>
-			                <span><b>Offer:</b> 100€</span>
-			              	<div class="row">
-			              		<div class="col-md-6 make_btn">
-					            	<a href="#" class="discuss_btn_cat">Discuss</a>
-					            </div>	
-			              		<div class="col-md-6 profile_img">
-					            </div>		            
-			              	</div>	              
-			            </div>	            
-			          </div>
-		           </div>
-			    </li>
-			    <li class="project option-1">
-				    <div class="col-md-6 all corporate">
-			          <div class="item row">
-			          	<div class="col-md-3 img_box">
-			          		<img src="https://www.alphawizz.com/Heelp_admin/uploads/ae02fb24c057129c98cd261bb1098470.png" alt="Work 1">
-			          	</div>            
-			            <div class="col-md-9 cat_content">
-			        		<p class="cat_date">2 Days ago</p>
-			                <h5>I can do the job for you</h5>
-			                <span><b>Offer:</b> 100€</span>
-			              	<div class="row">
-			              		<div class="col-md-6 make_btn">
-					            	<a href="#" class="discuss_btn_cat">Discuss</a>
-					            </div>	
-			              		<div class="col-md-6 profile_img">
-					            </div>		            
-			              	</div>	              
-			            </div>	            
-			          </div>
-		           </div>
-			    </li>
-			    <li class="project option-1">
-				    <div class="col-md-6 all corporate"> 
-			          <div class="item row">
-			          	<div class="col-md-3 img_box">
-			          		<img src="https://www.alphawizz.com/Heelp_admin/uploads/ae02fb24c057129c98cd261bb1098470.png" alt="Work 1">
-			          	</div>            
-			            <div class="col-md-9 cat_content">
-			        		<p class="cat_date">2 Days ago</p>
-			                <h5>I can do the job for you</h5>
-			                <span><b>Offer:</b> 100€</span>
-			              	<div class="row">
-			              		<div class="col-md-6 make_btn">
-					            	<a href="#" class="discuss_btn_cat">Discuss</a>
-					            </div>	
-			              		<div class="col-md-6 profile_img">
-					            </div>		            
-			              	</div>	              
-			            </div>	            
-			          </div>
-		           </div>
-			    </li> -->
 		  	</ul>
 		</main>
 	</div>

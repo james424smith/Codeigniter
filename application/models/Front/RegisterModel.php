@@ -5,30 +5,33 @@ class RegisterModel extends CI_Model {
         $this->load->database();
         $this->load->library('session');
     }
-     public function user_data($data){
-     	$this->db->insert('users',$data);
-      $id =$this->db->inserted_id();
-      $this->session->set_userdata('id',$id);
-     	return true;
-     }
+    public function user_data($data) {
+      $this->db->insert('users', $data);      
+      $id =$this->db->insert_id();
+      //echo $id;die();
+      $this->session->set_userdata('id', $id);
+      return true;
+    }
     
-     function can_login($email, $password)  
-  	{  
-    $this->db->where('email', $email);  
-    $this->db->where('password',$password);  
-    $query = $this->db->get('users');  
-    $id = $query->result_array()[0]['id'];
-    $this->session->set_userdata('id',$id);
-   // SELECT * FROM users WHERE username = '$username' AND password = '$password'  
-    if($query->num_rows() > 0)  
-    {  
-      return true;  
-    }  
-    else  
-    {  
-      return false;       
-    }  
-  	}  
+    function can_login($email, $password)  
+  	{
+      //echo "Login Model";die();  
+      $this->db->where('email', $email);  
+      $this->db->where('password', $password);  
+      $query = $this->db->get('users');  
+      $id = $query->result_array()[0]['id'];
+      $this->session->set_userdata('id', $id);
+     // SELECT * FROM users WHERE username = '$username' AND password = '$password'  
+      return true;
+      if($query->num_rows() > 0)  
+      {  
+        return true;  
+      }  
+      else  
+      {  
+        return false;       
+      }  
+   }  
     public function GetUserData()
   {  
  //print_r($this->session->all_userdata());die();
@@ -36,7 +39,7 @@ class RegisterModel extends CI_Model {
 
     $this->db->from('users');
 
-    $this->db->where("id",$this->session->userdata['id']);
+    $this->db->where("id", $this->session->userdata['id']);
 
     $this->db->limit(1);
 
@@ -47,20 +50,18 @@ class RegisterModel extends CI_Model {
        return $query->row_array();
 
      } else {
-
        return false;
-
-     }
+      }
     }
     public function user_update($data,$id)
-  {     $this->db->set($data);
-       $this->db->where('id',$id);
-       $this->db->update('users');
-      
-       return true ;
-  }
+    {     
+         $this->db->set($data);
+         $this->db->where('id',$id);
+         $this->db->update('users');     
+         return true ;
+    }
 
-  public function checkEmailAvailable($email){
+    public function checkEmailAvailable($email){
         $response = array();
         $this->db->select('*');
         $this->db->from('users');
@@ -87,12 +88,13 @@ class RegisterModel extends CI_Model {
         // echo $this->db->last_query();exit;
         return true;
     }
-    public function checkUser($userData = array()){
+    public function checkUser($userData = array()) {
+        
         if(!empty($userData)){
             //check whether user data already exists in database with same oauth info
             $this->db->select('id');
             $this->db->from('users');
-            $this->db->where(array('oauth_provider'=>$userData['oauth_provider'], 'oauth_uid'=>$userData['oauth_uid']));
+            $this->db->where(array('oauth_provider' => $userData['oauth_provider'], 'oauth_uid'=>$userData['oauth_uid']));
             $prevQuery = $this->db->get();
             $prevCheck = $prevQuery->num_rows();
             
@@ -105,7 +107,7 @@ class RegisterModel extends CI_Model {
                 
                 //get user ID
                 $userID = $prevResult['id'];
-            }else{
+            }else {
                 //insert user data
                 $userData['created']  = date("Y-m-d H:i:s");
                 $userData['modified'] = date("Y-m-d H:i:s");
@@ -117,39 +119,57 @@ class RegisterModel extends CI_Model {
         }
         
         //return user ID
-        return $userID?$userID:FALSE;
+        return $userID ? $userID : FALSE;
     }
- public function PictureUrl(){
 
-   $this->db->select('picture_url');
 
-    $this->db->from('users');
+    public function PictureUrl() {
 
-    $this->db->where("id",$this->session->userdata['id']);
+      $this->db->select('picture_url');
 
-    $this->db->limit(1);
+      $this->db->from('users');
 
-      $query = $this->db->get();
+      $this->db->where("id",$this->session->userdata['id']);
 
-    if ($query) {
+      $this->db->limit(1);
 
-       return $query->row_array();
+        $query = $this->db->get();
 
-     } else {
+      if ($query) {
 
-       return false;
+        return $query->row_array();
 
-     }
+      } else {
 
- }
- public function edit($project_data,$id){
-      $this->db->set($project_data);
-      //print_r($project_data);die();
-       $this->db->where('id',$id);
-       $this->db->update('users');
-       return true ;
+        return false;
 
- }
+      }
+
+  }
+  public function edit($project_data, $id) {
+        $this->db->set($project_data);
+        //print_r($project_data);die();
+        $this->db->where('id',$id);
+        $this->db->update('users');
+        return true ;
+  }
+
+  //Elie eamil check
+  public function CheckUserForRegistor ($userData = array()) {   
+    if(!empty($userData)) {
+      //check whether user data already exists in database with same oauth info
+      $this->db->select('id');
+      $this->db->from('users');
+      $this->db->where(array('email' => $userData['email']));
+      $prevQuery = $this->db->get();
+      $prevCheck = $prevQuery->num_rows();
+      
+      if($prevCheck > 0){
+          return true;
+      }
+    }
+    return false;
+  }
 
 }
 ?>

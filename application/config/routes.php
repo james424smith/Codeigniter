@@ -53,9 +53,9 @@ $route['default_controller'] = 'welcome';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
-$route['send-message'] = 'ChatController/send_text_message';
+$route['send-message']['POST'] = 'ChatController/send_text_message';
 $route['send-message1'] = 'ChatController/send_text_message1';
-$route['chat-attachment/upload'] = 'ChatController/send_text_message';
+$route['chat-attachment/upload']['POST'] = 'ChatController/send_text_message';
 $route['get-chat-history-vendor'] = 'ChatController/get_chat_history_by_vendor';
 $route['chat-clear'] = 'ChatController/chat_clear_client_cs';
 $route['blog'] = 'BlogController/index';

@@ -95,14 +95,11 @@
                                 <br>
                                 <div class="col-md-9">
                                     <?php
-$this->db->select("username");
-$this->db->from("users");
-$this->db->where('id', $demands_edit[0]->client_id);
-    $data = $this->db->get()->result();
-
-                   
+                                        $this->db->select("username");
+                                        $this->db->from("users");
+                                        $this->db->where('id', $demands_edit[0]->client_id);
+                                        $data = $this->db->get()->result();
                                     ?>
-
                                     <input type="text"  id="client_id" name="client_id" value="<?php echo $data[0]->username;?>">
                                 </div>
                             </div>

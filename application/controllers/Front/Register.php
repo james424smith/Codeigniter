@@ -12,27 +12,40 @@ class Register extends CI_Controller {
   
   function register()  
   { 
-   $email = $this->input->post('email');  
-   $username = $this->input->post('username');  
-   $role = $this->input->post('role');  
-   $password = md5($this->input->post('password'));  
-   $cpassword = md5($this->input->post('cpassword')); 
-   if($password==$cpassword){
-   	$data=array(
-   	'username'=>$username,
-   	'email'=>$email,
-   	'role'=>$role,
-   	'password'=>$password
-   );
-   	$this->RegisterModel->user_data($data);
-   	redirect(base_url('Front/Home'));
+    //redirect(base_url('Front/Home/signUp'));
 
+    
+    $email = $this->input->post('email');  
+    $username = $this->input->post('username');  
+    $role = $this->input->post('role');  
+    $password = md5($this->input->post('password'));  
+    $cpassword = md5($this->input->post('cpassword')); 
+    
+    if($password == $cpassword) {
+      $data = array (
+        'username' => $username,
+        'email' => $email,
+        'role' => $role,
+        'password'=> $password,
+        'picture_url' => 'default.png'
+      );
+      
+      if($this->RegisterModel->checkUserForRegistor($data))
+      {
+        $this->session->set_flashdata('error', 'The user already exists');
+        redirect(base_url('Front/Home/signUp'));
+      }
+      
+      $this->RegisterModel->user_data($data);
+      redirect(base_url('Front/Home'));
    }
 
-   else{
-   	$this->session->set_flashdata('error', 'Invalid Password');  
+   else {
+     $this->session->set_flashdata('warning', 'Invalid Password');
+     redirect(base_url('Front/Home/signUp'));
+  
    }   
-   } 
+  } 
   function editprofile(){
      
       $first_name = $this->input->post('first_name');  
@@ -70,7 +83,8 @@ class Register extends CI_Controller {
   }
 
 
-  function userprofile(){
+  function userprofile() {
+
     $id = $this->input->post('id');
     //$picture_url = $this->input->post('picture_url');
     
@@ -108,11 +122,9 @@ class Register extends CI_Controller {
 
         $this->RegisterModel->edit($project_data,$id);
 
-
-   
          redirect('Front/Home/my_profile');
 
-  }
+    }
 
   }
   ?> 

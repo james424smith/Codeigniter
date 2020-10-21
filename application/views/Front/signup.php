@@ -2,8 +2,20 @@
 
 <section>
     <div class="container">
+        
         <div class="row">
             <div class="col-md-offset-3 col-md-6 login-box">
+                <?php if($this->session->flashdata('error')){ ?>
+                    <div class="alert alert-danger">
+                        <a href="#" class="close" data-dismiss="alert">&times;</a>
+                        <strong>Error!</strong> <?php echo $this->session->flashdata('error'); ?>
+                    </div>
+                    <?php } else if($this->session->flashdata('warning')){  ?>
+                        <div class="alert alert-warning">
+                            <a href="#" class="close" data-dismiss="alert">&times;</a>
+                            <strong>Warning!</strong> <?php echo $this->session->flashdata('warning'); ?>
+                        </div> 
+                    <?php } ?>
                    <h3>Register</h3>  
                 <div class="login-form">
                     <div class="login-form">
@@ -44,3 +56,9 @@
 </section>
 
 <?php $this->load->view('Front/common/footer');  ?>
+
+<section>
+    <script>
+        
+    </script>
+</section>

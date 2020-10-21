@@ -47,41 +47,35 @@
 			 return $query->result_array();
 		 } else {
 			 return false;
-		 }
+		}
 	}
 
 
-	 public function gettokendata($user_id)
+	public function gettokendata($user_id)
     {
-      $this->db->select("auth_token");
-      $this->db->from('users');
-      $this->db->where('id',$user_id);
-      $data = $this->db->get()->result();
-      //echo $str = $this->db->last_query();
-      $dta=  $data[0]->auth_token;
-//print_r($data);
+    	$this->db->select("auth_token");
+    	$this->db->from('users');
+    	$this->db->where('id',$user_id);
+    	$data = $this->db->get()->result();
+    	//echo $str = $this->db->last_query();
+      	$dta=  $data[0]->auth_token;
+		//print_r($data);
 
-
-      return $dta;
+      	return $dta;
 
     }
 
-
-
     public function get_project_id($id)
     {
+    	$this->db->select("project_id");
+    	$this->db->from('chat');
+      	$this->db->where('sender_id', $id);
+	  	$this->db->order_by('id', 'DESC');
+	  	$this->db->limit('1');
+      	$data = $this->db->get()->result();
 
-
-      $this->db->select("project_id");
-      $this->db->from('chat');
-      $this->db->where('sender_id',$id);
-$this->db->order_by('id', 'DESC');
-$this->db->limit('1');
-      $data = $this->db->get()->result();
-
-    $data = $data[0]->project_id;
-      return $data;
-
+    	$data = $data[0]->project_id;
+      	return $data;
     }
 
 
@@ -108,17 +102,16 @@ $this->db->limit('1');
   		
 		$this->db->select('*');
 		$this->db->from($this->Table);
-		$this->db->where('receiver_id',$receiver_id);
+		$this->db->where('receiver_id', $receiver_id);
    		$query = $this->db->get();
  		if ($query) {
 			 return $query->result_array();
-		 } else {
+		 } 
+		 else {
 			 return false;
-		 }
-		 
+		 }	 
 	}
-	
-	
+
 	public function TrashById($receiver_id)
 	{  
  		$res = $this->db->delete($this->Table, ['receiver_id' => $receiver_id] ); 
@@ -126,5 +119,47 @@ $this->db->limit('1');
 			return true;
 		else
 			return false;
- 	}	
+	 }
+	 
+	public function insertChattingMember($data) {
+	
+		$user_id = $this->session->userdata['id'];
+
+		$this->db->select('*');
+		$this->db->from('chatting_member');
+		$this->db->where('user_id', $user_id);
+		$this->db->where('member_id', $data['member_id']);
+		
+		$resultArray = $this->db->get();
+		$resultCheck = $resultArray->num_rows();
+
+		$res = 0;
+		if($resultCheck == 0)
+			$res = $this->db->insert('chatting_member', $data); 
+ 
+		if($res == 1)
+ 			return true;
+ 		else
+ 			return false;
+	}
+
+	public function getChattingMembers() {
+		$user_id = $this->session->userdata['id'];
+
+		$this->db->select('*');
+		$this->db->from('chatting_member');
+		$this->db->where('user_id', $user_id);
+		$this->db->join('users', 'users.id = chatting_member.member_id');
+		$query1 = $this->db->get();
+        //var_dump($query->result_array());die();
+		
+		$this->db->select('*');
+		$this->db->from('chatting_member');
+		$this->db->where('member_id', $user_id);
+		$this->db->join('users', 'users.id = chatting_member.user_id');
+		$query2 = $this->db->get();
+		
+		$result = array_merge($query1->result_array(), $query2->result_array());
+		return $result;		
+	}
  }

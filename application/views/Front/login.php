@@ -15,15 +15,17 @@
                             <div class="form-group">
                                 <input type="password" placeholder="Password" name="password" class="form-control">
                             </div>
+                            <br>
                             <div class="row">
-                            <div class="col-md-6 form-group">
-                            	<!-- <label><input type="radio"  class=""> Remember me</label> -->
-                            </div>
-                            <div class="col-md-6 loginbttm">
+                                <div class="col-md-6 form-group">
+                                     <label><input type="checkbox"  class=""> Remember me</label> 
+                                </div>
+                                <div class="col-md-6 loginbttm">
                                     <button type="submit" class="btn">LOGIN</button>
-                            </div>
+                                </div>
                             </div>
                         </form>
+                        <hr>
                         <div class="social_btn">
                             <?php //if(!empty($authURL)){ ?>
                         	<a class="fb" href="<?php echo $authURL; ?>">Facebook</a>
@@ -37,11 +39,6 @@
     </div>
 </div>
 
-
 </section>
-
-
-
-
 
 <?php $this->load->view('Front/common/footer');  ?>

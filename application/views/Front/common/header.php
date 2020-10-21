@@ -3,16 +3,23 @@
    <head>
       <title>Heelp</title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">    
+  
+     <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">-->
+  
       <link rel="stylesheet" href="<?php echo base_url('assets/Front/css/style.css')?>">
       <link rel="stylesheet" href="<?php echo base_url('assets/Front/css/custom.css')?>">
       <link href="<?php echo base_url('assets/Front/css/bootstrap.min.css')?>" rel="stylesheet">
+
       <link rel="stylesheet" href="<?php echo base_url('assets/Front/fontawesome/css/all.min.css')?>">
       <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/Front/css/slick.css')?>">
       <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/Front/css/slick-theme.css')?>">
       <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/Front/css/custom.css')?>">
-  
-      <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
-      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script> 
+
+      <!--<script type="text/javascript" src="https://code.jquery.com/jquery-2.2.4.min.js"></script>-->
+      <!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>--> 
+      
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
 <style type="text/css">
   
@@ -60,8 +67,8 @@
     measurementId: "G-KTYVEDFM2E"
   };
   // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
-  firebase.analytics();
+  //firebase.initializeApp(firebaseConfig);
+  //firebase.analytics();
 </script>
 <script type="text/javascript">
   var bellIcon = document.querySelector('.bell-icon');
@@ -79,25 +86,25 @@
       return newTime;
     }
     function bellCheck(event){
-      var isClickInside = bellIcon.contains(event.target);
-        if (isClickInside) {
-          dropdownMenu.classList.toggle('hide');
-          if(dropdownMenu.classList.contains('hide')){
-            clearInterval(notificationInterval);
-            notificationInterval = setInterval(randomNumber, 2000);  
-          }
-          else{
-          for(var i = 0; i < notificationNumber.length;i++){
-             notificationNumber[i].textContent = 0;
-             clearInterval(notificationInterval);
-          }
-        }
-        }
-        else {
-          dropdownMenu.classList.add('hide');
-          clearInterval(notificationInterval);
-          notificationInterval = setInterval(randomNumber, randomRange(timeDelay));
-        }
+     // var isClickInside = bellIcon.contains(event.target);
+     //   if (isClickInside) {
+     //     dropdownMenu.classList.toggle('hide');
+     //     if(dropdownMenu.classList.contains('hide')){
+     //       clearInterval(notificationInterval);
+     //       notificationInterval = setInterval(randomNumber, 2000);  
+     //     }
+     //     else{
+     //     for(var i = 0; i < notificationNumber.length;i++){
+     //        notificationNumber[i].textContent = 0;
+     //        clearInterval(notificationInterval);
+     //     }
+     //   }
+     //   }
+     //   else {
+     //     dropdownMenu.classList.add('hide');
+     //     clearInterval(notificationInterval);
+     //     notificationInterval = setInterval(randomNumber, randomRange(timeDelay));
+      //  }
     }
     var notificationInterval = setInterval(randomNumber, randomRange(timeDelay));
     window.addEventListener('click', bellCheck);
@@ -320,8 +327,8 @@ $count_payment = count($notification_data_payment);
         </div>
       </div>
       <!-- fixed button right side -->
-      <div class="find_a_mission_top_btn">
+      <div class="find_a_mission_top_btn">        
         <a href="<?php echo base_url('Front/home/find_mission')?>" class="btn btn-default">Find a Mission</a>
-      </div>
+      </div>     
       <!-- fixed button right side end-->
 

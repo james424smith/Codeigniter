@@ -929,7 +929,7 @@ section.portfolio.section ul.dropdown-menu:before {
 }
 
 .profile_img a {
-    display: inline-block;
+    display: inline;
     text-decoration: none !important;
     line-height: 40px;
     background: #ebebeb;
@@ -2861,7 +2861,7 @@ border-radius: 50%;
     color: #fff;
     background: #23C7FF;
     padding: 6.2px 13px;
-    display: inline-block;
+    display: inline;
     float: left;
 }
 .pagination li a {

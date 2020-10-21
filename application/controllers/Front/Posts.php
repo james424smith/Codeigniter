@@ -5,50 +5,48 @@ class Posts extends CI_Controller
     public function index()
     {
     	$this->load->model('Front/Blog_model');
-        $this->load->model('Front/Posts_model');
+      $this->load->model('Front/Posts_model');
     	
     	$data['data_com']=$this->Blog_model->display_comments();
 
     	/* display posts*/
     	$data['data_services']=$this->Posts_model->display_services();
         $this->load->view('Front/common/header');
-        $this->load->view('Front/services',$data);
+        $this->load->view('Front/services', $data);
         $this->load->view('Front/common/footer');
     }
-     public function demandpost()     
+    public function demandpost()     
     {
          $this->load->library('session');                 
-         // $dum=$this->session->userdata['id'];
-         // print_r($dum);die();
-         if($this->session->userdata['id']){
+         if($this->session->userdata['id']) {
 
-          if(!empty($_FILES['file']['name'])){
-          $config['upload_path'] = './uploads/demands_documents';
-          $config['allowed_types'] = 'gif|jpg|png|jpeg|pdf|doc'; 
-          $config['max_size'] = 6000000;
-          $config['max_width'] = 45000;
-          $config['max_height'] = 45000;
+          if(!empty($_FILES['file']['name'])) {
 
-          $this->load->library('upload', $config);
+            
+            $config['upload_path'] = './uploads/demands_documents';
+            $config['allowed_types'] = 'gif|jpg|png|jpeg|pdf|doc|txt'; 
+            $config['max_size'] = 6000000;
+            $config['max_width'] = 45000;
+            $config['max_height'] = 45000;
+
+            $this->load->library('upload', $config);
   
-          if (!$this->upload->do_upload('file')) 
-          {
-             $error = array('error' => $this->upload->display_errors());
-             $image_name = '';
-     
-          } 
-          else 
-          {
-            $img_data = $this->upload->data()['file_name'];
-            $image_name = $img_data;
-          }
+            if (!$this->upload->do_upload('file')) 
+            {
+              //echo "file"; die();
+              $error = array('error' => $this->upload->display_errors());
+              $image_name = '';
+            } 
+            else 
+            {              
+              $img_data = $_FILES['file']['name'];
+              $image_name = $img_data;
+              //echo $_FILES['file']['name'];die();
+            }
         }
-            // $this->load->library('session');
-            //$session_id = $this->session->userdata('id');
-            //print_r($session_id);die();
 
-        if($image_name){
-        $project_data = array(
+        if($image_name) {
+          $project_data = array(
             'mission_title' => $this->input->post('title'),
             'title' => $this->input->post('title'),
             'mission_budget' => $this->input->post('budget'),
@@ -59,61 +57,64 @@ class Posts extends CI_Controller
             'client_id' => $this->session->userdata['id'],
             'project_category' => $this->input->post('project_category'),
             'mission_category' => $this->input->post('project_category'),
-            'mission_doc' => ($image_name)?$image_name:$this->input->post('file'),
-            'file' => ($image_name)?$image_name:$this->input->post('file') 
-        );          
+            'mission_doc' => ($image_name) ? $image_name : $this->input->post('file'),
+            'file' => $_FILES['file']['name'],
+            'created_date' => date('Y-m-d H:i:s')
+          );          
         }
-        else{
-            $session_id= $_SESSION();
-           // print_r( $session_id);die();
-          $project_data = array(
-           'mission_title' => $this->input->post('title'),
-           'budget' => $this->input->post('budget'),
-           'description' => $this->input->post('description'),
-           'user_id' => $this->session->userdata['id'],
-            'mission_category' => $this->input->post('project_category'),
+        else {
+            $project_data = array(
+             'mission_title' => $this->input->post('title'),
+             'budget' => $this->input->post('budget'),
+             'description' => $this->input->post('description'),
+             'user_id' => $this->session->userdata['id'],
+             'mission_category' => $this->input->post('project_category'),
+             'created_date' => date('Y-m-d H:i:s')
          );           
         }
         $this->load->model('Front/Posts_model');
         $this->Posts_model->demand($project_data);
         redirect('Front/home/mydemands');
       }
-      else{
+      else {
         redirect(base_url() . 'Front/home/login'); 
       }
 
     }
- 		 public function  offerpost() {
-      if($this->session->userdata['id']){
+ 		public function  offerpost() {
+      
+      if($this->session->userdata['id']) {
+ 		 	  if($this->input->post('accept_budget') == 1){
+          $project_data = array(
+                'message' => $this->input->post('message'),
+                'project_id' => $this->input->post('project_id'),
+                'user_id' => $this->session->userdata['id'],
+                'client_id' => $this->input->post('client_id'),
+                'accept_budget' => $this->input->post('accept_budget'),
+                'offer_budget' => $this->input->post('missionbudget'),
+                'created_date' => date('Y-m-d H:i:s')
+            );
+ 		    }
+        else {
+          $project_data = array(
+              'message' => $this->input->post('message'),
+              'project_id' => $this->input->post('project_id'),
+              'user_id' => $this->session->userdata['id'],
+              'client_id' => $this->input->post('client_id'),           
+              'offer_budget' => $this->input->post('offer_budget'),
+              'created_date' => date('Y-m-d H:i:s')
+          );
+        }
 
- 		 	if($this->input->post('accept_budget')==1){
+ 		    $this->load->model('Front/Posts_model');
+        if($this->Posts_model->checkMission($project_data))
+        {
+            $this->session->set_flashdata('error', 'You already proposed.');  
+            redirect('Front/home/make_an_offer/'. $project_data['project_id']);
+            //$this->load->view('Front/make_an_offer');
+            return null;
+        }
 
- 		 	$project_data = array(
-            'message' => $this->input->post('message'),
-            'project_id' => $this->input->post('project_id'),
-            'user_id' => $this->session->userdata['id'],
-            'client_id' => $this->input->post('client_id'),
-            'accept_budget' => $this->input->post('accept_budget'),
-            'offer_budget' => $this->input->post('missionbudget'),
-            'created_date' => date('Y-m-d H:i:s')
- 
-
-        );
- 		 }
- 		 else{
- 		 	$project_data = array(
-            'message' => $this->input->post('message'),
-            'project_id' => $this->input->post('project_id'),
-            'user_id' => $this->session->userdata['id'],
-            'client_id' => $this->input->post('client_id'),           
-            'offer_budget' => $this->input->post('offer_budget'),
-            'created_date' => date('Y-m-d H:i:s')
-
-        );
-
- 		 }
-
- 		$this->load->model('Front/Posts_model');
         $this->Posts_model->mission($project_data);
         redirect('Front/home/mymissions');
       }

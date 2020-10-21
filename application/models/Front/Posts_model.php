@@ -97,7 +97,7 @@ class Posts_model extends CI_Model
 
     public function demand($project_data){
 
-        $this->db->insert('mission',$project_data);
+        $this->db->insert('mission', $project_data);
         
         return true;
     }
@@ -111,37 +111,30 @@ class Posts_model extends CI_Model
     {
       $this->db->select("project_id");
       $this->db->from('Project_offer');
-      $this->db->where('user_id',$user_id);
+      $this->db->where('user_id', $user_id);
       $offered_id_array = $this->db->get()->result();
       //echo ($this->db->last_query());die();
+      
       foreach ($offered_id_array as $value) {
-     $test_offer[] = $value->project_id;
-
+        $test_offer[] = $value->project_id;
       }
-
+      //var_dump($test_offer);
       //$offer_ids = implode(",", $test_offer);
       
       return $test_offer;
       
     }
-     public function mymission($myofferedmission){
+     public function mymission($myofferedmission) {
 
+        if($myofferedmission == null)
+            return null;
         $this->db->select('mission.*,users.username');
         $this->db->from('mission');        
-        ///$this->db->join('Project_offer','Project_offer.project_id = mission.mission_id');
-        //$this->db->join('users','users.id = Project_offer.client_id');
-        $this->db->join('users','users.id = mission.client_id');
-         //$this->db->where('Project_offer.user_id',$this->session->userdata['id']);
-         //$this->db->where('mission.mission_status',$status);
-       $this->db->where_in('mission.mission_id',$myofferedmission);
-       $this->db->order_by("mission_id","Desc");
+        $this->db->join('users','users.id = mission.user_id');
+        $this->db->where_in('mission.mission_id', $myofferedmission);
+        $this->db->order_by("mission_id", "Desc");
         $result= $this->db->get()->result_array();
-        //echo ($this->db->last_query());die();
-
-        
-
-
-        // $this->db->insert('Project_offer',$project_data);
+        //var_dump($result);
         
         return $result;
     }
@@ -149,70 +142,66 @@ class Posts_model extends CI_Model
     function display_cat()
     {
         $query = $this->db->query("select * from project_category  order by project_id");
-
         return $query->result_array();
-
     }
 
     
-     public function inprogress_mission($project_data){
+    public function inprogress_mission($project_data){
 
         $update = $this->db->insert('project_status',$project_data);
         if($update){
             $this->db->update('project_status',2);
         }
         else{
-
         }
-        
         return true;
     }
-   public function deliver_mission(){
-    $this->db->insert('litigations',$project_data);
+
+    public function deliver_mission() {
         
+        $this->db->insert('litigations',$project_data);
         return true;
    }
 
     public function mydemand($status){
 
-         $this->db->select('mission.*,users.username');
-        $this->db->from('mission'); 
-        $this->db->join('users','users.id = mission.client_id');
-         $this->db->where('client_id',$this->session->userdata['id']);
-         //$this->db->where('mission_status',$status);
-         $this->db->order_by("mission_id","Desc");
+        $this->db->select('*');
+        $this->db->from('mission');
+        $this->db->join('users', 'users.id = mission.user_id');
+        $this->db->where('user_id', $this->session->userdata['id']);
+        //$this->db->where('mission_status',$status);
+        $this->db->order_by("mission_id","Desc");
         $result= $this->db->get()->result_array();
         //print_r($this->db->last_query());die();
-
+        //var_dump($result); die();
 
         // $this->db->insert('Project_offer',$project_data);
         
         return $result;
     }
-    public function demand_posted($project){
+    public function demand_posted($project) {
 
-             $this->db->select('Project_offer.*,users.username,users.picture_url');
-            $this->db->from('Project_offer'); 
-            // $this->db->where('client_id',$this->session->userdata['id']);
-             $this->db->join('users','users.id = Project_offer.user_id');
-             $this->db->where('Project_offer.project_id',$project);
-            $result= $this->db->get()->result_array();           
-            
-            return $result;
-        }
+        $this->db->select('Project_offer.*, users.username,users.picture_url');
+        $this->db->from('Project_offer'); 
+        // $this->db->where('client_id',$this->session->userdata['id']);
+        $this->db->join('users','users.id = Project_offer.user_id');
+        $this->db->where('Project_offer.project_id',$project);
+        $result= $this->db->get()->result_array();           
+        return $result;
+    }
 
-        public function mission_posted($project,$user_id){
+    public function mission_posted($project,$user_id){
 
-             $this->db->select('Project_offer.*,users.username,users.picture_url');
-            $this->db->from('Project_offer'); 
-            // $this->db->where('client_id',$this->session->userdata['id']);
-             $this->db->join('users','users.id = Project_offer.user_id');
-             $this->db->where('Project_offer.project_id',$project);
-             $this->db->where('Project_offer.user_id',$user_id);
-            $result= $this->db->get()->result_array();           
-            
-            return $result;
-        }
+        $this->db->select('Project_offer.*,users.username,users.picture_url');
+        $this->db->from('Project_offer'); 
+        // $this->db->where('client_id',$this->session->userdata['id']);
+        $this->db->join('users','users.id = Project_offer.user_id');
+        $this->db->where('Project_offer.project_id',$project);
+        $this->db->where('Project_offer.user_id',$user_id);
+        $result= $this->db->get()->result_array();           
+        
+        return $result;
+    }
          public function demand_posted2($project){
 
              $this->db->select('Project_offer.*,users.username,users.picture_url');
@@ -239,32 +228,29 @@ class Posts_model extends CI_Model
             return $result;
         }
 
-
         public function offeraccept($user_id){
             $data= array('accept_status' => 2);
             $this->db->set($data);
             $this->db->where('user_id', $user_id);
             $status = $this->db->update('Project_offer');
-            if($status){
-                    $data= array('mission_status' => 1);
-                    $this->db->set($data);
-                    $this->db->where('user_id', $user_id); 
-                    $this->db->update('mission');
-                     return true ;
-
+            if($status) {
+                $data= array('mission_status' => 1);
+                $this->db->set($data);
+                $this->db->where('user_id', $user_id); 
+                $this->db->update('mission');
+                return true ;
             }
-            else{
+            else {
                  return false ;
             }           
-
         }
-         public function deliver_demand(){
-            $this->db->insert('litigations',$project_data);
         
+        public function deliver_demand() {
+            $this->db->insert('litigations',$project_data);
             return true;
-          }
+        }
 
-         public function deliver_askmodify($data,$mission_id){
+        public function deliver_askmodify($data,$mission_id){
             //print_r($mission_id);die();
 
             $this->db->set($data);
@@ -273,54 +259,68 @@ class Posts_model extends CI_Model
             
              return true ;
 
-             }
-             public function deliver_paym_demand ($project_data){
-                $status = $this->db->insert('withdrawpayment',$project_data);
+        }
+        public function deliver_paym_demand ($project_data){
+            $status = $this->db->insert('withdrawpayment',$project_data);
 
-                if($status){
-                    $this->db->set('mission_status', 3);
-                    $this->db->where('mission_id', $project_data['mission_id']);
-                    $status = $this->db->update('mission');
-                return true ;
-             }
-             else {
-                return false ;  
-             }
-         }
-         public function inprogress_pay_demand ($project_data){
-                $status = $this->db->insert('withdrawpayment',$project_data);
+            if($status) {
+                $this->db->set('mission_status', 3);
+                $this->db->where('mission_id', $project_data['mission_id']);
+                $status = $this->db->update('mission');
+                return true;
+            }
+            else {
+                return false;  
+            }
+        }
+        public function inprogress_pay_demand ($project_data){
+            $status = $this->db->insert('withdrawpayment',$project_data);
+            if($status){
+                $this->db->set('mission_status', 2);
+                $this->db->where('mission_id', $project_data['mission_id']);
+                $status = $this->db->update('mission');
+                return true;
+            }
+            else {
+                return false;  
+            }
+        }
 
-                if($status){
-                    $this->db->set('mission_status', 2);
-                    $this->db->where('mission_id', $project_data['mission_id']);
-                    $status = $this->db->update('mission');
-                return true ;
-             }
-             else {
-                return false ;  
-             }
-         }
+        public function selectAvgOfRating($user_id)
+        {
+            $this->db->select("rating");
+            $this->db->from('user_review');
+            $this->db->where('to_user_id',$user_id);
+            $data = $this->db->get();
 
- public function selectAvgOfRating($user_id)
- {
-   $this->db->select("rating");
-   $this->db->from('user_review');
-   $this->db->where('to_user_id',$user_id);
-   $data = $this->db->get();
+            //$count = $data->num_rows();
+            $data = $data->result();
+            return $data;
+        } 
 
-   //$count = $data->num_rows();
-   $data = $data->result();
-   return $data;
- } 
+        public function GetNotification($type_id){
+            $this->db->select('*');
+            $this->db->from('notification');
+            $this->db->where('user_id', $this->session->userdata['id']);
+            $this->db->where('type_id', $type_id);
+            $result = $this->db->get()->result_array();
 
-public function GetNotification($type_id){
-    $this->db->select('*');
-    $this->db->from('notification');
-    $this->db->where('user_id',$this->session->userdata['id']);
-    $this->db->where('type_id',$type_id);
-    $result = $this->db->get()->result_array();
+            return $result ;
+        }
 
-    return $result ;
- }
+        public function checkMission($offer_data = array()) {
+            if(!empty($offer_data)) {
+                $this->db->select('*');
+                $this->db->from('project_offer');
+                $this->db->where('user_id', $offer_data['user_id']);
+                $this->db->where('project_id', $offer_data['project_id']);
+                $resultArray = $this->db->get();
+                $resultCheck = $resultArray->num_rows();
+            }
+
+            if($resultCheck > 0)
+                return true;
+            return false;
+        }
 }
 ?>
