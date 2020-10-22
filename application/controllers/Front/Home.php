@@ -21,28 +21,29 @@ $this->load->library("pagination");
         // $this->load->view('home');
         $this->load->model('Front/HomeContent_model');
       
-        $home_data['data_posts']=$this->Posts_model->display_services();
-        
-       
-       /*Home Section1*/
-        $home_data['section_1']=$this->HomeContent_model->display_services();
-        $home_data['section_2']=$this->HomeContent_model->display_section2();
+        $home_data['data_posts'] = $this->Posts_model->display_services_post();
+        $home_data['missions'] = $this->Posts_model->display_services_missions();
+        //
+        //print_r($home_data['missions']);die();
+        /*Home Section1*/
+        $home_data['section_1'] = $this->HomeContent_model->display_services();
+        $home_data['section_2'] = $this->HomeContent_model->display_section2();
         // team search
-         //$keywords = $this->input->post('keywords'); 
+        //$keywords = $this->input->post('keywords'); 
         // print_r($keywords);die();
-        $home_data['team']=$this->HomeContent_model->display_ourteam();
+        $home_data['team'] = $this->HomeContent_model->display_ourteam();
       
-       /*Home Section1*/
-
-        $this->load->view('Front/home',$home_data);
+        /*Home Section1*/
+        $this->load->view('Front/home', $home_data);
         $this->load->view('Front/common/footer');  
-      
     }  
 
-    public function search(){
+    public function search() {
+
       $this->load->view('Front/common/header');
-      $keywords = $this->input->post('keywords'); 
+      $keywords = $this->input->post('keywords');
       $home_data['team']=$this->HomeContent_model->display_ourteam_search($keywords);
+      
       $this->load->view('Front/search',$home_data);
       $this->load->view('Front/common/footer');  
 
@@ -85,7 +86,7 @@ $this->load->library("pagination");
     public function find_mission(){
 
          /*pagination */
-         $cat_id = ($this->uri->segment(4)) ? $this->uri->segment(4) : 0;
+        $cat_id = ($this->uri->segment(4)) ? $this->uri->segment(4) : 0;
         $config = array();
         $config["base_url"] = base_url().'Front/Home/find_mission/'.$cat_id;
         $config["total_rows"] = $this->Posts_model->count_display_alldemand($cat_id);
@@ -95,15 +96,15 @@ $this->load->library("pagination");
         $this->pagination->initialize($config);
 
        $page = ($this->uri->segment(5)) ? $this->uri->segment(5) : 0;        
-       $data["posts"] = $this->Posts_model->display_alldemand($cat_id,$config["per_page"], $page);
+       $data["posts"] = $this->Posts_model->display_alldemand($cat_id, $config["per_page"], $page);
        $data["links"] = $this->pagination->create_links();
 
-        $this->load->view('Front/find_mission',$data);  
+        $this->load->view('Front/find_mission', $data);  
     }
 
     public function post_demand(){
-        $home_data['data_posts']=$this->Posts_model->display_services();
-        $this->load->view('Front/post_demand',$home_data);  
+        $home_data['data_posts'] = $this->Posts_model->display_services_post();
+        $this->load->view('Front/post_demand', $home_data);  
     }
     public function post_demand_inner(){
         $this->load->view('Front/post_demand_inner');  

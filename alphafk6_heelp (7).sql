@@ -190,12 +190,13 @@ CREATE TABLE `chat` (
   `project_id` int(255) NOT NULL,
   `read_status` tinyint(4) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
 /*Data for the table `chat` */
 
 insert  into `chat`(`id`,`sender_id`,`receiver_id`,`message`,`attachment_name`,`file_ext`,`mime_type`,`message_date_time`,`ip_address`,`project_id`,`read_status`) values 
-(1,162,163,'hello?','','','','2020-10-21 00:29:58','127.0.0.1',0,0);
+(1,162,163,'hello?','','','','2020-10-21 00:29:58','127.0.0.1',0,0),
+(2,162,163,'Can you really help me?','','','','2020-10-21 17:28:16','127.0.0.1',0,0);
 
 /*Table structure for table `chat_files` */
 
@@ -409,12 +410,14 @@ CREATE TABLE `mission` (
   `bank_fee` varchar(255) NOT NULL,
   `satisfy` tinyint(4) NOT NULL,
   PRIMARY KEY (`mission_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=19 DEFAULT CHARSET=latin1;
 
 /*Data for the table `mission` */
 
 insert  into `mission`(`mission_id`,`title`,`mission_title`,`mission_budget`,`budget`,`mission_category`,`project_category`,`mission_budget_currency`,`currency`,`mission_image`,`image`,`mission_doc`,`file`,`user_id`,`client_id`,`mission_description`,`description`,`mission_status`,`status`,`accepted_by`,`created_date`,`bank_fee`,`satisfy`) values 
-(5,'','asdfasd',0,'233',2,0,'','','','','','',162,0,'','234234',0,0,0,'2020-10-21','',0);
+(18,'','sfasd',0,'234',4,0,'','','','','','',0,162,'','wsfwerwer',0,0,0,'2020-10-22','',0),
+(15,'','hello',0,'200',2,0,'','','','','','',0,162,'','sdfgsdfgsdfg',0,0,0,'2020-10-22','',0),
+(16,'','asdfasdf',0,'3243',3,0,'','','','','','',0,162,'','asdfasfdasfd',0,0,0,'2020-10-22','',0);
 
 /*Table structure for table `notification` */
 
@@ -430,7 +433,7 @@ CREATE TABLE `notification` (
   `created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `type_id` int(25) NOT NULL,
   PRIMARY KEY (`notification_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=569 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=570 DEFAULT CHARSET=latin1;
 
 /*Data for the table `notification` */
 
@@ -1002,7 +1005,8 @@ insert  into `notification`(`notification_id`,`user_type`,`user_id`,`demand_id`,
 (565,0,0,0,'how are you',0,'2020-10-21 00:32:39',4),
 (566,0,0,0,'fine',0,'2020-10-21 00:32:47',4),
 (567,0,0,0,'afasdfasd',0,'2020-10-21 00:40:54',4),
-(568,0,0,0,'hello?',0,'2020-10-21 01:30:00',4);
+(568,0,0,0,'hello?',0,'2020-10-21 01:30:00',4),
+(569,0,0,0,'Can you really help me?',0,'2020-10-21 18:28:17',4);
 
 /*Table structure for table `posts` */
 
@@ -1090,12 +1094,9 @@ CREATE TABLE `project_offer` (
   `accept_status` int(25) NOT NULL,
   `client_id` int(255) NOT NULL,
   PRIMARY KEY (`offer_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=235 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=244 DEFAULT CHARSET=latin1;
 
 /*Data for the table `project_offer` */
-
-insert  into `project_offer`(`offer_id`,`message`,`project_id`,`user_id`,`valid_from`,`valid_to`,`status`,`accept_budget`,`offer_budget`,`created_date`,`accept_status`,`client_id`) values 
-(234,'asdfasdfasdf',5,163,'0000-00-00','0000-00-00',0,0,'200','2020-10-21 00:29:11',0,162);
 
 /*Table structure for table `project_status` */
 
@@ -1113,7 +1114,7 @@ CREATE TABLE `project_status` (
   `project_image` text NOT NULL,
   `client_id` int(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=128 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=152 DEFAULT CHARSET=latin1;
 
 /*Data for the table `project_status` */
 
@@ -1491,64 +1492,9 @@ CREATE TABLE `transaction` (
   `project_title` varchar(255) NOT NULL,
   `mission_id` int(25) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=86 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=92 DEFAULT CHARSET=latin1;
 
 /*Data for the table `transaction` */
-
-insert  into `transaction`(`id`,`sent_from`,`sent_to`,`amount`,`tra_id`,`created_date`,`username`,`project_title`,`mission_id`) values 
-(1,1,2,'1000','txn_1GUD9lJPZuhal6eZx1ddXnBEPV','2020-04-03 00:00:00','test','Project Title1',0),
-(2,2,1,'2000','txn_1GUD9lJPZuhal6erddfx1XnBEPV','2020-04-03 00:00:00','test2','Project Title2',0),
-(3,1,2,'1200','txn_1GUD9lJPZuhal6eZ4ggx1XnBEPV','2020-04-22 00:00:00','testu','test projectd',0),
-(4,1,2,'1300','txn_1GUD9lJPZuhal6eZx1XnBEPV','2020-04-03 00:00:00','dfsdfdfs','test',0),
-(5,2,1,'1233','txn_1GUD9lJPZuhal1321nBEPV','2020-04-02 00:00:00','asddsad','sadsadssdsdsd',0),
-(6,2,7,'1233','txn_1GUD9lJPZuhal6eZx1XnBEPV','2020-04-02 00:00:00','asddsad','sadsadssdsdsd',0),
-(9,119,116,'100','txn_1GbRnHJPZuhal6eZ0qd43cCN','2020-04-24 13:42:14','1@gmail.com','',0),
-(10,116,116,'100','txn_1GbRr7JPZuhal6eZIipbGhtP','2020-04-24 13:46:12','1@gmail.com','Arts',0),
-(11,116,119,'100','txn_1GbYnSJPZuhal6eZgnYi4f8m','2020-04-24 21:10:53','user 2 ','',0),
-(12,119,119,'100','txn_1GbYrHJPZuhal6eZ0cJvqQo2','2020-04-24 21:14:51','user 2 ','Science Médicale',0),
-(29,120,12,'100','txn_1GcaDwJPZuhal6eZOf4N0URf','2020-04-27 16:54:27','roshani demo','Physique',0),
-(53,139,123,'555','txn_1GgxN6JPZuhal6eZcrXhjoLZ','2020-05-09 18:26:00','34','',0),
-(52,123,139,'495','txn_1Ggx7kJPZuhal6eZMFPaLS8w','2020-05-09 18:10:07','91','Mathématiques',0),
-(34,116,121,'100','txn_1GcjndJPZuhal6eZhP1jlQ6A','2020-04-28 03:07:56','14','',0),
-(35,116,121,'100','txn_1GcjrBJPZuhal6eZS9dV969s','2020-04-28 03:11:36','14','Informatique & Programmation',0),
-(51,123,139,'56','txn_1GgwynJPZuhal6eZycn5WNiO','2020-05-09 18:00:52','91','',0),
-(50,138,139,'100','txn_1GeE0lJPZuhal6eZcbVNoc0a','2020-05-02 05:35:38','91','Ingénierie',0),
-(49,138,139,'100','txn_1GeE0kJPZuhal6eZLJNwqmgi','2020-05-02 05:35:37','91','Ingénierie',0),
-(48,138,139,'100','txn_1GeDs7JPZuhal6eZMAuwhppR','2020-05-02 05:26:42','91','',0),
-(41,127,115,'100','txn_1GdUryJPZuhal6eZLqtvp9sP','2020-04-30 05:23:33','sam lei','',0),
-(42,126,127,'100','txn_1Gdr5JJPZuhal6eZWZBe2wTo','2020-05-01 05:06:48','ajoshi','',0),
-(43,126,127,'100','txn_1GdtbCJPZuhal6eZ8wQFdAP7','2020-05-01 07:47:53','ajoshi','',0),
-(46,16,12,'150','txn_1GdwyEJPZuhal6eZgp3IV4ol','2020-05-01 11:23:54','roshani demo','',0),
-(73,12,16,'392','txn_1Gpr56JPZuhal6eZmFumPU4m','2020-06-03 07:32:11','Vasim','Physique',382),
-(54,133,12,'120','txn_1GhyZ9JPZuhal6eZv6eMLdq2','2020-05-12 13:54:38','roshani demo','',356),
-(55,16,12,'50','txn_1Ghyk4JPZuhal6eZmZc4XB4O','2020-05-12 14:05:56','roshani demo','',322),
-(56,139,12,'100','txn_1Ghz1RJPZuhal6eZJ44Fluqs','2020-05-12 14:23:53','roshani demo','f',365),
-(57,139,12,'200','txn_1Ghz3QJPZuhal6eZk9vn7val','2020-05-12 14:25:55','roshani demo','',366),
-(58,139,12,'230','txn_1GiE19JPZuhal6eZX1h9oYpO','2020-05-13 06:24:34','roshani demo','',370),
-(59,139,12,'330','txn_1GiF33JPZuhal6eZfZCdYVWS','2020-05-13 07:30:37','roshani demo',' Chimie',371),
-(60,139,16,'440','txn_1GiHKoJPZuhal6eZNDijjDey','2020-05-13 09:57:05','Vasim','',372),
-(61,16,139,'120','txn_1GiI9bJPZuhal6eZgfUeIpY6','2020-05-13 10:49:35','91','',373),
-(62,16,139,'130','txn_1GiIHdJPZuhal6eZE5kZ4U4B','2020-05-13 10:57:52','91','Physique',374),
-(63,16,139,'130','txn_1GiILoJPZuhal6eZcLhZlOlX','2020-05-13 11:02:11','91','Physique',375),
-(64,139,123,'500','txn_1GiT7WJPZuhal6eZJ45l7fVn','2020-05-13 22:32:09','34','',376),
-(65,139,123,'500','txn_1GiiEsJPZuhal6eZ4ONsmGEy','2020-05-14 14:40:46','34','Physique',377),
-(66,139,123,'500','txn_1GiiEsJPZuhal6eZu4FAQTbW','2020-05-14 14:40:45','34','Physique',377),
-(67,12,16,'146','txn_1GpYgMJPZuhal6eZ0yIKgHll','2020-06-02 11:53:25','Vasim','',379),
-(74,12,16,'112','txn_1GpvP5JPZuhal6eZIT3JEIbL','2020-06-03 12:09:06','Vasim','',386),
-(70,16,12,'112','txn_1GpZdrJPZuhal6eZxZX5FPtT','2020-06-02 12:54:55','roshani demo','',380),
-(71,12,16,'146','txn_1GpbNSJPZuhal6eZ0E4jmdAV','2020-06-02 14:46:05','Vasim','',381),
-(72,12,16,'634','txn_1Gpq4rJPZuhal6eZiPeCd7qn','2020-06-03 06:27:52','Vasim','Physique',383),
-(75,12,16,'392','txn_1GpvpEJPZuhal6eZLcLaQQsE','2020-06-03 12:36:08','Vasim',' Chimie',385),
-(76,145,16,'168','txn_1Gx5oYJPZuhal6eZ7gzPkDtB','2020-06-23 06:41:01','Vasim','',384),
-(77,16,12,'120','txn_1GxvZlJPZuhal6eZ0lz5UMr1','2020-06-25 13:57:11','3','hi',363),
-(78,12,147,'448','txn_1GzFNhJPZuhal6eZAhEAjZyp','2020-06-29 05:18:12','roshni','',388),
-(79,151,152,'168','txn_1GzYkpJPZuhal6eZdDBiQUgV','2020-06-30 01:59:23','77','',391),
-(80,152,151,'223','txn_1GzYvxJPZuhal6eZtu0UOejt','2020-06-30 02:10:53','79','',392),
-(81,152,151,'136','txn_1GzZ1KJPZuhal6eZ219jwBCc','2020-06-30 02:16:26','79','',390),
-(82,151,152,'399','txn_1H0lY7JPZuhal6eZTsC9IYNl','2020-07-03 09:51:14','77','',397),
-(83,36,151,'865','txn_1H1PgbJPZuhal6eZ1A3B7TmA','2020-07-05 04:42:41','79','',398),
-(84,153,16,'112','txn_1H2bJEJPZuhal6eZoNFSYwrA','2020-07-08 11:19:27','Vasim','',399),
-(85,153,16,'137','txn_1H2eQoJPZuhal6eZMA20LFfi','2020-07-08 14:39:29','vasim','test',399);
 
 /*Table structure for table `user_review` */
 
@@ -1633,20 +1579,23 @@ CREATE TABLE `users` (
   `oauth_uid` varchar(100) NOT NULL,
   `link` varchar(100) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=164 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=167 DEFAULT CHARSET=latin1;
 
 /*Data for the table `users` */
 
 insert  into `users`(`id`,`username`,`password`,`role`,`source`,`status`,`is_email_verify`,`name`,`first_name`,`last_name`,`email`,`alternateEmail`,`mobile_no`,`website`,`picture_url`,`profile_url`,`vendor_file`,`dob`,`gender`,`about`,`type`,`address`,`address_2`,`country`,`school_address`,`language`,`state`,`city`,`Total_earned_amount`,`Current_Balance`,`Wallet_withdraw_status`,`pincode`,`level_of_study`,`Field_of_study`,`university`,`intrested_category`,`skills`,`Profile_Rate`,`ip_address`,`created`,`lastlogged`,`modified`,`facebook_status`,`google_status`,`auth_token`,`presentation`,`Firebase_token`,`date_updated`,`password_show`,`stripe_customer_id`,`stripe_card_id`,`name_on_card`,`walet_balance`,`block`,`highlight`,`account_number`,`ifsc_code`,`chated_on`,`oauth_provider`,`oauth_uid`,`link`) values 
-(4,'admin','e10adc3949ba59abbe56e057f20f883e','admin',0,0,0,'admin','rahul','sharma','admin@gmail.com','','8989898888','klj','user32.png','','','','','','','','','','','','','',0,0,0,'','fuygviu','','','','',0,'','','','',0,0,'','','','2020-06-26 09:14:00','','','','','980',0,0,'','','0000-00-00 00:00:00','facebook','',''),
+(4,'admin','e10adc3949ba59abbe56e057f20f883e','admin',0,0,0,'admin','rahul','sharma','admin@gmail.com','','8989898888','klj','user32.png','','','','','','','','','','','','','',0,0,0,'','fuygviu','','','','math',0,'','','','',0,0,'','','','2020-10-22 18:10:33','','','','','980',0,0,'','','0000-00-00 00:00:00','facebook','',''),
 (12,'roshani demo','e10adc3949ba59abbe56e057f20f883e','client',0,0,0,'roshani dangi','roshani dangi','rangari','roshni@gmail.com','','7812345634','','d.png','','','2020-03-27','','','','','','India','asdasdsd,,,','','','',0,0,0,'','sddsf','asdxx ','','fdgf','work',0,'','','','',0,0,'cvo14O5hRFqNBZfmijNslX:APA91bH3teyixJ3BaA56iiSmjkiqR396-GkgaCChKNzzRI_UYuJ4_aPm95E_q3PtoB08dbZQ2KyB7HgR4xV6hiqUaeKk5CZLplc0ccBmLD_i1oeW0ho9_deJaaTWp-wdI8PkMGuISykn','asdsdsad','','2020-06-29 09:21:18','123456','cus_H8I2LTxDlAxMQB','card_1Ga1SnJPZuhal6eZ6cmdkcIC','','20',0,1,'22222222222222','rrrr','2020-06-03 12:47:00','facebook','',''),
-(14,'gopal','00267ce0bff0bb5e7f169530a1d7c2e6','client',0,0,0,'','gopal','sharma','gopal@alphawizz.awsapps.com','','7440467565','','default.png','','','','','','','','','','','','','',0,0,0,'','','','','0','',0,'','','','',0,0,'','','','2020-10-20 14:54:37','','','','','0',1,0,'','','0000-00-00 00:00:00','facebook','',''),
+(14,'gopal','00267ce0bff0bb5e7f169530a1d7c2e6','client',0,0,0,'','gopal','sharma','gopal@alphawizz.awsapps.com','','7440467565','','default.png','','','','','','','','','','','','','',0,0,0,'','','','','0','biology',0,'','','','',0,0,'','','','2020-10-22 18:10:38','','','','','0',1,0,'','','0000-00-00 00:00:00','facebook','',''),
 (16,'Vasim','e10adc3949ba59abbe56e057f20f883e','client',0,2147483647,0,'','vasim','ahmed','vasim@gmail.com','','7677341234','','Rectangle_162.png','','','','','','','','','test Country','','','','',0,0,0,'','testing','testing','testing','testing','testing',0,'','','','2020-04-29 13:29:21',0,0,'cvo14O5hRFqNBZfmijNslX:APA91bH3teyixJ3BaA56iiSmjkiqR396-GkgaCChKNzzRI_UYuJ4_aPm95E_q3PtoB08dbZQ2KyB7HgR4xV6hiqUaeKk5CZLplc0ccBmLD_i1oeW0ho9_deJaaTWp-wdI8PkMGuISykn','testing','','2020-06-25 09:34:38','','cus_H8bPQNUJBLVJR1','card_1GcqRSJPZuhal6eZoU7CL8eY','test dss','30',0,0,'','','2020-06-03 12:47:00','facebook','',''),
 (36,'you','f1887d3f9e6ee7a32fe5e76f4ab80d63','admin',0,0,0,'me ','me ','store','Firststore.service@gmail.com','','9009856453','','16.jpg','','','2020-04-02','','','','','','France ','Vfbfbfh','','','',0,0,0,'','Jdjdjdkk','Bdbfbfb','','Bdbdj','Jfjdjdkfkdk',0,'','','','',0,0,'eofwSbFLQ5aiNmLO7vow7B:APA91bG9QR7K9nhfn-nMvp7c2ZwnzQAfoo03so2UIxLFclmwhjFNok-nAK0y8FF0157XlO9Yl02yh4WbmnoDWgwZa_aimWAeesiltW99WMuaxiZ9eby_JSc78XpUC5gPpyw8Evzy1OaZ','Jfjfjdk','','2020-07-05 07:40:15','','','','','0',0,0,'','','2020-07-05 04:40:15','facebook','',''),
-(37,'gopal123','b57e63ce8b73e370cd2a4c6865fc611b','admin',0,0,0,'','gopal','sharma','gopalsh02221@gmail.com','','3456455345','','default.png','','','','','','','','','','','','','',0,0,0,'','','','','0','',0,'','','','',0,0,'','','','2020-10-20 14:54:40','','','','','0',0,0,'','','0000-00-00 00:00:00','facebook','',''),
-(39,'Gopal123','12345','admin',0,0,0,'','gopal','sharma','gopalsh021@gmail.com','','7440498598','','default.png','','','','male','','','indore','','india','school','','','indore',0,0,0,'','','','','0','',0,'','','','',0,0,'','','','2020-10-20 14:54:42','','','','','0',0,0,'','','0000-00-00 00:00:00','facebook','',''),
-(162,'hello','25f9e794323b453885f5181f1b624d0b','client',0,0,0,'','','','hello@sample.com','','','','default.png','','','','','','','','','','','','','',0,0,0,'','','','','','',0,'','','','',0,0,'','','','2020-10-21 01:12:40','','','','','0',0,0,'','','0000-00-00 00:00:00','facebook','',''),
-(163,'hi','25f9e794323b453885f5181f1b624d0b','client',0,0,0,'','','','hi@sample.com','','','','me1.png','','','','','','','','','','','','','',0,0,0,'','','','','','',0,'','','','',0,0,'','','','2020-10-21 02:52:05','','','','','0',0,0,'','','0000-00-00 00:00:00','facebook','','');
+(37,'gopal123','b57e63ce8b73e370cd2a4c6865fc611b','admin',0,0,0,'','gopal','sharma','gopalsh02221@gmail.com','','3456455345','','default.png','','','','','','','','','','','','','',0,0,0,'','','','','0','English',0,'','','','',0,0,'','','','2020-10-22 18:10:46','','','','','0',0,0,'','','0000-00-00 00:00:00','facebook','',''),
+(39,'Gopal123','12345','admin',0,0,0,'','gopal','sharma','gopalsh021@gmail.com','','7440498598','','default.png','','','','male','','','indore','','india','school','','','indore',0,0,0,'','','','','0','physics',0,'','','','',0,0,'','','','2020-10-22 18:10:52','','','','','0',0,0,'','','0000-00-00 00:00:00','facebook','',''),
+(162,'hello','25f9e794323b453885f5181f1b624d0b','client',0,1,0,'','hello','123','hello@sample.com','','','','hi.png','','','','','','','','','Canada','','','','',0,0,0,'','2','Math','asdfasdf','ererer','ee',0,'','','','',0,0,'','ljaslkdjfklajsdflkjasdfasdf','','2020-10-22 18:10:55','','','','','0',0,0,'','','0000-00-00 00:00:00','facebook','',''),
+(163,'hi','25f9e794323b453885f5181f1b624d0b','client',0,0,0,'','','','hi@sample.com','','','','me1.png','','','','','','','','','','','','','',0,0,0,'','','','','','aa',0,'','','','',0,0,'','','','2020-10-22 18:10:58','','','','','0',0,0,'','','0000-00-00 00:00:00','facebook','',''),
+(164,'first','25f9e794323b453885f5181f1b624d0b','client',0,0,0,'','','','first@sample.com','','','','default.png','','','','','','','','','','','','','',0,0,0,'','','','','','dd',0,'','','','',0,0,'','','','2020-10-22 18:10:59','','','','','0',0,0,'','','0000-00-00 00:00:00','facebook','',''),
+(165,'seconds@sample.com','25f9e794323b453885f5181f1b624d0b','client',0,0,0,'','','','seconds','','','','default.png','','','','','','','','','','','','','',0,0,0,'','','','','','gg ddd',0,'','','','',0,0,'','','','2020-10-22 18:11:13','','','','','0',0,0,'','','0000-00-00 00:00:00','facebook','',''),
+(166,'Resiger','25f9e794323b453885f5181f1b624d0b','client',0,0,0,'','','','Register@sample.com','','','','default.png','','','','','','','','','','','','','',0,0,0,'','','','','','rr tt',0,'','','','',0,0,'','','','2020-10-22 18:11:05','','','','','0',0,0,'','','0000-00-00 00:00:00','facebook','','');
 
 /*Table structure for table `walletwithdrawask` */
 
@@ -1686,7 +1635,7 @@ CREATE TABLE `withdrawpayment` (
   `emplyee_id` int(25) NOT NULL,
   `transection_id` text NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
 
 /*Data for the table `withdrawpayment` */
 
@@ -1699,7 +1648,8 @@ insert  into `withdrawpayment`(`id`,`mission_id`,`mission_amount`,`offer_amount`
 (7,391,'200','150','136.5',0,'2020-06-30 02:07:17','0000-00-00 00:00:00','2020-06-30 05:07:17',3,152,151,''),
 (8,397,'356','356','323.96',0,'2020-07-03 09:58:15','0000-00-00 00:00:00','2020-07-03 12:58:15',3,152,151,''),
 (9,398,'772','772','702.52',0,'2020-07-05 04:45:07','0000-00-00 00:00:00','2020-07-05 07:45:07',3,151,36,''),
-(10,399,'123','100','91',0,'2020-07-08 14:07:04','0000-00-00 00:00:00','2020-07-08 17:07:04',3,16,153,'');
+(10,399,'123','100','91',0,'2020-07-08 14:07:04','0000-00-00 00:00:00','2020-07-08 17:07:04',3,16,153,''),
+(11,14,'200','','24',2,'2020-10-22 00:11:52','2020-10-22 00:11:52','2020-10-22 01:11:52',2,163,0,'');
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;

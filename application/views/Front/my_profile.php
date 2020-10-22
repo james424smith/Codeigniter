@@ -81,7 +81,7 @@
 					<div class="my_profile_box">
 						<div class="my_prfl_cont">
 							<div class="view_profile">
-	                              <!-- <img src="https://www.alphawizz.com/Freelance/assets/Front/img/profile_img.png"> -->
+	                              <!-- <img src="<?php echo base_url();?>/assets/Front/img/profile_img.png"> -->
 	                              <img  class="my_pro" src="<?php  echo base_url()?>/uploads/profiles/<?php echo $user['picture_url']?>">
 	                              	<span> <a href="#" data-toggle="modal" data-target="#user_profile"><img src="<?php  echo base_url()?>/assets/Front/img/edit.png"></a>
 	                              	</span>
@@ -118,7 +118,7 @@
 					</div>
 					<div class="Presentation">
                           		<h5>Skills:</h5>
-                          		<p><?=empty($user['intrested_category'])?'':$user['intrested_category']?></p>
+                          		<p><?=empty($user['skills'])?'':$user['skills']?></p>
 					</div>
 				</div>
 				<div class="col-md-2"></div>

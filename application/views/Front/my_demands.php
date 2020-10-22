@@ -250,7 +250,7 @@
                <div class="item row">
                   <a href="<?php echo base_url('Front/home/demand_posted_details/'.$demand['mission_id'])?>">
                      <div class="col-md-12 img_box">
-                        <img src="https://www.alphawizz.com/Freelance/uploads/ae02fb24c057129c98cd261bb1098470.png" alt="">
+                        <img src="<?php echo base_url();?>/uploads/ae02fb24c057129c98cd261bb1098470.png" alt="">
                      </div>
                      <div class="col-md-12 cat_content">
                         <h5><?php echo $demand['mission_title'];?></h5>
@@ -288,7 +288,7 @@
                <div class="item row">
                   <a href="<?php echo base_url('Front/home/demand_inprogress_details/'.$demand1['mission_id'])?>">
                      <div class="col-md-12 img_box">
-                        <img src="https://www.alphawizz.com/Freelance/uploads/ae02fb24c057129c98cd261bb1098470.png" alt="">
+                        <img src="<?php echo base_url();?>/uploads/ae02fb24c057129c98cd261bb1098470.png" alt="">
                      </div>
                      <div class="col-md-12 cat_content">
                         <h5><?php echo $demand1['mission_title'];?></h5>
@@ -326,7 +326,7 @@
                <div class="item row">
                   <a href="<?php echo base_url('Front/home/demand_delivered_details/'.$demand2['mission_id'])?>">
                      <div class="col-md-12 img_box">
-                        <img src="https://www.alphawizz.com/Freelance/uploads/ae02fb24c057129c98cd261bb1098470.png" alt="">
+                        <img src="<?php echo base_url();?>/uploads/ae02fb24c057129c98cd261bb1098470.png" alt="">
                      </div>
                      <div class="col-md-12 cat_content">
                         <h5><?php echo $demand2['mission_title'];?></h5>
@@ -364,7 +364,7 @@
                <div class="item row">
                   <a href="<?php echo base_url('Front/home/demand_completed_details/'.$demand3['mission_id'])?>">
                      <div class="col-md-12 img_box">
-                        <img src="https://www.alphawizz.com/Freelance/uploads/ae02fb24c057129c98cd261bb1098470.png" alt="">
+                        <img src="<?php echo base_url();?>/uploads/ae02fb24c057129c98cd261bb1098470.png" alt="">
                      </div>
                      <div class="col-md-12 cat_content">
                         <h5><?php echo $demand3['mission_title'];?></h5>
@@ -402,7 +402,7 @@
                <div class="item row">
                   <a href="<?php echo base_url('Front/home/mission_delivered_details')?>">
                      <div class="col-md-12 img_box">
-                        <img src="https://www.alphawizz.com/Freelance/uploads/ae02fb24c057129c98cd261bb1098470.png" alt="">
+                        <img src="<?php echo base_url();?>/uploads/ae02fb24c057129c98cd261bb1098470.png" alt="">
                      </div>
                      <div class="col-md-12 cat_content">
                         <h5><?php echo $demand4['mission_title'];?></h5>

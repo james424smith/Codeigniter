@@ -149,7 +149,7 @@ class RegisterModel extends CI_Model {
   public function edit($project_data, $id) {
         $this->db->set($project_data);
         //print_r($project_data);die();
-        $this->db->where('id',$id);
+        $this->db->where('id', $id);
         $this->db->update('users');
         return true ;
   }

@@ -34,6 +34,7 @@ class User extends CI_Model{
     public function getSelfUser() {
 
         $user_id = $this->session->userdata['id'];
+        //var_dump($user_id);die();
         $this->db->select('*');
         $this->db->from('users');
         $this->db->where('id', $user_id);

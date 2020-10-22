@@ -47,10 +47,10 @@ class HomeContent_model extends CI_Model {
     }
     //================================ section 4 ============================================================
     public function display_ourteam_search($keyword){
-       // print_r($keyword);die();
+        //print_r($keyword);die();
         $this->db->select('*');
         $this->db->from('users');
-        $this->db->like('username', $keyword);
+        $this->db->like('skills', $keyword);
         $this->db->where('role !=', 'admin');
         
         $query = $this->db->get()->result_array();   
@@ -62,7 +62,7 @@ class HomeContent_model extends CI_Model {
         $this->db->from('users');
         $this->db->where('role !=', 'admin');
         //$this->db->like('member_name', $keyword);
-        $this->db->limit(4);
+        //$this->db->limit(4);
         $query = $this->db->get()->result_array();   
         return $query ;
    }

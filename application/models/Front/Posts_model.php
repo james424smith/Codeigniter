@@ -19,14 +19,29 @@ class Posts_model extends CI_Model
    
 
     // Display Services
-    function display_services()
+    function display_services_post()
     {
-        $query = $this->db->query("select * from project_category  order by project_id");
-
+        $query = $this->db->query("select * from project_category order by project_id");
         return $query->result();
-
     }
-     public function get_count() {
+    function display_services_missions()
+    {
+        $id =$this->session->userdata['id'];
+        if($id)
+        {
+            //var_dump("ddd");die();
+            $query = $this->db->query("select * from mission where client_id!=". $id ." and accepted_by=0 order by mission_id desc");
+            return $query->result();
+        }
+        else
+        {    
+            //var_dump("eee");die();    
+            $query = $this->db->query("select * from mission where accepted_by=0 order by mission_id desc");
+            return $query->result();
+        }
+    }
+
+    public function get_count() {
          //$this->db->where('mission_id',$id);
         //$cat = 
 
@@ -55,24 +70,23 @@ class Posts_model extends CI_Model
 
     }
 
-    function display_alldemand($cat_id,$limit,$start)
+    function display_alldemand($cat_id, $limit, $start)
     {
         $id =$this->session->userdata['id'];
         //$query = $this->db->query("select * from mission  order by mission_id");
         $this->db->select('*');
         $this->db->from('mission');
-        $this->db->where('client_id != ',$id);
+        $this->db->where('client_id != ', $id);
         $this->db->where('accepted_by = ', 0);
         if($cat_id)
         {
-        $this->db->where('mission_category', $cat_id);
-    }
-        $this->db->order_by('mission_id');
-        $this->db->limit($limit,$start);
+            $this->db->where('mission_category', $cat_id);
+        }
+        $this->db->order_by('mission_id', 'DESC');
+        $this->db->limit($limit, $start);
         //print_r();die();
-        $query=$this->db->get()->result_array();
+        $query = $this->db->get()->result_array();
         return $query;
-
     }
 
     function count_display_alldemand($cat_id)

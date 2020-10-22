@@ -190,7 +190,7 @@ $('#action_menu_btn').click(function(){
               <div class="top_right_side_icon">
                 <ul>
                   <!-- <li><a href="#"><i class="fa fa-search" aria-hidden="true"></i></a></li>  
-                  <li><a href=""><img class="chat_icn" src="https://www.alphawizz.com/Freelance/assets/Front/img/chat.png"></a></li>  --> 
+                  <li><a href=""><img class="chat_icn" src="<?php echo base_url();?>/assets/Front/img/chat.png"></a></li>  --> 
                  <li>
                     <div class="dropdown">
                       <a href="javascript:void(0)" class="dropdown-toggle btn btn-primary" data-toggle="dropdown" aria-expanded="false"><i class="far fa-bell"></i></a>
@@ -201,7 +201,7 @@ $('#action_menu_btn').click(function(){
                         <li>
                           <a href="http://alphawizz.com/Freelance/Front/Posts/Notification/1" class="hvr-bounce-to-right">
                               <div class="not_icon">
-                                <img src="https://www.alphawizz.com/Freelance/assets/Front/img/not_icn1.png">
+                                <img src="<?php echo base_url();?>/assets/Front/img/not_icn1.png">
                                 Payments
                               </div>
                               <div class="not_status">
@@ -212,7 +212,7 @@ $('#action_menu_btn').click(function(){
                         <li>
                           <a href="http://alphawizz.com/Freelance/Front/Posts/Notification/2" class="hvr-bounce-to-right">
                               <div class="not_icon">
-                                <img src="https://www.alphawizz.com/Freelance/assets/Front/img/not_icn2.png">
+                                <img src="<?php echo base_url();?>/assets/Front/img/not_icn2.png">
                                 <span>Missions & demands Status</span>
                               </div>
                               <div class="not_status">
@@ -223,7 +223,7 @@ $('#action_menu_btn').click(function(){
                         <li>
                           <a href="http://alphawizz.com/Freelance/Front/Posts/Notification/3" class="hvr-bounce-to-right">
                               <div class="not_icon">
-                                <img src="https://www.alphawizz.com/Freelance/assets/Front/img/not_icn3.png">
+                                <img src="<?php echo base_url();?>/assets/Front/img/not_icn3.png">
                                 Offers
                               </div>
                               <div class="not_status">
@@ -234,7 +234,7 @@ $('#action_menu_btn').click(function(){
                         <li>
                           <a href="http://alphawizz.com/Freelance/Front/Posts/Notification/4" class="hvr-bounce-to-right">
                               <div class="not_icon">
-                                <img src="https://www.alphawizz.com/Freelance/assets/Front/img/not_icn4.png">
+                                <img src="<?php echo base_url();?>/assets/Front/img/not_icn4.png">
                                 Messages
                               </div>
                               <div class="not_status">
@@ -245,7 +245,7 @@ $('#action_menu_btn').click(function(){
                         <li>
                           <a href="http://alphawizz.com/Freelance/Front/Posts/Notification/5" class="hvr-bounce-to-right">
                               <div class="not_icon">
-                                <img src="https://www.alphawizz.com/Freelance/assets/Front/img/not_icn5.png">
+                                <img src="<?php echo base_url();?>/assets/Front/img/not_icn5.png">
                                 Reviews
                               </div>
                               <div class="not_status">
@@ -267,7 +267,7 @@ $('#action_menu_btn').click(function(){
                         <li>
                           <a href="http://alphawizz.com/Freelance/Front/home/offer" class="hvr-bounce-to-right">
                               <div class="not_icon">
-                                <span><img src="https://www.alphawizz.com/Freelance/assets/Front/img/drover2.png"></span>
+                                <span><img src="<?php echo base_url();?>/assets/Front/img/drover2.png"></span>
                                 Promotion offer
                               </div>
                           </a>
@@ -275,7 +275,7 @@ $('#action_menu_btn').click(function(){
                         <li>
                           <a href="http://alphawizz.com/Freelance/Front/home/my_payment" class="hvr-bounce-to-right">
                               <div class="not_icon">
-                                <span><img src="https://www.alphawizz.com/Freelance/assets/Front/img/drover3.png"></span>
+                                <span><img src="<?php echo base_url();?>/assets/Front/img/drover3.png"></span>
                                 Payment
                               </div>
                           </a>
@@ -283,7 +283,7 @@ $('#action_menu_btn').click(function(){
                         <li>
                           <a  href="http://alphawizz.com/Freelance/Front/home/support_contact" class="hvr-bounce-to-right">
                               <div class="not_icon">
-                                <span><img src="https://www.alphawizz.com/Freelance/assets/Front/img/drover5.png"></span>
+                                <span><img src="<?php echo base_url();?>/assets/Front/img/drover5.png"></span>
                                 Support
                               </div>
                           </a>
@@ -291,7 +291,7 @@ $('#action_menu_btn').click(function(){
                         <li>
                           <a href="http://alphawizz.com/Freelance/Front/home/about_heelp" class="hvr-bounce-to-right">
                               <div class="not_icon">
-                                <span><img src="https://www.alphawizz.com/Freelance/assets/Front/img/drover6.png"></span>
+                                <span><img src="<?php echo base_url();?>/assets/Front/img/drover6.png"></span>
                                 About Heelp
                               </div>
                           </a>

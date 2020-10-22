@@ -135,14 +135,14 @@ $('#action_menu_btn').click(function(){
    </head>
    <?php 
       $obj = &get_instance();
-      $obj->load->model('Front/Payment_model');
-      $user_id = $this->session->userdata['id'];
-      $getPaymentNotification = $obj->Payment_model->getallnotificationcount($user_id,1);
-      $getmissionNotification = $obj->Payment_model->getallnotificationcount($user_id,2);
-      $getofferNotification = $obj->Payment_model->getallnotificationcount($user_id,3);
-      $getmessageNotification = $obj->Payment_model->getallnotificationcount($user_id,4);
-      $getreviewsNotification = $obj->Payment_model->getallnotificationcount($user_id,5);
 
+      $user_id = $this->session->userdata['id'];
+      $obj->load->model('Front/Payment_model');
+      $getPaymentNotification = $obj->Payment_model->getallnotificationcount($user_id, 1);
+      $getmissionNotification = $obj->Payment_model->getallnotificationcount($user_id, 2);
+      $getofferNotification = $obj->Payment_model->getallnotificationcount($user_id, 3);
+      $getmessageNotification = $obj->Payment_model->getallnotificationcount($user_id, 4);
+      $getreviewsNotification = $obj->Payment_model->getallnotificationcount($user_id, 5);
 
       $count_payment = count($notification_data_payment);
       $count_missionanddemands = count($notification_missionanddemands);
@@ -150,13 +150,16 @@ $('#action_menu_btn').click(function(){
       $count_messages = count($notification_messages);
         
       $count_Reviews = count($notification_Reviews);
+
+      $obj->load->model('Front/User');
+      $self_user = $obj->User->getSelfUser();
    ?>
    <body>
       <div class="top_header">
         <div class="container">
           <div class="row">
             <div class="col-md-2">
-              <div class="logo" style="margin-top:-15px;">
+              <div class="logo" style="margin-top:10px;">
                 <a href="<?php echo base_url('Front/home')?>"><img class="navbar-img" src="<?php echo base_url('assets/Front/img/Logo.png')?>"></a>
               </div>
             </div>
@@ -190,7 +193,7 @@ $('#action_menu_btn').click(function(){
               <div class="top_right_side_icon">
                 <ul>
                   <!-- <li><a href="#"><i class="fa fa-search" aria-hidden="true"></i></a></li>  
-                  <li><a href="<?php //echo base_url('Front/home/chat')?>"><img class="chat_icn" src="https://www.alphawizz.com/Freelance/assets/Front/img/chat.png"></a></li>  --> 
+                  <li><a href="<?php //echo base_url('Front/home/chat')?>"><img class="chat_icn" src="<?php echo base_url();?>/assets/Front/img/chat.png"></a></li>  --> 
                  <li>
                     <div class="dropdown">
                       <a href="javascript:void(0)" class="dropdown-toggle btn btn-primary" data-toggle="dropdown" aria-expanded="false"><i class="far fa-bell"></i></a>
@@ -201,7 +204,7 @@ $('#action_menu_btn').click(function(){
                         <li>
                           <a href="<?php echo base_url('Front/Posts/Notification/1')?>" class="hvr-bounce-to-right">
                               <div class="not_icon">
-                                <img src="https://www.alphawizz.com/Freelance/assets/Front/img/not_icn1.png">
+                                <img src="<?php echo base_url();?>/assets/Front/img/not_icn1.png">
                                 Payments
                               </div>
                               <div class="not_status">
@@ -212,7 +215,7 @@ $('#action_menu_btn').click(function(){
                         <li>
                           <a href="<?php echo base_url('Front/Posts/Notification/2')?>" class="hvr-bounce-to-right">
                               <div class="not_icon">
-                                <img src="https://www.alphawizz.com/Freelance/assets/Front/img/not_icn2.png">
+                                <img src="<?php echo base_url();?>/assets/Front/img/not_icn2.png">
                                 <span>Missions & demands Status</span>
                               </div>
                               <div class="not_status">
@@ -223,7 +226,7 @@ $('#action_menu_btn').click(function(){
                         <li>
                           <a href="<?php echo base_url('Front/Posts/Notification/3')?>" class="hvr-bounce-to-right">
                               <div class="not_icon">
-                                <img src="https://www.alphawizz.com/Freelance/assets/Front/img/not_icn3.png">
+                                <img src="<?php echo base_url();?>/assets/Front/img/not_icn3.png">
                                 Offers
                               </div>
                               <div class="not_status">
@@ -234,7 +237,7 @@ $('#action_menu_btn').click(function(){
                         <li>
                           <a href="<?php echo base_url('Front/Posts/Notification/4')?>" class="hvr-bounce-to-right">
                               <div class="not_icon">
-                                <img src="https://www.alphawizz.com/Freelance/assets/Front/img/not_icn4.png">
+                                <img src="<?php echo base_url();?>/assets/Front/img/not_icn4.png">
                                 Messages
                               </div>
                               <div class="not_status">
@@ -245,7 +248,7 @@ $('#action_menu_btn').click(function(){
                         <li>
                           <a href="<?php echo base_url('Front/Posts/Notification/5')?>" class="hvr-bounce-to-right">
                               <div class="not_icon">
-                                <img src="https://www.alphawizz.com/Freelance/assets/Front/img/not_icn5.png">
+                                <img src="<?php echo base_url();?>/assets/Front/img/not_icn5.png">
                                 Reviews
                               </div>
                               <div class="not_status">
@@ -258,7 +261,23 @@ $('#action_menu_btn').click(function(){
                  </li>
                  <li>
                     <div class="dropdown drover_box">
-                      <a href="javascript:void(0)" class="dropdown-toggle btn btn-primary" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v" aria-hidden="true"></i></a>
+                      <a href="javascript:void(0)" class="dropdown-toggle btn btn-primary" data-toggle="dropdown" aria-expanded="false">
+                          <?php
+                            //var_dump($self_user);die();                              
+                            if($user_id == null) {
+                          ?> 
+                              <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
+                          <?php
+                            }
+                            else {
+                          ?>                          
+                            <img class="my_prof" src="<?php echo base_url();?>uploads/profiles/<?php echo $self_user[0]['picture_url']?>" style="width: 50px; height: 50px; border-radius: 50px; margin-bottom: -15px;" />
+                            <i class="fas fa-sort-down" style="color: #ff7700; float: right; margin-top: 10px; margin-left: 5px;"></i>                           
+                          <?php
+                            }  
+                          ?>
+                          
+                      </a>
                       <ul class="dropdown-menu animated fadeInUp ">
                         <li>
                           <?php
@@ -270,10 +289,10 @@ $('#action_menu_btn').click(function(){
                           <?php if($this->session->userdata['id']){?>
                           <div class="view_profile">
                             <?php if($user['picture_url']){  ?>
-                              <img class="my_prof" src="<?php  echo base_url()?>/uploads/profiles/<?php echo $user['picture_url']?>">
+                              <img class="my_prof" src="<?php echo base_url();?>uploads/profiles/<?php echo $user['picture_url']?>">
                             <?php } 
                             else {?>
-                              <img class="my_prof" src="<?php  echo base_url()?>/uploads/profiles/<?php echo $user['picture_url']?>">
+                              <img class="my_prof" src="<?php echo base_url();?>uploads/profiles/<?php echo $user['picture_url']?>">
                             <?php }?>
                           </div>
                           <div class="profile_dtls">
@@ -289,7 +308,7 @@ $('#action_menu_btn').click(function(){
                         <li>
                           <a href="<?php echo base_url('Front/home/offer')?>" class="hvr-bounce-to-right">
                               <div class="not_icon">
-                                <span><img src="https://www.alphawizz.com/Freelance/assets/Front/img/drover2.png"></span>
+                                <span><img src="<?php echo base_url();?>/assets/Front/img/drover2.png"></span>
                                 Promotion offer
                               </div>
                           </a>
@@ -297,7 +316,7 @@ $('#action_menu_btn').click(function(){
                         <li>
                           <a href="<?php echo base_url('Front/home/my_payment')?>" class="hvr-bounce-to-right">
                               <div class="not_icon">
-                                <span><img src="https://www.alphawizz.com/Freelance/assets/Front/img/drover3.png"></span>
+                                <span><img src="<?php echo base_url();?>/assets/Front/img/drover3.png"></span>
                                 Payment
                               </div>
                           </a>
@@ -305,7 +324,7 @@ $('#action_menu_btn').click(function(){
                         <li>
                           <a  href="<?php echo base_url('Front/home/support_contact')?>" class="hvr-bounce-to-right">
                               <div class="not_icon">
-                                <span><img src="https://www.alphawizz.com/Freelance/assets/Front/img/drover5.png"></span>
+                                <span><img src="<?php echo base_url();?>/assets/Front/img/drover5.png"></span>
                                 Support
                               </div>
                           </a>
@@ -313,7 +332,7 @@ $('#action_menu_btn').click(function(){
                         <li>
                           <a href="<?php echo base_url('Front/home/about_heelp')?>" class="hvr-bounce-to-right">
                               <div class="not_icon">
-                                <span><img src="https://www.alphawizz.com/Freelance/assets/Front/img/drover6.png"></span>
+                                <span><img src="<?php echo base_url();?>/assets/Front/img/drover6.png"></span>
                                 About Heelp
                               </div>
                           </a>

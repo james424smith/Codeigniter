@@ -38,12 +38,11 @@
 			<?php  
 			  	foreach ($posts as $post) {
 	    	?>
-
 	        <div class="col-md-6 all corporate">
 	          <div class="item row">
 	          	<div class="col-md-4 img_box">
 	          		<?php 
-	    	      		$cat_image=$this->db->query("select * from  project_category  where project_id=" . $post['mission_category'])->row();
+	    	      		$cat_image = $this->db->query("select * from  project_category  where project_id=" . $post['mission_category'])->row();
 	          		?>
 	          		<img src="<?php  echo base_url('uploads/project_image/' . $cat_image->picture_url) ?>">
 	          	</div>            
@@ -102,7 +101,7 @@
 		<div class="card-header msg_head">
 			<div class="d-flex bd-highlight">
 				<div class="img_cont">
-					<img src="https://www.alphawizz.com/Freelance/assets/Front/img/profile_img.png" class="rounded-circle user_img">
+					<img src="<?php echo base_url();?>/assets/Front/img/profile_img.png" class="rounded-circle user_img">
 					<span class="online_icon"></span>
 				</div>
 				<div class="user_info">
@@ -121,7 +120,7 @@
 		<div class="card-body msg_card_body">
 			<div class="d-flex justify-content-start mb-4">
 				<div class="img_cont_msg">
-					<img src="https://www.alphawizz.com/Freelance/assets/Front/img/profile_img.png" class="rounded-circle user_img_msg">
+					<img src="<?php echo base_url();?>/assets/Front/img/profile_img.png" class="rounded-circle user_img_msg">
 				</div>
 				<div class="msg_cotainer">
 					Please provide the necessary data so that I will start designing. I would hardly take 1-2 weeks to complete. ?
@@ -134,12 +133,12 @@
 					<span class="msg_time_send">8:55 AM, Today</span>
 				</div>
 				<div class="img_cont_msg">
-			<img src="https://www.alphawizz.com/Freelance/assets/Front/img/profile_img.png" class="rounded-circle user_img_msg">
+			<img src="<?php echo base_url();?>/assets/Front/img/profile_img.png" class="rounded-circle user_img_msg">
 				</div>
 			</div>
 			<div class="d-flex justify-content-start mb-4">
 				<div class="img_cont_msg">
-					<img src="https://www.alphawizz.com/Freelance/assets/Front/img/profile_img.png" class="rounded-circle user_img_msg">
+					<img src="<?php echo base_url();?>/assets/Front/img/profile_img.png" class="rounded-circle user_img_msg">
 				</div>
 				<div class="msg_cotainer">
 					Thanks. I will do that then
@@ -152,12 +151,12 @@
 					<span class="msg_time_send">9:05 AM, Today</span>
 				</div>
 				<div class="img_cont_msg">
-			<img src="https://www.alphawizz.com/Freelance/assets/Front/img/profile_img.png" class="rounded-circle user_img_msg">
+			<img src="<?php echo base_url();?>/assets/Front/img/profile_img.png" class="rounded-circle user_img_msg">
 				</div>
 			</div>
 			<div class="d-flex justify-content-start mb-4">
 				<div class="img_cont_msg">
-					<img src="https://www.alphawizz.com/Freelance/assets/Front/img/profile_img.png" class="rounded-circle user_img_msg">
+					<img src="<?php echo base_url();?>/assets/Front/img/profile_img.png" class="rounded-circle user_img_msg">
 				</div>
 				<div class="msg_cotainer">
 					Thanks. I will do that then
@@ -170,12 +169,12 @@
 					<span class="msg_time_send">9:10 AM, Today</span>
 				</div>
 				<div class="img_cont_msg">
-		<img src="https://www.alphawizz.com/Freelance/assets/Front/img/profile_img.png" class="rounded-circle user_img_msg">
+		<img src="<?php echo base_url();?>/assets/Front/img/profile_img.png" class="rounded-circle user_img_msg">
 				</div>
 			</div>
 			<div class="d-flex justify-content-start mb-4">
 				<div class="img_cont_msg">
-					<img src="https://www.alphawizz.com/Freelance/assets/Front/img/profile_img.png" class="rounded-circle user_img_msg">
+					<img src="<?php echo base_url();?>/assets/Front/img/profile_img.png" class="rounded-circle user_img_msg">
 				</div>
 				<div class="msg_cotainer">
 					Bye, see you

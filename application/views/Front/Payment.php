@@ -50,14 +50,14 @@
                               <div class="radiobuttons">
                                 <div class="rdio radio_frst rdio-primary radio-inline"> <input name="radio" value="1" id="radio1" type="radio" checked>
                                   <label for="radio1">
-                                    <img src="https://www.alphawizz.com/Freelance/assets/Front/img/card1.png">
+                                    <img src="<?php echo base_url();?>/assets/Front/img/card1.png">
                                     Credit card
                                   </label>
                                 </div>
                                 <div class="rdio rdio-primary radio-inline">
                                   <input name="radio" value="2" id="radio2" type="radio">
                                   <label for="radio2">
-                                    <img src="https://www.alphawizz.com/Freelance/assets/Front/img/card2.png">
+                                    <img src="<?php echo base_url();?>/assets/Front/img/card2.png">
                                     Wallet
                                   </label>
                                 </div>

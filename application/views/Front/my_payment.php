@@ -24,7 +24,7 @@
                         <!-- <div class="col-md-4">
                           <div class="rdio radio_frst rdio-primary radio-inline"> 
                             <label for="radio1">
-                              <img src="https://www.alphawizz.com/Freelance/assets/Front/img/card2.png">
+                              <img src="<?php echo base_url();?>/assets/Front/img/card2.png">
                             </label>
                             <p><a href="<?php echo base_url('Front/home/my_wallet')?>" class="btn btn_default">Wallet</a></p>
                           </div>
@@ -33,7 +33,7 @@
                         <div class="col-md-4">
                           <div class="rdio rdio-primary radio-inline">                          
                             <label for="radio2">
-                              <img src="https://www.alphawizz.com/Freelance/assets/Front/img/card1.png">
+                              <img src="<?php echo base_url();?>/assets/Front/img/card1.png">
                             </label>
                             <p><a href="<?php echo base_url('Front/Payment/credit_card')?>" class="btn btn_default">Credit Card</a></p>
                           </div>
@@ -42,7 +42,7 @@
                         <div class="col-md-4">
                           <div class="rdio rdio-primary radio-inline">                          
                             <label for="radio2">
-                              <img src="https://www.alphawizz.com/Freelance/assets/Front/img/transaction.png">
+                              <img src="<?php echo base_url();?>/assets/Front/img/transaction.png">
                             </label>
                             <p><a href="<?php echo base_url('Front/home/transactions')?>" class="btn btn_default">Transaction</a></p>
                           </div>
