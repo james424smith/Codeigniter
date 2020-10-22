@@ -115,7 +115,7 @@ class Register extends CI_Controller {
         );          
         }
         else{     
-        echo "svdgdg";    
+            echo "svdgdg";    
         }
 
         $this->RegisterModel->edit($project_data,$id);

@@ -4,6 +4,7 @@
 	$id = $this->uri->segment(4);
 	//var_dump($id);die();
 	$pro = $this->db->query("select * from users where id=".$id)->result_array();
+
 ?>
 <section>
 	<div class="my_profile heelpr-profile">
@@ -19,9 +20,9 @@
 	                              <img class="my_pro" src="<?php echo $admin_url?>uploads/profiles/<?php echo $member['picture_url'];?>">
 	                         </div>
 	                          <div class="profile_dtls">
-	                          		 <span><a href="#!" id="chat_show" class="heelpr_chat"><i class="fa fa-comments" aria-hidden="true"></i> Discuss</a></span>
+	                          		 <!--<span><a href="#!" id="chat_show" class="heelpr_chat"><i class="fa fa-comments" aria-hidden="true"></i> Discuss</a></span>-->
+									<span><a href="<?php echo base_url("Front/home/chat"); ?>" class="heelpr_chat"><i class="fa fa-comments" aria-hidden="true"></i> Discuss</a></span>
 	                                <h4><?php echo $member['skills']; ?></h4>
-	                                
 	                                <p class="review_icn"><img src="<?php echo base_url();?>assets/Front/img/review_icn.png"></p>
 
 	                          </div>                         
@@ -123,11 +124,11 @@
 		<div class="card-header msg_head">
 			<div class="d-flex bd-highlight">
 				<div class="img_cont">
-					<img src="<?php echo base_url();?>assets/Front/img/profile_img.png" class="rounded-circle user_img">
+					<img src="<?php echo base_url("uploads/profiles/" . $pro[0]['picture_url']);?>" class="rounded-circle user_img">
 					<span class="online_icon"></span>
 				</div>
 				<div class="user_info">
-					<span>Sami Rafi</span>
+					<span><?php echo $pro[0]['username']; ?></span>
 				</div>  
 				<div class="video_cam">
 					<!-- <span><i class="fas fa-video"></i></span>
@@ -139,13 +140,13 @@
 		        <a href="javascript:void(0);"><i class="fa fa-times" aria-hidden="true"></i></a>       
 		      </div> 
 		</div>
-		<div class="card-body msg_card_body">
+		<div class="card-body msg_card_body" id="content">
 			<div class="d-flex justify-content-start mb-4">
 				<div class="img_cont_msg">
 					<img src="<?php echo base_url();?>assets/Front/img/profile_img.png" class="rounded-circle user_img_msg">
 				</div>
 				<div class="msg_cotainer">
-					Please provide the necessary data so that I will start designing. I would hardly take 1-2 weeks to complete. ?
+	    			Please provide the necessary data so that I will start designing. I would hardly take 1-2 weeks to complete. ?
 					<span class="msg_time">8:40 AM, Today</span>
 				</div>
 			</div>
@@ -155,7 +156,7 @@
 					<span class="msg_time_send">8:55 AM, Today</span>
 				</div>
 				<div class="img_cont_msg">
-			<img src="<?php echo base_url();?>assets/Front/img/profile_img.png" class="rounded-circle user_img_msg">
+					<img src="<?php echo base_url();?>assets/Front/img/profile_img.png" class="rounded-circle user_img_msg">
 				</div>
 			</div>
 			<div class="d-flex justify-content-start mb-4">
