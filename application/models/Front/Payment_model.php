@@ -63,15 +63,12 @@ class Payment_model extends CI_Model
         $this->db->from('Project_offer');        
         $this->db->join('mission','mission.mission_id = Project_offer.project_id');
         $this->db->join('users','users.id = Project_offer.client_id');
-         $this->db->where('Project_offer.user_id',$this->session->userdata['id']);
-         $this->db->where('mission.mission_status',$status);
+        $this->db->where('Project_offer.user_id',$this->session->userdata['id']);
+        $this->db->where('mission.mission_status',$status);
        
         $result= $this->db->get()->result_array();
         //print_r($this->db->last_query());die();
-
-
-        // $this->db->insert('Project_offer',$project_data);
-        
+        // $this->db->insert('Project_offer',$project_data);     
         return $result;
     }
 
@@ -126,29 +123,25 @@ class Payment_model extends CI_Model
             return $result;
         }
 
-        public function acceptOfferafter($mission_id)
+    public function acceptOfferafter($mission_id, $accepted_user_id)
     {
-      //$update_data = array('status'=>1,'accept_status'=>1);
-       $update_data1 = array('mission_status'=>1);
-     // $this->db->where($con);
-     // $this->db->update($this->project_offer_table_name,$update_data);
-  
+        $update_data1 = array(
+            'mission_status' => 1,
+            'accepted_by' => $accepted_user_id,
+            'user_id' => $accepted_user_id
+        );
 
-  $this->db->where('mission_id',$mission_id);
+        $this->db->where('mission_id', $mission_id);
+        $this->db->update('mission', $update_data1);
 
-      $this->db->update('mission',$update_data1);
-
-
-      if($this->db->affected_rows() > 0)
-      {
-        return true;
-      }
-      else 
-      {
-        return false;
-      }
-        
-
+        if($this->db->affected_rows() > 0)
+        {
+            return true;
+        }
+        else 
+        {
+            return false;
+        }
     }
 
         public function get_mission_name($project){
@@ -361,7 +354,6 @@ exit();*/
     }
 
 
-
         public function offeraccept($user_id){
             $data= array('accept_status' => 2);
             $this->db->set($data);
@@ -372,7 +364,7 @@ exit();*/
                     $this->db->set($data);
                     $this->db->where('user_id', $user_id); 
                     $this->db->update('mission');
-                     return true ;
+                    return true ;
 
             }
             else{

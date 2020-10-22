@@ -22,7 +22,7 @@ class RegisterModel extends CI_Model {
       $id = $query->result_array()[0]['id'];
       $this->session->set_userdata('id', $id);
      // SELECT * FROM users WHERE username = '$username' AND password = '$password'  
-      return true;
+      //return true;
       if($query->num_rows() > 0)  
       {  
         return true;  

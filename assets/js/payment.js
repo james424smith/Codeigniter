@@ -15,7 +15,7 @@ $(document).ready(function() {
 });
 // handle the response from stripe
 function handleStripeResponse(status, response) {
-	console.log(JSON.stringify(response));
+    console.log(JSON.stringify(response));
     if (response.error) {
         $('#makePayment').removeAttr("disabled");
         $(".paymentErrors").html(response.error.message);

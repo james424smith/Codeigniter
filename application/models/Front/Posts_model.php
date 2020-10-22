@@ -45,7 +45,7 @@ class Posts_model extends CI_Model
         //$query = $this->db->query("select * from mission  order by mission_id");
         $this->db->select('*');
         $this->db->from('mission');
-        $this->db->where('user_id != ',$id);
+        $this->db->where('client_id != ', $id);
          $this->db->where('mission_category',$cat_id);
         $this->db->order_by('mission_id');
         $this->db->limit($limit,$start);
@@ -103,8 +103,7 @@ class Posts_model extends CI_Model
     }
     public function mission($project_data){
 
-        $this->db->insert('project_offer',$project_data);
-        
+        $this->db->insert('project_offer', $project_data);    
         return true;
     }
     public function fetchofferedmission($user_id)
@@ -130,7 +129,7 @@ class Posts_model extends CI_Model
             return null;
         $this->db->select('mission.*,users.username');
         $this->db->from('mission');        
-        $this->db->join('users','users.id = mission.user_id');
+        $this->db->join('users','users.id = mission.client_id');
         $this->db->where_in('mission.mission_id', $myofferedmission);
         $this->db->order_by("mission_id", "Desc");
         $result= $this->db->get()->result_array();
@@ -145,14 +144,19 @@ class Posts_model extends CI_Model
         return $query->result_array();
     }
 
-    
     public function inprogress_mission($project_data){
 
-        $update = $this->db->insert('project_status',$project_data);
-        if($update){
-            $this->db->update('project_status',2);
-        }
-        else{
+        $update = $this->db->insert('project_status', $project_data);
+
+        if($project_data['project_status'] == 2) {
+  
+            $update_data = array(
+                'mission_status' => 2,
+            );    
+            $this->db->where('mission_id', $project_data['project_id']);
+            $this->db->where('accepted_by', $project_data['user_id']);
+            $this->db->where('client_id', $project_data['client_id']);
+            $this->db->update('mission', $update_data);
         }
         return true;
     }
@@ -167,8 +171,8 @@ class Posts_model extends CI_Model
 
         $this->db->select('*');
         $this->db->from('mission');
-        $this->db->join('users', 'users.id = mission.user_id');
-        $this->db->where('user_id', $this->session->userdata['id']);
+        $this->db->join('users', 'users.id = mission.client_id');
+        $this->db->where('client_id', $this->session->userdata['id']);
         //$this->db->where('mission_status',$status);
         $this->db->order_by("mission_id","Desc");
         $result= $this->db->get()->result_array();

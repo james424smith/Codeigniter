@@ -58,7 +58,7 @@ public function getUserList($from_date,$to_date)
   {
     $this->db->select("created,mission_id,category_title,mission_title,mission_description,status,client_id,accepted_by,Total_earned_amount,budget");
     $this->db->where('created >=', $from_date);
-$this->db->where('created <=', $to_date);
+    $this->db->where('created <=', $to_date);
     //$this->db->from($this->userTbl);
     $this->db->where("$this->userTbl.role !=","Admin");
     $this->db->order_by("$this->userTbl.id","desc");

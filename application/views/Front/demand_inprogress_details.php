@@ -1,17 +1,13 @@
-<?php $this->load->view('Front/common/header');  ?>
+<?php $this->load->view('Front/common/header');?>
+
 <?php
-$obj=&get_instance();
-$obj->load->model('Front/Posts_model');
-$id =$this->uri->segment(4);
-//$profile_url = $obj->RegisterModel->PictureUrl();
-$mission=$this->db->query("select mission.*,users.picture_url from mission inner join users on mission.accepted_by=users.id  where mission.mission_id=".$id)->row();
-$comment=$this->db->query("select project_status.* from project_status where project_id=".$id . " order by id desc")->row();
-/*echo "select project_status.* from project_status where project_id=".$id . " order by id desc";
-exit();*/
-
-
-//print_r($user);die();
-
+	$obj = &get_instance();
+	$obj->load->model('Front/Posts_model');
+	$id = $this->uri->segment(4);
+	$mission = $this->db->query("select mission.*,users.picture_url from mission inner join users on mission.accepted_by=users.id  where mission.mission_id=".$id)->row();
+	$comment = $this->db->query("select project_status.* from project_status where project_id=".$id . " order by id desc")->row();
+	//var_dump($mission);die();
+	//$project_offer = $this->db->query("select * from project_offer where project_id=".$mission->mission_id)->row();
 ?> 
 
 <section>
@@ -24,7 +20,6 @@ exit();*/
   </div>
 </section>
 
-
 <section class="demand_deails_section">
 	<div class="container">
 		<div class="row">
@@ -32,7 +27,7 @@ exit();*/
 				<div class="demand_delivered_details">
 					 <h2><?php echo $mission->mission_title;?></h2>
 					 <p class="top_details_p">
-					 	<?php echo $mission->mission_description;?>
+					 	<?php echo $mission->description;?>
 					 </p>
 					 <div class="demand_details_upload_btn">
 						<a href="<?php if($mission->mission_doc){ echo base_url()?>Front/Posts/download/<?php echo $mission->mission_doc;}
@@ -40,100 +35,68 @@ exit();*/
 						<!-- <a href="#">File Name <i class="fas fa-download"></i></a> -->
 					</div>
 					 <p class="budget_details_p">
-					 	<b>Budget: <?php echo $mission->mission_budget;?></b> <i class="fas fa-euro-sign"></i>
+					 	<b>Budget: <?php echo $mission->budget;?></b> <i class="fas fa-euro-sign"></i>
 					 </p>
 				</div>
 				<div class="demand_check_box">
-						<ul>
-							<!-- <li>					
-								<a href="#" class="btn btn-primery">Release Payment</a>
-							</li>
- -->
-							<!-- <li>							
-								<a href="#" class="btn btn-default">Ask to Modify</a>
-							</li> -->
-							
-						</ul>
-					</div>
-				
+					<ul>
+						<li>					
+							<a href="#" class="btn btn-primery">Release Payment</a>
+						</li>
+						<li>							
+							<a href="#" class="btn btn-default">Ask to Modify</a>
+						</li>						
+					</ul>
+				</div>				
 			</div>
 			<div class="col-md-6">
 				<div class="row post_demand_inner_row">
-				<div class="col-md-2">
-					<div class="demand_details_profile_img">
-						<?php if($mission->picture_url){ ?>
-							<img src="<?php echo base_url('uploads/profiles/');?><?php echo $mission->picture_url?>">
-						<?php } 
-						else { ?>
-							<img src="<?php echo base_url('assets/Front/img/demand_profile.png');?>">
+					<div class="col-md-2">
+						<div class="demand_details_profile_img">
+							<?php if($mission->picture_url){ ?>
+								<img src="<?php echo base_url('uploads/profiles/');?><?php echo $mission->picture_url?>">
+							<?php } 
+							else { ?>
+								<img src="<?php echo base_url('assets/Front/img/demand_profile.png');?>">
 
-						<?php } ?>
-						
+							<?php } ?>
+							
+						</div>
 					</div>
-				</div>
-				<div class="col-md-10">
-					<?php if($comment->your_comments) { ?>
-					<div class="demand_details_content">
-						<h4>Heelper Comment</h4>						
-						<p>
-						<?php echo $comment->your_comments?>
-						</p>
-						
-				
-					</div>
-					<?php if($comment->project_files){
-
-$project_files_test = explode(",", $comment->project_files);
-foreach ($project_files_test as $value) {
-	# code...
-
+					<div class="col-md-10">
+						<?php if($comment->your_comments) { ?>
+						<div class="demand_details_content">
+							<h4>Heelper Comment</h4>						
+							<p>
+								<?php echo $comment->your_comments?>
+							</p>					
+						</div>
+						<?php if($comment->project_files) {
+							$project_files_test = explode(",", $comment->project_files);
+							foreach ($project_files_test as $value) {
+							# code...
 						?>
-					<div class="demand_details_upload_btn">
-						<a href="<?php if($value){ echo base_url()?>Front/Posts/download/<?php echo $value;}
+						<div class="demand_details_upload_btn">
+							<a href="<?php if($value){ echo base_url()?>Front/Posts/download/<?php echo $value;}
 								else { ?>#<?php }?>"><?php echo $value ?> <i class="fas fa-download"></i></a>
-						<!-- <a href="#">File Name <i class="fas fa-download"></i></a> -->
+							<!-- <a href="#">File Name <i class="fas fa-download"></i></a> -->
+						</div>
+					<?php } } }
+					else{ ?>
+					<div class="demand_details_upload_btn">
+						<P>
+							No comments to display	
+						</P>
+						
 					</div>
-				<?php } } }
-			else{ ?>
-<div class="demand_details_upload_btn">
-				<p>No Data to Display</p>
-					</div>
-			<?php } ?>
-
-			
-				</div>				
-			  </div>
+					<?php } ?>
+				</div>	
 			</div>
+			<div class="col-md-2"></div>
+		</div> 				
 		</div>
-		<!-- <div class="row">
-			<div class="col-md-2"></div>
-			<div class="col-md-8">
-				<form action="<?php echo base_url('Front/Posts/inprogress')?>"  method="post" enctype="multipart/form-data">
-				<div class="mission_inprogress_textarea">
-					<label>Send a new Delivery</label>
-					<textarea placeholder="My comment: I finished again " name="your_comments"></textarea>
-				</div>			 	
-				<div class="post_form_content">
-					<div class="post_inner_upload_file">
-						<input type="file" name="project_files">
-						<span>+ Upload File Here</span>
-					</div>
-				</div>				
-				<input type="hidden" name="client_id" value="<?php echo $mission->client_id;?>">
-				<input type="hidden" name="project_status" value="<?php echo $mission->mission_status;?>">
-				<input type="hidden" name="project_id" value="<?php echo $mission->mission_id;?>">
-				<input type="hidden" name="date_created" value="<?php echo $mission->created;?>">
-				<div class="claim_an_issue mission_inprogress_claimbtn">
-						 <a href="#" class="btn btn-default" data-toggle="modal" data-target="#myModal2">
-							Claim an issue
-						</a> -->
-						<!-- <button type="submit" class="btn btn-default"> submit </button>
-				</div>
-				</form>
-			</div>
-			<div class="col-md-2"></div>
-
-		</div> -->
+		</div>
+	</div>		
 	</div>
 </section>
 

@@ -1,9 +1,9 @@
 <?php $this->load->view('Front/common/header');  ?>
 <?php
-$obj=&get_instance();
-$obj->load->model('Front/Payment_model');
+  $obj = &get_instance();
+  $obj->load->model('Front/Payment_model');
 //check if stripe token exist to proceed with payment
-if(!empty($_POST['stripeToken'])){
+  if(!empty($_POST['stripeToken'])){
     // get token and user details
     $stripeToken  = $_POST['stripeToken'];
     $custName = $_POST['custName'];
@@ -70,9 +70,8 @@ if(!empty($_POST['stripeToken'])){
 
             $add_demand = array('sent_from'=>$user1_id,'sent_to'=>$get_offer_user_id,'amount'=>$get_offer_amount,'tra_id'=>$balanceTransaction,'created_date'=>$date_created,'username'=>$offer_username,'project_title'=>$get_offer_mission_name,'mission_id'=>$get_offer_project_id);
 //$offer_amount=$obj->Payment_model->get_offer_amount($id);
- $result = $obj->Payment_model->inserransection($add_demand);
-
- $status = $obj->Payment_model->acceptOfferafter($get_offer_project_id);
+            $result = $obj->Payment_model->inserransection($add_demand);
+            $status = $obj->Payment_model->acceptOfferafter($get_offer_project_id, $get_offer_user_id);
 
        } else{
           $paymentMessage = "Payment failed!";
@@ -105,10 +104,10 @@ if(!empty($_POST['stripeToken'])){
           <div style="text-align: center;">          
             <div class="edit_card credit_card">
               <div class="credit_card_head">
-                <img class="success_img" src="http://alphawizz.com/Freelance/assets/Front/img/success.png">
+                <img class="success_img" src="<?php echo base_url("assets/Front/img/success.png"); ?>">
                 <h4>Payment success</h4>
               </div> 
-              <a href="http://alphawizz.com/Freelance/Front/home" class="btn btn-defult">Home Page</a>
+              <a href="<?php echo base_url("Front/home"); ?>" class="btn btn-defult">Home Page</a>
             </div>          
           </div>
           

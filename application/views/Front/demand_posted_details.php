@@ -1,8 +1,8 @@
 <?php $this->load->view('Front/common/header');  ?>
 <?php
-	$obj=&get_instance();
+	$obj = &get_instance();
 	$obj->load->model('Front/Posts_model');
-	$id =$this->uri->segment(4);
+	$id = $this->uri->segment(4);
 
 //$profile_url = $obj->RegisterModel->PictureUrl();
 	$demands=$obj->Posts_model->demand_posted($id);
@@ -10,13 +10,13 @@
 	foreach ($demands as $value) {
 		$demands_froeac1[] = array('offer_id'=>$value['offer_id'],'message'=>$value['message'],'project_id'=>$value['project_id'],'user_id'=>$value['user_id'],'status'=>$value['status'],'accept_budget'=>$value['accept_budget'],'offer_budget'=>$value['offer_budget'],'created_date'=>$value['created_date'],'accept_status'=>$value['accept_status'],'client_id'=>$value['client_id'],'username'=>$value['username'],'picture_url'=>$value['picture_url'],'sort'=>'note');
 	}
-	$demands1=$obj->Posts_model->demand_posted2($id);
+	$demands1 = $obj->Posts_model->demand_posted2($id);
 
 	foreach ($demands1 as $value) {
 		$demands_froeac2[] = array('offer_id'=>$value['offer_id'],'message'=>$value['message'],'project_id'=>$value['project_id'],'user_id'=>$value['user_id'],'status'=>$value['status'],'accept_budget'=>$value['accept_budget'],'offer_budget'=>$value['offer_budget'],'created_date'=>$value['created_date'],'accept_status'=>$value['accept_status'],'client_id'=>$value['client_id'],'username'=>$value['username'],'picture_url'=>$value['picture_url'],'sort'=>'budget');
 	}
 
-	$demands2=$obj->Posts_model->demand_posted3($id);
+	$demands2 = $obj->Posts_model->demand_posted3($id);
 
 	foreach ($demands2 as $value) {
 		$demands_froeac3[] = array('offer_id'=>$value['offer_id'],'message'=>$value['message'],'project_id'=>$value['project_id'],'user_id'=>$value['user_id'],'status'=>$value['status'],'accept_budget'=>$value['accept_budget'],'offer_budget'=>$value['offer_budget'],'created_date'=>$value['created_date'],'accept_status'=>$value['accept_status'],'client_id'=>$value['client_id'],'username'=>$value['username'],'picture_url'=>$value['picture_url'],'sort'=>'date');

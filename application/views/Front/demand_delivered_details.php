@@ -21,7 +21,7 @@ $amount_12 =($mission->mission_budget*12)/100;
   <div class="top_bnr section post_demand">
     <div class="container">
       <div class="top-side about_title">
-          <h4 class="title">In Progress</h4>
+          <h4 class="title">Delivered</h4>
         </div>
     </div>
   </div>

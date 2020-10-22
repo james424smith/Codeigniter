@@ -5,16 +5,13 @@ class Register extends CI_Controller {
   public function __construct()
   {
     parent::__construct();
-     $this->load->library('session');
-     $this->load->model('Front/RegisterModel');
-
+    $this->load->library('session');
+    $this->load->model('Front/RegisterModel');
   }   
   
   function register()  
   { 
-    //redirect(base_url('Front/Home/signUp'));
-
-    
+    //redirect(base_url('Front/Home/signUp'));    
     $email = $this->input->post('email');  
     $username = $this->input->post('username');  
     $role = $this->input->post('role');  
@@ -37,6 +34,7 @@ class Register extends CI_Controller {
       }
       
       $this->RegisterModel->user_data($data);
+      $this->session->set_flashdata('success', 'success');
       redirect(base_url('Front/Home'));
    }
 

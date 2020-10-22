@@ -1,6 +1,11 @@
 
 <?php $admin_url = $this->config->item('base_url'); ?>
 <!-- banner_sec -->
+<?php if($this->session->flashdata('success')){ ?>
+  <script>
+    swal("Registration has been done successfully");
+  </script> 
+<?php } ?>
 <section class="banner_section">
     <div class="container">
         <div class="row">

@@ -32,6 +32,7 @@ class User extends CI_Model{
     }
 
     public function getSelfUser() {
+
         $user_id = $this->session->userdata['id'];
         $this->db->select('*');
         $this->db->from('users');

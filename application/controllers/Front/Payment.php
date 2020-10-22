@@ -53,7 +53,7 @@ $this->load->model('Front/Payment_model');
             //print_r($session_id);die();
 
         if($image_name){
-        $project_data = array(
+          $project_data = array(
             'mission_title' => $this->input->post('title'),
             'mission_budget' => $this->input->post('budget'),
             'mission_description' => $this->input->post('description'),
@@ -66,11 +66,11 @@ $this->load->model('Front/Payment_model');
         else{
             $session_id= $_SESSION();
            // print_r( $session_id);die();
-          $project_data = array(
-           'mission_title' => $this->input->post('title'),
-           'budget' => $this->input->post('budget'),
-           'description' => $this->input->post('description'),
-           'user_id' => $this->session->userdata['id'],
+            $project_data = array(
+            'mission_title' => $this->input->post('title'),
+            'budget' => $this->input->post('budget'),
+            'description' => $this->input->post('description'),
+            'user_id' => $this->session->userdata['id'],
             'mission_category' => $this->input->post('project_category'),
          );           
         }
@@ -90,8 +90,6 @@ $this->load->model('Front/Payment_model');
             'accept_budget' => $this->input->post('accept_budget'),
             'offer_budget' => $this->input->post('missionbudget'),
             'created_date' => date('Y-m-d H:i:s')
- 
-
         );
  		 }
  		 else{
@@ -176,7 +174,10 @@ $this->load->model('Front/Payment_model');
             'date_created' => $this->input->post('date_created'),
             'date_updated' =>  date('Y-m-d H:i:s') 
 
-        );          
+          );
+          
+          $this->load->model('Front/Posts_model');
+          $this->Posts_model->inprogress_mission($project_data, true);
         }
         else{
           
@@ -185,14 +186,16 @@ $this->load->model('Front/Payment_model');
            'budget' => $this->input->post('budget'),
            'description' => $this->input->post('description'),
            'user_id' => $this->session->userdata['id'],
-          'client_id' => $this->input->post('client_id'),
-          'date_created' => $this->input->post('date_created'),
-          'date_updated' =>  date('Y-m-d H:i:s')
-         );           
+           'client_id' => $this->input->post('client_id'),
+           'date_created' => $this->input->post('date_created'),
+           'date_updated' =>  date('Y-m-d H:i:s')
+         );
+         
+         $this->load->model('Front/Posts_model');
+         $this->Posts_model->inprogress_mission($project_data, false);
+
         }
         //print_r($project_data);die();
-        $this->load->model('Front/Posts_model');
-        $this->Posts_model->inprogress_mission($project_data);
         redirect('Front/home/mymissions');
  }
 
@@ -209,7 +212,6 @@ $this->load->model('Front/Payment_model');
         redirect('Front/home/mymissions');
 
       }
-      
 
       public function acceptoffer(){
         
@@ -217,7 +219,7 @@ $this->load->model('Front/Payment_model');
 
 
       } 
-public function payment_card_details(){
+      public function payment_card_details(){
         
         $this->load->view('Front/card_details');
 
@@ -226,9 +228,11 @@ public function payment_card_details(){
 
       public function payment_success(){
         
+        $get_offer_user_id = $this->input->post('get_offer_user_id');
+        $get_offer_project_id = $this->input->post('get_offer_project_id');
+        
+        //echo $get_offer_user_id . ', ' . $get_offer_project_id; die();
         $this->load->view('Front/payment_success');
-
-
       } 
 
  public function delivered_demand(){

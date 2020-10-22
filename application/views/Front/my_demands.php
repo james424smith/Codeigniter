@@ -84,19 +84,19 @@
                            <div class="col-md-12 status Delivred">
                               <p>By : <?php echo $value['username']?></p>
                               <?php  
-                                    if($value['mission_status']==0){ 
+                                    if($value['mission_status'] == 0){ 
                                        echo "<span>Posted</span>";
                                     }
-                                    if($value['mission_status']== 1){ 
+                                    if($value['mission_status'] == 1){ 
                                        echo "<span>In Progress</span>";
                                     }
-                                    if($value['mission_status']== 2){ 
+                                    if($value['mission_status'] == 2){ 
                                        echo "<span>Delivered</span>";
                                     }
-                                    if($value['mission_status']== 3){ 
+                                    if($value['mission_status'] == 3){ 
                                        echo "<span>Complete</span>";
                                     }
-                                    if($value['mission_status']== 4){ 
+                                    if($value['mission_status'] == 4){ 
                                        echo "<span>Dispute</span>";
                                     }
                            ?>

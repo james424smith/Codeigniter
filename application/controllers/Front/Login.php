@@ -16,14 +16,16 @@ class Login extends CI_Controller {
     if($this->form_validation->run()== FALSE)  
     { 
 
+      //echo "1";die();
       $this->load->view('Front/login');
 
     }  
     else  
     { 
+
       $email = $this->input->post('email');  
       $password = md5($this->input->post('password'));
-      
+
       $this->load->model('Front/RegisterModel');  
       if($this->RegisterModel->can_login($email, $password))  
       {  
@@ -36,7 +38,8 @@ class Login extends CI_Controller {
         redirect(base_url() . 'Front/home');  
       }  
       else  
-      {  
+      {
+        //echo "3";die();  
         $this->session->set_flashdata('error', 'Invalid Username and Password');  
         redirect(base_url() . 'Front/home/login');  
       }  

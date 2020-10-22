@@ -5,10 +5,11 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">    
   
      <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">-->
-  
       <link rel="stylesheet" href="<?php echo base_url('assets/Front/css/style.css')?>">
       <link rel="stylesheet" href="<?php echo base_url('assets/Front/css/custom.css')?>">
       <link href="<?php echo base_url('assets/Front/css/bootstrap.min.css')?>" rel="stylesheet">
+      <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.min.css'>
+
 
       <link rel="stylesheet" href="<?php echo base_url('assets/Front/fontawesome/css/all.min.css')?>">
       <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/Front/css/slick.css')?>">
@@ -20,6 +21,7 @@
       
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.all.min.js"></script>
 
 <style type="text/css">
   
@@ -132,30 +134,30 @@ $('#action_menu_btn').click(function(){
    </head>
    </head>
    <?php 
-$obj=&get_instance();
-$obj->load->model('Front/Payment_model');
-$user_id = $this->session->userdata['id'];
-$getPaymentNotification=$obj->Payment_model->getallnotificationcount($user_id,1);
-$getmissionNotification=$obj->Payment_model->getallnotificationcount($user_id,2);
-$getofferNotification=$obj->Payment_model->getallnotificationcount($user_id,3);
-$getmessageNotification=$obj->Payment_model->getallnotificationcount($user_id,4);
-$getreviewsNotification=$obj->Payment_model->getallnotificationcount($user_id,5);
+      $obj = &get_instance();
+      $obj->load->model('Front/Payment_model');
+      $user_id = $this->session->userdata['id'];
+      $getPaymentNotification = $obj->Payment_model->getallnotificationcount($user_id,1);
+      $getmissionNotification = $obj->Payment_model->getallnotificationcount($user_id,2);
+      $getofferNotification = $obj->Payment_model->getallnotificationcount($user_id,3);
+      $getmessageNotification = $obj->Payment_model->getallnotificationcount($user_id,4);
+      $getreviewsNotification = $obj->Payment_model->getallnotificationcount($user_id,5);
 
 
-$count_payment = count($notification_data_payment);
-        $count_missionanddemands = count($notification_missionanddemands);
-        $count_Offers = count($notification_Offers);
-        $count_messages = count($notification_messages);
+      $count_payment = count($notification_data_payment);
+      $count_missionanddemands = count($notification_missionanddemands);
+      $count_Offers = count($notification_Offers);
+      $count_messages = count($notification_messages);
         
-        $count_Reviews = count($notification_Reviews);
-?>
+      $count_Reviews = count($notification_Reviews);
+   ?>
    <body>
       <div class="top_header">
         <div class="container">
           <div class="row">
             <div class="col-md-2">
-              <div class="logo">
-                <a href="<?php echo base_url('Front/home')?>"><img class="navbar-img" src="<?php echo base_url('assets/Front/img/heelp.png')?>"></a>
+              <div class="logo" style="margin-top:-15px;">
+                <a href="<?php echo base_url('Front/home')?>"><img class="navbar-img" src="<?php echo base_url('assets/Front/img/Logo.png')?>"></a>
               </div>
             </div>
             <div class="col-md-8">  

@@ -1,11 +1,14 @@
 <?php $this->load->view('Front/common/header');  ?>
 <?php
-$obj=&get_instance();
-$obj->load->model('Front/Posts_model');
-$id =$this->uri->segment(4);
-//$profile_url = $obj->RegisterModel->PictureUrl();
-$mission=$this->db->query("select * from mission  where mission_id=".$id)->row();
-//print_r($user);die();
+	$obj = &get_instance();
+	$obj->load->model('Front/Posts_model');
+	$id = $this->uri->segment(4);
+	
+	$mission=$this->db->query("select * from mission  where mission_id=".$id)->row();
+	$comment = $this->db->query("select project_status.*,users.picture_url from project_status INNER JOIN users ON project_status.user_id =users.id where project_id=".$id)->row();
+
+	$obj->load->model('Front/User');
+	$self_user = $obj->User->getSelfUser();
 
 ?> 
 
@@ -30,11 +33,11 @@ $mission=$this->db->query("select * from mission  where mission_id=".$id)->row()
 					 </p>
 					 <div class="demand_details_upload_btn">
 						<a href="<?php if($mission->mission_doc){ echo base_url()?>Front/Posts/download/<?php echo $mission->mission_doc;}
-								else { ?>#<?php }?>">File Name <i class="fas fa-download"></i></a>
+								else { ?>#<?php }?>"><?php echo $mission->mission_doc?> <i class="fas fa-download"></i></a>
 						<!-- <a href="#">File Name <i class="fas fa-download"></i></a> -->
 					</div>
 					 <p class="budget_details_p">
-					 	<b>Budget: <?php echo $mission->mission_budget;?></b> <i class="fas fa-euro-sign"></i>
+					 	<b>Budget: <?php echo $mission->budget; ?></b> <i class="fas fa-euro-sign"></i>
 					 </p>
 				</div>
 					
@@ -43,14 +46,14 @@ $mission=$this->db->query("select * from mission  where mission_id=".$id)->row()
 				<div class="row post_demand_inner_row">
 					<div class="col-md-2">
 						<div class="demand_details_profile_img">
-							<img src="<?php echo base_url('assets/Front/img/demand_profile.png')?>">
+							<img src="<?php echo base_url('uploads/profiles/');?><?php echo $self_user[0]['picture_url']?>">
 						</div>
 					</div>
 					<div class="col-md-10">
 						<div class="demand_details_content">
 							<h4>Heelper Comment</h4>
 							<p>
-								I Finished it!
+								<?php echo $comment->your_comments; ?>							
 							</p>
 						</div>
 						<div class="demand_details_upload_btn">

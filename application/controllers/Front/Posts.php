@@ -21,8 +21,7 @@ class Posts extends CI_Controller
          if($this->session->userdata['id']) {
 
           if(!empty($_FILES['file']['name'])) {
-
-            
+      
             $config['upload_path'] = './uploads/demands_documents';
             $config['allowed_types'] = 'gif|jpg|png|jpeg|pdf|doc|txt'; 
             $config['max_size'] = 6000000;
@@ -39,7 +38,7 @@ class Posts extends CI_Controller
             } 
             else 
             {              
-              $img_data = $_FILES['file']['name'];
+              $img_data = $this->upload->data()['file_name'];
               $image_name = $img_data;
               //echo $_FILES['file']['name'];die();
             }
@@ -53,12 +52,11 @@ class Posts extends CI_Controller
             'budget' => $this->input->post('budget'),
             'description' => $this->input->post('description'),
             'mission_description' => $this->input->post('description'),
-            'user_id' => $this->session->userdata['id'],
             'client_id' => $this->session->userdata['id'],
             'project_category' => $this->input->post('project_category'),
             'mission_category' => $this->input->post('project_category'),
             'mission_doc' => ($image_name) ? $image_name : $this->input->post('file'),
-            'file' => $_FILES['file']['name'],
+            'file' => $image_name,
             'created_date' => date('Y-m-d H:i:s')
           );          
         }
@@ -67,10 +65,10 @@ class Posts extends CI_Controller
              'mission_title' => $this->input->post('title'),
              'budget' => $this->input->post('budget'),
              'description' => $this->input->post('description'),
-             'user_id' => $this->session->userdata['id'],
+             'client_id' => $this->session->userdata['id'],
              'mission_category' => $this->input->post('project_category'),
              'created_date' => date('Y-m-d H:i:s')
-         );           
+          );           
         }
         $this->load->model('Front/Posts_model');
         $this->Posts_model->demand($project_data);
@@ -79,32 +77,39 @@ class Posts extends CI_Controller
       else {
         redirect(base_url() . 'Front/home/login'); 
       }
-
     }
- 		public function  offerpost() {
-      
+
+ 		public function  offerpost() {      
       if($this->session->userdata['id']) {
- 		 	  if($this->input->post('accept_budget') == 1){
-          $project_data = array(
-                'message' => $this->input->post('message'),
-                'project_id' => $this->input->post('project_id'),
-                'user_id' => $this->session->userdata['id'],
-                'client_id' => $this->input->post('client_id'),
-                'accept_budget' => $this->input->post('accept_budget'),
-                'offer_budget' => $this->input->post('missionbudget'),
-                'created_date' => date('Y-m-d H:i:s')
-            );
- 		    }
-        else {
+        if($this->input->post('accept_budget') == 0 && $this->input->post('offer_budget') == NULL)
+        {
+          $this->session->set_flashdata('warning', 'Please send your offer budget.');  
+          redirect('Front/home/make_an_offer/'. $this->input->post('project_id'));
+          return null;
+        }
+
+ 		 	  if($this->input->post('accept_budget') == 1) {
           $project_data = array(
               'message' => $this->input->post('message'),
               'project_id' => $this->input->post('project_id'),
               'user_id' => $this->session->userdata['id'],
-              'client_id' => $this->input->post('client_id'),           
-              'offer_budget' => $this->input->post('offer_budget'),
+              'client_id' => $this->input->post('client_id'),
+              'accept_budget' => $this->input->post('accept_budget'),
+              'offer_budget' => $this->input->post('missionbudget'),
               'created_date' => date('Y-m-d H:i:s')
           );
-        }
+      }
+
+      else {
+        $project_data = array(
+            'message' => $this->input->post('message'),
+            'project_id' => $this->input->post('project_id'),
+            'user_id' => $this->session->userdata['id'],
+            'client_id' => $this->input->post('client_id'),           
+            'offer_budget' => $this->input->post('offer_budget'),
+            'created_date' => date('Y-m-d H:i:s')
+        );
+      }
 
  		    $this->load->model('Front/Posts_model');
         if($this->Posts_model->checkMission($project_data))
@@ -114,8 +119,7 @@ class Posts extends CI_Controller
             //$this->load->view('Front/make_an_offer');
             return null;
         }
-
-        $this->Posts_model->mission($project_data);
+        $this->Posts_model->mission($project_data, $update_mission_record);
         redirect('Front/home/mymissions');
       }
       else{
@@ -124,41 +128,34 @@ class Posts extends CI_Controller
 
         }
 
-        public function download($fileName)     
-          {
-
-           
-            $this->load->helper('download');
-
-            if ($fileName) {
+      public function download($fileName)     
+      {      
+        $this->load->helper('download');
+        if ($fileName) {
           $file = base_url("/uploads/demands_documents/") .$fileName;
-           //print_r($fileName);die();
-          // check file exists    
-          if ($file) {
+        //print_r($fileName);die();
+      // check file exists    
+        if ($file) {
 
-           // get file content
-           $data = file_get_contents ( $file );
-           //force download
-           force_download ( $fileName, $data );
-          } else {
-           // Redirect to base url
-           redirect ( base_url ('Front/make_an_offer') );
-          }
-    
+        // get file content
+          $data = file_get_contents ( $file );
+        //force download
+          force_download ( $fileName, $data );
+      } else {
+        // Redirect to base url
+        redirect ( base_url ('Front/make_an_offer') );
+      }
+
     }
   }
-
-
-
-
- public function  inprogress() {   
-
-          if(!empty($_FILES['project_files']['name'])){
-          $config['upload_path'] = './uploads/demands_documents';
-          $config['allowed_types'] = 'gif|jpg|png|jpeg|pdf|doc'; 
-          $config['max_size'] = 6000000;
-          $config['max_width'] = 45000;
-          $config['max_height'] = 45000;
+    public function  inprogress() {   
+          
+          if(!empty($_FILES['project_files']['name'])) {
+            $config['upload_path'] = './uploads/demands_documents';
+            $config['allowed_types'] = 'gif|jpg|png|jpeg|pdf|doc|txt'; 
+            $config['max_size'] = 6000000;
+            $config['max_width'] = 45000;
+            $config['max_height'] = 45000;
 
           $this->load->library('upload', $config);
   
@@ -166,7 +163,6 @@ class Posts extends CI_Controller
           {
              $error = array('error' => $this->upload->display_errors());
              $image_name = '';
-     
           } 
           else 
           {
@@ -174,38 +170,35 @@ class Posts extends CI_Controller
             $image_name = $img_data;
           }
         }
-           
-
         if($image_name){
-        $project_data = array(
-            'project_id' => $this->input->post('project_id'),
-            'your_comments' => $this->input->post('your_comments'),
-            'project_status' => $this->input->post('project_status'),
-            'user_id' => $this->session->userdata['id'],
-            'client_id' => $this->input->post('client_id'),            
-            'project_files' => ($image_name)?$image_name:$this->input->post('project_files'),
-            'date_created' => $this->input->post('date_created'),
-            'date_updated' =>  date('Y-m-d H:i:s') 
-
-        );          
+            $project_data = array(
+              'project_id' => $this->input->post('project_id'),
+              'your_comments' => $this->input->post('your_comments'),
+              'project_status' => 2,
+              'user_id' => $this->session->userdata['id'],
+              'client_id' => $this->input->post('client_id'),            
+              'project_files' => ($image_name) ? $image_name : $this->input->post('project_files'),
+              'date_created' => $this->input->post('date_created'),
+              'date_updated' =>  date('Y-m-d H:i:s')  
+            );           
+            
         }
-        else{
-          
-          $project_data = array(
-           'project_id' => $this->input->post('project_id'),
-           'budget' => $this->input->post('budget'),
-           'description' => $this->input->post('description'),
-           'user_id' => $this->session->userdata['id'],
-          'client_id' => $this->input->post('client_id'),
-          'date_created' => $this->input->post('date_created'),
-          'date_updated' =>  date('Y-m-d H:i:s')
-         );           
+        else {          
+            $project_data = array(
+                'project_id' => $this->input->post('project_id'),
+                'your_comments' => $this->input->post('your_comments'),
+                'project_status' => $this->input->post('project_status'),
+                'user_id' => $this->session->userdata['id'],
+                'client_id' => $this->input->post('client_id'),            
+                'date_created' => $this->input->post('date_created'),
+                'date_updated' =>  date('Y-m-d H:i:s') 
+            );
         }
         //print_r($project_data);die();
         $this->load->model('Front/Posts_model');
         $this->Posts_model->inprogress_mission($project_data);
         redirect('Front/home/mymissions');
- }
+      }
 
       public function delivered_mission(){
         $project_data = array(
@@ -220,12 +213,10 @@ class Posts extends CI_Controller
         redirect('Front/home/mymissions');
 
       }
-      
 
       public function acceptoffer(){
         
         $this->load->view('Front/acceptoffer');
-
 
       } 
 

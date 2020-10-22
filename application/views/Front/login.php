@@ -4,8 +4,15 @@
     <div class="container">
         <div class="row">
             <div class="col-md-offset-3 col-md-6 login-box">
-                   <h3>Log in</h3>  
-                   <p><?php echo $this->session->flashdata('error')?></p>
+                <h3>Log in</h3>  
+                <p>
+                    <?php if($this->session->flashdata('error')){ ?>
+                    <div class="alert alert-danger">
+                        <a href="#" class="close" data-dismiss="alert">&times;</a>
+                        <strong>Error!</strong> <?php echo $this->session->flashdata('error'); ?>
+                    </div>
+                    <?php } ?>
+                </p>
                 <div class="login-form">
                     <div class="login-form">
                         <form method="post" action="<?php echo base_url('Front/Login/login_validation')?>">

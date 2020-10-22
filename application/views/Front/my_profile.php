@@ -1,25 +1,25 @@
 <?php $this->load->view('Front/common/header');  ?>
 
 <?php
-$obj=&get_instance();
-$obj->load->model('Front/RegisterModel');
+	$obj = &get_instance();
+	$obj->load->model('Front/RegisterModel');
 //$profile_url = $obj->RegisterModel->PictureUrl();
-$user=$obj->RegisterModel->GetUserData();
+	$user = $obj->RegisterModel->GetUserData();
 //print_r($user);die();
 ?> 
 <?php $user_id = $user['id'];
-$avg = $this->Posts_model->selectAvgOfRating($user_id);
+		$avg = $this->Posts_model->selectAvgOfRating($user_id);
 
             $count = 0;
             $total = 0;
-            for($j=0;$j<count($avg);$j++)
+            for($j = 0; $j < count($avg); $j++)
             {
                 $total += $avg[$j]->rating;
                 $count++;
             }
             if($count != 0)
             {
-                $av =$total/$count;
+                $av = $total/$count;
                 $user_detail = number_format($av, 2, '.', '');
             }
             else
@@ -83,7 +83,7 @@ $avg = $this->Posts_model->selectAvgOfRating($user_id);
 							<div class="view_profile">
 	                              <!-- <img src="https://www.alphawizz.com/Freelance/assets/Front/img/profile_img.png"> -->
 	                              <img  class="my_pro" src="<?php  echo base_url()?>/uploads/profiles/<?php echo $user['picture_url']?>">
-	                              	<span> <a href="#" data-toggle="modal" data-target="#user_profile"><img src="https://www.alphawizz.com/Freelance/assets/Front/img/edit.png"></a>
+	                              	<span> <a href="#" data-toggle="modal" data-target="#user_profile"><img src="<?php  echo base_url()?>/assets/Front/img/edit.png"></a>
 	                              	</span>
 	                              
 	                         </div>
@@ -114,6 +114,10 @@ $avg = $this->Posts_model->selectAvgOfRating($user_id);
 					</div>
 					<div class="Presentation">
                           		<h5>Categories of interest on heelp:</h5>
+                          		<p><?=empty($user['intrested_category'])?'':$user['intrested_category']?></p>
+					</div>
+					<div class="Presentation">
+                          		<h5>Skills:</h5>
                           		<p><?=empty($user['intrested_category'])?'':$user['intrested_category']?></p>
 					</div>
 				</div>

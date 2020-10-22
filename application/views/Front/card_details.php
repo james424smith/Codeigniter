@@ -52,75 +52,34 @@
                   <input type="hidden" name="custEmail" class="form-control">
                 </div>
 
-              <div class="card_number_input">
-                <p>Card Number</p>
-                <input type="text" name="cardNumber" autocomplete="off" placeholder="4111111111111111" id="cardNumber" >
-              </div>
-              <div class="card_ul_li">
-                <ul>
-                <li>
-                  <p>CVV</p>
-                  <input type="text" name="cardCVC" id="cardCVC" autocomplete="off">
-                </li>
+                <div class="card_number_input">
+                  <p>Card Number</p>
+                  <input type="text" name="cardNumber" autocomplete="off" placeholder="Enter your card number..." id="cardNumber" >
+                </div>
+                <div class="card_ul_li">
+                  <ul>
+                    <li>
+                      <p>CVV</p>
+                      <input type="text" name="cardCVC" id="cardCVC" autocomplete="off">
+                    </li>
                   
-                <li><p>Expiry</p>
-                  <input type="text" name="cardExpMonth" placeholder="MM" id="cardExpMonth"> 
-                  <input type="text" name="cardExpYear" placeholder="YYYY" id="cardExpYear">
-                  <input type="hidden" name="get_offer_amount" placeholder="" id="get_offer_amount" value="<?php echo $get_offer_amount; ?>">
-                  <input type="hidden" name="get_offer_user_id" placeholder="" id="get_offer_user_id" value="<?php echo $get_offer_user_id; ?>">
-                  <input type="hidden" name="get_offer_project_id" placeholder="" id="get_offer_project_id" value="<?php echo $get_offer_project_id; ?>">
-                  <input type="hidden" name="offer_username" placeholder="" id="offer_username" value="<?php echo $get_offer_username; ?>">
-                  <input type="hidden" name="get_offer_mission_name" placeholder="" id="get_offer_mission_name" value="<?php echo $get_offer_mission_name; ?>">
-                  <input type="hidden" name="cardExpYear" placeholder="YYYY" id="cardExpYear">
-
-                </li>
-
-              </ul>
+                    <li>
+                      <p>Expiry</p>
+                      <input type="text" name="cardExpMonth" placeholder="MM" id="cardExpMonth"> 
+                      <input type="text" name="cardExpYear" placeholder="YYYY" id="cardExpYear">
+                      <input type="hidden" name="get_offer_amount" placeholder="" id="get_offer_amount" value="<?php echo $get_offer_amount; ?>">
+                      <input type="hidden" name="get_offer_user_id" placeholder="" id="get_offer_user_id" value="<?php echo $get_offer_user_id; ?>">
+                      <input type="hidden" name="get_offer_project_id" placeholder="" id="get_offer_project_id" value="<?php echo $get_offer_project_id; ?>">
+                      <input type="hidden" name="offer_username" placeholder="" id="offer_username" value="<?php echo $get_offer_username; ?>">
+                      <input type="hidden" name="get_offer_mission_name" placeholder="" id="get_offer_mission_name" value="<?php echo $get_offer_mission_name; ?>">
+                      <input type="hidden" name="cardExpYear" placeholder="YYYY" id="cardExpYear">
+                    </li>
+                </ul>
               </div>
               <div class="save_credit_card">
-                
                 <input type="submit" id="makePayment" class="btn btn-success" value="Make Payment">
               </div>
                 </form>
-            <!-- <form action="<?php echo base_url('Front/Payment/payment_success/')?>" method="POST" id="paymentForm">        
-        <div class="form-group">
-          <label for="name">Name</label>
-          <input type="text" name="custName" class="form-control">
-        </div>
-        <div class="form-group">
-          <label for="email">Email</label>
-          <input type="email" name="custEmail" class="form-control">
-        </div>
-        <div class="form-group">
-          <label>Card Number</label>
-          <input type="text" name="cardNumber" size="20" autocomplete="off" id="cardNumber" class="form-control" />
-        </div>  
-        <div class="row">
-        <div class="col-xs-4">
-        <div class="form-group">
-          <label>CVC</label>
-          <input type="text" name="cardCVC" size="4" autocomplete="off" id="cardCVC" class="form-control" />
-        </div>  
-        </div>  
-        </div>
-        <div class="row">
-        <div class="col-xs-10">
-        <div class="form-group">
-          <label>Expiration (MM/YYYY)</label>
-          <div class="col-xs-6">
-            <input type="text" name="cardExpMonth" placeholder="MM" size="2" id="cardExpMonth" class="form-control" /> 
-          </div>
-          <div class="col-xs-6">
-            <input type="text" name="cardExpYear" placeholder="YYYY" size="4" id="cardExpYear" class="form-control" />
-          </div>
-        </div>  
-        </div>
-        </div>
-        <br>  
-        <div class="form-group">
-          <input type="submit" id="makePayment" class="btn btn-success" value="Make Payment">
-        </div>      
-      </form> -->
             </div>
 
           

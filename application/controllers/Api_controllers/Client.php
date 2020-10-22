@@ -772,28 +772,22 @@ public function getprojectdispute_post()
         if($history)
         {
             $message = "Customer Service:
-
-We are very sorry for your dissatisfaction.
-
-However, your dispute has been successfully opened. The average processing time is 8 working days.
-
-You can chat with customer service in case you have arranged with the concerned Heelper, or if you have other information to send us.
-
-Please, note that it may take a few days to process your messages.
-
-Thank you";
-           
+                        We are very sorry for your dissatisfaction.
+                        However, your dispute has been successfully opened. The average processing time is 8 working days.
+                        You can chat with customer service in case you have arranged with the concerned Heelper, or if you have other information to send us.
+                        Please, note that it may take a few days to process your messages.
+                        Thank you";
+                    
             $get_dispute[] = array('id'=>1,'sender_id'=>4,'receiver_id'=>$user_id,'message'=>$message,'attachment_name'=>'','file_ext'=>'','mime_type'=>'','message_date_time'=>date('d-m-Y h:i:s'),'ip_address'=>'','message_type'=>'admin_message');
 
 
             $col  = 'id';
-$sort = array();
-foreach ($get_dispute as $i => $obj) {
-  $sort[$i] = $obj->{$col};
-}
+            $sort = array();
+            foreach ($get_dispute as $i => $obj) {
+                $sort[$i] = $obj->{$col};
+            }
 
-$sorted_db = array_multisort($sort, SORT_ASC, $get_dispute);
-
+            $sorted_db = array_multisort($sort, SORT_ASC, $get_dispute);
 
             $this->response([
             'status' => TRUE,
@@ -806,53 +800,45 @@ $sorted_db = array_multisort($sort, SORT_ASC, $get_dispute);
         else
         {
             $message = "Customer Service:
-
-We are very sorry for your dissatisfaction.
-
-However, your dispute has been successfully opened. The average processing time is 8 working days.
-
-You can chat with customer service in case you have arranged with the concerned Heelper, or if you have other information to send us.
-
-Please, note that it may take a few days to process your messages.
-
-Thank you";
+                        We are very sorry for your dissatisfaction.
+                        However, your dispute has been successfully opened. The average processing time is 8 working days.
+                        You can chat with customer service in case you have arranged with the concerned Heelper, or if you have other information to send us.
+                        Please, note that it may take a few days to process your messages.
+                        Thank you";
            
-            $get_dispute[] = array('id'=>1,'sender_id'=>4,'receiver_id'=>$user_id,'message'=>$message,'attachment_name'=>'','file_ext'=>'','mime_type'=>'','message_date_time'=>date('d-m-Y h:i:s'),'ip_address'=>'','message_type'=>'admin_message');
+            $get_dispute[] = array(
+                    'id' => 1, 
+                    'sender_id' => 4, 
+                    'receiver_id' => $user_id, 
+                    'message' => $message,'attachment_name' => '', 
+                    'file_ext' => '', 
+                    'mime_type' => '', 
+                    'message_date_time' => date('d-m-Y h:i:s'), 
+                    'ip_address' => '', 
+                    'message_type' => 'admin_message');
+            
             $this->response([
-            'status' => TRUE,
-            'message' => 'Dispute Message successfully',
-            'data' => $get_dispute
+                    'status' => TRUE,
+                    'message' => 'Dispute Message successfully',
+                    'data' => $get_dispute
             ], REST_Controller::HTTP_OK);    
         }
         
     }
 
-
-
     public function update_project_status_post()
-    {
-       
+    {     
         $project_id = strip_tags($this->post('project_id'));
-        
-$client_id = $this->ClientApiModel->getclient_iddata($project_id);
-
+        $client_id = $this->ClientApiModel->getclient_iddata($project_id);
         $project_status = array('mission_status'=>4,'status'=>4);
-
-
-        
-
            
-          $result = $this->ClientApiModel->change_project_status($project_id,$project_status);
+        $result = $this->ClientApiModel->change_project_status($project_id,$project_status);
          
- if($result)
+        if($result)
         {
-
-$taken_data = $this->ClientApiModel->gettokendata($client_id);
-
-        $this->firebase->send_notification("Your project has been moved in to Dispute",$taken_data);
-
-        $this->firebase->insertMessage(array('user_id'=>$client_id,'notification'=>"Your project has been moved in to Dispute",'demand_id'=>$project_id,'type_id'=>2));
-
+            $taken_data = $this->ClientApiModel->gettokendata($client_id);
+            $this->firebase->send_notification("Your project has been moved in to Dispute",$taken_data);
+            $this->firebase->insertMessage(array('user_id'=>$client_id,'notification'=>"Your project has been moved in to Dispute",'demand_id'=>$project_id,'type_id'=>2));
             $this->response([
             'status' => TRUE,
             'message' => 'Updated successfully',
@@ -866,7 +852,7 @@ $taken_data = $this->ClientApiModel->gettokendata($client_id);
             ], REST_Controller::HTTP_OK);    
         }
          
-}
+    }
 
 
     public function sendProjectPorgress_post()
@@ -912,38 +898,37 @@ $taken_data = $this->ClientApiModel->gettokendata($client_id);
         
         if(!empty($_FILES['project_files']['name']))
         {
- $count = count($_FILES['project_files']['name']);
-        for($i=0;$i<$count;$i++){
+            $count = count($_FILES['project_files']['name']);
+            for($i=0;$i<$count;$i++){
             
-          $_FILES['file']['name'] = $_FILES['project_files']['name'][$i];
-          $_FILES['file']['type'] = $_FILES['project_files']['type'][$i];
-          $_FILES['file']['tmp_name'] = $_FILES['project_files']['tmp_name'][$i];
-          $_FILES['file']['error'] = $_FILES['project_files']['error'][$i];
-          $_FILES['file']['size'] = $_FILES['project_files']['size'][$i];
+                $_FILES['file']['name'] = $_FILES['project_files']['name'][$i];
+                $_FILES['file']['type'] = $_FILES['project_files']['type'][$i];
+                $_FILES['file']['tmp_name'] = $_FILES['project_files']['tmp_name'][$i];
+                $_FILES['file']['error'] = $_FILES['project_files']['error'][$i];
+                $_FILES['file']['size'] = $_FILES['project_files']['size'][$i];
 
-          $config['upload_path'] = './uploads/demands_documents';
-          $config['allowed_types'] = 'gif|jpg|png|jpeg|pdf|doc|xml|docx|GIF|JPG|PNG|JPEG|PDF|DOC|XML|DOCX|xls|xlsx';
-          $config['max_size'] = 6000000;
-          $config['max_width'] = 45000;
-          $config['max_height'] = 45000;
-          //$config['file_name'] = $_FILES['post_image']['name'][$i];
+                $config['upload_path'] = './uploads/demands_documents';
+                $config['allowed_types'] = 'gif|jpg|png|jpeg|pdf|doc|xml|docx|GIF|JPG|PNG|JPEG|PDF|DOC|XML|DOCX|xls|xlsx';
+                $config['max_size'] = 6000000;
+                $config['max_width'] = 45000;
+                $config['max_height'] = 45000;
+                //$config['file_name'] = $_FILES['post_image']['name'][$i];
           
+                $this->load->library('upload', $config);
+                $this->upload->initialize($config);
+                
+                $this->upload->do_upload('file');
+                $uploadData = $this->upload->data(); 
+                $image[$i] = $uploadData['file_name'];
 
-          $this->load->library('upload', $config);
-          $this->upload->initialize($config);
-          
-         $this->upload->do_upload('file');
-         $uploadData = $this->upload->data(); 
-         $image[$i] = $uploadData['file_name'];
-
-         //$add_progress_report['image'] = $image; 
+                 //$add_progress_report['image'] = $image; 
         
-         }
+            }
           
          // $add_progress_report['image'] = implode(",", $image);
  
-         $add_progress_report['project_files'] = implode(",", $image);
-}
+            $add_progress_report['project_files'] = implode(",", $image);
+        }
 
 
 
@@ -951,33 +936,33 @@ $taken_data = $this->ClientApiModel->gettokendata($client_id);
         
         if(!empty($_FILES['project_image']['name']))
         {
-$count = count($_FILES['project_image']['name']);
-        for($i=0;$i<$count;$i++){
+            $count = count($_FILES['project_image']['name']);
+            for($i=0;$i<$count;$i++){
             
-          $_FILES['file']['name'] = $_FILES['project_image']['name'][$i];
-          $_FILES['file']['type'] = $_FILES['project_image']['type'][$i];
-          $_FILES['file']['tmp_name'] = $_FILES['project_image']['tmp_name'][$i];
-          $_FILES['file']['error'] = $_FILES['project_image']['error'][$i];
-          $_FILES['file']['size'] = $_FILES['project_image']['size'][$i];
+                $_FILES['file']['name'] = $_FILES['project_image']['name'][$i];
+                $_FILES['file']['type'] = $_FILES['project_image']['type'][$i];
+                $_FILES['file']['tmp_name'] = $_FILES['project_image']['tmp_name'][$i];
+                $_FILES['file']['error'] = $_FILES['project_image']['error'][$i];
+                $_FILES['file']['size'] = $_FILES['project_image']['size'][$i];
 
-          $config['upload_path'] = './uploads/demands_documents';
-          $config['allowed_types'] = 'gif|jpg|png|jpeg|pdf|doc|xml|docx|GIF|JPG|PNG|JPEG|PDF|DOC|XML|DOCX|xls|xlsx';
-          $config['max_size'] = 6000000;
-          $config['max_width'] = 45000;
-          $config['max_height'] = 45000;
+                $config['upload_path'] = './uploads/demands_documents';
+                $config['allowed_types'] = 'gif|jpg|png|jpeg|pdf|doc|xml|docx|GIF|JPG|PNG|JPEG|PDF|DOC|XML|DOCX|xls|xlsx';
+                $config['max_size'] = 6000000;
+                $config['max_width'] = 45000;
+                $config['max_height'] = 45000;
           //$config['file_name'] = $_FILES['post_image']['name'][$i];
           
 
-          $this->load->library('upload', $config);
-          $this->upload->initialize($config);
+                $this->load->library('upload', $config);
+                $this->upload->initialize($config);
           
-         $this->upload->do_upload('file');
-         $uploadData = $this->upload->data(); 
-         $image[$i] = $uploadData['file_name'];
+                $this->upload->do_upload('file');
+                $uploadData = $this->upload->data(); 
+                $image[$i] = $uploadData['file_name'];
 
          //$add_progress_report['image'] = $image; 
         
-         }
+            }
           
          // $add_progress_report['image'] = implode(",", $image);
  
@@ -1020,11 +1005,9 @@ $count = count($_FILES['project_image']['name']);
 
             $taken_data = $this->ClientApiModel->gettokendata($client_id);
 
-        $this->firebase->send_notification("Your project has been moved in to delivered",$taken_data);
+            $this->firebase->send_notification("Your project has been moved in to delivered",$taken_data);
 
-        $this->firebase->insertMessage(array('user_id'=>$client_id,'notification'=>"Your project has been moved in to delivered",'demand_id'=>$project_id,'type_id'=>2));
-
-
+            $this->firebase->insertMessage(array('user_id'=>$client_id,'notification'=>"Your project has been moved in to delivered",'demand_id'=>$project_id,'type_id'=>2));
              $this->response([
             'status' => TRUE,
             'message' => $result['message'],
