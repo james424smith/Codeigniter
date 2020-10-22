@@ -9,11 +9,6 @@ class Authentication extends REST_Controller {
         parent::__construct();
         $this->load->model('Api_models/LoginApiModel');
         $this->load->model(['ChatModel','OuthModel','UserModel']);
-
-        
-
-         
-
     }  
 
         /*login api  */
@@ -845,7 +840,7 @@ if($this->LoginApiModel->checkEmail($email,1))
             $email11=md5($email);
             $pass1=md5($password);
 
-            $link="<a href='http://alphawizz.com/Freelance/change_password.php?key=".$email11."&reset=".$pass1."'>Click To Reset password</a>";
+            $link="<a href='<?php echo base_url();?>change_password.php?key=".$email11."&reset=".$pass1."'>Click To Reset password</a>";
 
             $subject = "Your link to change password";
             $message = "Following is the link to change password ". $link ;

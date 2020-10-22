@@ -36,14 +36,20 @@
                                 <input type="hidden" value="client" name="role" class="form-control">
                             </div>
                             <div class="row">
-                            <div class="col-md-6 form-group">
-                            	<label><input type="radio"  class=""> Remember me</label>
-                            </div>
-                            <div class="col-md-6 loginbttm">
+                                <div class="col-md-6 form-group">
+                            	    <label><input type="radio"  class=""> Remember me</label>
+                                </div>
+                                <div class="col-md-6 loginbttm">
                                     <button type="submit" class="btn">Register</button>
+                                </div>
                             </div>
+                            <div class="row">
+                                <div class="col-md-12 form-group text-center">
+                                     <label><input type="checkbox" class="" checked><a href="<?php echo base_url('Front/home/terms_condition')?>"> I accept terms </a></label> 
+                                </div>
                             </div>
                         </form>
+                        <hr>
                         <div class="social_btn">
                         	<a class="fb" href="#">Facebook</a>
                         	<a class="google" href="#">Google</a>

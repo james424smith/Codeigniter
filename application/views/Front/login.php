@@ -25,10 +25,15 @@
                             <br>
                             <div class="row">
                                 <div class="col-md-6 form-group">
-                                     <label><input type="checkbox"  class=""> Remember me</label> 
+                                     <label><input type="radio"  class=""> Remember me</label> 
                                 </div>
                                 <div class="col-md-6 loginbttm">
                                     <button type="submit" class="btn">LOGIN</button>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12 form-group text-center">
+                                     <label><input type="checkbox" class="" checked><a href="<?php echo base_url('Front/home/terms_condition')?>"> I accept terms </a></label> 
                                 </div>
                             </div>
                         </form>
@@ -38,7 +43,7 @@
                         	<a class="fb" href="<?php echo $authURL; ?>">Facebook</a>
                         	<a class="google" href="#">Google</a>
                         </div>
-                        <p>You d'ont have an account ?<a href="<?php echo base_url('Front/home/signUp')?>">Register</a></p>
+                        <p>You don't have an account ?<a href="<?php echo base_url('Front/home/signUp')?>">Register</a></p>
                         <a class="f_pass" href="<?php echo base_url('Front/Login/reset')?>">Forgot Password</a>
                     </div>
             </div>

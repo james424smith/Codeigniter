@@ -19,13 +19,13 @@ $fetch_email= $fetch[0];
    <head>
       <title>Heelp</title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">    
-      <link rel="stylesheet" href="http://alphawizz.com/Freelance/assets/Front/css/style.css">
-      <link rel="stylesheet" href="http://alphawizz.com/Freelance/assets/Front/css/custom.css">
-      <link href="http://alphawizz.com/Freelance/assets/Front/css/bootstrap.min.css" rel="stylesheet">
-      <link rel="stylesheet" href="http://alphawizz.com/Freelance/assets/Front/fontawesome/css/all.min.css">
-      <link rel="stylesheet" type="text/css" href="http://alphawizz.com/Freelance/assets/Front/css/slick.css">
-      <link rel="stylesheet" type="text/css" href="http://alphawizz.com/Freelance/assets/Front/css/slick-theme.css">
-      <link rel="stylesheet" type="text/css" href="http://alphawizz.com/Freelance/assets/Front/css/custom.css">
+      <link rel="stylesheet" href="<?php echo base_url();?>assets/Front/css/style.css">
+      <link rel="stylesheet" href="<?php echo base_url();?>assets/Front/css/custom.css">
+      <link href="<?php echo base_url();?>assets/Front/css/bootstrap.min.css" rel="stylesheet">
+      <link rel="stylesheet" href="<?php echo base_url();?>assets/Front/fontawesome/css/all.min.css">
+      <link rel="stylesheet" type="text/css" href="<?php echo base_url();?>assets/Front/css/slick.css">
+      <link rel="stylesheet" type="text/css" href="<?php echo base_url();?>assets/Front/css/slick-theme.css">
+      <link rel="stylesheet" type="text/css" href="<?php echo base_url();?>assets/Front/css/custom.css">
   
       <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script> 
@@ -146,7 +146,7 @@ $('#action_menu_btn').click(function(){
           <div class="row">
             <div class="col-md-2">
               <div class="logo">
-                <a href="http://alphawizz.com/Freelance/Front/home"><img class="navbar-img" src="http://alphawizz.com/Freelance/assets/Front/img/heelp.png"></a>
+                <a href="<?php echo base_url();?>Front/home"><img class="navbar-img" src="<?php echo base_url();?>assets/Front/img/heelp.png"></a>
               </div>
             </div>
             <div class="col-md-8">  
@@ -160,15 +160,15 @@ $('#action_menu_btn').click(function(){
                   </label>
                 </div>                
                 <div class="nav-links">
-                  <a href="http://alphawizz.com/Freelance/Front/home">Home</a>
-                  <!-- <a href="http://alphawizz.com/Freelance/Front/about">About Us</a> -->
-                  <a href="http://alphawizz.com/Freelance/Front/home/post_demand">Post a demand</a>
-                  <a href="http://alphawizz.com/Freelance/Front/home/find_mission">Find a Mission</a>
+                  <a href="<?php echo base_url();?>Front/home">Home</a>
+                  <!-- <a href="<?php echo base_url();?>Front/about">About Us</a> -->
+                  <a href="<?php echo base_url();?>Front/home/post_demand">Post a demand</a>
+                  <a href="<?php echo base_url();?>Front/home/find_mission">Find a Mission</a>
                   <!-- <a href="#">My Demands</a> -->
-                  <!-- <a href="http://alphawizz.com/Freelance/Front/contact">Contact Us</a> -->
-                  <a href="http://alphawizz.com/Freelance/Front/Home/search">Find A heelper</a>
+                  <!-- <a href="<?php echo base_url();?>Front/contact">Contact Us</a> -->
+                  <a href="<?php echo base_url();?>Front/Home/search">Find A heelper</a>
                                       
-                      <a href="http://alphawizz.com/Freelance/Front/home/login">Log in</a>
+                      <a href="<?php echo base_url();?>Front/home/login">Log in</a>
                                    </div>
               </div>
             </div>
@@ -185,7 +185,7 @@ $('#action_menu_btn').click(function(){
                           <h3>Notifications</h3>
                         </li>
                         <li>
-                          <a href="http://alphawizz.com/Freelance/Front/Posts/Notification/1" class="hvr-bounce-to-right">
+                          <a href="<?php echo base_url();?>Front/Posts/Notification/1" class="hvr-bounce-to-right">
                               <div class="not_icon">
                                 <img src="<?php echo base_url();?>/assets/Front/img/not_icn1.png">
                                 Payments
@@ -196,7 +196,7 @@ $('#action_menu_btn').click(function(){
                           </a>
                         </li>
                         <li>
-                          <a href="http://alphawizz.com/Freelance/Front/Posts/Notification/2" class="hvr-bounce-to-right">
+                          <a href="<?php echo base_url();?>Front/Posts/Notification/2" class="hvr-bounce-to-right">
                               <div class="not_icon">
                                 <img src="<?php echo base_url();?>/assets/Front/img/not_icn2.png">
                                 <span>Missions & demands Status</span>
@@ -207,7 +207,7 @@ $('#action_menu_btn').click(function(){
                           </a>
                         </li>
                         <li>
-                          <a href="http://alphawizz.com/Freelance/Front/Posts/Notification/3" class="hvr-bounce-to-right">
+                          <a href="<?php echo base_url();?>Front/Posts/Notification/3" class="hvr-bounce-to-right">
                               <div class="not_icon">
                                 <img src="<?php echo base_url();?>/assets/Front/img/not_icn3.png">
                                 Offers
@@ -218,7 +218,7 @@ $('#action_menu_btn').click(function(){
                           </a>
                         </li>
                         <li>
-                          <a href="http://alphawizz.com/Freelance/Front/Posts/Notification/4" class="hvr-bounce-to-right">
+                          <a href="<?php echo base_url();?>Front/Posts/Notification/4" class="hvr-bounce-to-right">
                               <div class="not_icon">
                                 <img src="<?php echo base_url();?>/assets/Front/img/not_icn4.png">
                                 Messages
@@ -229,7 +229,7 @@ $('#action_menu_btn').click(function(){
                           </a>
                         </li>
                         <li>
-                          <a href="http://alphawizz.com/Freelance/Front/Posts/Notification/5" class="hvr-bounce-to-right">
+                          <a href="<?php echo base_url();?>Front/Posts/Notification/5" class="hvr-bounce-to-right">
                               <div class="not_icon">
                                 <img src="<?php echo base_url();?>/assets/Front/img/not_icn5.png">
                                 Reviews
@@ -251,7 +251,7 @@ $('#action_menu_btn').click(function(){
                                                   </li>
 
                         <li>
-                          <a href="http://alphawizz.com/Freelance/Front/home/offer" class="hvr-bounce-to-right">
+                          <a href="<?php echo base_url();?>Front/home/offer" class="hvr-bounce-to-right">
                               <div class="not_icon">
                                 <span><img src="<?php echo base_url();?>/assets/Front/img/drover2.png"></span>
                                 Promotion offer
@@ -259,7 +259,7 @@ $('#action_menu_btn').click(function(){
                           </a>
                         </li>
                         <li>
-                          <a href="http://alphawizz.com/Freelance/Front/home/my_payment" class="hvr-bounce-to-right">
+                          <a href="<?php echo base_url();?>Front/home/my_payment" class="hvr-bounce-to-right">
                               <div class="not_icon">
                                 <span><img src="<?php echo base_url();?>/assets/Front/img/drover3.png"></span>
                                 Payment
@@ -267,7 +267,7 @@ $('#action_menu_btn').click(function(){
                           </a>
                         </li>
                         <li>
-                          <a  href="http://alphawizz.com/Freelance/Front/home/support_contact" class="hvr-bounce-to-right">
+                          <a  href="<?php echo base_url();?>Front/home/support_contact" class="hvr-bounce-to-right">
                               <div class="not_icon">
                                 <span><img src="<?php echo base_url();?>/assets/Front/img/drover5.png"></span>
                                 Support
@@ -275,7 +275,7 @@ $('#action_menu_btn').click(function(){
                           </a>
                         </li>
                         <li>
-                          <a href="http://alphawizz.com/Freelance/Front/home/about_heelp" class="hvr-bounce-to-right">
+                          <a href="<?php echo base_url();?>Front/home/about_heelp" class="hvr-bounce-to-right">
                               <div class="not_icon">
                                 <span><img src="<?php echo base_url();?>/assets/Front/img/drover6.png"></span>
                                 About Heelp
@@ -294,7 +294,7 @@ $('#action_menu_btn').click(function(){
       </div>
       <!-- fixed button right side -->
       <div class="find_a_mission_top_btn">
-        <a href="http://alphawizz.com/Freelance/Front/home/find_mission" class="btn btn-default">Find a Mission</a>
+        <a href="<?php echo base_url();?>Front/home/find_mission" class="btn btn-default">Find a Mission</a>
       </div>
       <!-- fixed button right side end-->
 
@@ -308,7 +308,7 @@ $('#action_menu_btn').click(function(){
                                 
                     <form class="form-signin"  action="change_pass.php" method="post">
 						<div class="account-logo">
-                            <a href="index-2.html"><img src="http://alphawizz.com/Freelance/assets/img/logo.png" alt=""></a>
+                            <a href="index-2.html"><img src="<?php echo base_url();?>assets/img/logo.png" alt=""></a>
                         </div>
                         <div class="form-group">
                             <label>Enter Your Password</label>
@@ -319,7 +319,7 @@ $('#action_menu_btn').click(function(){
                             <button name="submit_password" class="btn btn-primary account-btn" type="submit">Reset Password</button>
                         </div>
                         <div class="text-center register-link">
-                            <a href="http://alphawizz.com/Freelance/Front/Home/login">Back to Login</a>
+                            <a href="<?php echo base_url();?>Front/Home/login">Back to Login</a>
                         </div>
                     </form>
                 </div>
@@ -327,11 +327,6 @@ $('#action_menu_btn').click(function(){
         </div>
     </div>
 </div>
-    
-
-
-
-
       <!-- footer bottom -->
       <footer id="footer-nav" class="site-footer" >
          <div class="container">
@@ -339,18 +334,18 @@ $('#action_menu_btn').click(function(){
                <div class="col-md-7">
                   <div class="footer_left_menu">
                     <ul>
-                      <li><a href="http://alphawizz.com/Freelance/Front/home/mymissions">My Missions</a></li>
-                      <li><a href="http://alphawizz.com/Freelance/Front/home/mydemands">My Demands</a></li>
-                      <li><a href="http://alphawizz.com/Freelance/Front/contact">Contact Us</a></li>
-                      <li><a href="http://alphawizz.com/Freelance/Front/home/terms_condition">Terms & Conditions</a></li>
+                      <li><a href="<?php echo base_url();?>Front/home/mymissions">My Missions</a></li>
+                      <li><a href="<?php echo base_url();?>Front/home/mydemands">My Demands</a></li>
+                      <li><a href="<?php echo base_url();?>Front/contact">Contact Us</a></li>
+                      <li><a href="<?php echo base_url();?>Front/home/terms_condition">Terms & Conditions</a></li>
                     </ul>
                   </div>
                </div>              
                <div class="col-md-5">
                   <div class="app_image">
                     <ul>
-                      <li><img src="http://alphawizz.com/Freelance/assets/Front/img/google_play.png"></li>
-                      <li><img src="http://alphawizz.com/Freelance/assets/Front/img/app_store.png"></li>
+                      <li><img src="<?php echo base_url();?>assets/Front/img/google_play.png"></li>
+                      <li><img src="<?php echo base_url();?>assets/Front/img/app_store.png"></li>
                     </ul>
                   </div>
                </div>
@@ -364,9 +359,9 @@ $('#action_menu_btn').click(function(){
       <!-- <script src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script> -->
 
      
-      <script src="http://alphawizz.com/Freelance/assets/Front/js/slick.min.js"></script>
+      <script src="<?php echo base_url();?>assets/Front/js/slick.min.js"></script>
       
-      <script src="http://alphawizz.com/Freelance/assets/Front/js/custom.js"></script>
+      <script src="<?php echo base_url();?>assets/Front/js/custom.js"></script>
         
 
       

@@ -6,7 +6,6 @@
       //$profile_url = $obj->RegisterModel->PictureUrl();
       $offer_amount = $obj->Payment_model->get_offer_amount($id);
 
-
       $get_offer_amount = $offer_amount[0]['offer_budget'];
       $get_offer_user_id = $offer_amount[0]['user_id'];
       $get_offer_project_id = $offer_amount[0]['project_id'];
@@ -25,7 +24,7 @@
 
 ?>
 <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
-<script type="text/javascript" src="http://alphawizz.com/Freelance/assets/js/payment.js"></script>
+<script type="text/javascript" src="<?php echo base_url();?>assets/js/payment.js"></script>
 
 <section>
   <div class="top_bnr section post_demand">

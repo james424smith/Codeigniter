@@ -103,7 +103,7 @@ $name = $_POST['search_name'];
             <form name="search_user" method="post">
                <input type="text" name="search_name">
                <input type="submit" name="submit" value="submit">
-               <a href="http://alphawizz.com/Freelance/chat">Reset</a>
+               <a href="<?php echo base_url();?>chat">Reset</a>
             </form>
             <ul class="users-list clearfix">
                   <?php if(!empty($vendorslist)){

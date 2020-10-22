@@ -247,7 +247,7 @@ public function singleMissionViewDetails_post()
     { 
         $mission_id = strip_tags($this->post('mission_id'));
         $single_mission = $this->ClientApiModel->getSingleMission($mission_id);
-        $upload_document_link = "http://alphawizz.com/Freelance/uploads/demands_documents/";
+        $upload_document_link = "<?php echo base_url();?>uploads/demands_documents/";
 
          for($i=0;$i<count($single_mission);$i++)
         {
@@ -531,7 +531,7 @@ $client_id = $this->ClientApiModel->getclientDetails($offer_id);
         $project_id = strip_tags($this->post('project_id'));
         //$user_id = strip_tags($this->post('user_id'));
         
-        $upload_document_link = "http://alphawizz.com/Freelance/uploads/demands_documents/";
+        $upload_document_link = "<?php echo base_url();?>uploads/demands_documents/";
 
 
         $status = $this->ClientApiModel->getProjectDetails($project_id);
@@ -562,7 +562,7 @@ public function projectDelivered_post()
         
         $project_id = strip_tags($this->post('project_id'));
         //$user_id = strip_tags($this->post('user_id'));
-        $upload_document_link = "http://alphawizz.com/Freelance/uploads/demands_documents/";
+        $upload_document_link = "<?php echo base_url();?>uploads/demands_documents/";
 
         
 
@@ -594,7 +594,7 @@ public function projectComplete_post()
         $project_id = strip_tags($this->post('project_id'));
         //$user_id = strip_tags($this->post('user_id'));
         
-        $upload_document_link = "http://alphawizz.com/Freelance/uploads/demands_documents/";
+        $upload_document_link = "<?php echo base_url();?>uploads/demands_documents/";
 
 
         $status = $this->ClientApiModel->getProjectDetails($project_id);
@@ -624,7 +624,7 @@ public function projectComplete_post()
        
         $project_id = strip_tags($this->post('project_id'));
         //$user_id = strip_tags($this->post('user_id'));
-        $upload_document_link = "http://alphawizz.com/Freelance/uploads/demands_documents/";
+        $upload_document_link = "<?php echo base_url();?>uploads/demands_documents/";
 
         
 
