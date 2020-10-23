@@ -36,6 +36,7 @@
 					 </p>
 					 <p class="budget_details_p">
 					 	<b>Budget: <?php echo $mission->budget;?></b> <i class="fas fa-euro-sign"></i>
+						<b style="color:red;">&nbsp;&nbsp;&nbsp;Offer: <?php echo $mission->mission_budget;?> <i class="fas fa-euro-sign"></i></b>
 					 </p>
 				</div>
 			</div>

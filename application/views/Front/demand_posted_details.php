@@ -181,7 +181,7 @@
 							</div>
 
 			                <div><span class="stars-container <?php echo $class_star;?>">★★★★★</span></div>
-			                <span><b>Offer:</b> <?php echo '$' . $value['offer_budget']; ?></span>
+			                <span><b>Offer:</b> <?php echo '€' . $value['offer_budget']; ?></span>
 			              	<div class="row">	
 			              		<div class="col-md-6 profile_img">
 					            	<a href="<?php echo base_url('Front/Payment/acceptoffer/')?><?php echo $value['offer_id']?>" class= "accept_offer_btn">Accept Offer</a>

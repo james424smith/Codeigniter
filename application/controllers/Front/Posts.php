@@ -111,6 +111,7 @@ class Posts extends CI_Controller
         );
       }
 
+        //var_dump($this->input->post('offer_budget'));die();
  		    $this->load->model('Front/Posts_model');
         if($this->Posts_model->checkMission($project_data))
         {
@@ -119,7 +120,7 @@ class Posts extends CI_Controller
             //$this->load->view('Front/make_an_offer');
             return null;
         }
-        $this->Posts_model->mission($project_data, $update_mission_record);
+        $this->Posts_model->mission($project_data);
         redirect('Front/home/mymissions');
       }
       else{
@@ -278,16 +279,17 @@ class Posts extends CI_Controller
         }
       }
        public function delivered_pay_demand(){
-        $date_created = date('Y-m-d H:i:s');
-         $project_data = array(
-           'mission_id' => $this->input->post('mission_id'),
-           'mission_amount' => $this->input->post('mission_amount'),
-           'amount_to_pay' => $this->input->post('amount_to_pay'),          
-          'pay_status' => $this->input->post('pay_status'),
-          'date_created' => $date_created,
-          'mission_status' =>  $this->input->post('mission_status'),
-          'employer_id' =>  $this->input->post('employer_id'),
-          'date_of_pay' =>  date('Y-m-d H:i:s'),
+          $date_created = date('Y-m-d H:i:s');
+          
+          $project_data = array(
+            'mission_id' => $this->input->post('mission_id'),
+            'mission_amount' => $this->input->post('mission_amount'),
+            'amount_to_pay' => $this->input->post('amount_to_pay'),          
+            'pay_status' => $this->input->post('pay_status'),
+            'date_created' => $date_created,
+            'mission_status' =>  $this->input->post('mission_status'),
+            'employer_id' =>  $this->input->post('employer_id'),
+            'date_of_pay' =>  date('Y-m-d H:i:s'),
 
          );  
          //print_r( $project_data);die();

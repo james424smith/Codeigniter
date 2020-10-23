@@ -1,20 +1,16 @@
 <?php $this->load->view('Front/common/header');  ?>
 <?php
-$obj=&get_instance();
-$obj->load->model('Front/Posts_model');
-$id =$this->uri->segment(4);
+	$obj = &get_instance();
+	$obj->load->model('Front/Posts_model');
+	$id = $this->uri->segment(4);
 //$profile_url = $obj->RegisterModel->PictureUrl();
-$mission=$this->db->query("select * from mission  where mission_id=".$id)->row();
-$comment=$this->db->query("select project_status.*,users.picture_url from project_status INNER JOIN users ON project_status.user_id =users.id where project_id=".$id. " order by id desc")->row();
-
-//print_r($user);die();
-
-$amount_12 =($mission->mission_budget*12)/100;
-
-        $amount_with_tax = $get_offer_amount+0.25;
-
-        $total_amount = round($amount_with_tax + $amount_12);
-
+	$mission = $this->db->query("select * from mission  where mission_id=".$id)->row();
+	$comment = $this->db->query("select project_status.*,users.picture_url from project_status INNER JOIN users ON project_status.user_id =users.id where project_id=".$id. " order by id desc")->row();
+	
+	$amount_12 = ($mission->mission_budget * 12) / 100;
+	$amount_with_tax = $get_offer_amount + 0.25;
+	$total_amount = $mission->mission_budget + $amount_with_tax + $amount_12;
+	//var_dump($total_amount);die();
 ?> 
 
 <section>
@@ -43,7 +39,8 @@ $amount_12 =($mission->mission_budget*12)/100;
 						<!-- <a href="#">File Name <i class="fas fa-download"></i></a> -->
 					</div>
 					 <p class="budget_details_p">
-					 	<b>Budget: <?php echo $mission->mission_budget;?></b> <i class="fas fa-euro-sign"></i>
+					 	<b>Budget: <?php echo $mission->budget;?></b> <i class="fas fa-euro-sign"></i>
+						<b style="color:red;">&nbsp;&nbsp;&nbsp;Offer: <?php echo $mission->mission_budget;?> <i class="fas fa-euro-sign"></i></b>
 					 </p>
 				</div>
 				<div class="demand_check_box">
@@ -57,9 +54,7 @@ $amount_12 =($mission->mission_budget*12)/100;
 							</li> 
 							
 						</ul>
-					</div>
-					
-				
+					</div>				
 			</div>
 			<div class="col-md-6">
 				<div class="row post_demand_inner_row">
@@ -87,10 +82,9 @@ $amount_12 =($mission->mission_budget*12)/100;
 					</div>
 					<?php if($comment->project_files){
 
-$project_files_test = explode(",", $comment->project_files);
-foreach ($project_files_test as $value) {
+						  $project_files_test = explode(",", $comment->project_files);
+						foreach ($project_files_test as $value) {
 	# code...
-
 						?>
 					<div class="demand_details_upload_btn">
 						<a href="<?php if($value){ echo base_url()?>Front/Posts/download/<?php echo $value;}
@@ -137,7 +131,6 @@ foreach ($project_files_test as $value) {
 					</div>
 					<button type="submit" class="btn btn-default">Retour</button>
 				</form>
-
 				<!-- <a href="#" class="btn btn-default">Retour</a> -->
 			</div>
 	    </div>                
@@ -169,7 +162,7 @@ foreach ($project_files_test as $value) {
 						<input type="hidden" name="mission_id" value="<?php echo $mission->mission_id ?>">
 						<input type="hidden" name="employer_id" value="<?php echo $mission->user_id ?>">	
 
-<table class="table table-bordered">
+					<table class="table table-bordered">
                       <thead>
                         
                       </thead>
@@ -194,9 +187,6 @@ foreach ($project_files_test as $value) {
                         </tr>
                       </tfoot>
                     </table>
-
-
-
 					</div>
 					<button type="submit" class="btn btn-default">Submit</button>
 				</form>

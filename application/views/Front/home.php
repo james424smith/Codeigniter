@@ -120,7 +120,7 @@
                         <p class="cat_date"><?php echo round($datediff / (60 * 60 * 24)); ?>days ago</p>
                         <h5><?php echo $row->mission_title ?></h5>
 					              <p><?php echo $row->description ?></p>
-					              <span><b>Budget:</b> <?php echo '$' . $row->budget ?></span>
+					              <span><b>Budget:</b> <?php echo '€' . $row->budget ?></span>
                         <div class="row">
                           <div class="col-md-12 make_btn">
                             <a href="<?php

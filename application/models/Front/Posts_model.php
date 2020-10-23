@@ -117,7 +117,16 @@ class Posts_model extends CI_Model
     }
     public function mission($project_data){
 
-        $this->db->insert('project_offer', $project_data);    
+        $this->db->insert('project_offer', $project_data);
+        //var_dump($project_data);die();
+        $update_data = array(
+            'mission_budget' => $project_data['offer_budget']
+        );
+        //var_dump($update_data);die();
+        $this->db->where('mission_id', $project_data['project_id']);
+        $this->db->where('client_id', $project_data['client_id']);
+        $this->db->update('mission', $update_data);
+        //var_dump($status);die();
         return true;
     }
     public function fetchofferedmission($user_id)
@@ -268,7 +277,7 @@ class Posts_model extends CI_Model
             return true;
         }
 
-        public function deliver_askmodify($data,$mission_id){
+        public function deliver_askmodify($data, $mission_id){
             //print_r($mission_id);die();
 
             $this->db->set($data);
@@ -279,12 +288,31 @@ class Posts_model extends CI_Model
 
         }
         public function deliver_paym_demand ($project_data){
-            $status = $this->db->insert('withdrawpayment',$project_data);
+
+            $status = $this->db->insert('withdrawpayment', $project_data);
 
             if($status) {
                 $this->db->set('mission_status', 3);
                 $this->db->where('mission_id', $project_data['mission_id']);
                 $status = $this->db->update('mission');
+                
+                $this->db->select("*");
+                $this->db->from('mission'); 
+                $this->db->where('mission_id', $project_data['mission_id']);
+                $mission = $this->db->get()->row();
+                
+                $this->db->select("*");
+                $this->db->from('users'); 
+                $this->db->where('id', $mission->accepted_by);
+                $accepted_user = $this->db->get()->row();
+
+                //var_dump($mission);die();
+               
+                $ballence = $accepted_user->Current_Balance + $mission->mission_budget * 88 / 100;
+                //var_dump($mission->offer_budget);die();
+                $this->db->set('Current_Balance', $ballence);
+                $this->db->where('id', $mission->accepted_by);
+                $status = $this->db->update('users');
                 return true;
             }
             else {

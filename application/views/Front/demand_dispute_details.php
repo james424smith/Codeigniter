@@ -1,16 +1,16 @@
 <?php $this->load->view('Front/common/header');  ?>
 <?php
-$obj=&get_instance();
-$obj->load->model('Front/Posts_model');
-$id =$this->uri->segment(4);
-//$profile_url = $obj->RegisterModel->PictureUrl();
-$mission=$this->db->query("select mission.*,users.picture_url from mission inner join users on mission.accepted_by=users.id  where mission.mission_id=".$id)->row();
-$comment=$this->db->query("select project_status.* from project_status where project_id=".$id . " order by id desc")->row();
-/*echo "select project_status.* from project_status where project_id=".$id . " order by id desc";
-exit();*/
+	$obj = &get_instance();
+	$obj->load->model('Front/Posts_model');
+	$id = $this->uri->segment(4);
+	//$profile_url = $obj->RegisterModel->PictureUrl();
+	$mission = $this->db->query("select mission.*,users.picture_url from mission inner join users on mission.accepted_by=users.id  where mission.mission_id=".$id)->row();
+	$comment = $this->db->query("select project_status.* from project_status where project_id=".$id . " order by id desc")->row();
+	/*echo "select project_status.* from project_status where project_id=".$id . " order by id desc";
+	exit();*/
 
 
-//print_r($user);die();
+	//print_r($user);die();
 
 ?> 
 
@@ -40,7 +40,9 @@ exit();*/
 						<!-- <a href="#">File Name <i class="fas fa-download"></i></a> -->
 					</div>
 					 <p class="budget_details_p">
-					 	<b>Budget: <?php echo $mission->mission_budget;?></b> <i class="fas fa-euro-sign"></i>
+					 	<b>Budget: <?php echo $mission->budget;?></b> <i class="fas fa-euro-sign"></i>
+						<b style="color:red;">&nbsp;&nbsp;&nbsp;Offer: <?php echo $mission->mission_budget;?> <i class="fas fa-euro-sign"></i></b>
+
 					 </p>
 				</div>
 				<div class="demand_check_box">

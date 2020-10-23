@@ -296,8 +296,8 @@ $('#action_menu_btn').click(function(){
                             <?php }?>
                           </div>
                           <div class="profile_dtls">
-                                <h4><?=empty($user['username'])?'':$user['username']?></h4>
-                                <p><?=empty($user['skills'])?'':$user['skills']?></p>
+                                <h4><?=empty($user['username']) ? '' : $user['username'] ?></h4>
+                                <p><b><?= $user['Current_Balance'] ?></b> <i class="fas fa-euro-sign"></i></p>
                           </div>
                           <a class="prfl_btn" href="<?php echo base_url('Front/home/my_profile')?>">View Profile</a>
                           <a class="my_demands" href="<?php echo base_url('Front/home/mydemands')?>">My demands</a>
