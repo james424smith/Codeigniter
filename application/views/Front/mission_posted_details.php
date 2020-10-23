@@ -77,7 +77,7 @@
   <div class="top_bnr section post_demand">
     <div class="container">
       <div class="top-side about_title">
-          <h4 class="title">Posted</h4>
+          <h4 class="title">Proposed</h4>
         </div>
     </div>
   </div>
