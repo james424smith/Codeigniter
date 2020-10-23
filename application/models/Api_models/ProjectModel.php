@@ -157,7 +157,7 @@ public function updateacceptby($project_id,$user_id)
 
   public function addOfferToProject($data)
   {
-    $this->db->insert('Project_offer',$data);
+    $this->db->insert('project_offer',$data);
     if($this->db->affected_rows() > 0)
     {
       return true;
@@ -171,7 +171,7 @@ public function updateacceptby($project_id,$user_id)
 
   public function addAcceptOffer($data)
   {
-    $this->db->insert('Project_offer',$data);
+    $this->db->insert('project_offer',$data);
     if($this->db->affected_rows() > 0)
     {
       return true;

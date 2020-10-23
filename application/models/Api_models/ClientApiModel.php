@@ -8,7 +8,7 @@ class ClientApiModel extends CI_Model
         $this->demand_table_name = 'publishDemand';
 
         $this->bidding_table_name = 'project_bidding';
-        $this->project_offer_table_name = 'Project_offer';
+        $this->project_offer_table_name = 'project_offer';
 
         $this->user_table_name = 'users';
         $this->terms = 'terms';
@@ -291,7 +291,7 @@ $this->db->order_by('mission.mission_id', 'DESC');
       $this->db->join('users','mission.user_id = users.id');
 
       $this->db->join('project_category','mission.mission_category = project_category.project_id');
-      //$this->db->join('Project_offer','mission.mission_id = Project_offer.user_id');
+      //$this->db->join('project_offer','mission.mission_id = project_offer.user_id');
       if($status!=0)
       {
         $this->db->where('mission.accepted_by',$user_id);
@@ -299,7 +299,7 @@ $this->db->order_by('mission.mission_id', 'DESC');
       $this->db->where('mission.mission_status',$status);
       $this->db->where_in('mission.mission_id',$myofferedmission);
 
-      //$this->db->where('Project_offer.accepted_by',$user_id);
+      //$this->db->where('project_offer.accepted_by',$user_id);
     $this->db->order_by('mission.mission_id', 'DESC');
 if($myofferedmission)
 {
@@ -317,7 +317,7 @@ else{
 public function fetchofferedmission($user_id)
     {
       $this->db->select("project_id");
-      $this->db->from('Project_offer');
+      $this->db->from('project_offer');
       $this->db->where('user_id',$user_id);
       $offered_id_array = $this->db->get()->result();
       foreach ($offered_id_array as $value) {
@@ -333,11 +333,11 @@ $test_offer[] = $value->project_id;
 
     public function fetchMyMissionbidById($bid_id)
     {
-      $this->db->select("Project_offer.offer_id,Project_offer.message,Project_offer.offer_budget,Project_offer.project_id,Project_offer.user_id,Project_offer.client_id,Project_offer.created_date,mission.mission_id,mission.client_id,mission.mission_title,mission.mission_description,mission.mission_budget,mission.mission_category,mission.mission_image,mission.mission_doc,project_category.title as category_title,project_category.picture_url as category_image,project_category.description as category_description,DATEDIFF(NOW(), mission.created) as duration");
-      $this->db->from('Project_offer');
-      $this->db->join('mission','Project_offer.project_id = mission.mission_id');
+      $this->db->select("project_offer.offer_id,project_offer.message,project_offer.offer_budget,project_offer.project_id,project_offer.user_id,project_offer.client_id,project_offer.created_date,mission.mission_id,mission.client_id,mission.mission_title,mission.mission_description,mission.mission_budget,mission.mission_category,mission.mission_image,mission.mission_doc,project_category.title as category_title,project_category.picture_url as category_image,project_category.description as category_description,DATEDIFF(NOW(), mission.created) as duration");
+      $this->db->from('project_offer');
+      $this->db->join('mission','project_offer.project_id = mission.mission_id');
       $this->db->join('project_category','mission.mission_category = project_category.project_id');
-      $this->db->where('Project_offer.project_id',$bid_id);
+      $this->db->where('project_offer.project_id',$bid_id);
 
       return $this->db->get()->result();
 
@@ -346,12 +346,12 @@ $test_offer[] = $value->project_id;
 
 public function fetchMyDemandbidById($bid_id)
     {
-      $this->db->select("Project_offer.offer_id,Project_offer.message,Project_offer.project_id,Project_offer.offer_budget,Project_offer.user_id,,Project_offer.created_date,mission.mission_id,mission.mission_title,mission.mission_budget,mission.mission_category,mission.mission_image,users.picture_url,users.Profile_Rate,DATEDIFF(NOW(), Project_offer.created_date) as duration");
-      $this->db->from('Project_offer');
-      $this->db->join('mission','Project_offer.project_id = mission.mission_id');
-      $this->db->join('users','Project_offer.user_id = users.id');
+      $this->db->select("project_offer.offer_id,project_offer.message,project_offer.project_id,project_offer.offer_budget,project_offer.user_id,,project_offer.created_date,mission.mission_id,mission.mission_title,mission.mission_budget,mission.mission_category,mission.mission_image,users.picture_url,users.Profile_Rate,DATEDIFF(NOW(), project_offer.created_date) as duration");
+      $this->db->from('project_offer');
+      $this->db->join('mission','project_offer.project_id = mission.mission_id');
+      $this->db->join('users','project_offer.user_id = users.id');
       //$this->db->join('project_category','mission.mission_category = project_category.project_id');
-      $this->db->where('Project_offer.project_id',$bid_id);
+      $this->db->where('project_offer.project_id',$bid_id);
 
       return $this->db->get()->result();
 
@@ -359,25 +359,25 @@ public function fetchMyDemandbidById($bid_id)
 
     public function fetchMyDemandbidBybudget($bid_id)
     {
-      $this->db->select("Project_offer.offer_id,Project_offer.message,Project_offer.project_id,Project_offer.offer_budget,Project_offer.user_id,,Project_offer.created_date,mission.mission_id,mission.mission_title,mission.mission_budget,mission.mission_category,mission.mission_image,users.picture_url,users.Profile_Rate,DATEDIFF(NOW(), Project_offer.created_date) as duration");
-      $this->db->from('Project_offer');
-      $this->db->join('mission','Project_offer.project_id = mission.mission_id');
-      $this->db->join('users','Project_offer.user_id = users.id');
+      $this->db->select("project_offer.offer_id,project_offer.message,project_offer.project_id,project_offer.offer_budget,project_offer.user_id,,project_offer.created_date,mission.mission_id,mission.mission_title,mission.mission_budget,mission.mission_category,mission.mission_image,users.picture_url,users.Profile_Rate,DATEDIFF(NOW(), project_offer.created_date) as duration");
+      $this->db->from('project_offer');
+      $this->db->join('mission','project_offer.project_id = mission.mission_id');
+      $this->db->join('users','project_offer.user_id = users.id');
       //$this->db->join('project_category','mission.mission_category = project_category.project_id');
-      $this->db->where('Project_offer.project_id',$bid_id);
-    $this->db->order_by('Project_offer.offer_budget', 'ASC');
+      $this->db->where('project_offer.project_id',$bid_id);
+    $this->db->order_by('project_offer.offer_budget', 'ASC');
       return $this->db->get()->result();
 
     }
 public function fetchMyDemandbidByDate($bid_id)
     {
-      $this->db->select("Project_offer.offer_id,Project_offer.message,Project_offer.project_id,Project_offer.offer_budget,Project_offer.user_id,Project_offer.created_date,mission.mission_id,mission.mission_title,mission.mission_budget,mission.mission_category,mission.mission_image,users.picture_url,users.Profile_Rate,DATEDIFF(NOW(), Project_offer.created_date) as duration");
-      $this->db->from('Project_offer');
-      $this->db->join('mission','Project_offer.project_id = mission.mission_id');
-      $this->db->join('users','Project_offer.user_id = users.id');
+      $this->db->select("project_offer.offer_id,project_offer.message,project_offer.project_id,project_offer.offer_budget,project_offer.user_id,project_offer.created_date,mission.mission_id,mission.mission_title,mission.mission_budget,mission.mission_category,mission.mission_image,users.picture_url,users.Profile_Rate,DATEDIFF(NOW(), project_offer.created_date) as duration");
+      $this->db->from('project_offer');
+      $this->db->join('mission','project_offer.project_id = mission.mission_id');
+      $this->db->join('users','project_offer.user_id = users.id');
       //$this->db->join('project_category','mission.mission_category = project_category.project_id');
-      $this->db->where('Project_offer.project_id',$bid_id);
-    $this->db->order_by('Project_offer.created_date', 'DESC');
+      $this->db->where('project_offer.project_id',$bid_id);
+    $this->db->order_by('project_offer.created_date', 'DESC');
       return $this->db->get()->result();
 
     }
@@ -404,9 +404,9 @@ public function getusersDetails($client_id)
 
 
       $this->db->distinct();
-      $this->db->select("Project_offer.project_id");
-      $this->db->from('Project_offer');
-      $this->db->where('Project_offer.user_id',$client_id);
+      $this->db->select("project_offer.project_id");
+      $this->db->from('project_offer');
+      $this->db->where('project_offer.user_id',$client_id);
 
       $mission_ids = $this->db->get()->result();
 
@@ -460,10 +460,10 @@ if($mission_ids)
       
 
       $this->db->distinct();
-      $this->db->select("Project_offer.user_id");
-      $this->db->from('Project_offer');
-      //$this->db->where('Project_offer.project_id',$client_id);
-  $this->db->where_in('Project_offer.project_id',$mission_ids2);
+      $this->db->select("project_offer.user_id");
+      $this->db->from('project_offer');
+      //$this->db->where('project_offer.project_id',$client_id);
+  $this->db->where_in('project_offer.project_id',$mission_ids2);
       //$this->db->where('mission.mission_id',$client_id);
 $emp_user = $this->db->get()->result();
 
@@ -559,26 +559,26 @@ $ar_meregee = array_map('json_decode', $ar_meregee);*/
 
     public function fetchMyDemandByStatusId($user_id,$status)
     {
-/*$this->db->select("mission.mission_id as id,mission.description,mission.mission_title,mission.mission_status,mission.created as date,CONCAT(users.first_name,' ',users.last_name) as Fullname,project_category.picture_url as category_image,project_category.title as category_title,Project_offer.user_id as client_id ");*/
+/*$this->db->select("mission.mission_id as id,mission.description,mission.mission_title,mission.mission_status,mission.created as date,CONCAT(users.first_name,' ',users.last_name) as Fullname,project_category.picture_url as category_image,project_category.title as category_title,project_offer.user_id as client_id ");*/
 
 if($status == 0){
 $this->db->select("mission.mission_id as id,mission.description,mission.mission_title,mission.mission_status,mission.created as date,CONCAT(users.first_name,' ',users.last_name) as Fullname,project_category.picture_url as category_image,project_category.title as category_title ");
 }
 else
 {
-  $this->db->select("mission.mission_id as id,mission.description,mission.mission_title,mission.mission_status,mission.created as date,CONCAT(users.first_name,' ',users.last_name) as Fullname,project_category.picture_url as category_image,project_category.title as category_title,Project_offer.user_id as client_id ");
+  $this->db->select("mission.mission_id as id,mission.description,mission.mission_title,mission.mission_status,mission.created as date,CONCAT(users.first_name,' ',users.last_name) as Fullname,project_category.picture_url as category_image,project_category.title as category_title,project_offer.user_id as client_id ");
 }
 
 $this->db->from('mission');
 $this->db->join('users','mission.client_id = users.id');
 if($status != 0){
-$this->db->join('Project_offer','mission.mission_id = Project_offer.project_id');
+$this->db->join('project_offer','mission.mission_id = project_offer.project_id');
 }
 $this->db->join('project_category','mission.project_category = project_category.project_id');
 $this->db->where('mission.mission_status',$status);
 $this->db->where('mission.client_id',$user_id);
 if($status != 0){
-$this->db->where('Project_offer.accept_status',1);
+$this->db->where('project_offer.accept_status',1);
 }
 $this->db->order_by('mission.mission_id', 'DESC');
 
@@ -634,7 +634,7 @@ exit();*/
      public function getclientDetails($id)
     {
       $this->db->select("user_id");
-      $this->db->from('Project_offer');
+      $this->db->from('project_offer');
       $this->db->where('offer_id',$id);
       $data = $this->db->get()->result();
 
@@ -899,9 +899,9 @@ exit();*/
 
     public function missionAmount($mission_id)
     {
-      $this->db->select("mission.mission_id,Project_offer.offer_budget as mission_budget,mission.bank_fee");
+      $this->db->select("mission.mission_id,project_offer.offer_budget as mission_budget,mission.bank_fee");
       $this->db->from('mission');
-      $this->db->join('Project_offer','mission.mission_id = Project_offer.project_id');
+      $this->db->join('project_offer','mission.mission_id = project_offer.project_id');
       $this->db->where('mission.mission_id',$mission_id);
       $data = $this->db->get()->result();
       return $data;
@@ -1313,9 +1313,9 @@ public function update_wallet_amount($user_id,$data)
     {
 
 
-      $this->db->select("mission.mission_id,Project_offer.offer_budget");
+      $this->db->select("mission.mission_id,project_offer.offer_budget");
       $this->db->from('mission');
-      $this->db->join('Project_offer','mission.mission_id= Project_offer.project_id');
+      $this->db->join('project_offer','mission.mission_id= project_offer.project_id');
       $this->db->where('mission_id',$id);
       $this->db->where('mission.accepted_by != ', 0);
 
@@ -1329,9 +1329,9 @@ public function get_mission_budget($id)
     {
 
 
-      $this->db->select("mission.mission_id,Project_offer.offer_budget,mission.budget");
+      $this->db->select("mission.mission_id,project_offer.offer_budget,mission.budget");
       $this->db->from('mission');
-      $this->db->join('Project_offer','mission.mission_id= Project_offer.project_id');
+      $this->db->join('project_offer','mission.mission_id= project_offer.project_id');
       $this->db->where('mission_id',$id);
       $this->db->where('mission.accepted_by != ', 0);
 

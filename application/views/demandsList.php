@@ -101,7 +101,7 @@ echo $data[0]->email;?>
                      <td><?php echo $user->budget; ?></td>
 <td>
 <?php $this->db->select("offer_budget");
-$this->db->from("Project_offer");
+$this->db->from("project_offer");
 $this->db->where('project_id', $user->mission_id);
 $this->db->where('user_id', $user->accepted_by);
 $data = $this->db->get()->result();
@@ -110,7 +110,7 @@ echo $data[0]->offer_budget; ?></td><!-- <td><?php echo $user->offer_budget; ?><
 <td><?php 
 
 $this->db->select("offer_budget");
-$this->db->from("Project_offer");
+$this->db->from("project_offer");
 $this->db->where('project_id', $user->mission_id);
 $this->db->where('user_id', $user->accepted_by);
 
