@@ -220,19 +220,46 @@ $this->load->model('Front/Payment_model');
 
       } 
       public function payment_card_details(){
-        
+        //var_dump("ddd");die();
         $this->load->view('Front/card_details');
-
-
       } 
 
       public function payment_success(){
         
-        $get_offer_user_id = $this->input->post('get_offer_user_id');
-        $get_offer_project_id = $this->input->post('get_offer_project_id');
+        $is_wallet = $this->input->post('wallet');
         
-        //echo $get_offer_user_id . ', ' . $get_offer_project_id; die();
-        $this->load->view('Front/payment_success');
+        if($is_wallet == 1)
+        {
+          $this->load->model("Front/User");
+          $self_user = $this->User->getSelfUser();          
+          $offer_id = $this->input->post('offer_id');
+          $total_amount = $this->input->post('total_amount') + 0;
+          //var_dump($total_amount);die();
+          if($self_user[0]['Current_Balance'] < $total_amount)
+          {
+            $this->session->set_flashdata('lack_wallet', 'Your balance is not enough to pay.');
+            redirect('Front/Payment/acceptoffer/' . $offer_id);
+          }
+          else
+          {
+              $balance = $self_user[0]['Current_Balance'] - $total_amount;
+
+              $this->load->model('Front/Payment_model');
+              $this->Payment_model->paid_by_wallet($balance);
+              
+              $this->session->set_flashdata('wallet_pay_success', 'paid successfully.');
+              $this->load->view('Front/payment_success');
+          }
+
+        }
+
+        else 
+        {
+          $get_offer_user_id = $this->input->post('get_offer_user_id');
+          $get_offer_project_id = $this->input->post('get_offer_project_id');
+
+          $this->load->view('Front/payment_success');
+        }
       } 
 
  public function delivered_demand(){
@@ -258,9 +285,9 @@ $this->load->model('Front/Payment_model');
         $user_id = strip_tags($this->input->post('user_id'));
         $name = strip_tags($this->input->post('name'));
         //$user_id = strip_tags($this->post('user_id'));
-                $expiry_month = strip_tags($this->input->post('expiry_month'));
+        $expiry_month = strip_tags($this->input->post('expiry_month'));
         $expiry_year = strip_tags($this->input->post('expiry_year'));
-       $expiry = $expiry_month . "/" . $expiry_year;
+        $expiry = $expiry_month . "/" . $expiry_year;
 
 
         $add_card_details = array('card_no'=>$card_no,'date_created'=>$date_created,'user_id'=>$user_id,'name'=>$name,'expiry'=>$expiry);

@@ -4,8 +4,8 @@
 	$obj->load->model('Front/Posts_model');
 	$id = $this->uri->segment(4);
 //$profile_url = $obj->RegisterModel->PictureUrl();
-$mission=$this->db->query("select * from mission  where mission_id=".$id)->row();
-$comment=$this->db->query("select project_status.*,users.picture_url from project_status INNER JOIN users ON project_status.user_id =users.id where project_id=".$id . " order by id desc")->row();
+	$mission = $this->db->query("select * from mission  where mission_id=".$id)->row();
+	$comment = $this->db->query("select project_status.*,users.picture_url from project_status INNER JOIN users ON project_status.user_id =users.id where project_id=".$id . " order by id desc")->row();
 
 //print_r($user);die();
 

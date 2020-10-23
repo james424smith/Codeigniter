@@ -1,7 +1,9 @@
 <?php $this->load->view('Front/common/header');  ?>
 <?php
-  $obj = &get_instance();
-  $obj->load->model('Front/Payment_model');
+    $obj = &get_instance();
+    $obj->load->model('Front/Payment_model');
+
+    //var_dump($_POST['offer_user_id']);die();
 //check if stripe token exist to proceed with payment
   if(!empty($_POST['stripeToken'])){
     // get token and user details
@@ -42,18 +44,18 @@
     $orderID = "Heelporidd" . $get_offer_project_id;    
     // details for which payment performed
     $payDetails = \Stripe\Charge::create(array(
-        'customer' => $customer->id,
-        'amount'   => $itemPrice,
-        'currency' => $currency,
-        'description' => $itemName,
-        'metadata' => array(
-            'order_id' => $orderID
+         'customer' => $customer->id,
+         'amount'   => $itemPrice,
+         'currency' => $currency,
+         'description' => $itemName,
+         'metadata' => array(
+         'order_id' => $orderID
         )
     ));    
     // get payment details
     $paymenyResponse = $payDetails->jsonSerialize();
     // check whether the payment is successful
-    if($paymenyResponse['amount_refunded'] == 0 && empty($paymenyResponse['failure_code']) && $paymenyResponse['paid'] == 1 && $paymenyResponse['captured'] == 1){
+    if($paymenyResponse['amount_refunded'] == 0 && empty($paymenyResponse['failure_code']) && $paymenyResponse['paid'] == 1 && $paymenyResponse['captured'] == 1) {
         // transaction details 
         $amountPaid = $paymenyResponse['amount'];
         $balanceTransaction = $paymenyResponse['balance_transaction'];
@@ -61,7 +63,7 @@
         $paymentStatus = $paymenyResponse['status'];
         $paymentDate = date("Y-m-d H:i:s");        
         //insert tansaction details into database
-    //include_once("db_connect.php");
+        //include_once("db_connect.php");
         
     
        //if order inserted successfully
@@ -69,18 +71,31 @@
             $paymentMessage = "<strong>The payment was successful.</strong><strong> Order ID: {$lastInsertId}</strong>";
 
             $add_demand = array('sent_from'=>$user1_id,'sent_to'=>$get_offer_user_id,'amount'=>$get_offer_amount,'tra_id'=>$balanceTransaction,'created_date'=>$date_created,'username'=>$offer_username,'project_title'=>$get_offer_mission_name,'mission_id'=>$get_offer_project_id);
-//$offer_amount=$obj->Payment_model->get_offer_amount($id);
+            //$offer_amount=$obj->Payment_model->get_offer_amount($id);
             $result = $obj->Payment_model->inserransection($add_demand);
             $status = $obj->Payment_model->acceptOfferafter($get_offer_project_id, $get_offer_user_id);
 
-       } else{
+       } 
+       else{
           $paymentMessage = "Payment failed!";
        }
-    } else{
+    } 
+    else{
         $paymentMessage = "Payment failed!";
     }
-} else{
+} 
+else{
     $paymentMessage = "Payment failed!";
+}
+
+if($this->session->flashdata('wallet_pay_success'))
+{
+  $paymentMessage = "<strong>The payment was successful.</strong><strong> Order ID: {$lastInsertId}</strong>";
+
+  $mission_id = $_POST['mission_id'];
+  $offer_user_id = $_POST['offer_user_id'];
+  $status = $obj->Payment_model->acceptOfferafter($mission_id, $offer_user_id);
+
 }
 //echo $paymentMessage;
 

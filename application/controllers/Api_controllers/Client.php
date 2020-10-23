@@ -1,8 +1,8 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+    defined('BASEPATH') OR exit('No direct script access allowed');
 // Load the Rest Controller library
-require(APPPATH.'/libraries/REST_Controller.php');
-require(APPPATH.'/libraries/stripe/vendor/autoload.php');
+    require(APPPATH.'/libraries/REST_Controller.php');
+    require(APPPATH.'/libraries/stripe/vendor/autoload.php');
 
 class Client extends REST_Controller 
 {
@@ -87,7 +87,7 @@ class Client extends REST_Controller
         
     }
 
-public function findMissionListbyid_post()
+    public function findMissionListbyid_post()
     {
         $client_id=strip_tags($this->post('client_id'));
         $category_id=strip_tags($this->post('category_id'));
@@ -162,7 +162,7 @@ public function findMissionListbyid_post()
 
 
 
-public function myMissionbidbyid_post()
+    public function myMissionbidbyid_post()
     {
         $mission_id = strip_tags($this->post('mission_id'));
         $mission_by_bid = $this->ClientApiModel->fetchMyMissionbidById($mission_id);

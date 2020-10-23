@@ -6,6 +6,7 @@
       //$profile_url = $obj->RegisterModel->PictureUrl();
       $offer_amount = $obj->Payment_model->get_offer_amount($id);
 
+
       $get_offer_amount = $offer_amount[0]['offer_budget'];
       $get_offer_user_id = $offer_amount[0]['user_id'];
       $get_offer_project_id = $offer_amount[0]['project_id'];
@@ -16,15 +17,15 @@
       $offer_mission_name = $obj->Payment_model->get_mission_name($get_offer_project_id);
       $get_offer_mission_name = $offer_mission_name[0]['mission_title'];
 
-      $amount_12 = ($get_offer_amount*12)/100;
+      $amount_12 = ($get_offer_amount * 12) / 100;
 
-      $amount_with_tax = $get_offer_amount+0.25;
+      $amount_with_tax = $get_offer_amount + 0.25;
 
       $total_amount = round($amount_with_tax + $amount_12);
 
 ?>
 <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
-<script type="text/javascript" src="<?php echo base_url();?>assets/js/payment.js"></script>
+<script type="text/javascript" src="http://alphawizz.com/Freelance/assets/js/payment.js"></script>
 
 <section>
   <div class="top_bnr section post_demand">

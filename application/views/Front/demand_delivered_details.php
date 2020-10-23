@@ -82,10 +82,10 @@
 					</div>
 					<?php if($comment->project_files){
 
-						  $project_files_test = explode(",", $comment->project_files);
+						$project_files_test = explode(",", $comment->project_files);
 						foreach ($project_files_test as $value) {
-	# code...
-						?>
+
+					?>
 					<div class="demand_details_upload_btn">
 						<a href="<?php if($value){ echo base_url()?>Front/Posts/download/<?php echo $value;}
 								else { ?>#<?php }?>"><?php echo $value ?> <i class="fas fa-download"></i></a>
@@ -93,7 +93,7 @@
 					</div>
 				<?php } } }
 			else{ ?>
-<div class="demand_details_upload_btn">
+			<div class="demand_details_upload_btn">
 				<p>No Data to Display</p>
 					</div>
 			<?php } ?>
@@ -101,7 +101,6 @@
 			  </div>
 			</div>
 		</div>
-		
 	</div>
 </section>
 
@@ -143,11 +142,8 @@
    <!-- Modal -->
   <div class="modal fade" id="myModalpayment" role="dialog">
     <div class="modal-dialog">
-    
       <!-- Modal content-->
       <div class="modal-content">
-        
-
         <div class="post_demand_details_popup">
         	 <button type="button" class="close" data-dismiss="modal">&times;</button>
 				<h4>Release Payment</h4>				
