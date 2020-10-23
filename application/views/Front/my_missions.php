@@ -86,7 +86,10 @@
                      <p><?php echo $value['mission_description'];?></p>
                      <div class="row">
                         <div class="col-md-12 status Delivred">
-                        <p>By : <?php echo $value['username']?></p>
+                        <p>
+                          By : <?php echo $value['username']?>
+                          &nbsp;&nbsp; Budget : <?php echo '€' . $value['budget'];?>
+                        </p>
                         <?php  if($value['mission_status']==0){ 
                                  echo "<span>Posted</span>";
                               }

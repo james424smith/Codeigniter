@@ -127,7 +127,19 @@ class Posts extends CI_Controller
         redirect(base_url() . 'Front/home/login');  
       }
 
-        }
+    }
+
+    public function mission_update()
+    {
+      $mission_id = $this->input->post('mission_id');
+      $message = $this->input->post('message');
+      $offer_budget = $this->input->post('offer_budget');
+      $this->load->model('Front/Posts_model');
+      $this->Posts_model->mission_update($mission_id, $message, $offer_budget);
+
+      redirect('Front/home/mission_posted_details/' . $mission_id);
+      //var_dump($mission_id);die();
+    }
 
       public function download($fileName)     
       {      
@@ -261,7 +273,7 @@ class Posts extends CI_Controller
 
         if($status){
        //echo $this->session->flashdata('Successfully','Project is in the progress ');
-       redirect('Front/home/mydemands');
+           redirect('Front/home/mydemands');
         }
       }
        public function complete_modify($mission_id){

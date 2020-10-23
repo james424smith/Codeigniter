@@ -5,7 +5,7 @@
 	$obj->load->model('Front/Posts_model');
 	$id = $this->uri->segment(4);
 	$user_id = $this->session->userdata['id'];
-	$demands = $obj->Posts_model->mission_posted($id,$user_id);
+	$demands = $obj->Posts_model->mission_posted($id, $user_id);
 
  //$user_id = $value['user_id'];
 	$avg = $this->Posts_model->selectAvgOfRating($user_id);
@@ -129,28 +129,28 @@
 											<P>
 												Proposals
 											</p>
-											<form>
+											<form action="<?php echo base_url('Front/Posts/mission_update')?>" enctype="multipart/form-data" method="post">
 											<div class="from-group">
 												<Label><h6>Description</h6></Label>
-												<textarea class="form-control"><?php echo $value['message']; ?></textarea>
+												<textarea class="form-control" name="message"><?php echo $value['message']; ?></textarea>
 											</div>
 											<br>  
 											<div class="from-group">
 												<Label><h6>Offer Budget</h6></Label>
-												<input type="text" class="form-control" value="<?php echo $value['offer_budget']; ?>">
+												<input type="text" class="form-control" name="offer_budget" value="<?php echo $value['offer_budget']; ?>">
 				  							</div>
+											  <input type="hidden" class="form-control" name="mission_id" value="<?php echo $id; ?>">
 										</div>
 										
 										<!-- Modal footer -->
 										<div class="modal-footer">
-										<button type="submit" class="btn btn-secondary" data-dismiss="modal">Update</button>
+										<button type="submit" class="btn btn-secondary">Update</button>
 				  						</form>
 										<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
 										</div>
 									</div>
 								</div>
 							</div>
-
 
 			                <span><b>Offer:</b> € <?php echo $value['offer_budget']; ?></span>
 			                <div><span class="stars-container <?php echo $class_star;?>">★★★★★</span></div>

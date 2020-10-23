@@ -103,7 +103,7 @@
               $i=0;
               foreach ($missions as $row){ 
                 $i++; ?>
-                  <div class="col-md-6 all corporate">
+                  <div class="col-md-12 all corporate">
 	                  <div class="item row">
                       <div class="col-md-4 img_box">
                         <?php 

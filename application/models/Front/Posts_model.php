@@ -129,6 +129,31 @@ class Posts_model extends CI_Model
         //var_dump($status);die();
         return true;
     }
+
+    public function mission_update ($mission_id, $message, $offer_budget) {
+ 
+        //var_dump($offer_budget);die();
+        $this->db->set("mission_budget", $offer_budget);
+        $this->db->where("mission_id", $mission_id);
+        $this->db->update("mission");
+
+        $this->db->select("*");
+        $this->db->from("mission");
+        $this->db->where("mission_id", $mission_id);
+        $mission = $this->db->get()->row();
+
+        //var_dump($mission);die();
+
+        $update_data = array(
+            "message" => $message,
+            "offer_budget" => $offer_budget
+        );
+
+        $this->db->where("project_id", $mission_id);
+        $this->db->where("client_id", $mission->client_id);
+        $this->db->update("project_offer", $update_data);
+
+    }
     public function fetchofferedmission($user_id)
     {
       $this->db->select("project_id");
