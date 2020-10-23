@@ -41,9 +41,6 @@
 				</div>
 				<div class="demand_check_box">
 					<ul>
-						<li>					
-							<a href="#" class="btn btn-primery">Release Payment</a>
-						</li>
 						<li>							
 							<a href="#" class="btn btn-default">Ask to Modify</a>
 						</li>						
