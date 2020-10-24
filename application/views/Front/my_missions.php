@@ -90,8 +90,9 @@
                           By : <?php echo $value['username']?>
                           &nbsp;&nbsp; Budget : <?php echo '€' . $value['budget'];?>
                         </p>
-                        <?php  if($value['mission_status']==0){ 
-                                 echo "<span>Posted</span>";
+                        <?php  
+                              if($value['mission_status']==0){ 
+                                 echo "<span>Proposed</span>";
                               }
                               if($value['mission_status']== 1){ 
                                  echo "<span>In Progress</span>";

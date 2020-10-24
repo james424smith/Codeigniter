@@ -3,15 +3,12 @@
 	$obj = &get_instance();
 	$obj->load->model('Front/Posts_model');
 	$id = $this->uri->segment(4);
-	//$this->session->userdata['id'];
-	//$profile_url = $obj->RegisterModel->PictureUrl();
+
 	$mission = $this->db->query("select * from mission  where mission_id=".$id)->row();
 	$comment = $this->db->query("select project_status.*,users.picture_url from project_status INNER JOIN users ON project_status.user_id =users.id where project_id=".$id)->row();
 	
 	$obj->load->model('Front/User');
 	$self_user = $obj->User->getSelfUser();
-
-	//var_dump($selfUser);die();
 
 ?> 
 
@@ -27,6 +24,12 @@
 
 <section class="demand_deails_section">
 	<div class="container">
+		<?php if($this->session->flashdata('error_send')){ ?>
+			<div class="alert alert-danger">
+				<a href="#" class="close" data-dismiss="alert">&times;</a>
+				<strong>Error!</strong> <?php echo $this->session->flashdata('error_send'); ?>
+			</div>
+		<?php } ?>
 		<div class="row">
 			<div class="col-md-6 demand_border">
 				<div class="demand_delivered_details">

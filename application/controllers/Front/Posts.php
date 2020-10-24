@@ -145,7 +145,7 @@ class Posts extends CI_Controller
       {      
         $this->load->helper('download');
         if ($fileName) {
-          $file = base_url("/uploads/demands_documents/") .$fileName;
+          $file = base_url("/uploads/demands_documents/") . $fileName;
         //print_r($fileName);die();
       // check file exists    
         if ($file) {
@@ -162,7 +162,12 @@ class Posts extends CI_Controller
     }
   }
     public function  inprogress() {   
-          
+          if(empty($_FILES['project_files']['name']) || !$this->input->post('your_comments'))
+          {
+              $this->session->set_flashdata('error_send', 'Send your delivery and comment');
+              redirect('Front/home/mission_inprogress_details/' . $this->input->post('project_id')); 
+          }
+
           if(!empty($_FILES['project_files']['name'])) {
             $config['upload_path'] = './uploads/demands_documents';
             $config['allowed_types'] = 'gif|jpg|png|jpeg|pdf|doc|txt'; 
@@ -269,10 +274,8 @@ class Posts extends CI_Controller
         $this->load->model('Front/Posts_model');
         $data= array('mission_status' => 1);
         $status = $this->Posts_model->deliver_askmodify($data,$mission_id);
-        
 
-        if($status){
-       //echo $this->session->flashdata('Successfully','Project is in the progress ');
+        if($status) {
            redirect('Front/home/mydemands');
         }
       }
@@ -284,10 +287,8 @@ class Posts extends CI_Controller
         $data= array('mission_status' => 1);
         $status = $this->Posts_model->deliver_askmodify($data,$mission_id);
         
-
-        if($status){
-       //echo $this->session->flashdata('Successfully','Project is in the progress ');
-       redirect('Front/home/mydemands');
+        if($status) {
+           redirect('Front/home/mydemands');
         }
       }
        public function delivered_pay_demand(){
@@ -301,8 +302,7 @@ class Posts extends CI_Controller
             'date_created' => $date_created,
             'mission_status' =>  $this->input->post('mission_status'),
             'employer_id' =>  $this->input->post('employer_id'),
-            'date_of_pay' =>  date('Y-m-d H:i:s'),
-
+            'date_of_pay' =>  date('Y-m-d H:i:s')
          );  
          //print_r( $project_data);die();
         $this->load->model('Front/Posts_model');
