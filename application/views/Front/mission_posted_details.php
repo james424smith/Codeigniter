@@ -6,7 +6,6 @@
 	$id = $this->uri->segment(4);
 	$user_id = $this->session->userdata['id'];
 	$demands = $obj->Posts_model->mission_posted($id, $user_id);
-
  //$user_id = $value['user_id'];
 	$avg = $this->Posts_model->selectAvgOfRating($user_id);
 
@@ -100,7 +99,9 @@
 								if($url == "")
 									$url = "default.png";
 							?>
-			          		<img src="<?php echo base_url('uploads/profiles/' . $url) ;?>" alt="<?php echo  $value['username']; ?>" style="border-radius:70px !important;">
+							<a href="<?php echo base_url('Front/home/heelper_profile/' . $value['user_id'])?>">
+							  <img src="<?php echo base_url('uploads/profiles/' . $url) ;?>" alt="<?php echo  $value['username']; ?>" style="border-radius:70px !important;">
+				  			</a>
 			          	</div>            
 			            <div class="col-md-9 cat_content">
 			        		<p class="cat_date"><?php echo  $value->created_date; ?></p>

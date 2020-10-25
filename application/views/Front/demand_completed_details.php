@@ -3,6 +3,12 @@
 	$obj = &get_instance();
 	$obj->load->model('Front/Posts_model');
 	$id = $this->uri->segment(4);
+
+	$self_user_id = $this->session->userdata['id'];
+	//$profile_url = $obj->RegisterModel->PictureUrl();
+
+	$all_comments = $this->db->query("select project_status.* from project_status where project_id=" . $id . " and client_id=" . $self_user_id)->result_array();
+
 //$profile_url = $obj->RegisterModel->PictureUrl();
 	$mission = $this->db->query("select * from mission  where mission_id=".$id)->row();
 	$comment = $this->db->query("select project_status.*,users.picture_url from project_status INNER JOIN users ON project_status.user_id =users.id where project_id=".$id . " order by id desc")->row();
@@ -32,7 +38,7 @@
 					 </p>
 					 <div class="demand_details_upload_btn">
 						<a href="<?php if($mission->mission_doc){ echo base_url()?>Front/Posts/download/<?php echo $mission->mission_doc;}
-								else { ?>#<?php }?>"><?php echo $mission->mission_doc?><i class="fas fa-download"></i> No Attached file</a>
+								else { ?>#<?php }?>"><?php echo $mission->mission_doc?><i class="fas fa-download"></i></a>
 						<!-- <a href="#">File Name <i class="fas fa-download"></i></a> -->
 					</div>
 					 <p class="budget_details_p">
@@ -61,14 +67,20 @@
 						</p>
 					</div>
 					<?php if($comment->project_files) {
-						$project_files_test = explode(",", $comment->project_files);
-						foreach ($project_files_test as $value) {
+							$project_files_test = explode(",", $comment->project_files);
+							foreach ($project_files_test as $value) {
 							# code...
 						?>
 					<div class="demand_details_upload_btn">
-						<a href="<?php if($value){ echo base_url()?>Front/Posts/download/<?php echo $value;}
-								else { ?>#<?php }?>"><?php echo $value ?> <i class="fas fa-download"></i></a>
-						<!-- <a href="#">File Name <i class="fas fa-download"></i></a> -->
+						<?php foreach ($all_comments as $file_comment) { ?>
+							<a href="<?php if($file_comment['project_files']){ echo base_url()?>Front/Posts/download/<?php echo $file_comment['project_files']; }
+									else { ?>#<?php }?>">
+									<?php 
+										if($file_comment['project_files'])
+											echo $file_comment['project_files'] . " <i class='fas fa-download'></i>";
+            						?> 
+							</a>
+						<?php } ?>
 					</div>
 				<?php } } }
 				else{ ?>

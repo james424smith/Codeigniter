@@ -3,10 +3,10 @@
 	$obj = &get_instance();
 	$obj->load->model('Front/Posts_model');
 	$id = $this->uri->segment(4);
-//$profile_url = $obj->RegisterModel->PictureUrl();
+	//$profile_url = $obj->RegisterModel->PictureUrl();
 
 	$self_user_id = $this->session->userdata['id'];
-//$profile_url = $obj->RegisterModel->PictureUrl();
+	//$profile_url = $obj->RegisterModel->PictureUrl();
 
 	$all_comments = $this->db->query("select project_status.* from project_status where project_id=" . $id . " and client_id=" . $self_user_id)->result_array();
 
@@ -42,7 +42,17 @@
 					 </p>
 					 <div class="demand_details_upload_btn">
 						<a href="<?php if($mission->mission_doc){ echo base_url()?>Front/Posts/download/<?php echo $mission->mission_doc;}
-								else { ?>#<?php }?>"><i class="fas fa-download"></i> No Attached file</a>
+								else { ?>#<?php }?>">
+							<?php 
+									if($mission->mission_doc) {
+										echo $mission->mission_doc; 
+									}
+									else {
+										echo "No Attached File";
+									}
+								?>	
+								&nbsp;<i class="fas fa-download"></i>			
+						</a>
 						<!-- <a href="#">File Name <i class="fas fa-download"></i></a> -->
 					 </div>
 					 <br>
@@ -88,8 +98,13 @@
 					</div>
 					<div class="demand_details_upload_btn">	
 						<?php foreach ($all_comments as $file_comment) { ?>
-						<a href="<?php if($file_comment['project_files']){ echo base_url()?>Front/Posts/download/<?php echo $file_comment['project_files']; }
-									else { ?>#<?php }?>"><?php echo $file_comment['project_files'] ?> <i class="fas fa-download"></i> </a>
+							<a href="<?php if($file_comment['project_files']){ echo base_url()?>Front/Posts/download/<?php echo $file_comment['project_files']; }
+									else { ?>#<?php }?>">
+									<?php 
+										if($file_comment['project_files'])
+											echo $file_comment['project_files'] . " <i class='fas fa-download'></i>";
+            						?> 
+							</a>
 						<?php } ?>
 					</div>
 					<div class="claim_an_issue">

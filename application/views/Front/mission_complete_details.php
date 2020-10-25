@@ -35,7 +35,17 @@
 					 </p>
 					 <div class="demand_details_upload_btn">
 						<a href="<?php if($mission->mission_doc){ echo base_url()?>Front/Posts/download/<?php echo $mission->mission_doc;}
-								else { ?>#<?php }?>"><i class="fas fa-download"></i> No Attached file</a>
+								else { ?>#<?php }?>">
+							<?php 
+									if($mission->mission_doc) {
+										echo $mission->mission_doc; 
+									}
+									else {
+										echo "No Attached File";
+									}
+								?>	
+								&nbsp;<i class="fas fa-download"></i>
+						</a>
 						<!-- <a href="#">File Name <i class="fas fa-download"></i></a> -->
 					 </div>
 					 <p class="budget_details_p">
@@ -62,7 +72,12 @@
 						<div class="demand_details_upload_btn">
 							<?php foreach ($all_comments as $file_comment) { ?>
 							<a href="<?php if($file_comment['project_files']) {echo base_url(); ?>Front/Posts/download/<?php echo $file_comment['project_files']; }
-									else { ?>#<?php }?>"><?php echo $file_comment['project_files'] ?> <i class="fas fa-download"></i> </a>
+									else { ?>#<?php }?>">
+								<?php 
+									if($file_comment['project_files'])
+										echo $file_comment['project_files'] . " <i class='fas fa-download'></i>";
+            					?>
+							</a>
 							<?php } ?>
 						</div>		
 					</div>				

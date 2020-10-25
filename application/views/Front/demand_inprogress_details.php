@@ -4,6 +4,12 @@
 	$obj = &get_instance();
 	$obj->load->model('Front/Posts_model');
 	$id = $this->uri->segment(4);
+	
+	$self_user_id = $this->session->userdata['id'];
+	//$profile_url = $obj->RegisterModel->PictureUrl();
+	$all_comments = $this->db->query("select project_status.* from project_status where project_id=" . $id . " and client_id=" . $self_user_id)->result_array();
+
+	
 	$mission = $this->db->query("select mission.*,users.picture_url from mission inner join users on mission.accepted_by=users.id  where mission.mission_id=".$id)->row();
 	$comment = $this->db->query("select project_status.* from project_status where project_id=".$id . " order by id desc")->row();
 	//var_dump($mission);die();
@@ -31,7 +37,9 @@
 					 </p>
 					 <div class="demand_details_upload_btn">
 						<a href="<?php if($mission->mission_doc){ echo base_url()?>Front/Posts/download/<?php echo $mission->mission_doc;}
-								else { ?>#<?php }?>"><?php echo $mission->mission_doc?><i class="fas fa-download"></i> No Attached File</a>
+								else { ?>#<?php }?>">
+								sdfsdf
+						</a>
 						<!-- <a href="#">File Name <i class="fas fa-download"></i></a> -->
 					</div>
 					<br>
@@ -71,17 +79,19 @@
 								<?php echo $comment->your_comments?>
 							</p>					
 						</div>
-						<?php if($comment->project_files) {
-							$project_files_test = explode(",", $comment->project_files);
-							foreach ($project_files_test as $value) {
-							# code...
-						?>
+						
 						<div class="demand_details_upload_btn">
-							<a href="<?php if($value){ echo base_url()?>Front/Posts/download/<?php echo $value;}
-								else { ?>#<?php }?>"><?php echo $value ?> <i class="fas fa-download"></i></a>
-							<!-- <a href="#">File Name <i class="fas fa-download"></i></a> -->
+						<?php 
+							if($mission->mission_doc) {
+								echo $mission->mission_doc; 
+							}
+							else {
+								echo "No Attached File";
+							}
+						?>	
+							&nbsp;<i class="fas fa-download"></i>	
 						</div>
-					<?php } } }
+					<?php   }
 					else{ ?>
 					<div class="demand_details_upload_btn">
 						<P>

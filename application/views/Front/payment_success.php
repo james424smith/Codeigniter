@@ -1,6 +1,6 @@
 <?php $this->load->view('Front/common/header');  ?>
 <?php
-    var_dump("asaa");die();
+    //var_dump("asaa");die();
     $obj = &get_instance();
     $obj->load->model('Front/Payment_model');
 

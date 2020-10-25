@@ -175,20 +175,25 @@ class Posts extends CI_Controller
             $config['max_width'] = 45000;
             $config['max_height'] = 45000;
 
-          $this->load->library('upload', $config);
+            $this->load->library('upload', $config);
   
-          if (!$this->upload->do_upload('project_files')) 
-          {
-             $error = array('error' => $this->upload->display_errors());
-             $image_name = '';
-          } 
-          else 
-          {
-            $img_data = $this->upload->data()['file_name'];
-            $image_name = $img_data;
-          }
-        }
+            if (!$this->upload->do_upload('project_files')) 
+            {
+              
+              $error = array('error' => $this->upload->display_errors());
+              $image_name = '';
+              $this->session->set_flashdata('error_file', 'The file is wrong.');
+              redirect('Front/home/mission_inprogress_details/' . $this->input->post('project_id')); 
+            } 
+            else 
+            {
+              $img_data = $this->upload->data()['file_name'];
+              $image_name = $img_data;
+            }
+         }
         if($image_name){
+          var_dump("pp"); die();
+
             $project_data = array(
               'project_id' => $this->input->post('project_id'),
               'your_comments' => $this->input->post('your_comments'),
@@ -200,7 +205,9 @@ class Posts extends CI_Controller
               'date_updated' =>  date('Y-m-d H:i:s')  
             );                     
         }
-        else {          
+        else {  
+          var_dump("qq"); die();
+        
             $project_data = array(
                 'project_id' => $this->input->post('project_id'),
                 'your_comments' => $this->input->post('your_comments'),

@@ -32,6 +32,12 @@
 				<strong>Error!</strong> <?php echo $this->session->flashdata('error_send'); ?>
 			</div>
 		<?php } ?>
+		<?php if($this->session->flashdata('error_file')){ ?>
+			<div class="alert alert-danger">
+				<a href="#" class="close" data-dismiss="alert">&times;</a>
+				<strong>Error!</strong> <?php echo $this->session->flashdata('error_file'); ?>
+			</div>
+		<?php } ?>
 		<div class="row">
 			<div class="col-md-6 demand_border">
 				<div class="demand_delivered_details">
@@ -49,7 +55,12 @@
 						if(count($all_comments) > 0) 
 						foreach ($all_comments as $file_comment) { ?>
 						<a href="<?php if($file_comment['project_files']){ echo base_url()?>Front/Posts/download/<?php echo $file_comment['project_files']; }
-								else { ?>#<?php }?>"><?php echo $file_comment['project_files'] ?> <i class="fas fa-download"></i> </a>
+								else { ?>#<?php }?>">
+							<?php 
+								if($file_comment['project_files'])
+									echo $file_comment['project_files'] . " <i class='fas fa-download'></i>";
+							?>
+						</a>
 					<?php } ?>
 				</div>
 			</div>
@@ -57,7 +68,9 @@
 				<div class="row post_demand_inner_row">
 				<div class="col-md-2">
 					<div class="demand_details_profile_img">
+						<a href="<?php echo base_url('Front/home/heelper_profile/' . $self_user[0]['id'])?>">
 						<img src="<?php echo base_url('uploads/profiles/');?><?php echo $self_user[0]['picture_url']?>">
+						</a>
 					</div>
 				</div>
 				<div class="col-md-10">

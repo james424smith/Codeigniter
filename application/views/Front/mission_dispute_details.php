@@ -1,10 +1,14 @@
 <?php $this->load->view('Front/common/header');  ?>
 <?php
-$obj=&get_instance();
-$obj->load->model('Front/Posts_model');
-$id =$this->uri->segment(4);
+	$obj = &get_instance();
+	$obj->load->model('Front/Posts_model');
+	$id = $this->uri->segment(4);
+
+	$self_user_id = $this->session->userdata['id'];
+	$all_comments = $this->db->query("select project_status.* from project_status where project_id=" . $id . " and user_id=" . $self_user_id)->result_array();
+
 //$profile_url = $obj->RegisterModel->PictureUrl();
-$mission=$this->db->query("select * from mission  where mission_id=".$id)->row();
+	$mission = $this->db->query("select * from mission  where mission_id=".$id)->row();
 //print_r($user);die();
 
 ?> 
@@ -56,8 +60,15 @@ $mission=$this->db->query("select * from mission  where mission_id=".$id)->row()
 							</p>
 						</div>
 						<div class="demand_details_upload_btn">
-							<a href="#">File Name <i class="fas fa-download"></i></a>
-							<a href="#">File Name <i class="fas fa-download"></i></a>
+							<?php foreach ($all_comments as $file_comment) { ?>
+								<a href="<?php if($file_comment['project_files']){ echo base_url()?>Front/Posts/download/<?php echo $file_comment['project_files']; }
+									else { ?>#<?php } ?>"> 
+								<?php 
+									if($file_comment['project_files'])
+										echo $file_comment['project_files'] . " <i class='fas fa-download'></i>";
+            					?>
+								</a>
+							<?php } ?>
 						</div>		
 					</div>				
 			  </div>
