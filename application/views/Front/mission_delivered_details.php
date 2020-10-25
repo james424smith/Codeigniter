@@ -63,12 +63,12 @@
 							<?php echo $comment->your_comments; ?>
 						</p>
 					</div>
-						<div class="demand_details_upload_btn">	
-							<?php foreach ($all_comments as $file_comment) { ?>
-							<a href="<?php if($file_comment['project_files']){ echo base_url()?>Front/Posts/download/<?php echo $file_comment['project_files']; }
-										else { ?>#<?php }?>"><?php echo $file_comment['project_files'] ?> <i class="fas fa-download"></i> </a>
-							<?php } ?>
-						</div>
+					<div class="demand_details_upload_btn">	
+						<?php foreach ($all_comments as $file_comment) { ?>
+						<a href="<?php if($file_comment['project_files']){ echo base_url()?>Front/Posts/download/<?php echo $file_comment['project_files']; }
+									else { ?>#<?php }?>"><?php echo $file_comment['project_files'] ?> <i class="fas fa-download"></i> </a>
+						<?php } ?>
+					</div>
 								
 					<div class="claim_an_issue">
 						<p>
