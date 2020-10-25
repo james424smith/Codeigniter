@@ -6,6 +6,9 @@
 	$id = $this->uri->segment(4);
 	$user_id = $this->session->userdata['id'];
 	$demands = $obj->Posts_model->mission_posted($id, $user_id);
+
+	$mission = $this->db->query("select * from mission  where mission_id=" . $id)->row();
+
  //$user_id = $value['user_id'];
 	$avg = $this->Posts_model->selectAvgOfRating($user_id);
 
@@ -141,13 +144,31 @@
 												<Label><h6>Offer Budget</h6></Label>
 												<input type="text" class="form-control" name="offer_budget" value="<?php echo $value['offer_budget']; ?>">
 				  							</div>
-											  <input type="hidden" class="form-control" name="mission_id" value="<?php echo $id; ?>">
+											<input type="hidden" class="form-control" name="mission_id" value="<?php echo $id; ?>">
+											<br>
+											<div class="from-group text-center" >  
+											  	<div class="demand_details_upload_btn">
+													<a href="<?php if($mission->mission_doc){ echo base_url()?>Front/Posts/download/<?php echo $mission->mission_doc;}
+															else { ?>#<?php }?>">
+															<?php 
+																if($mission->mission_doc) {
+																	echo $mission->mission_doc; 
+																}
+																else {
+																	echo "No Attached File";
+																}
+															?>	
+															&nbsp;<i class="fas fa-download"></i>	
+													</a>
+												</div>
+											</div>
 										</div>
 										
 										<!-- Modal footer -->
 										<div class="modal-footer">
-										<button type="submit" class="btn btn-secondary">Update</button>
-				  						</form>
+											<button type="submit" class="btn btn-secondary">Update</button>
+										  </form>
+										  
 										<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
 										</div>
 									</div>

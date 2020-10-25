@@ -242,13 +242,13 @@ class Posts_model extends CI_Model
         return $result;
     }
 
-    public function mission_posted($project,$user_id){
+    public function mission_posted($project, $user_id){
 
         $this->db->select('project_offer.*,users.username,users.picture_url');
         $this->db->from('project_offer'); 
         // $this->db->where('client_id',$this->session->userdata['id']);
         $this->db->join('users','users.id = project_offer.user_id');
-        $this->db->where('project_offer.project_id',$project);
+        $this->db->where('project_offer.project_id', $project);
         $this->db->where('project_offer.user_id',$user_id);
         $result= $this->db->get()->result_array();           
         
