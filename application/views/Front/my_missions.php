@@ -31,7 +31,8 @@
    <div class="section portfolio">
       <main id="main" class="container">
          <nav class="nav">
-            <a href="#" class="nav-item active" data-rel="Proposed">Proposed</a>
+            <a href="" class="nav-item active" onclick="location.reload();">All</a>
+            <a href="#" class="nav-item" data-rel="Proposed">Proposed</a>
             <a href="#" class="nav-item" data-rel="option-1">In progress</a>
             <a href="#" class="nav-item" data-rel="option-2">Delivered</a>
             <a href="#" class="nav-item" data-rel="option-3">Completed</a>
@@ -43,7 +44,7 @@
          if($value['mission_status'] == 0)
          {
             $class = "Proposed";
-            $style = "list-item";
+            $style = "none";
             $link = "mission_posted_details";
          } 
          elseif ($value['mission_status'] == 1) {
@@ -69,6 +70,8 @@
             $style = "none";
             $link = "mission_dispute_details";
          }
+
+         $style = "list-item";
       ?>
 
           <li class="project <?php echo  $class; ?>" style="display: <?php echo $style; ?>">
