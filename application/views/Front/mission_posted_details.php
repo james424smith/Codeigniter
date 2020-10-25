@@ -93,7 +93,7 @@
 			    <li class="project option-1">
 				    <div class="col-md-6 all corporate">
 			          <div class="item row">
-			          	<div class="col-md-3 img_box">
+			          	<div class="col-md-3 text-center img_box">
 						  	<?php
 								$url = $value['picture_url'];
 								if($url == "")
@@ -101,7 +101,8 @@
 							?>
 							<a href="<?php echo base_url('Front/home/heelper_profile/' . $value['user_id'])?>">
 							  <img src="<?php echo base_url('uploads/profiles/' . $url) ;?>" alt="<?php echo  $value['username']; ?>" style="border-radius:70px !important;">
-				  			</a>
+							</a>
+							<span class="stars-container <?php echo $class_star;?>">★★★★★</span>
 			          	</div>            
 			            <div class="col-md-9 cat_content">
 			        		<p class="cat_date"><?php echo  $value->created_date; ?></p>
@@ -154,7 +155,6 @@
 							</div>
 
 			                <span><b>Offer:</b> € <?php echo $value['offer_budget']; ?></span>
-			                <div><span class="stars-container <?php echo $class_star;?>">★★★★★</span></div>
 
 			              	<div class="row">
 			              		<div class="col-md-6 profile_img">
