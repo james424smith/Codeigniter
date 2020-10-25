@@ -66,6 +66,11 @@
 										else {
 											echo base_url('Front/home/login');
 										} ?>">Make an Offer</a>
+						</div>	
+						<div class="col-md-2 make_btn">
+						</div>
+						<div class="col-md-4 make_btn">
+							<a href="<?php echo base_url('Front/home/chat'); ?>">Chat</a>
 						</div>			            
 		            </div>
 	            </div>
