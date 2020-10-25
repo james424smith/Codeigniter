@@ -3,7 +3,9 @@
 	$obj = &get_instance();
 	$obj->load->model('Front/Posts_model');
 	$id = $this->uri->segment(4);
-	
+	$self_user_id = $this->session->userdata['id'];
+	$all_comments = $this->db->query("select project_status.* from project_status where project_id=" . $id . " and user_id=" . $self_user_id)->result_array();
+
 	$mission=$this->db->query("select * from mission  where mission_id=".$id)->row();
 	$comment = $this->db->query("select project_status.*,users.picture_url from project_status INNER JOIN users ON project_status.user_id =users.id where project_id=".$id)->row();
 
@@ -33,13 +35,12 @@
 					 </p>
 					 <div class="demand_details_upload_btn">
 						<a href="<?php if($mission->mission_doc){ echo base_url()?>Front/Posts/download/<?php echo $mission->mission_doc;}
-								else { ?>#<?php }?>"><?php echo $mission->mission_doc?> <i class="fas fa-download"></i></a>
+								else { ?>#<?php }?>"><i class="fas fa-download"></i> No Attached file</a>
 						<!-- <a href="#">File Name <i class="fas fa-download"></i></a> -->
-					</div>
+					 </div>
 					 <p class="budget_details_p">
 					 	<b>Budget: <?php echo $mission->budget;?></b> <i class="fas fa-euro-sign"></i>
 						<b style="color:red;">&nbsp;&nbsp;&nbsp;Offer: <?php echo $mission->mission_budget;?> <i class="fas fa-euro-sign"></i></b>
-
 					 </p>
 				</div>
 					
@@ -53,14 +54,16 @@
 					</div>
 					<div class="col-md-10">
 						<div class="demand_details_content">
-							<h4>Heelper Comment</h4>
+							<h4>My Comment</h4>
 							<p>
 								<?php echo $comment->your_comments; ?>							
 							</p>
 						</div>
 						<div class="demand_details_upload_btn">
-							<a href="#">File Name <i class="fas fa-download"></i></a>
-							<a href="#">File Name <i class="fas fa-download"></i></a>
+							<?php foreach ($all_comments as $file_comment) { ?>
+							<a href="<?php if($file_comment['project_files']) {echo base_url(); ?>Front/Posts/download/<?php echo $file_comment['project_files']; }
+									else { ?>#<?php }?>"><?php echo $file_comment['project_files'] ?> <i class="fas fa-download"></i> </a>
+							<?php } ?>
 						</div>		
 					</div>				
 			  </div>

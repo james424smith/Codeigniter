@@ -35,9 +35,9 @@
 					 </p>
 					 <div class="demand_details_upload_btn">
 						<a href="<?php if($mission->mission_doc){ echo base_url()?>Front/Posts/download/<?php echo $mission->mission_doc;}
-								else { ?>#<?php }?>"><?php echo $mission->mission_doc?><i class="fas fa-download"></i></a>
+								else { ?>#<?php }?>">No Attached file<i class="fas fa-download"></i></a>
 						<!-- <a href="#">File Name <i class="fas fa-download"></i></a> -->
-					</div>
+					 </div>
 					 <p class="budget_details_p">
 					 	<b>Budget: <?php echo $mission->budget;?></b> <i class="fas fa-euro-sign"></i>
 						<b style="color:red;">&nbsp;&nbsp;&nbsp;Offer: <?php echo $mission->mission_budget;?> <i class="fas fa-euro-sign"></i></b>
@@ -77,7 +77,6 @@
 						<p>
 						<?php echo $comment->your_comments?>
 						</p>
-						
 				
 					</div>
 					<?php if($comment->project_files){
@@ -142,8 +141,11 @@
    <!-- Modal -->
   <div class="modal fade" id="myModalpayment" role="dialog">
     <div class="modal-dialog">
+    
       <!-- Modal content-->
       <div class="modal-content">
+        
+
         <div class="post_demand_details_popup">
         	 <button type="button" class="close" data-dismiss="modal">&times;</button>
 				<h4>Release Payment</h4>				
