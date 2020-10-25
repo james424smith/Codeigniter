@@ -31,9 +31,10 @@
 					 </p>
 					 <div class="demand_details_upload_btn">
 						<a href="<?php if($mission->mission_doc){ echo base_url()?>Front/Posts/download/<?php echo $mission->mission_doc;}
-								else { ?>#<?php }?>"><?php echo $mission->mission_doc?><i class="fas fa-download"></i></a>
+								else { ?>#<?php }?>"><?php echo $mission->mission_doc?><i class="fas fa-download"></i> No Attached File</a>
 						<!-- <a href="#">File Name <i class="fas fa-download"></i></a> -->
 					</div>
+					<br>
 					 <p class="budget_details_p">
 						<b>Budget: <?php echo $mission->budget;?></b> <i class="fas fa-euro-sign"></i>
 						<b style="color:red;">&nbsp;&nbsp;&nbsp;Offer: <?php echo $mission->mission_budget;?> <i class="fas fa-euro-sign"></i></b>

@@ -211,7 +211,7 @@ class Posts_model extends CI_Model
 
     public function deliver_mission() {
         
-        $this->db->insert('litigations',$project_data);
+        $this->db->insert('litigations', $project_data);
         return true;
    }
 
@@ -298,7 +298,7 @@ class Posts_model extends CI_Model
         }
         
         public function deliver_demand() {
-            $this->db->insert('litigations',$project_data);
+            $this->db->insert('litigations', $project_data);
             return true;
         }
 

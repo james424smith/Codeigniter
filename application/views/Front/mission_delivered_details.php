@@ -76,10 +76,10 @@
 								Add a new delivery
 							</a>
 						</p>
-						<!-- <a href="#" class="btn btn-default"  data-target="#myModal2">
+						 <a href="#" class="btn btn-default" data-toggle="modal" data-target="#myModal2">
 							Claim an issue
-						</a> -->
-						<button type="submit" class="btn btn-default" data-toggle="modal"> Claim an issue </button>
+						</a>
+						<!--<button type="submit" class="btn btn-default" data-toggle="modal"> Claim an issue </button>-->
 					</div>	
 				</div>				
 			  </div>

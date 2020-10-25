@@ -214,6 +214,7 @@ class Posts extends CI_Controller
         //print_r($project_data);die();
         $this->load->model('Front/Posts_model');
         $this->Posts_model->inprogress_mission($project_data);
+        $this->session->set_flashdata('delivery_success', 'Your delivery was successfully sent.');
         redirect('Front/home/mymissions');
       }
 
@@ -252,12 +253,12 @@ class Posts extends CI_Controller
 
       }
       public function inprogress_demand(){
+        //var_dump("dd");die();        
         $project_data = array(
             'project_id' => $this->input->post('project_id'),
             'title' => $this->input->post('title'),
             'description' => $this->input->post('description'),            
             'date_modified' =>  date('Y-m-d H:i:s') 
-
         ); 
         $this->load->model('Front/Posts_model');
         $this->Posts_model->deliver_demand($project_data);

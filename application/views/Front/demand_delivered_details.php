@@ -73,9 +73,7 @@
 						<?php } 
 						else { ?>
 							<img src="<?php echo base_url('assets/Front/img/demand_profile.png');?>">
-
 						<?php } ?>
-						
 					</div>
 				</div>
 				<div class="col-md-10">
@@ -92,6 +90,11 @@
 									else { ?>#<?php }?>"><?php echo $file_comment['project_files'] ?> <i class="fas fa-download"></i> </a>
 						<?php } ?>
 					</div>
+					<div class="claim_an_issue">
+						 <a href="#" class="btn btn-default" data-toggle="modal" data-target="#myModal2">
+							Claim an issue
+						</a>
+					</div>	
 				</div>				
 			  </div>
 			</div>
@@ -155,48 +158,19 @@
 						<input type="hidden" name="mission_status" value="<?php echo $mission->mission_status ?>">
 						<input type="hidden" name="mission_id" value="<?php echo $mission->mission_id ?>">
 						<input type="hidden" name="employer_id" value="<?php echo $mission->user_id ?>">	
-
-					<table class="table table-bordered">
-                      <thead>
-                        
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <td>Amount</td>
-                          <td><?php echo $mission->mission_budget ?> €</td>
-                        </tr>
-                        <tr>
-                          <td>Service fees</td>
-                          <td>12 %</td>
-                        </tr>
-                        <tr>
-                          <td>Bank fees</td>
-                          <td>0.25 €</td>
-                        </tr>
-                      </tbody>
-                      <tfoot>
-                        <tr>
-                          <td>Amount  to pay</td>
-                          <td><?php echo $total_amount; ?> €</td>
-                        </tr>
-                      </tfoot>
-                    </table>
+						 <P>
+							<h5>I want to release payment.</h5>
+						</p>
 					</div>
-					<button type="submit" class="btn btn-default">Submit</button>
+					<button type="submit" class="btn btn-default">Confirmation</button>
 				</form>
 
 				<!-- <a href="#" class="btn btn-default">Retour</a> -->
 			</div>
 
-      </div>
-      
+      </div>      
     </div>
-  </div>
-  
+  </div>  
 </div>
-
-
-
-
 
 <?php $this->load->view('Front/common/footer');  ?>

@@ -42,4 +42,5 @@ class User extends CI_Model{
         //var_dump($query->result_array());die();
         return $query->result_array();
     }
+    
 }

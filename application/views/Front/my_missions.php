@@ -19,6 +19,12 @@
    //print_r($missions);die();
 ?> 
 <section>
+    <?php if($this->session->flashdata('delivery_success')){ 
+    ?>
+			<script>
+				swal("Your delivery was successfully sent.");
+			</script>
+		<?php } ?>
    <div class="top_bnr section post_demand">
       <div class="container">
          <div class="top-side about_title">
