@@ -78,9 +78,12 @@
 					</div>			 	
 					<div class="post_form_content">
 						<div class="post_inner_upload_file">
-							<input type="file" name="project_files">
+							<input type="file" name="project_files" id="file">
 							<span>+ Upload File Here</span>
 						</div>
+					</div>
+					<div class="post_form_content text-center">
+						<span id="file-name" style="color:blue;">No File</span>
 					</div>				
 					<input type="hidden" name="client_id" value="<?php echo $mission->client_id;?>">
 					<input type="hidden" name="project_status" value="<?php echo $mission->mission_status;?>">
@@ -130,6 +133,12 @@
       </div>
     </div>
   </div>
-
-
 <?php $this->load->view('Front/common/footer');  ?>
+<script>
+	$(document).ready(function(){
+		$('#file').change(function (e) {
+			//alert(e.target.files[0].name);
+			$('#file-name').html(e.target.files[0].name);
+		});
+	});
+</script>

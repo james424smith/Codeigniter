@@ -40,7 +40,7 @@
 							<input type="text" name="" value="<?php echo $mission->mission_title;?>" disabled>
 						</div>
 						<div class="post_form_content post_form_content_budget">
-							<label>Ton Budget</label>
+							<label>Ton Budget ( € )</label>
 							<input type="text" value="<?php echo $mission->budget;?>" disabled>
 							<input type="hidden" name="missionbudget" value="<?php echo $mission->budget;?>">
 						</div>
@@ -72,8 +72,8 @@
 							</div>
 						</div>
 						<div>
-							<label class="">Make an offer
-								  <input type="text" name="offer_budget" placeholder="ex:200$">								  
+							<label class="">Make an offer ( € )
+								  <input type="number" class="number-input" name="offer_budget" placeholder="ex:200">								  
 							</label>
 						</div>
 						<div class="post_form_content">
@@ -125,7 +125,7 @@
 <?php $this->load->view('Front/common/footer');  ?>
 <script type="text/javascript">
 	$(function() {
-  $('#budget').on('change', function(e) {
+  	$('#budget').on('change', function(e) {
     e.stopPropagation();
     this.value = this.checked ? 1 : 0;
   });

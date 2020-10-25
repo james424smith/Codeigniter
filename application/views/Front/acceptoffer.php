@@ -77,16 +77,16 @@
                                     Credit card
                                   </label>
                                 </div>
-                                <div class="rdio rdio-primary radio-inline">
+                                <!--<div class="rdio rdio-primary radio-inline">
                                   <input name="radio" value="2" id="radio2" type="radio">
                                   <label for="radio2">
                                     <img src="<?php echo base_url('assets/Front/img/card2.png');?>">
                                     Wallet
                                   </label>
-                                </div>
+                                </div>-->
                               </div>
                               <a class="nex_btn" id="card" href="<?php echo base_url('Front/Payment/payment_card_details/')?><?php echo $id; ?>">Next</a>
-                              <a class="nex_btn" id="wallet" href="" data-toggle="modal" data-target="#myModalpayment">Next</a>
+                              <!--<a class="nex_btn" id="wallet" href="" data-toggle="modal" data-target="#myModalpayment">Next</a>-->
                           </div>
                     </div>
             </div>
@@ -165,18 +165,18 @@
 
   $(document).ready(function() {    
 
-    $("#card").show();
-    $("#wallet").hide();
+    //$("#card").show();
+    //$("#wallet").hide();
 
-    $('input[type=radio]').change(function() {
-      if (this.value == '1') {
-          $("#card").show();
-          $("#wallet").hide();
-      }
-      else if (this.value == '2') {
-          $("#card").hide();
-          $("#wallet").show();
-      }
+    //$('input[type=radio]').change(function() {
+    //  if (this.value == '1') {
+    //      $("#card").show();
+    //      $("#wallet").hide();
+    //  }
+    //  else if (this.value == '2') {
+    //      $("#card").hide();
+    //      $("#wallet").show();
+    //  }
     });
   });
 

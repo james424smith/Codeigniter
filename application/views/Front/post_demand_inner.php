@@ -31,23 +31,26 @@
 					<form action="<?php echo base_url('Front/Posts/demandpost/')?>" enctype="multipart/form-data" method="post">
 						<div class="post_form_content post_form_content_title">
 							<label>Title</label>
-							<input type="text" placeholder="Title" name="title">
+							<input type="text" placeholder="Title" name="title" required>
 						</div>
 						<div class="post_form_content post_form_content_budget">
-							<label>Ton Budget</label>
-							<input type="text" placeholder="Budget" name="budget">
+							<label>Ton Budget ( € ) </label>
+							<input type="number" class="number-input" placeholder="Budget" name="budget" required>
 						</div>
 						<div class="post_form_content">
 							<label>Description</label>
-							<textarea name="description" placeholder="Description"></textarea>
+							<textarea name="description" placeholder="Description" required></textarea>
 						</div>	
 						<div class="post_form_content">
 							<div class="post_inner_upload_file">
-								<input type="file" name="file">
+								<input type="file" name="file" id="file">
 								<span>+ Upload File Here</span>
 							</div>
 						</div>
-						 <input type="hidden"  name="project_category" value="<?php echo $id?>"> 
+						<div class="post_form_content text-center">
+							<span id="file-name" style="color:blue;">No File</span>
+						</div>
+						<input type="hidden"  name="project_category" value="<?php echo $id?>"> 
 						
 						<div class="post_demand_form_btn">
 							<!-- <a href="#" class="btn btn-defult" data-toggle="modal" data-target="#myModal">Post Your Demand</a> -->
@@ -84,7 +87,12 @@
       </div>
     </div>
   </div>
-
-
-
 <?php $this->load->view('Front/common/footer');  ?>
+<script>
+	$(document).ready(function(){
+		$('#file').change(function (e) {
+			//alert(e.target.files[0].name);
+			$('#file-name').html(e.target.files[0].name);
+		});
+	});
+</script>

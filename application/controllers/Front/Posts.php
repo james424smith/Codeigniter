@@ -198,8 +198,7 @@ class Posts extends CI_Controller
               'project_files' => ($image_name) ? $image_name : $this->input->post('project_files'),
               'date_created' => $this->input->post('date_created'),
               'date_updated' =>  date('Y-m-d H:i:s')  
-            );           
-            
+            );                     
         }
         else {          
             $project_data = array(
