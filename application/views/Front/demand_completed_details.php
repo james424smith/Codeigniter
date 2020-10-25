@@ -47,7 +47,9 @@
 				<div class="row post_demand_inner_row">
 					<div class="col-md-2">
 						<div class="demand_details_profile_img">
+						<a href="<?php echo base_url('Front/home/heelper_profile/' . $mission->accepted_by)?>">
 							<img src="<?php echo base_url('uploads/profiles/');?><?php echo $comment->picture_url?>">
+						</a>
 						</div>
 					</div>
 					<div class="col-md-10">
@@ -57,8 +59,6 @@
 						<p>
 						<?php echo $comment->your_comments?>
 						</p>
-						
-				
 					</div>
 					<?php if($comment->project_files) {
 						$project_files_test = explode(",", $comment->project_files);

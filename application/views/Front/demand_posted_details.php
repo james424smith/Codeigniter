@@ -21,9 +21,6 @@
 	foreach ($demands2 as $value) {
 		$demands_froeac3[] = array('offer_id'=>$value['offer_id'],'message'=>$value['message'],'project_id'=>$value['project_id'],'user_id'=>$value['user_id'],'status'=>$value['status'],'accept_budget'=>$value['accept_budget'],'offer_budget'=>$value['offer_budget'],'created_date'=>$value['created_date'],'accept_status'=>$value['accept_status'],'client_id'=>$value['client_id'],'username'=>$value['username'],'picture_url'=>$value['picture_url'],'sort'=>'date');
 	}
-
-
-
 	$arr3 = array_merge($demands_froeac1, $demands_froeac2, $demands_froeac3);
 
 ?>
@@ -138,7 +135,9 @@
 								if($url == "")
 									$url = "default.png";
 							?>
-			          		<img src="<?php echo base_url('uploads/profiles/' . $url) ;?>" alt="<?php echo  $value['username']; ?>" >
+							<a href="<?php echo base_url('Front/home/heelper_profile/' . $mission->accepted_by)?>">
+							  <img src="<?php echo base_url('uploads/profiles/' . $url) ;?>" alt="<?php echo  $value['username']; ?>" >
+							</a> 
 			          	</div>            
 			            <div class="col-md-9 cat_content">
 			        		<?php

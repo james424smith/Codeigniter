@@ -1,6 +1,7 @@
 // set your stripe publishable key
 Stripe.setPublishableKey('pk_test_IKgHpz7lpleTM3rcFSnyoxC700UDOoixI7');
 $(document).ready(function() {
+    //alert("dd");
     $("#paymentForm").submit(function(event) {
         $('#makePayment').attr("disabled", "disabled");
         // create stripe token to make payment
@@ -15,10 +16,11 @@ $(document).ready(function() {
 });
 // handle the response from stripe
 function handleStripeResponse(status, response) {
-    console.log(JSON.stringify(response));
+     console.log(JSON.stringify(response));
     if (response.error) {
         $('#makePayment').removeAttr("disabled");
         $(".paymentErrors").html(response.error.message);
+        alert("dd");
     } else {
 		var payForm = $("#paymentForm");
         //get stripe token id from response

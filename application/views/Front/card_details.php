@@ -48,25 +48,25 @@
 
                 <div class="card_number_input">
                   <p>Name on Card</p>
-                  <input type="text" name="custName" placeholder="Name on Card" id="" >
+                  <input type="text" name="custName" placeholder="Name on Card" id="" required>
                   <input type="hidden" name="custEmail" class="form-control">
                 </div>
 
                 <div class="card_number_input">
                   <p>Card Number</p>
-                  <input type="text" name="cardNumber" autocomplete="off" placeholder="Enter your card number..." id="cardNumber" >
+                  <input type="text" name="cardNumber" autocomplete="off" placeholder="Enter your card number..." id="cardNumber" required>
                 </div>
                 <div class="card_ul_li">
                   <ul>
                     <li>
                       <p>CVV</p>
-                      <input type="text" name="cardCVC" id="cardCVC" autocomplete="off">
+                      <input type="text" name="cardCVC" id="cardCVC" autocomplete="off" required>
                     </li>
                   
                     <li>
                       <p>Expiry</p>
-                      <input type="text" name="cardExpMonth" placeholder="MM" id="cardExpMonth"> 
-                      <input type="text" name="cardExpYear" placeholder="YYYY" id="cardExpYear">
+                      <input type="text" name="cardExpMonth" placeholder="MM" id="cardExpMonth" required> 
+                      <input type="text" name="cardExpYear" placeholder="YYYY" id="cardExpYear" required>
                       <input type="hidden" name="get_offer_amount" placeholder="" id="get_offer_amount" value="<?php echo $get_offer_amount; ?>">
                       <input type="hidden" name="get_offer_user_id" placeholder="" id="get_offer_user_id" value="<?php echo $get_offer_user_id; ?>">
                       <input type="hidden" name="get_offer_project_id" placeholder="" id="get_offer_project_id" value="<?php echo $get_offer_project_id; ?>">

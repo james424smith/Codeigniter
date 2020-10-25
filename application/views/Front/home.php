@@ -164,7 +164,6 @@
           </div>
         </div>
         <div class=" row slider autoplay">
-        
            <?php  foreach ($team as $member) {  ?> 
               <?php
                 $count = 0;

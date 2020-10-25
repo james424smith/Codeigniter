@@ -68,12 +68,14 @@
 				<div class="row post_demand_inner_row">
 				<div class="col-md-2">
 					<div class="demand_details_profile_img">
+						<a href="<?php echo base_url('Front/home/heelper_profile/' . $mission->accepted_by)?>">
 						<?php if($comment->picture_url){ ?>
 							<img src="<?php echo base_url('uploads/profiles/');?><?php echo $comment->picture_url?>">
 						<?php } 
 						else { ?>
 							<img src="<?php echo base_url('assets/Front/img/demand_profile.png');?>">
 						<?php } ?>
+						</a>
 					</div>
 				</div>
 				<div class="col-md-10">
