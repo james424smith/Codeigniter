@@ -29,8 +29,29 @@
 						</div>
 					</div>
 					<div class="Presentation">
-                      <p><?php echo $member['member_bio']; ?></p>
-					</div>					
+                          		<h5>Presentation:</h5>
+                          		<p><?=empty($member['presentation'])?'':$member['presentation']?></p>
+					</div>
+					<div class="Presentation">
+                          		<h5>Level of Studies:</h5>
+                          		<p><?=empty($member['level_of_study'])?'':$member['level_of_study']?></p>
+					</div>
+					<div class="Presentation">
+                          		<h5>Field of Studies:</h5>
+                          		<p><?=empty($member['Field_of_study'])?'':$member['Field_of_study']?></p>
+					</div>
+					<div class="Presentation">
+                          		<h5>Univecity / School:</h5>
+                          		<p><?=empty($member['university'])?'':$member['university']?></p>
+					</div>
+					<div class="Presentation">
+                          		<h5>Categories of interest on heelp:</h5>
+                          		<p><?=empty($member['intrested_category'])?'':$member['intrested_category']?></p>
+					</div>
+					<div class="Presentation">
+                          		<h5>Skills:</h5>
+                          		<p><?=empty($member['skills'])?'':$member['skills']?></p>
+					</div>				
 				</div>
 				<div class="col-md-2"></div>
 			<?php }?>

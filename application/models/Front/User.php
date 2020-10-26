@@ -22,6 +22,15 @@ class User extends CI_Model{
         }
     }
 
+    public function getUserByID($id) {
+        $this->db->select('*');
+        $this->db->from('users');
+        $this->db->where('id', $id);
+        $query = $this->db->get();
+        //var_dump($query->result_array());die();
+        return $query->row();
+    }
+
     public function getAllUsers() {
         $this->db->select('*');
         $this->db->from('users');
@@ -42,5 +51,5 @@ class User extends CI_Model{
         //var_dump($query->result_array());die();
         return $query->result_array();
     }
-    
+
 }

@@ -14,7 +14,8 @@
 	$comment = $this->db->query("select project_status.* from project_status where project_id=".$id . " order by id desc")->row();
 	/*echo "select project_status.* from project_status where project_id=".$id . " order by id desc";
 	exit();*/
-
+	$obj->load->model('Front/User');
+	$self_user = $obj->User->getSelfUser();
 
 	//print_r($user);die();
 
@@ -24,7 +25,7 @@
   <div class="top_bnr section post_demand">
     <div class="container">
       <div class="top-side about_title">
-          <h4 class="title">In Progress</h4>
+          <h4 class="title">Dispute</h4>
         </div>
     </div>
   </div>
@@ -36,7 +37,16 @@
 		<div class="row">
 			<div class="col-md-6 demand_border">
 				<div class="demand_delivered_details">
-					 <h2><?php echo $mission->mission_title;?></h2>
+					<div class=" row demand_details_profile_img">
+						<div>	
+							<a href="<?php echo base_url('Front/home/heelper_profile/' . $self_user_id)?>">
+								<img src="<?php echo base_url('uploads/profiles/');?><?php echo $self_user[0]['picture_url']?>">
+							</a><br>
+							<span class="stars-container">★★★★★</span>
+						</div>
+						<h2 style="margin-top: 10px; margin-left: 10px;"><?php echo $mission->mission_title;?></h2>				
+					</div>
+					<br> 
 					 <p class="top_details_p">
 					 	<?php echo $mission->mission_description;?>
 					 </p>
@@ -77,29 +87,30 @@
 			</div>
 			<div class="col-md-6">
 				<div class="row post_demand_inner_row">
-				<div class="col-md-2">
-					<div class="demand_details_profile_img">
-					<a href="<?php echo base_url('Front/home/heelper_profile/' . $mission->accepted_by)?>">
-						<?php if($mission->picture_url){ ?>
-							<img src="<?php echo base_url('uploads/profiles/');?><?php echo $mission->picture_url?>">
-						<?php } 
-						else { ?>
-							<img src="<?php echo base_url('assets/Front/img/demand_profile.png');?>">
+					<div class="col-md-2">
+						<div class="demand_details_profile_img">
+						<a href="<?php echo base_url('Front/home/heelper_profile/' . $mission->accepted_by)?>">
+							<?php if($mission->picture_url){ ?>
+								<img src="<?php echo base_url('uploads/profiles/');?><?php echo $mission->picture_url?>" style="margin-top:-10px;">
+							<?php } 
+							else { ?>
+								<img src="<?php echo base_url('assets/Front/img/demand_profile.png');?>" style="margin-top:-10px;">
 
-						<?php } ?>
-						</a>
+							<?php } ?>
+							</a>
+						</div>
+					</div>
+					<div class="col-md-10">
+						<h4>Heelper Comment</h4>
 					</div>
 				</div>
-				<div class="col-md-10">
+				<div class="row">
 					<?php if($comment->your_comments) { ?>
-					<div class="demand_details_content">
-						<h4>Heelper Comment</h4>						
-						<p>
+					<div class="demand_details_content">											
 						<?php echo $comment->your_comments?>
-						</p>
-						
-				
 					</div>
+				</div>
+				<div class="row">
 					<div class="demand_details_upload_btn">	
 						<?php foreach ($all_comments as $file_comment) { ?>
 							<a href="<?php if($file_comment['project_files']){ echo base_url()?>Front/Posts/download/<?php echo $file_comment['project_files']; }

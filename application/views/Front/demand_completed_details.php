@@ -13,6 +13,8 @@
 	$mission = $this->db->query("select * from mission  where mission_id=".$id)->row();
 	$comment = $this->db->query("select project_status.*,users.picture_url from project_status INNER JOIN users ON project_status.user_id =users.id where project_id=".$id . " order by id desc")->row();
 
+	$obj->load->model('Front/User');
+	$self_user = $obj->User->getSelfUser();
 //print_r($user);die();
 
 ?> 
@@ -32,8 +34,17 @@
 		<div class="row">
 			<div class="col-md-6 demand_border">
 				<div class="demand_delivered_details">
-					 <h2><?php echo $mission->mission_title;?></h2>
-					 <p class="top_details_p">
+					<div class="row demand_details_profile_img">
+						<div>	
+							<a href="<?php echo base_url('Front/home/heelper_profile/' . $self_user_id)?>">
+								<img src="<?php echo base_url('uploads/profiles/');?><?php echo $self_user[0]['picture_url']?>">
+							</a><br>
+							<span class="stars-container">★★★★★</span>
+						</div>
+						<h4 style="margin-top: 10px; margin-left: 10px;"><?php echo $mission->mission_title;?></h4>				
+					</div>
+					<br>
+					<p class="top_details_p">
 					 	<?php echo $mission->mission_description;?>
 					 </p>
 					 <div class="demand_details_upload_btn">
@@ -46,31 +57,30 @@
 						<b style="color:red;">&nbsp;&nbsp;&nbsp;Offer: <?php echo $mission->mission_budget;?> <i class="fas fa-euro-sign"></i></b>
 					 </p>
 				</div>
-				
-					
 			</div>
 			<div class="col-md-6 comt_box">
-				<div class="row post_demand_inner_row">
+				<div class="row post_demand_inner_row" style="min-height:20px;">
 					<div class="col-md-2">
 						<div class="demand_details_profile_img">
-						<a href="<?php echo base_url('Front/home/heelper_profile/' . $mission->accepted_by)?>">
-							<img src="<?php echo base_url('uploads/profiles/');?><?php echo $comment->picture_url?>">
-						</a>
+							<a href="<?php echo base_url('Front/home/heelper_profile/' . $mission->accepted_by)?>">
+								<img src="<?php echo base_url('uploads/profiles/');?><?php echo $comment->picture_url?>" style="margin-top:-10px;">
+							</a>
+							<span class="stars-container">★★★★★</span>
+
 						</div>
 					</div>
 					<div class="col-md-10">
-						<?php if($comment->your_comments) { ?>
-					<div class="demand_details_content">
-						<h4>Heelper Comment</h4>						
-						<p>
-						<?php echo $comment->your_comments?>
-						</p>
+						<h4>Heelper Comment</h4>
 					</div>
-					<?php if($comment->project_files) {
-							$project_files_test = explode(",", $comment->project_files);
-							foreach ($project_files_test as $value) {
-							# code...
-						?>
+				</div>
+				<br>
+				<div class="row" style="padding-left:20px;">
+					<?php if($comment->your_comments) { ?>
+					<div class="demand_details_content">							
+						<?php echo $comment->your_comments?>
+					</div>
+				</div><br>
+				<div class="row" style="padding-left:20px;">
 					<div class="demand_details_upload_btn">
 						<?php foreach ($all_comments as $file_comment) { ?>
 							<a href="<?php if($file_comment['project_files']){ echo base_url()?>Front/Posts/download/<?php echo $file_comment['project_files']; }
@@ -82,14 +92,15 @@
 							</a>
 						<?php } ?>
 					</div>
-				<?php } } }
+				</div>
+				<?php } 
 				else{ ?>
-				<div class="demand_details_upload_btn">
+				<div class="row demand_details_upload_btn">
 					<p>No Data to Display</p>
 				</div>
-			<?php } ?>	
-					</div>				
-			  </div>
+				<?php }?>	
+			</div>				
+			</div>
 			</div>
 		</div>
 		<div class="row">
@@ -104,20 +115,7 @@
       <div class="modal-content">
          <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
-        </div>
-        <!-- Modal body -->
-<!--         <div class="modal-body">
-			<div class="post_demand_details_popup">
-				<h4>Ask to Modify</h4>				
-				<form >
-					<div class="">
-						<textarea placeholder="Description:"></textarea>
-					</div>
-				</form>
-
-				<a href="#" class="btn btn-default">Retour</a>
-			</div>
-	    </div>   -->              
+        </div>      
       </div>
     </div>
   </div>

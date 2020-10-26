@@ -14,6 +14,8 @@
 	$comment = $this->db->query("select project_status.* from project_status where project_id=".$id . " order by id desc")->row();
 	//var_dump($mission);die();
 	//$project_offer = $this->db->query("select * from project_offer where project_id=".$mission->mission_id)->row();
+	$obj->load->model('Front/User');
+	$self_user = $obj->User->getSelfUser();
 ?> 
 
 <section>
@@ -31,14 +33,33 @@
 		<div class="row">
 			<div class="col-md-6 demand_border">
 				<div class="demand_delivered_details">
-					 <h2><?php echo $mission->mission_title;?></h2>
-					 <p class="top_details_p">
-					 	<?php echo $mission->description;?>
-					 </p>
+					<div class=" row demand_details_profile_img">
+						<div>	
+							<a href="<?php echo base_url('Front/home/heelper_profile/' . $self_user_id)?>">
+								<img src="<?php echo base_url('uploads/profiles/');?><?php echo $self_user[0]['picture_url']?>">
+							</a><br>
+							<span class="stars-container">★★★★★</span>
+						</div>
+						<h4 style="margin-top: 10px; margin-left: 10px;"><?php echo $mission->mission_title;?></h4>				
+					</div>
+					<br>
+					<div class="row">
+					 	<p class="top_details_p">
+					 		<?php echo $mission->description;?>
+					 	</p>
+					</div>
 					 <div class="demand_details_upload_btn">
 						<a href="<?php if($mission->mission_doc){ echo base_url()?>Front/Posts/download/<?php echo $mission->mission_doc;}
 								else { ?>#<?php }?>">
-								sdfsdf
+							<?php 
+									if($mission->mission_doc) {
+										echo $mission->mission_doc; 
+									}
+									else {
+										echo "No Attached File";
+									}
+								?>	
+								&nbsp;<i class="fas fa-download"></i>		
 						</a>
 						<!-- <a href="#">File Name <i class="fas fa-download"></i></a> -->
 					</div>
@@ -60,7 +81,7 @@
 				<div class="row post_demand_inner_row">
 					<div class="col-md-2">
 						<div class="demand_details_profile_img">
-							<a href="<?php echo base_url('Front/home/heelper_profile/' . $mission->accepted_by)?>">
+							<a href="<?php echo base_url('Front/home/heelper_profile/' . $mission->accepted_by)?>" >
 							<?php if($mission->picture_url){ ?>
 								<img src="<?php echo base_url('uploads/profiles/');?><?php echo $mission->picture_url?>">
 							<?php } 
@@ -68,36 +89,37 @@
 								<img src="<?php echo base_url('assets/Front/img/demand_profile.png');?>">
 							<?php } ?>
 							</a>
-							
+							<span class="stars-container">★★★★★</span>
 						</div>
 					</div>
 					<div class="col-md-10">
-						<?php if($comment->your_comments) { ?>
-						<div class="demand_details_content">
-							<h4>Heelper Comment</h4>						
-							<p>
-								<?php echo $comment->your_comments?>
-							</p>					
-						</div>
-						
-						<div class="demand_details_upload_btn">
-						<?php 
-							if($mission->mission_doc) {
-								echo $mission->mission_doc; 
-							}
-							else {
-								echo "No Attached File";
-							}
-						?>	
-							&nbsp;<i class="fas fa-download"></i>	
-						</div>
-					<?php   }
-					else{ ?>
+						<h4>Heelper Comment</h4>
+					</div>
+				</div>
+				<div class="row" style="padding-left:10px;">
+					<?php if($comment->your_comments) { ?>
+					<div class="demand_details_content">
+						<?php echo $comment->your_comments?>				
+					</div>
+				</div>
+				<div class="row">	
 					<div class="demand_details_upload_btn">
-						<P>
-							No comments to display	
-						</P>
-						
+					<?php 
+						if($mission->mission_doc) {
+							echo $mission->mission_doc; 
+						}
+						else {
+							echo "No Attached File";
+						}
+					?>	
+						&nbsp;<i class="fas fa-download"></i>	
+					</div>
+				</div>
+				<?php   }
+					else{ ?>
+				<div class="row" style="padding-left:10px;">	
+					<div class="demand_details_upload_btn">
+						No comments to display	
 					</div>
 					<?php } ?>
 				</div>	

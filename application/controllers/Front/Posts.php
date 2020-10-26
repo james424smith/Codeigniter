@@ -192,7 +192,6 @@ class Posts extends CI_Controller
             }
          }
         if($image_name){
-          var_dump("pp"); die();
 
             $project_data = array(
               'project_id' => $this->input->post('project_id'),

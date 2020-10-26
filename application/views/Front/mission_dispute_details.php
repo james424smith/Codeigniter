@@ -10,6 +10,7 @@
 //$profile_url = $obj->RegisterModel->PictureUrl();
 	$mission = $this->db->query("select * from mission  where mission_id=".$id)->row();
 //print_r($user);die();
+	$client_user = $obj->User->getUserByID($mission->client_id);
 
 ?> 
 
@@ -28,7 +29,13 @@
 		<div class="row">
 			<div class="col-md-6 demand_border">
 				<div class="demand_delivered_details">
-					 <h2><?php echo $mission->mission_title;?></h2>
+					<div class=" row demand_details_profile_img">
+						<a href="<?php echo base_url('Front/home/heelper_profile/' . $mission->client_id)?>">
+							<img src="<?php echo base_url('uploads/profiles/');?><?php echo $client_user->picture_url?>">
+						</a>
+						<h2 style="margin-top: 10px; margin-left: 10px;"><?php echo $mission->mission_title;?></h2>				
+					</div>
+					<br>
 					 <p class="top_details_p">
 					 	<?php echo $mission->mission_description;?>
 					 </p>
@@ -49,7 +56,7 @@
 				<div class="row post_demand_inner_row">
 					<div class="col-md-2">
 						<div class="demand_details_profile_img">
-							<img src="<?php echo base_url('assets/Front/img/demand_profile.png')?>">
+							<img src="<?php echo base_url('assets/Front/img/demand_profile.png')?>" style="margin-top:-10px;">
 						</div>
 					</div>
 					<div class="col-md-10">

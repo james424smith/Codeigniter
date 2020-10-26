@@ -81,11 +81,9 @@
 					<div class="my_profile_box">
 						<div class="my_prfl_cont">
 							<div class="view_profile">
-	                              <!-- <img src="<?php echo base_url();?>/assets/Front/img/profile_img.png"> -->
-	                              <img  class="my_pro" src="<?php  echo base_url()?>/uploads/profiles/<?php echo $user['picture_url']?>">
+	                            	<img  class="my_pro" src="<?php  echo base_url()?>/uploads/profiles/<?php echo $user['picture_url']?>">
 	                              	<span> <a href="#" data-toggle="modal" data-target="#user_profile"><img src="<?php  echo base_url()?>/assets/Front/img/edit.png"></a>
 	                              	</span>
-	                              
 	                         </div>
 	                         
 	                          <div class="profile_dtls">

@@ -15,6 +15,7 @@
 	$obj->load->model('Front/User');
 	$self_user = $obj->User->getSelfUser();
 	//var_dump($mission);die();
+	$client_user = $obj->User->getUserByID($mission->client_id);
 
 ?> 
 
@@ -34,14 +35,23 @@
 		<div class="row">
 			<div class="col-md-6 demand_border">
 				<div class="demand_delivered_details">
-					 <h2><?php echo $mission->mission_title;?></h2>
-					 <p class="top_details_p">
-					 	<?php echo $mission->mission_description;?>
-					 </p>
-					 <p class="budget_details_p">
+					<div class=" row demand_details_profile_img">
+						<div>
+							<a href="<?php echo base_url('Front/home/heelper_profile/' . $mission->client_id)?>">
+								<img src="<?php echo base_url('uploads/profiles/');?><?php echo $client_user->picture_url?>">
+							</a><br>
+							<span class="stars-container">★★★★★</span>
+						</div>
+						<h4 style="margin-top: 10px; margin-left: 10px;"><?php echo $mission->mission_title;?></h4>				
+					</div>
+					<br>
+					<p class="top_details_p">
+						<?php echo $mission->mission_description;?>
+					</p>
+					<p class="budget_details_p">
 					 	<b>Budget: <?php echo $mission->budget;?></b> <i class="fas fa-euro-sign"></i>
 						<b style="color:red;">&nbsp;&nbsp;&nbsp;Offer: <?php echo $mission->mission_budget;?> <i class="fas fa-euro-sign"></i></b>
-					 </p>
+					</p>
 				</div>
 				<div class="demand_details_upload_btn">
 					<a href="<?php if($mission->mission_doc){ echo base_url()?>Front/Posts/download/<?php echo $mission->mission_doc;}
@@ -60,21 +70,25 @@
 				</div>
 			</div>
 			<div class="col-md-6">
-				<div class="row post_demand_inner_row">
-				<div class="col-md-2">
-					<div class="demand_details_profile_img">
-						<a href="<?php echo base_url('Front/home/heelper_profile/' . $self_user[0]['id'])?>">
-							<img src="<?php echo base_url('uploads/profiles/');?><?php echo $self_user[0]['picture_url']?>">
-						</a>			
+				<div class="row post_demand_inner_row" style="min-height:30px;">
+					<div class="col-md-2">
+						<div class="demand_details_profile_img">
+							<a href="<?php echo base_url('Front/home/heelper_profile/' . $self_user[0]['id'])?>">
+								<img src="<?php echo base_url('uploads/profiles/');?><?php echo $self_user[0]['picture_url']?>" style="margin-top:-10px;"> 
+							</a>
+							<span class="stars-container">★★★★★</span>			
+						</div>
+					</div>
+					<div class="col-md-10">
+						<h4>My Comment</h4>
 					</div>
 				</div>
-				<div class="col-md-10">
+				<div class="row" style="padding-left:20px;">
 					<div class="demand_details_content">
-						<h4>My Comment</h4>
-						<p>
-							<?php echo $comment->your_comments; ?>
-						</p>
+						<?php echo $comment->your_comments; ?>
 					</div>
+				</div><br>
+				<div class="row" style="padding-left:20px;">
 					<div class="demand_details_upload_btn">	
 						<?php foreach ($all_comments as $file_comment) { ?>
 							<a href="<?php if($file_comment['project_files']){ echo base_url()?>Front/Posts/download/<?php echo $file_comment['project_files']; }
@@ -86,13 +100,12 @@
 							</a>
 						<?php } ?>
 					</div>
-								
+				</div>
+				<div class="row" style="padding-left:10px;">				
 					<div class="claim_an_issue">
-						<p>
-							<a href="<?php echo base_url("Front/home/mission_inprogress_details/" . $id) ?>">
-								Add a new delivery
-							</a>
-						</p>
+						<a href="<?php echo base_url("Front/home/mission_inprogress_details/" . $id) ?>" class="btn btn-default">
+							New delivery
+						</a> &nbsp;&nbsp;&nbsp;
 						 <a href="#" class="btn btn-default" data-toggle="modal" data-target="#myModal2">
 							Claim an issue
 						</a>

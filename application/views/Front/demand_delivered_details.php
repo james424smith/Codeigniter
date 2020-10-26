@@ -3,7 +3,7 @@
 	$obj = &get_instance();
 	$obj->load->model('Front/Posts_model');
 	$id = $this->uri->segment(4);
-	//$profile_url = $obj->RegisterModel->PictureUrl();
+//$profile_url = $obj->RegisterModel->PictureUrl();
 
 	$self_user_id = $this->session->userdata['id'];
 	//$profile_url = $obj->RegisterModel->PictureUrl();
@@ -18,6 +18,8 @@
 	$amount_with_tax = $get_offer_amount + 0.25;
 	$total_amount = $mission->mission_budget + $amount_with_tax + $amount_12;
 	//var_dump($total_amount);die();
+	$obj->load->model('Front/User');
+	$self_user = $obj->User->getSelfUser();
 ?> 
 
 <section>
@@ -30,13 +32,23 @@
   </div>
 </section>
 
-
 <section class="demand_deails_section">
 	<div class="container">
 		<div class="row">
+
 			<div class="col-md-6 demand_border">
 				<div class="demand_delivered_details">
-					 <h2><?php echo $mission->mission_title;?></h2>
+					<div class=" row demand_details_profile_img">
+						<div>	
+							<a href="<?php echo base_url('Front/home/heelper_profile/' . $self_user_id)?>">
+								<img src="<?php echo base_url('uploads/profiles/');?><?php echo $self_user[0]['picture_url']?>">
+							</a><br>
+							<span class="stars-container">★★★★★</span>
+						</div>
+						<h4 style="margin-top: 10px; margin-left: 10px;"><?php echo $mission->mission_title;?></h4>
+						<br>
+					</div>
+					<br>
 					 <p class="top_details_p">
 					 	<?php echo $mission->mission_description;?>
 					 </p>
@@ -44,14 +56,14 @@
 						<a href="<?php if($mission->mission_doc){ echo base_url()?>Front/Posts/download/<?php echo $mission->mission_doc;}
 								else { ?>#<?php }?>">
 							<?php 
-									if($mission->mission_doc) {
-										echo $mission->mission_doc; 
-									}
-									else {
-										echo "No Attached File";
-									}
-								?>	
-								&nbsp;<i class="fas fa-download"></i>			
+								if($mission->mission_doc) {
+									echo $mission->mission_doc; 
+								}
+								else {
+									echo "No Attached File";
+								}
+							?>	
+							&nbsp;<i class="fas fa-download"></i>			
 						</a>
 						<!-- <a href="#">File Name <i class="fas fa-download"></i></a> -->
 					 </div>
@@ -61,41 +73,44 @@
 						<b style="color:red;">&nbsp;&nbsp;&nbsp;Offer: <?php echo $mission->mission_budget;?> <i class="fas fa-euro-sign"></i></b>
 					 </p>
 				</div>
-				<div class="demand_check_box">
-						<ul>
-							<li>					
-								<a href="#" class="btn btn-primery" data-toggle="modal" data-target="#myModalpayment">Release Payment</a>
-							</li>
+				<div class="demand_check_box" style="margin-left: -10px;" >
+					<ul>
+						<li>					
+							<a href="#" class="btn btn-primery" data-toggle="modal" data-target="#myModalpayment">Release Payment</a>
+						</li>
 
-							 <li>							
-								<a href="<?php echo base_url('Front/Posts/modify/'.$mission->mission_id)?>" class="btn btn-default">Ask to Modify</a>
-							</li> 
-							
-						</ul>
-					</div>				
+							<li>							
+							<a href="<?php echo base_url('Front/Posts/modify/'.$mission->mission_id)?>" class="btn btn-default">Ask to Modify</a>
+						</li> 
+						
+					</ul>
+				</div>				
 			</div>
 			<div class="col-md-6">
 				<div class="row post_demand_inner_row">
-				<div class="col-md-2">
-					<div class="demand_details_profile_img">
-						<a href="<?php echo base_url('Front/home/heelper_profile/' . $mission->accepted_by)?>">
-						<?php if($comment->picture_url){ ?>
-							<img src="<?php echo base_url('uploads/profiles/');?><?php echo $comment->picture_url?>">
-						<?php } 
-						else { ?>
-							<img src="<?php echo base_url('assets/Front/img/demand_profile.png');?>">
-						<?php } ?>
-						</a>
+					<div class="col-md-2">
+						<div class="demand_details_profile_img">
+							<a href="<?php echo base_url('Front/home/heelper_profile/' . $mission->accepted_by)?>">
+							<?php if($comment->picture_url){ ?>
+								<img src="<?php echo base_url('uploads/profiles/');?><?php echo $comment->picture_url?>" style="margin-top:-10px;">
+							<?php } 
+							else { ?>
+								<img src="<?php echo base_url('assets/Front/img/demand_profile.png');?>" style="margin-top:-10px;">
+							<?php } ?>
+							</a>
+							<span class="stars-container">★★★★★</span>
+						</div>
+					</div>
+					<div class="col-md-10">
+						<h4>Heelper Comment</h4>
 					</div>
 				</div>
-				<div class="col-md-10">
-					<div class="demand_details_content">
-						<h4>Heelper Comment</h4>						
-						<p>
+				<div class="row" style="padding-left:20px;">																
+					<p>
 						<?php echo $comment->your_comments?>
-						</p>
-				
-					</div>
+					</p>
+				</div>
+				<div class="row" style="padding-left:20px;">
 					<div class="demand_details_upload_btn">	
 						<?php foreach ($all_comments as $file_comment) { ?>
 							<a href="<?php if($file_comment['project_files']){ echo base_url()?>Front/Posts/download/<?php echo $file_comment['project_files']; }
@@ -107,13 +122,12 @@
 							</a>
 						<?php } ?>
 					</div>
-					<div class="claim_an_issue">
-						 <a href="#" class="btn btn-default" data-toggle="modal" data-target="#myModal2">
-							Claim an issue
-						</a>
-					</div>	
+				</div>
+				<div class="row claim_an_issue" style="padding-left:10px;">
+					<a href="#" class="btn btn-default" data-toggle="modal" data-target="#myModal2">
+						Claim an issue
+					</a>
 				</div>				
-			  </div>
 			</div>
 		</div>
 	</div>

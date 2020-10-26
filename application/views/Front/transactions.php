@@ -1,13 +1,12 @@
 <?php $this->load->view('Front/common/header');  ?>
 <?php 
-$obj=&get_instance();
-$obj->load->model('Front/Payment_model');
-$user_id = $this->session->userdata['id'];
-$myalltransection=$obj->Payment_model->getPayment($user_id);
-//print_r($myalltransection);
+  $obj = &get_instance();
+  $obj->load->model('Front/Payment_model');
+  $user_id = $this->session->userdata['id'];
+  $myalltransection = $obj->Payment_model->getPayment($user_id);
 
-$myintransection=$obj->Payment_model->getPaymentIn($user_id);
-$myouttransection=$obj->Payment_model->getPaymentOut($user_id);
+  $myintransection = $obj->Payment_model->getPaymentIn($user_id);
+  $myouttransection = $obj->Payment_model->getPaymentOut($user_id);
  ?>
 <section>
   <div class="top_bnr section post_demand">
@@ -31,18 +30,18 @@ $myouttransection=$obj->Payment_model->getPaymentOut($user_id);
  
         <ul class="tabs_list">
 
-<?php foreach($myalltransection as $value)
-{
-if($value['sent_from'] == $user_id)
-{
-  $class = "option-2";
-  $img = "assets/Front/img/out.png";
-}
-else{
-  $class = "option-1";
-  $img = "assets/Front/img/in.png";
-}
-?>
+        <?php foreach($myalltransection as $value)
+        {
+          if($value['sent_from'] == $user_id)
+          {
+            $class = "option-2";
+            $img = "assets/Front/img/out.png";
+          }
+          else{
+            $class = "option-1";
+            $img = "assets/Front/img/in.png";
+          }
+        ?>
           <li class="project red <?php echo $class; ?> all" >
               <div class="item row">
                     <div class="col-md-4 img_box">
@@ -63,7 +62,6 @@ else{
                       $datediff = $now - $your_date;
                       ?>
                      <p class="cat_date"><?php echo round($datediff / (60 * 60 * 24)); ?> Days ago</p>
-                    <!-- <p class="cat_date"><?php echo $value['created_date']; ?></p> -->
              </div>
           </li> 
 
@@ -71,17 +69,17 @@ else{
 
 
           <?php foreach($myalltransection as $value)
-{
-if($value['sent_from'] == $user_id)
-{
-  $class = "red";
-  $img = "assets/Front/img/out.png";
-}
-else{
-  $class = "green";
-  $img = "assets/Front/img/in.png";
-}
-?>
+                {
+                  if($value['sent_from'] == $user_id)
+                  {
+                    $class = "red";
+                    $img = "assets/Front/img/out.png";
+                  }
+                  else{
+                    $class = "green";
+                    $img = "assets/Front/img/in.png";
+                 }
+          ?>
           <li class="project  <?php echo $class; ?> all"  >
               <div class="item row">
                     <div class="col-md-4 img_box">
@@ -99,316 +97,7 @@ else{
                     <p class="cat_date"><?php echo $value['created_date']; ?></p>
              </div>
           </li> 
-
-          <?php } ?>  
-
-          <!-- <li class="project green all">
-             <div class="item row">
-                    <div class="col-md-4 img_box">
-                      <img src="<?php echo base_url('assets/Front/img/in.png')?>" alt="Work 1">
-                    </div>            
-                    <div class="col-md-8 cat_content">
-                          <h5>Project title</h5>
-                          <p>Project of : user name of byer/seller</p>
-                          <div class="row">
-                            <div class="col-md-12 status Delivred">
-                              <p>100$</p>
-                            </div>              
-                          </div>                      
-                    </div>
-                    <p class="cat_date">2 Days ago</p>
-             </div>
-          </li>  
-          <li class="project red all">
-             <div class="item row">
-                    <div class="col-md-4 img_box">
-                      <img src="<?php echo base_url('assets/Front/img/out.png')?>" alt="Work 1">
-                    </div>            
-                    <div class="col-md-8 cat_content">
-                          <h5>Project title</h5>
-                          <p>Project of : user name of byer/seller</p>
-                          <div class="row">
-                            <div class="col-md-12 status Delivred">
-                              <p>100$</p>
-                            </div>              
-                          </div>                      
-                    </div>
-                    <p class="cat_date">2 Days ago</p>
-             </div>
-          </li>
-               <li class="project green all">
-             <div class="item row">
-                    <div class="col-md-4 img_box">
-                      <img src="<?php echo base_url('assets/Front/img/in.png')?>" alt="Work 1">
-                    </div>            
-                    <div class="col-md-8 cat_content">
-                          <h5>Project title</h5>
-                          <p>Project of : user name of byer/seller</p>
-                          <div class="row">
-                            <div class="col-md-12 status Delivred">
-                              <p>100$</p>
-                            </div>              
-                          </div>                      
-                    </div>
-                    <p class="cat_date">2 Days ago</p>
-             </div>
-          </li>  
-          <li class="project red all">
-             <div class="item row">
-                    <div class="col-md-4 img_box">
-                      <img src="<?php echo base_url('assets/Front/img/out.png')?>" alt="Work 1">
-                    </div>            
-                    <div class="col-md-8 cat_content">
-                          <h5>Project title</h5>
-                          <p>Project of : user name of byer/seller</p>
-                          <div class="row">
-                            <div class="col-md-12 status Delivred">
-                              <p>100$</p>
-                            </div>              
-                          </div>                      
-                    </div>
-                    <p class="cat_date">2 Days ago</p>
-             </div>
-          </li>
-               <li class="project green all">
-             <div class="item row">
-                    <div class="col-md-4 img_box">
-                      <img src="<?php echo base_url('assets/Front/img/in.png')?>" alt="Work 1">
-                    </div>            
-                    <div class="col-md-8 cat_content">
-                          <h5>Project title</h5>
-                          <p>Project of : user name of byer/seller</p>
-                          <div class="row">
-                            <div class="col-md-12 status Delivred">
-                              <p>100$</p>
-                            </div>              
-                          </div>                      
-                    </div>
-                    <p class="cat_date">2 Days ago</p>
-             </div>
-          </li> -->
-
-          <!-- <li class="project green option-1">
-             <div class="item row">
-                    <div class="col-md-4 img_box">
-                      <img src="<?php echo base_url('assets/Front/img/in.png')?>" alt="Work 1">
-                    </div>            
-                    <div class="col-md-8 cat_content">
-                          <h5>Project title</h5>
-                          <p>Project of : user name of byer/seller</p>
-                          <div class="row">
-                            <div class="col-md-12 status Delivred">
-                              <p>100$</p>
-                            </div>              
-                          </div>                      
-                    </div>
-                    <p class="cat_date">2 Days ago</p>
-             </div>
-          </li>  
-          <li class="project red option-2">
-              <div class="item row">
-                    <div class="col-md-4 img_box">
-                      <img src="<?php echo base_url('assets/Front/img/out.png')?>" alt="Work 1">
-                    </div>            
-                    <div class="col-md-8 cat_content">
-                          <h5>Project title</h5>
-                          <p>Project of : user name of byer/seller</p>
-                          <div class="row">
-                            <div class="col-md-12 status Delivred">
-                              <p>100$</p>
-                            </div>              
-                          </div>                      
-                    </div>
-                    <p class="cat_date">2 Days ago</p>
-             </div>
-          </li>    
-          <li class="project green option-1">
-             <div class="item row">
-                    <div class="col-md-4 img_box">
-                      <img src="<?php echo base_url('assets/Front/img/in.png')?>" alt="Work 1">
-                    </div>            
-                    <div class="col-md-8 cat_content">
-                          <h5>Project title</h5>
-                          <p>Project of : user name of byer/seller</p>
-                          <div class="row">
-                            <div class="col-md-12 status Delivred">
-                              <p>100$</p>
-                            </div>              
-                          </div>                      
-                    </div>
-                    <p class="cat_date">2 Days ago</p>
-             </div>
-          </li>  
-          <li class="project red option-2">
-             <div class="item row">
-                    <div class="col-md-4 img_box">
-                      <img src="<?php echo base_url('assets/Front/img/out.png')?>" alt="Work 1">
-                    </div>            
-                    <div class="col-md-8 cat_content">
-                          <h5>Project title</h5>
-                          <p>Project of : user name of byer/seller</p>
-                          <div class="row">
-                            <div class="col-md-12 status Delivred">
-                              <p>100$</p>
-                            </div>              
-                          </div>                      
-                    </div>
-                    <p class="cat_date">2 Days ago</p>
-             </div>
-          </li>
-               <li class="project green  option-1">
-             <div class="item row">
-                    <div class="col-md-4 img_box">
-                      <img src="<?php echo base_url('assets/Front/img/in.png')?>" alt="Work 1">
-                    </div>            
-                    <div class="col-md-8 cat_content">
-                          <h5>Project title</h5>
-                          <p>Project of : user name of byer/seller</p>
-                          <div class="row">
-                            <div class="col-md-12 status Delivred">
-                              <p>100$</p>
-                            </div>              
-                          </div>                      
-                    </div>
-                    <p class="cat_date">2 Days ago</p>
-             </div>
-          </li>  
-          <li class="project red option-2">
-             <div class="item row">
-                    <div class="col-md-4 img_box">
-                      <img src="<?php echo base_url('assets/Front/img/out.png')?>" alt="Work 1">
-                    </div>            
-                    <div class="col-md-8 cat_content">
-                          <h5>Project title</h5>
-                          <p>Project of : user name of byer/seller</p>
-                          <div class="row">
-                            <div class="col-md-12 status Delivred">
-                              <p>100$</p>
-                            </div>              
-                          </div>                      
-                    </div>
-                    <p class="cat_date">2 Days ago</p>
-             </div>
-          </li>
-               <li class="project green option-1">
-             <div class="item row">
-                    <div class="col-md-4 img_box">
-                      <img src="<?php echo base_url('assets/Front/img/in.png')?>" alt="Work 1">
-                    </div>            
-                    <div class="col-md-8 cat_content">
-                          <h5>Project title</h5>
-                          <p>Project of : user name of byer/seller</p>
-                          <div class="row">
-                            <div class="col-md-12 status Delivred">
-                              <p>100$</p>
-                            </div>              
-                          </div>                      
-                    </div>
-                    <p class="cat_date">2 Days ago</p>
-             </div>
-          </li>        
-           <li class="project red all">
-              <div class="item row">
-                    <div class="col-md-4 img_box">
-                      <img src="<?php echo base_url('assets/Front/img/out.png')?>" alt="Work 1">
-                    </div>            
-                    <div class="col-md-8 cat_content">
-                          <h5>Project title1</h5>
-                          <p>Project of : user name of byer/seller</p>
-                          <div class="row">
-                            <div class="col-md-12 status Delivred">
-                              <p>100$</p>
-                            </div>              
-                          </div>                      
-                    </div>
-                    <p class="cat_date">2 Days ago</p>
-             </div>
-          </li>    
-          <li class="project green all">
-             <div class="item row">
-                    <div class="col-md-4 img_box">
-                      <img src="<?php echo base_url('assets/Front/img/in.png')?>" alt="Work 1">
-                    </div>            
-                    <div class="col-md-8 cat_content">
-                          <h5>Project title</h5>
-                          <p>Project of : user name of byer/seller</p>
-                          <div class="row">
-                            <div class="col-md-12 status Delivred">
-                              <p>100$</p>
-                            </div>              
-                          </div>                      
-                    </div>
-                    <p class="cat_date">2 Days ago</p>
-             </div>
-          </li>  
-          <li class="project red all">
-             <div class="item row">
-                    <div class="col-md-4 img_box">
-                      <img src="<?php echo base_url('assets/Front/img/out.png')?>" alt="Work 1">
-                    </div>            
-                    <div class="col-md-8 cat_content">
-                          <h5>Project title</h5>
-                          <p>Project of : user name of byer/seller</p>
-                          <div class="row">
-                            <div class="col-md-12 status Delivred">
-                              <p>100$</p>
-                            </div>              
-                          </div>                      
-                    </div>
-                    <p class="cat_date">2 Days ago</p>
-             </div>
-          </li>
-               <li class="project green all">
-             <div class="item row">
-                    <div class="col-md-4 img_box">
-                      <img src="<?php echo base_url('assets/Front/img/in.png')?>" alt="Work 1">
-                    </div>            
-                    <div class="col-md-8 cat_content">
-                          <h5>Project title</h5>
-                          <p>Project of : user name of byer/seller</p>
-                          <div class="row">
-                            <div class="col-md-12 status Delivred">
-                              <p>100$</p>
-                            </div>              
-                          </div>                      
-                    </div>
-                    <p class="cat_date">2 Days ago</p>
-             </div>
-          </li>  
-          <li class="project red all">
-             <div class="item row">
-                    <div class="col-md-4 img_box">
-                      <img src="<?php echo base_url('assets/Front/img/out.png')?>" alt="Work 1">
-                    </div>            
-                    <div class="col-md-8 cat_content">
-                          <h5>Project title</h5>
-                          <p>Project of : user name of byer/seller</p>
-                          <div class="row">
-                            <div class="col-md-12 status Delivred">
-                              <p>100$</p>
-                            </div>              
-                          </div>                      
-                    </div>
-                    <p class="cat_date">2 Days ago</p>
-             </div>
-          </li>
-               <li class="project green all">
-             <div class="item row">
-                    <div class="col-md-4 img_box">
-                      <img src="<?php echo base_url('assets/Front/img/in.png')?>" alt="Work 1">
-                    </div>            
-                    <div class="col-md-8 cat_content">
-                          <h5>Project title</h5>
-                          <p>Project of : user name of byer/seller</p>
-                          <div class="row">
-                            <div class="col-md-12 status Delivred">
-                              <p>100$</p>
-                            </div>              
-                          </div>                      
-                    </div>
-                    <p class="cat_date">2 Days ago</p>
-             </div>
-          </li> -->        
+          <?php } ?>        
         </ul>
     </main>
   </div>
