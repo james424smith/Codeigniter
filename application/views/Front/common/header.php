@@ -159,8 +159,8 @@ $('#action_menu_btn').click(function(){
         <div class="container">
           <div class="row">
             <div class="col-md-2">
-              <div class="logo" style="margin-top:10px;">
-                <a href="<?php echo base_url('Front/home')?>"><img class="navbar-img" src="<?php echo base_url('assets/Front/img/Logo.png')?>"></a>
+              <div class="logo" style="margin-top:15px;">
+                <a href="<?php echo base_url('Front/home')?>"><img class="navbar-img" src="<?php echo base_url()?>assets/Front/img/Logo.png"></a>
               </div>
             </div>
             <div class="col-md-8">  
