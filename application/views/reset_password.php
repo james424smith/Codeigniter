@@ -12,9 +12,9 @@
                               <div class="card">
                                  <div class="card-body">
                                     <?php if($this->session->flashdata('result')){?>
-                                    <div class="alert alert-success">
-                                       <?php echo $this->session->flashdata('result'); } ?>
-                                    </div>
+                                       <div class="alert alert-success">
+                                          <?php echo $this->session->flashdata('result'); } ?>
+                                       </div>
                                     <div class="table-responsive">
                                        <div class="form-validation">
                                           <form class="form-valide" action="<?php echo base_url('UserSetting/updatePwd')?>" enctype="multipart/form-data" method="post" accept-charset="utf-8">

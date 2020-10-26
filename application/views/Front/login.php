@@ -40,7 +40,7 @@
                         <hr>
                         <div class="social_btn">
                             <?php //if(!empty($authURL)){ ?>
-                        	<a class="fb" href="<?php echo $authURL; ?>">Facebook</a>
+                        	<a class="fb" href="<?php echo base_url('Front/Login/facebook_login')?>">Facebook</a>
                         	<a class="google" href="#">Google</a>
                         </div>
                         <p>You don't have an account ?<a href="<?php echo base_url('Front/home/signUp')?>">Register</a></p>

@@ -108,7 +108,7 @@ class Login extends CI_Controller {
                 $this->load->view('Front/reset');
                 }
     }
-     public function index(){ 
+     public function facebook_login(){ 
         $userData = array(); 
          $this->load->library('facebook');  
          
