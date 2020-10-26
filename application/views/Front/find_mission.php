@@ -61,16 +61,16 @@
 					<div class="row">
 						<div class="col-md-6 make_btn">
 							<a href="<?php
-										if($this->session->userdata['id']){
-											echo base_url('Front/home/make_an_offer/'.$post['mission_id']); }
-										else {
-											echo base_url('Front/home/login');
-										} ?>">Make an Offer</a>
+								if($this->session->userdata['id']){
+									echo base_url('Front/home/make_an_offer/'.$post['mission_id']); }
+								else {
+									echo base_url('Front/home/login');
+								} ?>">Make an Offer</a>
 						</div>	
 						<div class="col-md-2 make_btn">
 						</div>
 						<div class="col-md-4 make_btn">
-							<a href="<?php echo base_url('Front/home/chat'); ?>">Chat</a>
+							<a href="<?php echo base_url('Front/home/heelper_profile/' . $post['client_id'])?>">Discuss</a>
 						</div>			            
 		            </div>
 	            </div>

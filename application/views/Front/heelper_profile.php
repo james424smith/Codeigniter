@@ -1,10 +1,14 @@
 <?php $this->load->view('Front/common/header');  ?>
 <?php 
+	$obj = &get_instance();
 	$admin_url = $this->config->item('base_url'); 
 	$id = $this->uri->segment(4);
 	//var_dump($id);die();
-	$pro = $this->db->query("select * from users where id=".$id)->result_array();
-
+	$pro = $this->db->query("select * from users where id=" . $id)->result_array();
+	
+	$obj->load->model('Front/User');
+	$self_user = $obj->User->getSelfUser();
+	
 ?>
 <section>
 	<div class="my_profile heelpr-profile">
@@ -20,11 +24,10 @@
 	                              <img class="my_pro" src="<?php echo $admin_url?>uploads/profiles/<?php echo $member['picture_url'];?>">
 	                         </div>
 	                          <div class="profile_dtls">
-	                          		 <!--<span><a href="#!" id="chat_show" class="heelpr_chat"><i class="fa fa-comments" aria-hidden="true"></i> Discuss</a></span>-->
-									<span><a href="<?php echo base_url("Front/home/chat"); ?>" class="heelpr_chat"><i class="fa fa-comments" aria-hidden="true"></i> Discuss</a></span>
+	                          		<span><a href="#!" id="chat_show" class="heelpr_chat"><i class="fa fa-comments" aria-hidden="true"></i> Discuss</a></span>
+									<!--<span><a href="<?php //echo base_url("Front/home/chat"); ?>" class="heelpr_chat"><i class="fa fa-comments" aria-hidden="true"></i> Discuss</a></span>-->
 	                                <h4><?php echo $member['skills']; ?></h4>
 	                                <p class="review_icn"><img src="<?php echo base_url();?>assets/Front/img/review_icn.png"></p>
-
 	                          </div>                         
 						</div>
 					</div>
@@ -138,6 +141,7 @@
 </div>
 <!-- Modal -->
 
+
 <!-- chat  --> 
 <div class="chatbox-holder">
   <div class="chatbox">
@@ -150,11 +154,11 @@
 				</div>
 				<div class="user_info">
 					<span><?php echo $pro[0]['username']; ?></span>
-				</div>  
-				<div class="video_cam">
-					<!-- <span><i class="fas fa-video"></i></span>
-					<span><i class="fas fa-phone"></i></span> -->
 				</div>
+				<input type="hidden" id="recive_id" value="<?php echo $id; ?>">
+				<input type="hidden" id="reciver_img" value="<?php echo base_url("uploads/profiles/" . $pro[0]['picture_url']);?>">
+				<input type="hidden" id="self_img" value="<?php echo base_url("uploads/profiles/" . $self_user[0]['picture_url']);?>">
+
 			</div>
 			<div class="chatbox-icons">
 		        <a href="javascript:void(0);"><i class="fa fa-minus"></i></a>
@@ -162,76 +166,16 @@
 		      </div> 
 		</div>
 		<div class="card-body msg_card_body" id="content">
-			<div class="d-flex justify-content-start mb-4">
-				<div class="img_cont_msg">
-					<img src="<?php echo base_url();?>assets/Front/img/profile_img.png" class="rounded-circle user_img_msg">
-				</div>
-				<div class="msg_cotainer">
-	    			Please provide the necessary data so that I will start designing. I would hardly take 1-2 weeks to complete. ?
-					<span class="msg_time">8:40 AM, Today</span>
-				</div>
-			</div>
-			<div class="d-flex justify-content-end mb-4">
-				<div class="msg_cotainer_send">
-					Sure. I will share it by tonight.
-					<span class="msg_time_send">8:55 AM, Today</span>
-				</div>
-				<div class="img_cont_msg">
-					<img src="<?php echo base_url();?>assets/Front/img/profile_img.png" class="rounded-circle user_img_msg">
-				</div>
-			</div>
-			<div class="d-flex justify-content-start mb-4">
-				<div class="img_cont_msg">
-					<img src="<?php echo base_url();?>assets/Front/img/profile_img.png" class="rounded-circle user_img_msg">
-				</div>
-				<div class="msg_cotainer">
-					Thanks. I will do that then
-					<span class="msg_time">9:00 AM, Today</span>
-				</div>
-			</div>
-			<div class="d-flex justify-content-end mb-4">
-				<div class="msg_cotainer_send">
-					Let me know when you complete.
-					<span class="msg_time_send">9:05 AM, Today</span>
-				</div>
-				<div class="img_cont_msg">
-			<img src="<?php echo base_url();?>assets/Front/img/profile_img.png" class="rounded-circle user_img_msg">
-				</div>
-			</div>
-			<div class="d-flex justify-content-start mb-4">
-				<div class="img_cont_msg">
-					<img src="<?php echo base_url();?>assets/Front/img/profile_img.png" class="rounded-circle user_img_msg">
-				</div>
-				<div class="msg_cotainer">
-					Thanks. I will do that then
-					<span class="msg_time">9:07 AM, Today</span>
-				</div>
-			</div>
-			<div class="d-flex justify-content-end mb-4">
-				<div class="msg_cotainer_send">
-					Let me know when you complete.
-					<span class="msg_time_send">9:10 AM, Today</span>
-				</div>
-				<div class="img_cont_msg">
-		<img src="<?php echo base_url();?>assets/Front/img/profile_img.png" class="rounded-circle user_img_msg">
-				</div>
-			</div>
-			<div class="d-flex justify-content-start mb-4">
-				<div class="img_cont_msg">
-					<img src="<?php echo base_url();?>assets/Front/img/profile_img.png" class="rounded-circle user_img_msg">
-				</div>
-				<div class="msg_cotainer">
-					Bye, see you
-					<span class="msg_time">9:12 AM, Today</span>
-				</div>
-			</div>
+			
 		</div> 
 		<div class="card-footer">
 			<div class="input-group">
 				<div class="input-group-append">
-					<span class="input-group-text attach_btn"><i class="fas fa-paperclip"></i></span>
+					<span class="input-group-text attach_btn hidden-file"><i class="fas fa-paperclip"></i>
+					</span>
+					<input type="file" name="file" id="files" class="upload_attachmentfile" style="display:none;"/>
 				</div>
-				<textarea name="" class="form-control type_msg" placeholder="Type your message..."></textarea>
+				<textarea name="" class="form-control type_msg message" placeholder="Type your message..."></textarea>
 				<div class="input-group-append">
 					<span class="input-group-text send_btn"><i class="fas fa-location-arrow"></i></span>
 				</div>
@@ -243,3 +187,6 @@
 <!-- chat end -->
 
 <?php $this->load->view('Front/common/footer');  ?>
+<script src='../../../assets/js/chat/individual_chat.js'></script>
+
+

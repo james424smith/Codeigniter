@@ -28,46 +28,46 @@
 
 </style>
 <script type="text/javascript">
-  $(document).ready(function(){
-  $('.nav-item').click(function(){
-    // reset active class
-    $('.nav-item').removeClass("active");
-    // add active class to selected
-    $(this).addClass("active");
-    // return needed to make function work
-    return false;
-  });
-  
-  
-  $(function() {
-    // create an empty variable
-    var selectedClass = "";
-    // call function when item is clicked
-    $(".nav-item").click(function(){
-      // assigns class to selected item
-      selectedClass = $(this).attr("data-rel");
-      // fades out all portfolio items
-      $(".portfolio li").fadeOut(300);
-      // fades in selected category
-      $(".portfolio li." + selectedClass).delay(300).fadeIn(300);
+    $(document).ready(function(){
+    $('.nav-item').click(function(){
+      // reset active class
+      $('.nav-item').removeClass("active");
+      // add active class to selected
+      $(this).addClass("active");
+      // return needed to make function work
+      return false;
     });
-  });
   
-}); // document ready
+  
+    $(function() {
+      // create an empty variable
+      var selectedClass = "";
+      // call function when item is clicked
+      $(".nav-item").click(function(){
+        // assigns class to selected item
+        selectedClass = $(this).attr("data-rel");
+        // fades out all portfolio items
+        $(".portfolio li").fadeOut(300);
+        // fades in selected category
+        $(".portfolio li." + selectedClass).delay(300).fadeIn(300);
+      });
+    });
+  
+  }); // document ready
 </script>
     
 <script>
   // Your web app's Firebase configuration
-  var firebaseConfig = {
-    apiKey: "AIzaSyBxPi4dRrX4GlFnYXGtyNozl-h6-uKBDMs",
-    authDomain: "my-chat-project-bdc68.firebaseapp.com",
-    databaseURL: "https://my-chat-project-bdc68.firebaseio.com",
-    projectId: "my-chat-project-bdc68",
-    storageBucket: "my-chat-project-bdc68.appspot.com",
-    messagingSenderId: "117755236971",
-    appId: "1:117755236971:web:daaac2f5b802f35dd9d72e",
-    measurementId: "G-KTYVEDFM2E"
-  };
+    var firebaseConfig = {
+      apiKey: "AIzaSyBxPi4dRrX4GlFnYXGtyNozl-h6-uKBDMs",
+      authDomain: "my-chat-project-bdc68.firebaseapp.com",
+      databaseURL: "https://my-chat-project-bdc68.firebaseio.com",
+      projectId: "my-chat-project-bdc68",
+      storageBucket: "my-chat-project-bdc68.appspot.com",
+      messagingSenderId: "117755236971",
+      appId: "1:117755236971:web:daaac2f5b802f35dd9d72e",
+      measurementId: "G-KTYVEDFM2E"
+    };
   // Initialize Firebase
   //firebase.initializeApp(firebaseConfig);
   //firebase.analytics();
@@ -132,7 +132,7 @@ $('#action_menu_btn').click(function(){
 
 </script>
    </head>
-   </head>
+  </head>
    <?php 
       $obj = &get_instance();
 
@@ -158,12 +158,12 @@ $('#action_menu_btn').click(function(){
       <div class="top_header">
         <div class="container">
           <div class="row">
-            <div class="col-md-2">
+            <div class="col-md-2" >
               <div class="logo" style="margin-top:15px;">
                 <a href="<?php echo base_url('Front/home')?>"><img class="navbar-img" src="<?php echo base_url()?>assets/Front/img/MyLogo.png"></a>
               </div>
             </div>
-            <div class="col-md-8">  
+            <div class="col-md-8 text-right">  
               <div class="nav top_nav">
                 <input type="checkbox" id="nav-check">                
                 <div class="nav-btn">
@@ -175,11 +175,11 @@ $('#action_menu_btn').click(function(){
                 </div>                
                 <div class="nav-links">
                   <a href="<?php echo base_url('Front/home')?>">Home</a>
-                  <!-- <a href="<?php echo base_url('Front/about')?>">About Us</a> -->
+                  <!-- <a href="<?php //echo base_url('Front/about')?>">About Us</a> -->
                   <a href="<?php echo base_url('Front/home/post_demand')?>">Post a demand</a>
                   <a href="<?php echo base_url('Front/home/find_mission')?>">Find a Mission</a>
                   <!-- <a href="#">My Demands</a> -->
-                  <!-- <a href="<?php echo base_url('Front/contact')?>">Contact Us</a> -->
+                  <!-- <a href="<?php //echo base_url('Front/contact')?>">Contact Us</a> -->
                   <a href="<?php echo base_url('Front/Home/search')?>">Find A heelper</a>
                   <?php if($this->session->userdata['id']){?>
                      <a href="<?php echo base_url('Front/home/logout')?>">Log out</a>                 
@@ -192,10 +192,11 @@ $('#action_menu_btn').click(function(){
             <div class="col-md-2">
               <div class="top_right_side_icon">
                 <ul>
-                  <!-- <li><a href="#"><i class="fa fa-search" aria-hidden="true"></i></a></li>  
-                  <li><a href="<?php //echo base_url('Front/home/chat')?>"><img class="chat_icn" src="<?php echo base_url();?>/assets/Front/img/chat.png"></a></li>  --> 
-                 <li>
+                   <li>
                     <div class="dropdown">
+                      <a href="<?php echo base_url('Front/home/chat')?>">
+                          <img class="chat_icn" src="<?php echo base_url();?>/assets/Front/img/chat.png" style="width:17px; margin-top:-3px;s">
+                      </a>&nbsp;
                       <a href="javascript:void(0)" class="dropdown-toggle btn btn-primary" data-toggle="dropdown" aria-expanded="false"><i class="far fa-bell"></i></a>
                       <ul class="dropdown-menu animated fadeInUp notification_popup">
                         <li>
