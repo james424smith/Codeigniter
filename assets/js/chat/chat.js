@@ -70,7 +70,7 @@ $('.selectVendor').click(function(){
 $('.upload_attachmentfile').change( function(e) {
 	
 	var filename = e.target.files[0].name;
-	var file_path = '<a href="../../../uploads/attachment/' + filename + '" style="color:red;" >' + filename + '</a>';
+	var file_path = '<a href="../../../uploads/myattachments/' + filename + '" style="color:red;" >' + filename + '</a>';
 	DisplayMessage(file_path);
 	ScrollDown();
 	var file_data = $('.upload_attachmentfile').prop('files')[0];
@@ -195,7 +195,7 @@ function GetChatHistory(receiver_id){
 					str += '<div class="msg_cotainer_send">';
 					if(element['message'] == 'NULL' && element['attachment_name'] != "")
 					{
-						str += '<a href="../../../uploads/attachment/' + element['attachment_name'] + '" style="color:red;" >' + element['attachment_name'] + '</a>'
+						str += '<a href="../../../uploads/myattachments/' + element['attachment_name'] + '" style="color:red;" >' + element['attachment_name'] + '</a>'
 					}
 					else
 					{
@@ -213,7 +213,7 @@ function GetChatHistory(receiver_id){
 					str += '<div class="msg_cotainer">';
 					if(element['message'] == 'NULL' && element['attachment_name'] != "")
 					{
-						str += '<a href="../../../uploads/attachment/' + element['attachment_name'] + '" style="color:red;" >' + element['attachment_name'] + '</a>'
+						str += '<a href="../../../uploads/myattachments/' + element['attachment_name'] + '" style="color:red;" >' + element['attachment_name'] + '</a>'
 					}
 					else
 					{

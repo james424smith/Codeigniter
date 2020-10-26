@@ -202,7 +202,6 @@
   </div>  
 </div> 
  
-
 <!-- discuss chat end -->   
 
 <?php $this->load->view('Front/common/footer');  ?>

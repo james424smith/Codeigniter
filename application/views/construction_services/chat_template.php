@@ -114,9 +114,6 @@
               <!--/.direct-chat -->
             </div>
 
-
-
-
             <div class="col-md-4">
               <!-- USERS LIST -->
               <div class="box box-danger">
@@ -191,7 +188,7 @@
         
         <!-- Modal body -->
         <div class="modal-body">
-          <img id="modalImgs" src="uploads/attachment/21_preview.png" class="img-thumbnail" alt="Cinque Terre">
+          <img id="modalImgs" src="uploads/myattachments/21_preview.png" class="img-thumbnail" alt="Cinque Terre">
         </div>
         
         <!-- Modal footer -->

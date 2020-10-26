@@ -88,7 +88,7 @@ class Chat extends CI_Controller {
 		
 		$file_data='';
 		if(isset($_FILES['attachmentfile']['name']) && !empty($_FILES['attachmentfile']['name'])){	
-				$config['upload_path']          = './uploads/attachment';
+				$config['upload_path']          = './uploads/myattachments';
 				$config['allowed_types']        = 'jpeg|jpg|png|txt|pdf|docx|xlsx|pptx|rtf';
 				//$config['max_size']             = 500;
 				//$config['max_width']            = 1024;
@@ -137,7 +137,7 @@ class Chat extends CI_Controller {
 					$file_ext = $chat['file_ext'];
 					$mime_type = explode('/',$chat['mime_type']);
 					
-					$document_url = base_url('uploads/attachment/'.$attachment_name);
+					$document_url = base_url('uploads/myattachments/'.$attachment_name);
 					
 				  if($mime_type[0]=='image'){
  					$messageBody.='<img src="'.$document_url.'" onClick="ViewAttachmentImage('."'".$document_url."'".','."'".$attachment_name."'".');" class="attachmentImgCls">';	
@@ -213,7 +213,7 @@ class Chat extends CI_Controller {
 		foreach($messagelist as $row){
 			
 			if($row['message']=='NULL'){
-				$attachment_name = unlink('uploads/attachment/'.$row['attachment_name']);
+				$attachment_name = unlink('uploads/myattachments/'.$row['attachment_name']);
 			}
  		}
 		
