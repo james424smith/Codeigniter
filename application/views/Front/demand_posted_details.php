@@ -42,9 +42,18 @@
 			    <a href="#" class="nav-item" data-rel="option-2">Budget</a>
 			    <a href="#" class="nav-item" data-rel="option-3">Date</a>
 		  </nav>
-
+		  <?php if (count($arr) == 0) { ?>
+				<div class="row text-center" style="margin-top:100px;">
+					<div class="col-md-4"></div>
+					<div class="col-md-4">
+						<h4>No data to display</h4>
+					</div>
+					
+				</div>
+		  <?php } ?>
+	
 		  <ul class="tabs_list">
-			<?php 
+			<?php
 			  	foreach($arr3 as $value)
 		  		{
 					if($value['sort'] == "note")
@@ -196,8 +205,8 @@
 			          </div>
 		           </div>
 			    </li>
-			<?php } ?>
-		  	</ul>
+			<?php }?>
+			  </ul>
 		</main>
 	</div>
 </section>
