@@ -37,7 +37,7 @@
 <section class="demand_posted_details">
 	<div class="section portfolio">
 		<main id="main" class="container">
-		  <nav class="nav">
+			<nav class="nav">
 			    <a href="#" class="nav-item active" data-rel="option-1">Note</a>
 			    <a href="#" class="nav-item" data-rel="option-2">Budget</a>
 			    <a href="#" class="nav-item" data-rel="option-3">Date</a>
@@ -64,7 +64,7 @@
 			<?php 
 				$user_id = $value['user_id'];
 				$avg = $this->Posts_model->selectAvgOfRating($user_id);
-
+				
             	$count = 0;
             	$total = 0;
 				for($j = 0; $j < count($avg); $j++)
@@ -74,7 +74,7 @@
 				}
 				if($count != 0)
             	{
-                	$av =$total/$count;
+                	$av = $total/$count;
                 	$user_detail = number_format($av, 2, '.', '');
             	}
             	else
@@ -163,8 +163,8 @@
 									<div class="modal-content">
 										<!-- Modal Header -->
 										<div class="modal-header" style="background-color: #5cb85c;">
-										<h4 class="modal-title">Proposal</h4>
-										<button type="button" class="close" data-dismiss="modal">&times;</button>
+											<h4 class="modal-title">Proposal</h4>
+											<button type="button" class="close" data-dismiss="modal">&times;</button>
 										</div>
 										
 										<!-- Modal body -->

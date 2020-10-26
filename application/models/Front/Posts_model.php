@@ -310,8 +310,12 @@ class Posts_model extends CI_Model
             $status = $this->db->update('mission');
             
              return true ;
-
         }
+        public function saveRating($rating_data)
+        {
+            $status = $this->db->insert('user_review', $rating_data);
+        }
+
         public function deliver_paym_demand ($project_data){
 
             $status = $this->db->insert('withdrawpayment', $project_data);
@@ -361,7 +365,7 @@ class Posts_model extends CI_Model
         {
             $this->db->select("rating");
             $this->db->from('user_review');
-            $this->db->where('to_user_id',$user_id);
+            $this->db->where('to_user_id', $user_id);
             $data = $this->db->get();
 
             //$count = $data->num_rows();

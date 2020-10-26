@@ -298,8 +298,8 @@ class Posts extends CI_Controller
         }
       }
        public function delivered_pay_demand(){
+        
           $date_created = date('Y-m-d H:i:s');
-          
           $project_data = array(
             'mission_id' => $this->input->post('mission_id'),
             'mission_amount' => $this->input->post('mission_amount'),
@@ -307,12 +307,24 @@ class Posts extends CI_Controller
             'pay_status' => $this->input->post('pay_status'),
             'date_created' => $date_created,
             'mission_status' =>  $this->input->post('mission_status'),
-            'employer_id' =>  $this->input->post('employer_id'),
+            'employer_id' => $this->input->post('employer_id'),
             'date_of_pay' =>  date('Y-m-d H:i:s')
-         );  
+         );
+         $rating_data = array(
+           "by_user_id" => $this->session->userdata['id'],
+           "to_user_id" => $this->input->post('employer_id'),
+           "rating" => $this->input->post('rating'),
+           "created" => $date_created
+         );
+          
+          
          //print_r( $project_data);die();
         $this->load->model('Front/Posts_model');
         $this->Posts_model->deliver_paym_demand($project_data);
+        if($this->input->post('rating') != 0)
+        {
+          $this->Posts_model->saveRating($rating_data);
+        }
         redirect('Front/home/mydemands');
        }
 

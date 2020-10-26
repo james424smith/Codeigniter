@@ -21,7 +21,13 @@
 	$obj->load->model('Front/User');
 	$self_user = $obj->User->getSelfUser();
 ?> 
-
+<style>
+	#rating { font-size: 0;}
+	#rating span { font-size: 40px; }
+	#rating span::before { content: "☆"; }
+	#rating span.active::before {content: "★"; color : yellow;}
+	#rating span:hover { cursor: pointer; }
+</style>
 <section>
   <div class="top_bnr section post_demand">
     <div class="container">
@@ -167,41 +173,85 @@
   </div>
 
 
-<div class="container">
-   <!-- Modal -->
-  <div class="modal fade" id="myModalpayment" role="dialog">
-    <div class="modal-dialog">
-    
-      <!-- Modal content-->
-      <div class="modal-content">
-        
-
-        <div class="post_demand_details_popup">
-        	 <button type="button" class="close" data-dismiss="modal">&times;</button>
-				<h4>Release Payment</h4>				
-				<form action="<?php echo base_url('Front/Posts/delivered_pay_demand')?>" method="post">
-					<div class="">
-						<!-- <textarea value="" readonly=""><?php echo $mission->mission_description ?></textarea> -->
-						<input type="hidden" readonly="" name="mission_amount" value="<?php echo $mission->mission_budget ?>">
-						<input type="hidden" name="amount_to_pay" value="<?php echo $total_amount; ?>">	
-						<input type="hidden" name="pay_status" value="2">
-						<input type="hidden" name="date_created" value="<?php echo $mission->created ?>">
-						<input type="hidden" name="mission_status" value="<?php echo $mission->mission_status ?>">
-						<input type="hidden" name="mission_id" value="<?php echo $mission->mission_id ?>">
-						<input type="hidden" name="employer_id" value="<?php echo $mission->user_id ?>">	
-						 <P>
-							<h5>I want to release payment.</h5>
-						</p>
-					</div>
-					<button type="submit" class="btn btn-default">Confirmation</button>
-				</form>
-
-				<!-- <a href="#" class="btn btn-default">Retour</a> -->
+	<div class="container">			
+		<div class="modal fade" id="myModalpayment" role="dialog">
+			<div class="modal-dialog">
+			<!-- Modal content-->
+			<div class="modal-content">
+				<div class="modal-header" style="color: #5cb85c;">
+					<h4 class="modal-title">Release</h4>
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					
+				</div>
+				<div class="modal-body post_demand_details_popup">				
+					<form action="<?php echo base_url('Front/Posts/delivered_pay_demand')?>" method="post">
+						<div class="">
+							<!-- <textarea value="" readonly=""><?php echo $mission->mission_description ?></textarea> -->
+							<input type="hidden" readonly="" name="mission_amount" value="<?php echo $mission->mission_budget ?>">
+							<input type="hidden" name="amount_to_pay" value="<?php echo $total_amount; ?>">	
+							<input type="hidden" name="pay_status" value="2">
+							<input type="hidden" name="date_created" value="<?php echo $mission->created ?>">
+							<input type="hidden" name="mission_status" value="<?php echo $mission->mission_status ?>">
+							<input type="hidden" name="mission_id" value="<?php echo $mission->mission_id ?>">
+							<input type="hidden" name="employer_id" value="<?php echo $mission->user_id ?>">
+							<input type="hidden" name="rating" id="star_rating" value="0">	
+							<P>
+								<h5>I want to release payment.</h5>
+							</p>
+						</div>
+						<br>
+						<div class="row">
+							<div class="col-md-2" style="margin-top:20px;">
+								<div class="demand_details_profile_img">
+									<a href="<?php echo base_url('Front/home/heelper_profile/' . $mission->accepted_by)?>">
+									<?php if($comment->picture_url){ ?>
+										<img src="<?php echo base_url('uploads/profiles/');?><?php echo $comment->picture_url?>" style="margin-top:-10px;">
+									<?php } 
+									else { ?>
+										<img src="<?php echo base_url('assets/Front/img/demand_profile.png');?>" style="margin-top:-10px;">
+									<?php } ?>
+									</a>
+								</div>
+							</div>
+							<div class="col-md-10">
+								<div id="rating">
+									<span></span>
+									<span></span>
+									<span></span>
+									<span></span>
+									<span></span>
+								</div>
+							</div>
+						</div>
+						<button type="submit" class="btn btn-default">Confirmation</button>
+					</form>
+					<!-- <a href="#" class="btn btn-default">Retour</a> -->
+				</div>
 			</div>
+    	</div>
 
-      </div>      
     </div>
-  </div>  
+	</div>
+</div>  
 </div>
 
 <?php $this->load->view('Front/common/footer');  ?>
+<script>
+	document.querySelector('#rating').addEventListener('click', function (e) {
+		let action = 'add';
+		let count = 6;
+		for (const span of this.children) {
+			span.classList[action]('active');
+			if (span === e.target) 
+			{
+				action = 'remove';
+			}
+			if(action == "add")
+				count += 1;
+			else(action == 'remove')
+				count -= 1;
+		}
+		$('#star_rating').val(count);	
+
+	});
+</script>
