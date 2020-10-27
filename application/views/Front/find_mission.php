@@ -65,7 +65,7 @@
 					
 					<h5><?php echo $post['mission_title'] ?></h5>
 					<p><?php echo $post['mission_description'] ?></p>
-					<span><b>Budget:</b> <?php echo '$' . $post['budget'] ?></span>
+					<span><b>Budget:</b> <?php echo $post['budget'] ?> <i class="fas fa-euro-sign"></i></span>
 					<div class="row">
 						<div class="col-md-6 make_btn">
 							<a href="<?php
