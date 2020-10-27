@@ -1,10 +1,10 @@
 <?php 
 $config = array(
     'protocol' => 'sendmail', // 'mail', 'sendmail', or 'smtp'
-    'smtp_host' => 'ssl://smtp.googlemail.com', 
+    'smtp_host' => ' mail12.lwspanel.com', 
     'smtp_port' => 465,
-    'smtp_user' => 'gopal@alphawizz.awsapps.com',
-    'smtp_pass' => 'alpha@123',
+    'smtp_user' => 'contact@heelp.fr',
+    'smtp_pass' => 'Sharepass15!',
     'smtp_crypto' => 'ssl', //can be 'ssl' or 'tls' for example
     'mailtype' => 'text', //plaintext 'text' mails or 'html'
     'smtp_timeout' => '4', //in seconds
