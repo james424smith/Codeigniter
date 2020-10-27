@@ -274,7 +274,6 @@ class ChatController extends CI_Controller {
         $this->ChatModel->TrashById($receiver_id);         
     }
     
-
     public function addChatMember() {
         $user_id = $this->session->userdata['id'];
         $post = $this->input->post();

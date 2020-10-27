@@ -42,7 +42,7 @@
 			    <a href="#" class="nav-item" data-rel="option-2">Budget</a>
 			    <a href="#" class="nav-item" data-rel="option-3">Date</a>
 		  </nav>
-		  <?php if (count($arr) == 0) { ?>
+		  <?php if (count($arr3) == 0) { ?>
 				<div class="row text-center" style="margin-top:100px;">
 					<div class="col-md-4"></div>
 					<div class="col-md-4">
