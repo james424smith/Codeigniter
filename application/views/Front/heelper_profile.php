@@ -27,12 +27,17 @@
 	                          		<span><a href="#!" id="chat_show" class="heelpr_chat"><i class="fa fa-comments" aria-hidden="true"></i> Discuss</a></span>
 									<!--<span><a href="<?php //echo base_url("Front/home/chat"); ?>" class="heelpr_chat"><i class="fa fa-comments" aria-hidden="true"></i> Discuss</a></span>-->
 	                                <h4><?php echo $member['skills']; ?></h4>
-	                                <p class="review_icn"><img src="<?php echo base_url();?>assets/Front/img/review_icn.png"></p>
-	                          </div>                         
+	                          </div> 
+								<?php
+									$class_star = $obj->User->getRatingClassName($member['id']); 
+							   ?>
+							   	<a href="<?php echo base_url('Front/home/review_profile/' . $member['id'])?>">
+									<span class="stars-container <?php echo $class_star; ?>">★★★★★</span>
+								</a>	                        
 						</div>
 					</div>
 					<div class="Presentation">
-                          		<h5>Presentation:</h5>
+								<h5>Presentation:</h5>
                           		<p><?=empty($member['presentation'])?'':$member['presentation']?></p>
 					</div>
 					<div class="Presentation">

@@ -171,3 +171,10 @@ ERROR - 2020-10-27 17:23:49 --> 404 Page Not Found: Assets/Front
 ERROR - 2020-10-27 17:38:44 --> 404 Page Not Found: Assets/Front
 ERROR - 2020-10-27 17:38:44 --> 404 Page Not Found: Assets/Front
 ERROR - 2020-10-27 17:38:44 --> 404 Page Not Found: Assets/Front
+ERROR - 2020-10-27 18:01:20 --> 404 Page Not Found: Assets/Front
+ERROR - 2020-10-27 18:01:20 --> 404 Page Not Found: Assets/Front
+ERROR - 2020-10-27 18:01:21 --> 404 Page Not Found: Assets/Front
+ERROR - 2020-10-27 18:06:20 --> 404 Page Not Found: Assets/Front
+ERROR - 2020-10-27 18:06:20 --> 404 Page Not Found: Assets/Front
+ERROR - 2020-10-27 18:06:27 --> 404 Page Not Found: Assets/Front
+ERROR - 2020-10-27 18:06:27 --> 404 Page Not Found: Assets/Front
