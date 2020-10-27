@@ -203,7 +203,7 @@ $('#action_menu_btn').click(function(){
                 <ul>
                   <li>
                   <a href="<?php echo base_url('Front/home/chat')?>">
-                          <img class="chat_icn" src="<?php echo base_url();?>/assets/Front/img/chat.png" style="width:17px; margin-top:-10px;">
+                          <img class="chat_icn" src="<?php echo base_url();?>/assets/Front/img/chat.png" style="width:17px; margin-top:-12px;">
                     </a>
                   </li>
                   <li>
