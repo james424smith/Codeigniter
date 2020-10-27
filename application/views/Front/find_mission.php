@@ -33,7 +33,15 @@
 				<?php } ?>
 			</select>
 		</div>
-    	
+		<?php if(count($posts) == 0) { ?>
+			<br><br><br>
+            <div class="row">
+            <div class="col-md-12 text-center">
+               <h4>No Mission to display.</h4>
+            </div>
+            </div>
+            <br><br>
+		<?php } else { ?>
 	    <div class="row grid">  
 			<?php  
 			  	foreach ($posts as $post) {
@@ -79,6 +87,7 @@
 	        <?php }  ?>
 	       
 			</div>
+			<?php }  ?>
 			</div>
 		</div>
     </div>
