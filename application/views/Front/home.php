@@ -242,7 +242,11 @@
                   <li><?php echo $member['skills'];?></li>                
                 </ul>
                 <!-- <img class="rating_img" src="<?php echo base_url('assets/Front/img/rating.png')?>"> -->
-                 <div><span class="stars-container <?php echo $class_star;?>"><?php echo count($avg); ?>★★★★★</span></div>
+                <div>
+                <a href="<?php echo base_url('Front/home/review_profile/' . $member['id'])?>">
+                  <span class="stars-container <?php echo $class_star;?>"><?php echo count($avg); ?>★★★★★</span>
+                </a>
+                </div>
                 </div>
               </div>
             </a>

@@ -5,7 +5,7 @@
 	$id = $this->uri->segment(4);
 	$self_user_id = $this->session->userdata['id'];
 
-	$all_comments = $this->db->query("select project_status.* from project_status where project_id=" . $id . " and user_id=" . $self_user_id)->result_array();
+	$all_comments = $this->db->query("select project_status.* from project_status where project_id=" . $id . " and user_id=" . $self_user_id . " order by id desc")->result_array();
 	$mission = $this->db->query("select * from mission  where mission_id=" . $id)->row();
 	$comment = $this->db->query("select project_status.*,users.picture_url from project_status INNER JOIN users ON project_status.user_id =users.id where project_id=".$id)->row();
 	
@@ -47,7 +47,12 @@
 							<a href="<?php echo base_url('Front/home/heelper_profile/' . $mission->client_id)?>">
 								<img src="<?php echo base_url('uploads/profiles/');?><?php echo $client_user->picture_url?>">
 							</a><br>
-							<span class="stars-container">★★★★★</span>
+							<?php
+								$class_star = $obj->User->getRatingClassName($mission->client_id); 
+							?>
+							<a href="<?php echo base_url('Front/home/review_profile/' . $mission->client_id)?>">
+								<span class="stars-container <?php echo $class_star; ?>">★★★★★</span>
+							</a>
 						</div>
 						<h4 style="margin-top: 10px; margin-left: 10px;"><?php echo $mission->mission_title;?></h4>				
 					</div>
@@ -77,21 +82,29 @@
 			</div>
 			<div class="col-md-6">
 				<div class="row post_demand_inner_row">
-				<div class="col-md-2">
-					<div class="demand_details_profile_img">
-						<a href="<?php echo base_url('Front/home/heelper_profile/' . $self_user[0]['id'])?>">
-							<img src="<?php echo base_url('uploads/profiles/');?><?php echo $self_user[0]['picture_url']?>" style="margin-top:-10px;">
-						</a>
-						<span class="stars-container">★★★★★</span>
+					<div class="col-md-2">
+						<div class="demand_details_profile_img">
+							<a href="<?php echo base_url('Front/home/heelper_profile/' . $self_user[0]['id'])?>">
+								<img src="<?php echo base_url('uploads/profiles/');?><?php echo $self_user[0]['picture_url']?>" style="margin-top:-10px;">
+							</a>
+							<?php
+								$class_star = $obj->User->getRatingClassName($self_user[0]['id']); 
+							?>
+							<a href="<?php echo base_url('Front/home/review_profile/' . $self_user[0]['id'])?>">
+								<span class="stars-container <?php echo $class_star; ?>">★★★★★</span>
+							</a>
+						</div>
+					</div>
+					<div class="col-md-10">
+						<div class="demand_details_content">
+							<h4>My Comment</h4>						
+						</div>
 					</div>
 				</div>
-				<div class="col-md-10">
-					<div class="demand_details_content">
-						<h4>My Comment</h4>						
-						<p>
-							<?php echo $comment->your_comments?>
-						</p>
-					</div>					
+				<div class="row" style="padding-left:20px;">
+					<?php echo $comment->your_comments?>
+				</div><br>
+				<div class="row" style="padding-left:20px;">
 					<div class="demand_details_upload_btn">
 						<?php
 							if(count($all_comments) > 0) 
@@ -100,9 +113,7 @@
 									else { ?>#<?php }?>"><?php echo $file_comment['project_files'] ?> <i class="fas fa-download"></i> </a>
 						<?php } ?>
 					</div>
-		
 				</div>				
-			  </div>
 			</div>
 		</div>
 		<div class="row">

@@ -10,68 +10,8 @@
 	$mission = $this->db->query("select * from mission  where mission_id=" . $id)->row();
 
  //$user_id = $value['user_id'];
-	$avg = $this->Posts_model->selectAvgOfRating($user_id);
-
-	$count = 0;
-	$total = 0;
-	for($j = 0; $j < count($avg); $j ++)
-	{
-		$total += $avg[$j]->rating;
-		$count++;
-	}
-	if($count != 0)
-	{
-		$av =$total/$count;
-		$user_detail = number_format($av, 2, '.', '');
-	}
-	else
-	{
-		$user_detail = 0;
-	}
-	if($user_detail == 0)
-	{
-		$class_star = "stars-0";
-	}
-	elseif($user_detail == 0.50)
-	{
-		$class_star = "stars-10";
-	}
-	elseif($user_detail == 1.00)
-	{
-		$class_star = "stars-20";
-	}
-	elseif($user_detail == 1.50)
-	{
-		$class_star = "stars-30";
-	}
-	elseif($user_detail == 2.00)
-	{
-		$class_star = "stars-40";
-	}
-	elseif($user_detail == 2.50)
-	{
-		$class_star = "stars-50";
-	}
-	elseif($user_detail == 3.00)
-	{
-		$class_star = "stars-60";
-	}
-	elseif($user_detail == 3.50)
-	{
-		$class_star = "stars-70";
-	}
-	elseif($user_detail == 4.00)
-	{
-		$class_star = "stars-80";
-	}
-	elseif($user_detail == 4.50)
-	{
-		$class_star = "stars-90";
-	}
-	elseif($user_detail == 5.00)
-	{
-		$class_star = "stars-100";
-	}
+ 	$obj->load->model('Front/User');
+ 	$class_star = $obj->User->getRatingClassName($user_id);
  ?>
 
 
@@ -105,7 +45,9 @@
 							<a href="<?php echo base_url('Front/home/heelper_profile/' . $value['user_id'])?>">
 							  <img src="<?php echo base_url('uploads/profiles/' . $url) ;?>" alt="<?php echo  $value['username']; ?>" style="border-radius:70px !important;">
 							</a>
-							<span class="stars-container <?php echo $class_star;?>">★★★★★</span>
+							<a href="<?php echo base_url('Front/home/review_profile/' . $value['user_id'])?>">
+								<span class="stars-container <?php echo $class_star; ?>">★★★★★</span>
+							</a>
 			          	</div>            
 			            <div class="col-md-9 cat_content">
 			        		<p class="cat_date"><?php echo  $value->created_date; ?></p>

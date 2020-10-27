@@ -145,9 +145,13 @@ $this->load->library("pagination");
     public function credit_card(){
         $this->load->view('Front/credit_card');  
     }
-     public function my_profile(){
+    public function my_profile(){
         $this->load->view('Front/my_profile');  
     }
+    public function review_profile(){
+        $this->load->view('Front/review_profile');  
+    }
+
     public function transactions(){
         $this->load->view('Front/transactions');  
     }

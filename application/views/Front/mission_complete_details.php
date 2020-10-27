@@ -35,7 +35,12 @@
 							<a href="<?php echo base_url('Front/home/heelper_profile/' . $mission->client_id)?>">
 								<img src="<?php echo base_url('uploads/profiles/');?><?php echo $client_user->picture_url?>">
 							</a><br>
-							<span class="stars-container">★★★★★</span>
+							<?php
+								$class_star = $obj->User->getRatingClassName($mission->client_id); 
+							?>
+							<a href="<?php echo base_url('Front/home/review_profile/' . $mission->client_id)?>">
+								<span class="stars-container <?php echo $class_star; ?>">★★★★★</span>
+							</a>
 						</div>
 						<h4 style="margin-top: 10px; margin-left: 10px;"><?php echo $mission->mission_title;?></h4>				
 					</div>
@@ -72,7 +77,12 @@
 							<a href="<?php echo base_url('Front/home/heelper_profile/' . $self_user[0]['id'])?>">
 								<img src="<?php echo base_url('uploads/profiles/');?><?php echo $self_user[0]['picture_url']?>" style="margin-top:-10px;">
 							</a>
-							<span class="stars-container">★★★★★</span>
+							<?php
+								$class_star = $obj->User->getRatingClassName($self_user[0]['id']); 
+							?>
+							<a href="<?php echo base_url('Front/home/review_profile/' . $self_user[0]['id'])?>">
+								<span class="stars-container <?php echo $class_star; ?>">★★★★★</span>
+							</a>
 						</div>
 					</div>
 					<div class="col-md-10">

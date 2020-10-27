@@ -397,5 +397,15 @@ class Posts_model extends CI_Model
                 return true;
             return false;
         }
+
+        public function getRatingData($id) {
+
+            $this->db->select("*");
+            $this->db->from("user_review");
+            $this->db->where("to_user_id", $id);
+            $query = $this->db->get();
+
+            return $query->result_array();
+        }
 }
 ?>

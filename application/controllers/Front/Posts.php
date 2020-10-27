@@ -170,7 +170,7 @@ class Posts extends CI_Controller
 
           if(!empty($_FILES['project_files']['name'])) {
             $config['upload_path'] = './uploads/demands_documents';
-            $config['allowed_types'] = 'gif|jpg|png|jpeg|pdf|doc|txt'; 
+            $config['allowed_types'] = 'gif|jpg|png|jpeg|pdf|doc|docx|txt'; 
             $config['max_size'] = 6000000;
             $config['max_width'] = 45000;
             $config['max_height'] = 45000;
@@ -245,7 +245,7 @@ class Posts extends CI_Controller
       } 
 
 
- public function delivered_demand(){
+     public function delivered_demand(){
         $project_data = array(
             'project_id' => $this->input->post('project_id'),
             'title' => $this->input->post('title'),
@@ -314,10 +314,10 @@ class Posts extends CI_Controller
            "by_user_id" => $this->session->userdata['id'],
            "to_user_id" => $this->input->post('employer_id'),
            "rating" => $this->input->post('rating'),
+           "comment" => $this->input->post('comment'),
            "created" => $date_created
          );
-          
-          
+
          //print_r( $project_data);die();
         $this->load->model('Front/Posts_model');
         $this->Posts_model->deliver_paym_demand($project_data);

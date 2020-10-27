@@ -49,7 +49,12 @@
 							<a href="<?php echo base_url('Front/home/heelper_profile/' . $self_user_id)?>">
 								<img src="<?php echo base_url('uploads/profiles/');?><?php echo $self_user[0]['picture_url']?>">
 							</a><br>
-							<span class="stars-container">★★★★★</span>
+							<?php
+								$class_star = $obj->User->getRatingClassName($self_user_id); 
+							?>
+							<a href="<?php echo base_url('Front/home/review_profile/' . $self_user_id)?>">
+								<span class="stars-container <?php echo $class_star; ?>">★★★★★</span>
+							</a>
 						</div>
 						<h4 style="margin-top: 10px; margin-left: 10px;"><?php echo $mission->mission_title;?></h4>
 						<br>
@@ -104,7 +109,12 @@
 								<img src="<?php echo base_url('assets/Front/img/demand_profile.png');?>" style="margin-top:-10px;">
 							<?php } ?>
 							</a>
-							<span class="stars-container">★★★★★</span>
+							<?php
+								$class_star = $obj->User->getRatingClassName($mission->accepted_by); 
+							?>
+							<a href="<?php echo base_url('Front/home/review_profile/' . $mission->accepted_by)?>">
+								<span class="stars-container <?php echo $class_star; ?>">★★★★★</span>
+							</a>
 						</div>
 					</div>
 					<div class="col-md-10">
@@ -223,6 +233,11 @@
 								</div>
 							</div>
 						</div>
+						<br>
+						<div class="row" style="border-color:green;">
+							<textarea name="comment" class="form-control" placeholder="Leave the review"></textarea>
+						</div>
+						<hr>
 						<button type="submit" class="btn btn-default">Confirmation</button>
 					</form>
 					<!-- <a href="#" class="btn btn-default">Retour</a> -->

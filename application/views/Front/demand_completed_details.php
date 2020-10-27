@@ -39,7 +39,12 @@
 							<a href="<?php echo base_url('Front/home/heelper_profile/' . $self_user_id)?>">
 								<img src="<?php echo base_url('uploads/profiles/');?><?php echo $self_user[0]['picture_url']?>">
 							</a><br>
-							<span class="stars-container">★★★★★</span>
+							<?php
+								$class_star = $obj->User->getRatingClassName($self_user_id); 
+							?>
+							<a href="<?php echo base_url('Front/home/review_profile/' . $self_user_id)?>">
+								<span class="stars-container <?php echo $class_star; ?>">★★★★★</span>
+							</a>
 						</div>
 						<h4 style="margin-top: 10px; margin-left: 10px;"><?php echo $mission->mission_title;?></h4>				
 					</div>
@@ -49,7 +54,17 @@
 					 </p>
 					 <div class="demand_details_upload_btn">
 						<a href="<?php if($mission->mission_doc){ echo base_url()?>Front/Posts/download/<?php echo $mission->mission_doc;}
-								else { ?>#<?php }?>"><?php echo $mission->mission_doc?><i class="fas fa-download"></i></a>
+								else { ?>#<?php }?>">
+						<?php 
+								if($mission->mission_doc) {
+									echo $mission->mission_doc; 
+								}
+								else {
+									echo "No Attached File";
+								}
+							?>	
+							&nbsp;<i class="fas fa-download"></i>	
+						</a>
 						<!-- <a href="#">File Name <i class="fas fa-download"></i></a> -->
 					</div>
 					 <p class="budget_details_p">
@@ -65,8 +80,12 @@
 							<a href="<?php echo base_url('Front/home/heelper_profile/' . $mission->accepted_by)?>">
 								<img src="<?php echo base_url('uploads/profiles/');?><?php echo $comment->picture_url?>" style="margin-top:-10px;">
 							</a>
-							<span class="stars-container">★★★★★</span>
-
+							<?php
+								$class_star = $obj->User->getRatingClassName($mission->accepted_by); 
+							?>
+							<a href="<?php echo base_url('Front/home/review_profile/' . $mission->accepted_by)?>">
+								<span class="stars-container <?php echo $class_star; ?>">★★★★★</span>
+							</a>
 						</div>
 					</div>
 					<div class="col-md-10">
@@ -74,13 +93,13 @@
 					</div>
 				</div>
 				<br>
-				<div class="row" style="padding-left:20px;">
+				<div class="row" style="padding-left:30px;">
 					<?php if($comment->your_comments) { ?>
 					<div class="demand_details_content">							
 						<?php echo $comment->your_comments?>
 					</div>
 				</div><br>
-				<div class="row" style="padding-left:20px;">
+				<div class="row" style="padding-left:30px;">
 					<div class="demand_details_upload_btn">
 						<?php foreach ($all_comments as $file_comment) { ?>
 							<a href="<?php if($file_comment['project_files']){ echo base_url()?>Front/Posts/download/<?php echo $file_comment['project_files']; }

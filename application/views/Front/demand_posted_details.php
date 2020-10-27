@@ -21,7 +21,8 @@
 	foreach ($demands2 as $value) {
 		$demands_froeac3[] = array('offer_id'=>$value['offer_id'],'message'=>$value['message'],'project_id'=>$value['project_id'],'user_id'=>$value['user_id'],'status'=>$value['status'],'accept_budget'=>$value['accept_budget'],'offer_budget'=>$value['offer_budget'],'created_date'=>$value['created_date'],'accept_status'=>$value['accept_status'],'client_id'=>$value['client_id'],'username'=>$value['username'],'picture_url'=>$value['picture_url'],'sort'=>'date');
 	}
-	$arr3 = array_merge($demands_froeac1, $demands_froeac2, $demands_froeac3);
+	if($demands_froeac1 != null && $demands_froeac2 != null && $demands_froeac3 != null)
+		$arr3 = array_merge($demands_froeac1, $demands_froeac2, $demands_froeac3);
 
 ?>
 <section>
@@ -50,10 +51,11 @@
 					</div>
 					
 				</div>
-		  <?php } ?>
+		  <?php } else { ?>
 	
 		  <ul class="tabs_list">
 			<?php
+				
 			  	foreach($arr3 as $value)
 		  		{
 					if($value['sort'] == "note")
@@ -72,68 +74,10 @@
 
 			<?php 
 				$user_id = $value['user_id'];
-				$avg = $this->Posts_model->selectAvgOfRating($user_id);
+
+				$obj->load->model('Front/User');
+				$class_star = $obj->User->getRatingClassName($user_id);
 				
-            	$count = 0;
-            	$total = 0;
-				for($j = 0; $j < count($avg); $j++)
-				{
-					$total += $avg[$j]->rating;
-					$count++;
-				}
-				if($count != 0)
-            	{
-                	$av = $total/$count;
-                	$user_detail = number_format($av, 2, '.', '');
-            	}
-            	else
-            	{
-                	$user_detail = 0;
-            	}
-            	if($user_detail == 0)
-            	{
-            		$class_star = "stars-0";
-            	}
-            	elseif($user_detail == 0.50)
-            	{
-            		$class_star = "stars-10";
-            	}
-            	elseif($user_detail == 1.00)
-            	{
-            		$class_star = "stars-20";
-            	}
-            	elseif($user_detail == 1.50)
-            	{
-            		$class_star = "stars-30";
-            	}
-            	elseif($user_detail == 2.00)
-            	{
-            		$class_star = "stars-40";
-            	}
-            	elseif($user_detail == 2.50)
-            	{
-            		$class_star = "stars-50";
-            	}
-            	elseif($user_detail == 3.00)
-            	{
-            		$class_star = "stars-60";
-            	}
-            	elseif($user_detail == 3.50)
-            	{
-            		$class_star = "stars-70";
-            	}
-            	elseif($user_detail == 4.00)
-            	{
-            		$class_star = "stars-80";
-            	}
-            	elseif($user_detail == 4.50)
-            	{
-            		$class_star = "stars-90";
-            	}
-            	elseif($user_detail == 5.00)
-            	{
-            		$class_star = "stars-100";
-            	}
  			?>
 			    <li class="project <?php echo $class; ?>" style="display:<?php echo $style; ?>">
 				    <div class="col-md-6 all corporate">
@@ -144,9 +88,13 @@
 								if($url == "")
 									$url = "default.png";
 							?>
-							<a href="<?php echo base_url('Front/home/heelper_profile/' . $mission->accepted_by)?>">
-							  <img src="<?php echo base_url('uploads/profiles/' . $url) ;?>" alt="<?php echo  $value['username']; ?>" >
-							  <div><span class="stars-container <?php echo $class_star;?>">★★★★★</span></div>
+							<a href="<?php echo base_url('Front/home/heelper_profile/' . $value['user_id'])?>">
+							  	<img src="<?php echo base_url('uploads/profiles/' . $url) ;?>" alt="<?php echo  $value['username']; ?>" >
+							  	<div>
+								  	<a href="<?php echo base_url('Front/home/review_profile/' . $value['user_id'])?>">
+							  			<span class="stars-container <?php echo $class_star;?>">★★★★★</span>
+									</a>
+								</div>
 							</a> 
 			          	</div>            
 			            <div class="col-md-9 cat_content">
@@ -205,7 +153,7 @@
 			          </div>
 		           </div>
 			    </li>
-			<?php }?>
+			<?php } }?>
 			  </ul>
 		</main>
 	</div>
