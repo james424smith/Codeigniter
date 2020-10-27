@@ -25,7 +25,16 @@
 
 <style type="text/css">
   
+  .nav > .nav-links > a {
+    padding: 13px 12px;
+  }
 
+  @media (max-width:600px) {
+    .top_right_side_icon {
+      margin-right: 40px;
+      margin-top: -25px;
+    }
+  }
 </style>
 <script type="text/javascript">
     $(document).ready(function(){
@@ -163,7 +172,7 @@ $('#action_menu_btn').click(function(){
                 <a href="<?php echo base_url('Front/home')?>"><img class="navbar-img" src="<?php echo base_url()?>assets/Front/img/MyLogo.png"></a>
               </div>
             </div>
-            <div class="col-md-8 text-right">  
+            <div class="col-md-7 text-right">  
               <div class="nav top_nav">
                 <input type="checkbox" id="nav-check">                
                 <div class="nav-btn">
@@ -185,18 +194,20 @@ $('#action_menu_btn').click(function(){
                      <a href="<?php echo base_url('Front/home/logout')?>">Log out</a>                 
                   <?php } else {?>                    
                       <a href="<?php echo base_url('Front/home/login')?>">Log in</a>
-                   <?php } ?>
+                   <?php } ?>           
                 </div>
               </div>
             </div>
-            <div class="col-md-2">
+            <div class="col-md-3">
               <div class="top_right_side_icon">
                 <ul>
-                   <li>
+                  <li>
+                  <a href="<?php echo base_url('Front/home/chat')?>">
+                          <img class="chat_icn" src="<?php echo base_url();?>/assets/Front/img/chat.png" style="width:17px; margin-top:-10px;">
+                    </a>
+                  </li>
+                  <li>
                     <div class="dropdown">
-                      <a href="<?php echo base_url('Front/home/chat')?>">
-                          <img class="chat_icn" src="<?php echo base_url();?>/assets/Front/img/chat.png" style="width:17px; margin-top:-3px;s">
-                      </a>&nbsp;
                       <a href="javascript:void(0)" class="dropdown-toggle btn btn-primary" data-toggle="dropdown" aria-expanded="false"><i class="far fa-bell"></i></a>
                       <ul class="dropdown-menu animated fadeInUp notification_popup">
                         <li>
@@ -273,7 +284,7 @@ $('#action_menu_btn').click(function(){
                             else {
                           ?>                          
                             <img class="my_prof" src="<?php echo base_url();?>uploads/profiles/<?php echo $self_user[0]['picture_url']?>" style="width: 50px; height: 50px; border-radius: 50px; margin-bottom: -15px;" />
-                            <i class="fas fa-sort-down" style="color: #ff7700; float: right; margin-top: 10px; margin-left: 5px;"></i>                           
+                            <i class="fas fa-sort-down" style="color: #ff7700; float: right; margin-top: 5px; margin-left: 5px;"></i>                           
                           <?php
                             }  
                           ?>

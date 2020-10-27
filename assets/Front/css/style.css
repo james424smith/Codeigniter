@@ -112,7 +112,7 @@ div#user_profile button.btn.btn-default {
 
 .nav > .nav-links > a {
   display: inline-block;
-  padding: 13px 20px;
+  padding: 13px 15px;
   text-decoration: none;
   color: #000000;  
   font-weight: 500;
@@ -2828,7 +2828,7 @@ img.chat_icn {
     padding: 50px 45px 0px 0px;
 }
 .nav > .nav-links > a {
-    padding: 13px 17px;
+    padding: 13px 15px;
 }
 .top_right_side_icon ul li {
     padding: 9px 5px;
