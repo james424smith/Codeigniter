@@ -65,23 +65,21 @@
 						</div>
 					</div>
 				</div>
-				<?php foreach ($all_comments as $comment) { ?>
+				<?php foreach ($all_comments as $each_comment) { ?>
 				<div class="row" style="padding-left:20px;">
 					<div class="demand_details_content">
-						<?php echo $comment['your_comments']; ?>
+						<?php echo $each_comment['your_comments']; ?>
 					</div>
 				</div><br>
 				<div class="row" style="padding-left:20px;">
-					<div class="demand_details_upload_btn">	
-						
-							<a href="<?php if($comment['project_files']){ echo base_url()?>Front/Posts/download/<?php echo $comment['project_files']; }
-									else { ?>#<?php } ?>"> 
-								<?php 
-									if($comment['project_files'])
-										echo $comment['project_files'] . " <i class='fas fa-download'></i>";
-            					?>
-							</a>
-						
+					<div class="demand_details_upload_btn">							
+						<a href="<?php if($each_comment['project_files']){ echo base_url()?>Front/Posts/download/<?php echo $each_comment['project_files']; }
+								else { ?>#<?php } ?>"> 
+							<?php 
+								if($each_comment['project_files'])
+									echo $each_comment['project_files'] . " <i class='fas fa-download'></i>";
+							?>
+						</a>						
 					</div>
 				</div> <hr>
 				<?php } ?>

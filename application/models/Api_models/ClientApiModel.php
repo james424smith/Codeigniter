@@ -811,7 +811,6 @@ public function update_chat_time($sender_id,$project_status)
                   "sent_to"=>$value->sent_to, "amount"=>$value->amount,   
                   "tra_id"=>$value->tra_id, "created_date"=>$value->created_date, "username"=>$value->username, "project_title"=>$mission_title1, "sent_from_username"=>$sent_from_username, "sent_to_username"=>$sent_to_username);
 
-
       }
 
       return $student_one;

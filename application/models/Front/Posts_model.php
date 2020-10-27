@@ -342,6 +342,16 @@ class Posts_model extends CI_Model
                 $this->db->set('Current_Balance', $ballence);
                 $this->db->where('id', $mission->accepted_by);
                 $status = $this->db->update('users');
+
+                $update_data = array(
+                    'created_date' => $project_data['date_created'],
+                    'status' => 1
+                );
+                $this->db->set($update_data);
+                $this->db->where('mission_id', $project_data['mission_id']);
+                $this->db->where('sent_to', $mission->accepted_by);
+                $status = $this->db->update('transaction');
+
                 return true;
             }
             else {

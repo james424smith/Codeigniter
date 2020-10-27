@@ -28,13 +28,26 @@
    <div class="section portfolio">
       <main id="main" class="container">
          <nav class="nav">
-            <a href="" class="nav-item active" onclick="location.reload();">All</a>
-            <a href="#" class="nav-item" data-rel="Proposed">Posted</a>
-            <a href="#" class="nav-item" data-rel="option-1">In progress</a>
-            <a href="#" class="nav-item" data-rel="option-2">Delivered</a>
-            <a href="#" class="nav-item" data-rel="option-3">Completed</a>
-            <a href="#" class="nav-item" data-rel="option-4">Dispute</a> 
+            <a href="" class="nav-item active" onclick="location.reload();" style="color:#0abdf3;">All</a>
+            <a href="#" class="nav-item" data-rel="Proposed" style="color:#2d4fb1;">Posted</a>
+            <a href="#" class="nav-item" data-rel="option-1" style="color:#ffd400;">In progress</a>
+            <a href="#" class="nav-item" data-rel="option-2" style="color:#7402f1;">Delivered</a>
+            <a href="#" class="nav-item" data-rel="option-3" style="color:#39ec0c;">Completed</a>
+            <a href="#" class="nav-item" data-rel="option-4" style="color:#ff1800;">Dispute</a> 
          </nav>
+    
+         <?php
+            if(count($demands) == 0 && count($demands1) == 0 && count($demands2) == 0 && count($demands3) == 0 && count($demands4) == 0)
+            { 
+         ?>
+            <br><br><br>
+            <div class="row">
+            <div class="col-md-12 text-center">
+               <h4>No Demands to display.</h4>
+            </div>
+            </div>
+            <br><br>
+        <?php } else { ?>      
    <ul class="tabs_list">
 
    <?php 
@@ -68,7 +81,6 @@
                $style = "none";
                $link = "demand_dispute_details";
             }
-
             $style = "list-item";
    ?>
       <li class="project <?php echo  $class; ?>" style="display: <?php echo $style; ?>">
@@ -105,7 +117,6 @@
                            ?>
                            </div>               
                         </div>
-                     
                   </div>
                   <?php
                      $now = time(); // or your date as well
@@ -117,6 +128,8 @@
             </a>
          </li>
           <?php } ?>
+         </ul>
+         <?php } ?>
       </main>
    </div>
 </section>

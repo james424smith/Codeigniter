@@ -71,8 +71,18 @@
        if($paymentStatus == 'succeeded'){
             $paymentMessage = "<strong>The payment was successful.</strong><strong> Order ID: {$lastInsertId}</strong>";
 
-            $add_demand = array('sent_from'=>$user1_id,'sent_to'=>$get_offer_user_id,'amount'=>$get_offer_amount,'tra_id'=>$balanceTransaction,'created_date'=>$date_created,'username'=>$offer_username,'project_title'=>$get_offer_mission_name,'mission_id'=>$get_offer_project_id);
-            //$offer_amount=$obj->Payment_model->get_offer_amount($id);
+            $add_demand = array(
+              'sent_from'=>$user1_id,
+              'sent_to'=>$get_offer_user_id,
+              'amount'=>$get_offer_amount,
+              'tra_id'=>$balanceTransaction,
+              'created_date'=>$date_created,
+              'username'=>$offer_username,
+              'project_title'=>$get_offer_mission_name,
+              'mission_id'=>$get_offer_project_id, 
+              'status' => 0);
+  
+            $offer_amount=$obj->Payment_model->get_offer_amount($id);
             $result = $obj->Payment_model->inserransection($add_demand);
             $status = $obj->Payment_model->acceptOfferafter($get_offer_project_id, $get_offer_user_id);
 

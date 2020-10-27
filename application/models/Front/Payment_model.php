@@ -208,8 +208,11 @@ class Payment_model extends CI_Model
             $this->db->from('transaction');
 
             $this->db->where('transaction.sent_to', $user_id);
+            $this->db->where('transaction.status', 1);
+
             $this->db->order_by('transaction.id', 'DESC');
             $data = $this->db->get()->result();
+            //var_dump($data);die();
             foreach ($data as $value) {
 
             $sent_from = $value->sent_from;
@@ -248,12 +251,13 @@ class Payment_model extends CI_Model
             {
             $this->db->select("transaction.*");
             $this->db->from('transaction');
-
             $this->db->where('transaction.sent_to', $user_id);
+            $this->db->where('status', 1);
             $this->db->or_where('transaction.sent_from', $user_id);
-
+            $this->db->where('status', 1);
             $this->db->order_by('transaction.id', 'DESC');
             $data = $this->db->get()->result();
+
             foreach ($data as $value) {
 
             $sent_from = $value->sent_from;
@@ -314,13 +318,18 @@ class Payment_model extends CI_Model
 
             $this->db->select("transaction.*");
             $this->db->from('transaction');
+            $this->db->where('transaction.status', 1);
+
             $this->db->join('mission', 'transaction.mission_id = mission.mission_id');
             $this->db->where('transaction.sent_from', $user_id);
+
             $this->db->where('mission.mission_status',3);  
             $this->db->order_by('transaction.id', 'DESC'); 
             $data = $this->db->get()->result();
             /*      echo $str = $this->db->last_query();
             exit();*/
+            //var_dump($data);die();
+
             foreach ($data as $value) {
 
             $sent_from = $value->sent_from;
@@ -427,6 +436,7 @@ class Payment_model extends CI_Model
     }
     public function inserransection($data)
     {
+        //var_dump("ddd");die();
         $this->db->insert('transaction',$data);
         $response['status'] = true;
         $response['message'] = 'Inserted Successfully';

@@ -298,7 +298,7 @@ class Posts extends CI_Controller
         }
       }
        public function delivered_pay_demand(){
-        
+
           $date_created = date('Y-m-d H:i:s');
           $project_data = array(
             'mission_id' => $this->input->post('mission_id'),
@@ -325,8 +325,10 @@ class Posts extends CI_Controller
         {
           $this->Posts_model->saveRating($rating_data);
         }
-        redirect('Front/home/mydemands');
-       }
+
+        
+      redirect('Front/home/mydemands');
+    }
 
        public function inprogress_pay_demand(){
          $project_data = array(
