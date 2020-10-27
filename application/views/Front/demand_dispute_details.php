@@ -115,25 +115,25 @@
 						<h4>Heelper Comment</h4>
 					</div>
 				</div>
+				<?php foreach ($all_comments as $comment) { ?>
 				<div class="row">
-					<?php if($comment->your_comments) { ?>
+					<?php if($comment['your_comments']) { ?>
 					<div class="demand_details_content">											
-						<?php echo $comment->your_comments?>
+						<?php echo $comment['your_comments']?>
 					</div>
 				</div>
 				<div class="row">
 					<div class="demand_details_upload_btn">	
-						<?php foreach ($all_comments as $file_comment) { ?>
-							<a href="<?php if($file_comment['project_files']){ echo base_url()?>Front/Posts/download/<?php echo $file_comment['project_files']; }
-								else { ?>#<?php }?>">
-								<?php 
-									if($file_comment['project_files'])
-										echo $file_comment['project_files'] . " <i class='fas fa-download'></i>";
-								?> 
-							</a>
-						<?php } ?>
+						<a href="<?php if($comment['project_files']){ echo base_url()?>Front/Posts/download/<?php echo $comment['project_files']; }
+							else { ?>#<?php }?>">
+							<?php 
+								if($comment['project_files'])
+									echo $comment['project_files'] . " <i class='fas fa-download'></i>";
+							?> 
+						</a>
 					</div>
-				</div>				
+				</div><hr>
+				<?php } ?>				
 			  </div>
 			</div>
 		</div>

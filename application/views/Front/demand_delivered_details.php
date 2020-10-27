@@ -121,24 +121,24 @@
 						<h4>Heelper Comment</h4>
 					</div>
 				</div>
+				<?php foreach ($all_comments as $comment) { ?>
 				<div class="row" style="padding-left:20px;">																
 					<p>
-						<?php echo $comment->your_comments?>
+						<?php echo $comment['your_comments'] ?>
 					</p>
 				</div>
 				<div class="row" style="padding-left:20px;">
-					<div class="demand_details_upload_btn">	
-						<?php foreach ($all_comments as $file_comment) { ?>
-							<a href="<?php if($file_comment['project_files']){ echo base_url()?>Front/Posts/download/<?php echo $file_comment['project_files']; }
-									else { ?>#<?php }?>">
-									<?php 
-										if($file_comment['project_files'])
-											echo $file_comment['project_files'] . " <i class='fas fa-download'></i>";
-            						?> 
-							</a>
-						<?php } ?>
+					<div class="demand_details_upload_btn">							
+						<a href="<?php if($comment['project_files']){ echo base_url()?>Front/Posts/download/<?php echo $comment['project_files']; }
+								else { ?>#<?php }?>">
+								<?php 
+									if($comment['project_files'])
+										echo $comment['project_files'] . " <i class='fas fa-download'></i>";
+								?> 
+						</a>
 					</div>
-				</div>
+				</div><hr>
+				<?php  } ?>
 				<div class="row claim_an_issue" style="padding-left:10px;">
 					<a href="#" class="btn btn-default" data-toggle="modal" data-target="#myModal2">
 						Claim an issue

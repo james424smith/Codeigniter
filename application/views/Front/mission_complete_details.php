@@ -89,24 +89,25 @@
 						<h4>My Comment</h4>
 					</div>
 				</div><br>
+				<?php foreach ($all_comments as $comment) { ?>
 				<div class="row" style="padding-left:30px;">
 					<div class="demand_details_content">
-						<?php echo $comment->your_comments; ?>							
+						<?php echo $comment['your_comments']; ?>							
 					</div>
 				</div><br>
 				<div class="row" style="padding-left:30px;">
 					<div class="demand_details_upload_btn">
-						<?php foreach ($all_comments as $file_comment) { ?>
-						<a href="<?php if($file_comment['project_files']) {echo base_url(); ?>Front/Posts/download/<?php echo $file_comment['project_files']; }
+						<a href="<?php if($comment['project_files']) {echo base_url(); ?>Front/Posts/download/<?php echo $comment['project_files']; }
 									else { ?>#<?php }?>">
 								<?php 
-									if($file_comment['project_files'])
-										echo $file_comment['project_files'] . " <i class='fas fa-download'></i>";
+									if($comment['project_files'])
+										echo $comment['project_files'] . " <i class='fas fa-download'></i>";
             					?>
 						</a>
-						<?php } ?>
+						
 					</div>		
-				</div>				
+				</div><hr>
+				<?php } ?>				
 			  </div>
 			</div>
 		</div>
