@@ -19,18 +19,19 @@
                    <h3>Register</h3>  
                 <div class="login-form">
                     <div class="login-form">
-                        <form method="post" action="<?php echo base_url('Front/Register/register')?>">
+                        <form method="post" action="<?php echo base_url('Front/Register/register')?>" id="myForm">
                             <div class="form-group">
-                                <input type="text" placeholder="Email" name="email" class="form-control">
+                                <input type="email" placeholder="Email" name="email" class="form-control" required>
                             </div>
                             <div class="form-group">
-                                <input type="text" placeholder="Username" name="username" class="form-control">
+                                <input type="text" placeholder="Username" name="username" class="form-control" required> 
                             </div>
                             <div class="form-group">
-                                <input type="password" placeholder="Password" name="password" class="form-control">
+                                <input type="password" pattern="[a-zA-Z0-9]{8,}" placeholder="Password" name="password" class="form-control" id="password1"
+                                title="The password should include at least 8 alphanumeric character." required>
                             </div>
                             <div class="form-group">
-                                <input type="password" placeholder="Confirm Password" name="cpassword" class="form-control">
+                                <input type="password" placeholder="Confirm Password" name="cpassword" id="password2" class="form-control" required>
                             </div>
                             <div class="form-group">
                                 <input type="hidden" value="client" name="role" class="form-control">
@@ -40,7 +41,7 @@
                             	    <label><input type="radio"  class=""> Remember me</label>
                                 </div>
                                 <div class="col-md-6 loginbttm">
-                                    <button type="submit" class="btn">Register</button>
+                                    <button type="submit" class="btn" id="submit">Register</button>
                                 </div>
                             </div>
                             <div class="row">
@@ -65,6 +66,6 @@
 
 <section>
     <script>
-        
+
     </script>
 </section>

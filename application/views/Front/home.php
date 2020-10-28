@@ -232,7 +232,11 @@
                 }
           ?>
           <div class="col-md-3">
+          <?php if($this->session->userdata['id']){?>
             <a href="<?php echo base_url('Front/home/heelper_profile/'.$member['id'])?>">
+          <?php } else {?>
+            <a href="<?php echo base_url('Front/home/login')?>">
+          <?php } ?>
               <div class="find_content">
                 <img class="man_img" src="<?= $admin_url ?>/uploads/profiles/<?php echo $member['picture_url'] ?>">
                 <div class="find_content_inner">

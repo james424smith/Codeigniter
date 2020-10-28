@@ -134,8 +134,13 @@
 						No comments to display	
 					</div>
 					<?php } ?>
+				</div>
+			</div><br><br>
+			<div class="row claim_an_issue" style="padding-left:10px;">
+					<a href="#" class="btn btn-default" data-toggle="modal" data-target="#myModal2">
+						Claim an issue
+					</a>
 				</div>	
-			</div>
 			<div class="col-md-2"></div>
 		</div> 				
 		</div>

@@ -202,13 +202,23 @@ $('#action_menu_btn').click(function(){
               <div class="top_right_side_icon">
                 <ul>
                   <li>
-                  <a href="<?php echo base_url('Front/home/chat')?>">
-                          <img class="chat_icn" src="<?php echo base_url();?>/assets/Front/img/chat.png" style="width:17px; margin-top:-12px;">
+                    <?php if($this->session->userdata['id']){?>
+                      <a href="<?php echo base_url('Front/home/chat')?>">
+                    <?php } else {?>
+                      <a href="<?php echo base_url('Front/home/login')?>">
+                    <?php } ?>
+                        <img class="chat_icn" src="<?php echo base_url();?>/assets/Front/img/chat.png" style="width:17px; margin-top:-12px;">
                     </a>
+                      
                   </li>
                   <li>
                     <div class="dropdown">
+                    <?php if($this->session->userdata['id']){?>
                       <a href="javascript:void(0)" class="dropdown-toggle btn btn-primary" data-toggle="dropdown" aria-expanded="false"><i class="far fa-bell"></i></a>
+                    <?php } else {?>
+                      <a href="<?php echo base_url('Front/home/login')?>" class="dropdown-toggle btn btn-primary"><i class="far fa-bell"></i></a>
+                    <?php } ?>
+
                       <ul class="dropdown-menu animated fadeInUp notification_popup">
                         <li>
                           <h3>Notifications</h3>
@@ -325,6 +335,7 @@ $('#action_menu_btn').click(function(){
                               </div>
                           </a>
                         </li>
+                        <?php if($this->session->userdata['id']){?>
                         <li>
                           <a href="<?php echo base_url('Front/home/my_payment')?>" class="hvr-bounce-to-right">
                               <div class="not_icon">
@@ -333,6 +344,7 @@ $('#action_menu_btn').click(function(){
                               </div>
                           </a>
                         </li>
+                        <?php }?>
                         <li>
                           <a  href="<?php echo base_url('Front/home/support_contact')?>" class="hvr-bounce-to-right">
                               <div class="not_icon">

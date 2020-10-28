@@ -61,7 +61,7 @@
 					</div>
 					<br>
 					 <p class="top_details_p">
-					 	<?php echo $mission->mission_description;?>
+					 	<?php echo $mission->description;?>
 					 </p>
 					 <div class="demand_details_upload_btn">
 						<a href="<?php if($mission->mission_doc){ echo base_url()?>Front/Posts/download/<?php echo $mission->mission_doc;}
@@ -83,7 +83,7 @@
 					 	<b>Budget: <?php echo $mission->budget;?></b> <i class="fas fa-euro-sign"></i>
 						<b style="color:red;">&nbsp;&nbsp;&nbsp;Offer: <?php echo $mission->mission_budget;?> <i class="fas fa-euro-sign"></i></b>
 					 </p>
-				</div>
+				</div><br>
 				<div class="demand_check_box" style="margin-left: -10px;" >
 					<ul>
 						<li>					

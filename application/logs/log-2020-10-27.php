@@ -421,3 +421,33 @@ ERROR - 2020-10-27 23:01:19 --> 404 Page Not Found: Assets/img
 ERROR - 2020-10-27 23:01:39 --> 404 Page Not Found: Assets/Front
 ERROR - 2020-10-27 23:01:39 --> 404 Page Not Found: Assets/Front
 ERROR - 2020-10-27 23:01:39 --> 404 Page Not Found: Assets/Front
+ERROR - 2020-10-27 23:16:00 --> 404 Page Not Found: Assets/Front
+ERROR - 2020-10-27 23:16:00 --> 404 Page Not Found: Assets/Front
+ERROR - 2020-10-27 23:16:01 --> 404 Page Not Found: Assets/Front
+ERROR - 2020-10-27 23:16:26 --> 404 Page Not Found: Assets/Front
+ERROR - 2020-10-27 23:16:26 --> 404 Page Not Found: Assets/Front
+ERROR - 2020-10-27 23:16:26 --> 404 Page Not Found: Assets/Front
+ERROR - 2020-10-27 23:16:40 --> 404 Page Not Found: Assets/Front
+ERROR - 2020-10-27 23:16:40 --> 404 Page Not Found: Assets/Front
+ERROR - 2020-10-27 23:17:53 --> Severity: Warning --> Illegal string offset 'username' F:\___Jys___Work\Work\tasks\hhh\Heelp\HeelpWeb\application\views\Front\card_details.php 15
+ERROR - 2020-10-27 23:18:39 --> 404 Page Not Found: Assets/Front
+ERROR - 2020-10-27 23:18:39 --> 404 Page Not Found: Assets/Front
+ERROR - 2020-10-27 23:18:39 --> 404 Page Not Found: Assets/Front
+ERROR - 2020-10-27 23:19:23 --> 404 Page Not Found: Assets/Front
+ERROR - 2020-10-27 23:19:24 --> 404 Page Not Found: Assets/Front
+ERROR - 2020-10-27 23:19:24 --> 404 Page Not Found: Assets/Front
+ERROR - 2020-10-27 23:20:20 --> 404 Page Not Found: Assets/Front
+ERROR - 2020-10-27 23:20:20 --> 404 Page Not Found: Assets/Front
+ERROR - 2020-10-27 23:20:20 --> 404 Page Not Found: Assets/Front
+ERROR - 2020-10-27 23:24:33 --> 404 Page Not Found: Assets/img
+ERROR - 2020-10-27 23:24:33 --> 404 Page Not Found: Assets/img
+ERROR - 2020-10-27 23:24:53 --> 404 Page Not Found: Assets/Front
+ERROR - 2020-10-27 23:24:53 --> 404 Page Not Found: Assets/Front
+ERROR - 2020-10-27 23:24:53 --> 404 Page Not Found: Assets/Front
+ERROR - 2020-10-27 23:25:16 --> 404 Page Not Found: Assets/Front
+ERROR - 2020-10-27 23:25:16 --> 404 Page Not Found: Assets/Front
+ERROR - 2020-10-27 23:25:16 --> 404 Page Not Found: Assets/Front
+ERROR - 2020-10-27 23:25:55 --> Severity: Warning --> Illegal string offset 'username' F:\___Jys___Work\Work\tasks\hhh\Heelp\HeelpWeb\application\views\Front\card_details.php 15
+ERROR - 2020-10-27 23:26:18 --> 404 Page Not Found: Assets/Front
+ERROR - 2020-10-27 23:26:18 --> 404 Page Not Found: Assets/Front
+ERROR - 2020-10-27 23:26:18 --> 404 Page Not Found: Assets/Front

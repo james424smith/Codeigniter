@@ -100,8 +100,7 @@ class Register extends CI_Controller {
           if (!$this->upload->do_upload('picture_url')) 
           {
              $error = array('error' => $this->upload->display_errors());
-             $image_name = '';
-     
+             $image_name = '';     
           } 
           else 
           {
@@ -110,9 +109,9 @@ class Register extends CI_Controller {
           }
         }
         if($image_name){
-        $project_data = array(            
-            'picture_url' => $image_name            
-        );          
+          $project_data = array(            
+              'picture_url' => $image_name            
+          );          
         }
         else{     
             echo "svdgdg";    

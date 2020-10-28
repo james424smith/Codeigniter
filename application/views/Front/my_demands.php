@@ -14,12 +14,16 @@
    $demands4 = $obj->Posts_model->mydemand($status5);
    //var_dump($demands1);die();
    
-?> 
+?>
+
 <section>
    <div class="top_bnr section post_demand">
       <div class="container">
-         <div class="top-side about_title">
-            <h4 class="title">My Demands</h4>
+         <div class="row top-side about_title">
+            <div class="col-md-12 text-center">
+               <img src="<?php  echo base_url('assets/Front/img/myrequestblue.png'); ?>" />
+               <h4 class="title">My Demands</h4>
+             </div>
          </div>
       </div>
    </div>
@@ -93,8 +97,8 @@
                      <img src="<?php  echo base_url('uploads/project_image/'.$cat_image->picture_url) ?>">
                   </div>            
                   <div class="col-md-12 cat_content">
-                           <h5><?php echo $value['mission_title']; ?></h5>
-                           <p><?php echo $value['mission_description'];?></p>
+                        <h5><?php echo $value['mission_title']; ?></h5>
+                        <p><?php echo $value['mission_description'];?></p>
                         <div class="row">
                            <div class="col-md-12 status Delivred">
                               <p>By : <?php echo $value['username']?> &nbsp;&nbsp; Budget : <?php echo '€' . $value['budget'];?></p>
