@@ -57,10 +57,8 @@
 					 <p class="budget_details_p">
 					 	<b>Budget: <?php echo $mission->budget;?></b> <i class="fas fa-euro-sign"></i>
 						<b style="color:red;">&nbsp;&nbsp;&nbsp;Offer: <?php echo $mission->mission_budget;?> <i class="fas fa-euro-sign"></i></b>
-
 					 </p>
 				</div>
-					
 			</div>
 			<div class="col-md-6">
 				<div class="row post_demand_inner_row" style="min-height:30px;">

@@ -39,7 +39,7 @@
 					</div>
 					<div class="Presentation">
                           		<h5>Presentation:</h5>
-                          		<p><?=empty($user['presentation'])?'':$user['presentation']?></p>
+                          		<p><?=empty($user['presentation'])?'':$use['presentation']?></p>
 					</div>
 					<div class="Presentation">
                           		<h5>Level of Studies:</h5>
@@ -82,8 +82,12 @@
 				  <div class="form-group col-md-12">
 				  	<div class="profile_upload_input">
 				  	  <label for="text">Upload Profile</label>
-				  	  <input type="file" class="form-control" name="picture_url" value="" id="">			  	   
+				  	  <input type="file" class="form-control" name="picture_url" value="" id="file">			  	   
 				    </div>
+					<br>
+					<div class="post_form_content text-center">
+						<span id="file-name" style="color:blue;">No File</span>
+					</div>
 				  </div>
 				  <input type="hidden" class="form-control" name="id" value="<?=$user['id']?>" id="">
 				</div>
@@ -175,6 +179,13 @@
   </div>
 </div>
 <!-- Modal -->
-
-
 <?php $this->load->view('Front/common/footer');  ?>
+
+<script>
+	$(document).ready(function(){
+		$('#file').change(function (e) {
+			//alert(e.target.files[0].name);
+			$('#file-name').html(e.target.files[0].name);
+		});
+	});
+</script>
