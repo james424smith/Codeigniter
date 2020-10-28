@@ -28,8 +28,6 @@
       $this->db->update('users',$send_id);
 
         return true;
-     
-    
       
     }
 	public function GetReciverChatHistory($receiver_id){

@@ -7,9 +7,10 @@
 	$self_user_id = $this->session->userdata['id'];
 	$all_comments = $this->db->query("select project_status.* from project_status where project_id=" . $id . " and user_id=" . $self_user_id)->result_array();
 
-//$profile_url = $obj->RegisterModel->PictureUrl();
 	$mission = $this->db->query("select * from mission  where mission_id=".$id)->row();
-//print_r($user);die();
+
+	$obj->load->model('Front/User');
+	$self_user = $obj->User->getSelfUser();
 	$client_user = $obj->User->getUserByID($mission->client_id);
 
 ?> 
@@ -18,7 +19,7 @@
   <div class="top_bnr section post_demand">
     <div class="container">
       <div class="top-side about_title">
-          <h4 class="title">Completed</h4>
+          <h4 class="title">Dispute</h4>
         </div>
     </div>
   </div>
@@ -41,8 +42,17 @@
 					 </p>
 					 <div class="demand_details_upload_btn">
 						<a href="<?php if($mission->mission_doc){ echo base_url()?>Front/Posts/download/<?php echo $mission->mission_doc;}
-								else { ?>#<?php }?>">File Name <i class="fas fa-download"></i></a>
-						<!-- <a href="#">File Name <i class="fas fa-download"></i></a> -->
+									else { ?>#<?php }?>">
+									<?php 
+										if($mission->mission_doc) {
+											echo $mission->mission_doc; 
+										}
+										else {
+											echo "No Attached File";
+										}
+									?>	
+									&nbsp;<i class="fas fa-download"></i>	
+						</a>
 					</div>
 					 <p class="budget_details_p">
 					 	<b>Budget: <?php echo $mission->budget;?></b> <i class="fas fa-euro-sign"></i>
@@ -52,17 +62,23 @@
 				</div>
 					
 			</div>
-			<div class="col-md-6 comt_box">
-				<div class="row post_demand_inner_row">
+			<div class="col-md-6">
+				<div class="row post_demand_inner_row" style="min-height:30px;">
 					<div class="col-md-2">
 						<div class="demand_details_profile_img">
-							<img src="<?php echo base_url('assets/Front/img/demand_profile.png')?>" style="margin-top:-10px;">
+							<a href="<?php echo base_url('Front/home/heelper_profile/' . $self_user[0]['id'])?>">
+								<img src="<?php echo base_url('uploads/profiles/');?><?php echo $self_user[0]['picture_url']?>" style="margin-top:-10px;"> 
+							</a>
+							<?php
+								$class_star = $obj->User->getRatingClassName($self_user[0]['id']); 
+							?>
+							<a href="<?php echo base_url('Front/home/review_profile/' . $self_user[0]['id'])?>">
+								<span class="stars-container <?php echo $class_star; ?>">★★★★★</span>
+							</a>			
 						</div>
 					</div>
 					<div class="col-md-10">
-						<div class="demand_details_content">
-							<h4>Heelper Comment</h4>
-						</div>
+						<h4>My Comment</h4>
 					</div>
 				</div>
 				<?php foreach ($all_comments as $each_comment) { ?>
@@ -79,11 +95,11 @@
 								if($each_comment['project_files'])
 									echo $each_comment['project_files'] . " <i class='fas fa-download'></i>";
 							?>
-						</a>						
+						</a>
+						
 					</div>
 				</div> <hr>
-				<?php } ?>
-	
+				<?php } ?>		
 			  </div>
 			</div>
 		</div>

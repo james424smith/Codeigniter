@@ -12,8 +12,8 @@
 
 	//var_dump()
 	$mission = $this->db->query("select * from mission  where mission_id=".$id)->row();
-	$comment = $this->db->query("select project_status.*,users.picture_url from project_status INNER JOIN users ON project_status.user_id =users.id where project_id=".$id. " order by id desc")->row();
-	
+	$comment = $this->db->query("select project_status.*,users.picture_url, users.email from project_status INNER JOIN users ON project_status.user_id =users.id where project_id=".$id. " order by id desc")->row();
+	//var_dump($comment->email);
 	$amount_12 = ($mission->mission_budget * 12) / 100;
 	$amount_with_tax = $get_offer_amount + 0.25;
 	$total_amount = $mission->mission_budget + $amount_with_tax + $amount_12;
@@ -170,8 +170,10 @@
 				<form action="<?php echo base_url('Front/Posts/inprogress_demand')?>" method="post">
 					<div class="">
 						<textarea placeholder="Description:" name="description"></textarea>
+						<input type="hidden" name="user_id" value="<?php echo $mission->accepted_by ?>">	
 						<input type="hidden" name="project_id" value="<?php echo $mission->mission_id ?>">	
 						<input type="hidden" name="title" value="<?php echo $mission->mission_title ?>">	
+						<input type="hidden" name="user_email" value="<?php echo $comment->email ?>">
 					</div>
 					<button type="submit" class="btn btn-default">Retour</button>
 				</form>

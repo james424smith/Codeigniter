@@ -29,7 +29,6 @@
   </div>
 </section>
 
-
 <section class="demand_deails_section">
 	<div class="container">
 		<div class="row">
@@ -70,7 +69,7 @@
 									}
 								?>	
 								&nbsp;<i class="fas fa-download"></i>	
-							</a>
+					</a>
 						<!-- <a href="#">File Name <i class="fas fa-download"></i></a> -->
 				</div>
 			</div>
