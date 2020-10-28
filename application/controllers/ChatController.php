@@ -92,7 +92,10 @@ class ChatController extends CI_Controller {
 
             $this->firebase->send_notification($messageTxt ,$taken_data);
 
-            $this->firebase->insertMessage(array('user_id'=>$this->OuthModel->Encryptor('decrypt', $post['receiver_id']),'notification'=>$messageTxt,'type_id'=>4));
+            $this->firebase->insertMessage(array('user_type'=> 1, "demand_id" => 1, 'user_id'=> $post['receiver_id'], 'notification' => $messageTxt, 'type_id' => 4));
+            
+            //$this->load->model('Posts_model');
+            //$this->Posts_model->pushNotification($post['receiver_id'], 4, "You recived the message from who");
 
             $response='';
             if($query == true){
@@ -101,6 +104,7 @@ class ChatController extends CI_Controller {
             else{
                 $response = ['status' => 0 ,'message' => 'sorry we re having some technical problems. please try again !'                       ];
             }
+            
             
             echo json_encode($response);
         }
@@ -174,7 +178,7 @@ class ChatController extends CI_Controller {
         $Logged_sender_id = $this->session->userdata('id');
 
         $history = $this->ChatModel->GetReciverChatHistory($receiver_id);        
-        
+      
         echo json_encode($history);die();
 
          
@@ -210,7 +214,7 @@ class ChatController extends CI_Controller {
                           $messageBody .= '<h4>Attachments:</h4>';
                            $messageBody .= '<p class="filename">';
                             $messageBody .= $attachment_name;
-                          $messageBody .= '</p>';
+                           $messageBody .= '</p>';
         
                           $messageBody .= '<div class="pull-'.$classBtn.'">';
                             $messageBody .= '<a download href="'.$document_url.'"><button type="button" id="'.$message_id.'" class="btn btn-primary btn-sm btn-flat btnFileOpen">Open</button></a>';

@@ -164,7 +164,9 @@
           </div>
         </div>
         <div class=" row slider autoplay">
-           <?php  foreach ($team as $member) {  ?> 
+           <?php  foreach ($team as $member) {  
+                  if($member['id'] != $this->session->userdata['id']) {
+           ?> 
               <?php
                 $count = 0;
                 $total = 0;
@@ -255,7 +257,7 @@
               </div>
             </a>
           </div>
-          <?php }?>
+          <?php } }?>
         </div> 
         <div class="row">
           <div class="col-md-12">

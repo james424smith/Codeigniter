@@ -63,9 +63,3 @@
 </section>
 
 <?php $this->load->view('Front/common/footer');  ?>
-
-<section>
-    <script>
-
-    </script>
-</section>

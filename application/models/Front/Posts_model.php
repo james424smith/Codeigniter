@@ -388,11 +388,37 @@ class Posts_model extends CI_Model
             $this->db->from('notification');
             $this->db->where('user_id', $this->session->userdata['id']);
             $this->db->where('type_id', $type_id);
+            //$this->db->where('read_status', 0);
             $result = $this->db->get()->result_array();
-
-            return $result ;
+            return $result;
         }
 
+        public function SetNotificaion_Read($type_id) {
+            $this->db->set('read_status', 1);
+            $this->db->where('user_id', $this->session->userdata['id']);
+            $this->db->where('type_id', $type_id);
+            $this->db->update('notification');
+            return true;
+        }
+
+        public function pushNotification($user_id, $type_id, $notification_msg)
+        {    
+                $date_created = date('Y-m-d H:i:s');
+                $data = array(
+                    "user_type" => 1,
+                    "user_id" => $user_id,
+                    "demand_id" => 1,
+                    "notification" => $notification_msg,
+                    "read_status" => 0,
+                    "created" => $date_created,
+                    "type_id" => $type_id
+                );
+
+                $this->db->insert('notification', $data);
+                return true;
+
+            
+        }
         public function checkMission($offer_data = array()) {
             if(!empty($offer_data)) {
                 $this->db->select('*');
@@ -414,7 +440,6 @@ class Posts_model extends CI_Model
             $this->db->from("user_review");
             $this->db->where("to_user_id", $id);
             $query = $this->db->get();
-
             return $query->result_array();
         }
 }

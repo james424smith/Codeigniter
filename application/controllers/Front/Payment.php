@@ -250,14 +250,12 @@ $this->load->model('Front/Payment_model');
               $this->session->set_flashdata('wallet_pay_success', 'paid successfully.');
               $this->load->view('Front/payment_success');
           }
-
         }
-
         else 
         {
           $get_offer_user_id = $this->input->post('get_offer_user_id');
           $get_offer_project_id = $this->input->post('get_offer_project_id');
-
+          
           $this->load->view('Front/payment_success');
         }
       } 

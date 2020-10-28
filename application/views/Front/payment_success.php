@@ -68,7 +68,7 @@
         
     
        //if order inserted successfully
-       if($paymentStatus == 'succeeded'){
+        if($paymentStatus == 'succeeded'){
             $paymentMessage = "<strong>The payment was successful.</strong><strong> Order ID: {$lastInsertId}</strong>";
 
             $add_demand = array(
@@ -85,7 +85,7 @@
             $offer_amount=$obj->Payment_model->get_offer_amount($id);
             $result = $obj->Payment_model->inserransection($add_demand);
             $status = $obj->Payment_model->acceptOfferafter($get_offer_project_id, $get_offer_user_id);
-
+            //$obj->load->model('Front/Posts_model'
        } 
        else{
           $paymentMessage = "Payment failed!";

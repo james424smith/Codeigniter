@@ -293,7 +293,7 @@ class Payment_model extends CI_Model
 
             }
 
-            public function getallnotificationcount($user_id,$type_id)
+            public function getallnotificationcount($user_id, $type_id)
             {
                 $this->db->select("notification.*");
                 $this->db->from('notification');
@@ -310,53 +310,47 @@ class Payment_model extends CI_Model
 
             public function getPaymentOut($user_id)
             {
-        /*      $this->db->select("*");
-            $this->db->from('transaction');
-            $this->db->where('sent_from',$user_id);
-            $data = $this->db->get()->result();
-            foreach ($data as $value) {*/
 
-            $this->db->select("transaction.*");
-            $this->db->from('transaction');
-            $this->db->where('transaction.status', 1);
+                $this->db->select("transaction.*");
+                $this->db->from('transaction');
+                $this->db->where('transaction.status', 1);
 
-            $this->db->join('mission', 'transaction.mission_id = mission.mission_id');
-            $this->db->where('transaction.sent_from', $user_id);
+                $this->db->join('mission', 'transaction.mission_id = mission.mission_id');
+                $this->db->where('transaction.sent_from', $user_id);
 
-            $this->db->where('mission.mission_status',3);  
-            $this->db->order_by('transaction.id', 'DESC'); 
-            $data = $this->db->get()->result();
-            /*      echo $str = $this->db->last_query();
-            exit();*/
-            //var_dump($data);die();
+                $this->db->where('mission.mission_status',3);  
+                $this->db->order_by('transaction.id', 'DESC'); 
+                $data = $this->db->get()->result();
+                /*      echo $str = $this->db->last_query();
+                exit();*/
+                //var_dump($data);die();
 
-            foreach ($data as $value) {
+                foreach ($data as $value) {
 
-            $sent_from = $value->sent_from;
-            $this->db->select("username");
-            $this->db->from('users');
-            $this->db->where('id',$sent_from);
-            $data_sent_from = $this->db->get()->result();
-            $sent_from_username = $data_sent_from[0]->username;
+                $sent_from = $value->sent_from;
+                $this->db->select("username");
+                $this->db->from('users');
+                $this->db->where('id',$sent_from);
+                $data_sent_from = $this->db->get()->result();
+                $sent_from_username = $data_sent_from[0]->username;
 
-            $sent_to = $value->sent_to;
-            $this->db->select("username");
-            $this->db->from('users');
-            $this->db->where('id',$sent_to);
-            $data_sent_to = $this->db->get()->result();
-            $sent_to_username = $data_sent_to[0]->username;
+                $sent_to = $value->sent_to;
+                $this->db->select("username");
+                $this->db->from('users');
+                $this->db->where('id',$sent_to);
+                $data_sent_to = $this->db->get()->result();
+                $sent_to_username = $data_sent_to[0]->username;
 
-            $mission_id = $value->mission_id;
-            $this->db->select("mission_title");
-            $this->db->from('mission');
-            $this->db->where('mission_id',$mission_id);
-            $mission_title = $this->db->get()->result();
-            $mission_title1 = $mission_title[0]->mission_title;
+                $mission_id = $value->mission_id;
+                $this->db->select("mission_title");
+                $this->db->from('mission');
+                $this->db->where('mission_id',$mission_id);
+                $mission_title = $this->db->get()->result();
+                $mission_title1 = $mission_title[0]->mission_title;
 
-            $student_one[] = array("id"=>$value->id, "sent_from"=>$value->sent_from,   
-                        "sent_to"=>$value->sent_to, "amount"=>$value->amount,   
-                        "tra_id"=>$value->tra_id, "created_date"=>$value->created_date, "username"=>$value->username, "project_title"=>$mission_title1, "sent_from_username"=>$sent_from_username, "sent_to_username"=>$sent_to_username);
-
+                $student_one[] = array("id"=>$value->id, "sent_from"=>$value->sent_from,   
+                            "sent_to"=>$value->sent_to, "amount"=>$value->amount,   
+                            "tra_id"=>$value->tra_id, "created_date"=>$value->created_date, "username"=>$value->username, "project_title"=>$mission_title1, "sent_from_username"=>$sent_from_username, "sent_to_username"=>$sent_to_username);
 
       }
       return $student_one;

@@ -28,7 +28,15 @@
   .nav > .nav-links > a {
     padding: 13px 12px;
   }
-
+  .badge {
+    position: absolute;
+    top: -10px !important;
+    right: 5px;
+    font-size: 50%;
+    border-radius: 50%;
+    background-color: #fd9d39;
+    color: white;
+  }
   @media (max-width:600px) {
     .top_right_side_icon {
       margin-right: 40px;
@@ -82,13 +90,13 @@
   //firebase.analytics();
 </script>
 <script type="text/javascript">
-  var bellIcon = document.querySelector('.bell-icon');
+    var bellIcon = document.querySelector('.bell-icon');
     var dropdownMenu = document.querySelector('.dropdown');
     var notificationNumber = document.getElementsByClassName('notification-number');
     var timeDelay = [1000,2000,3000,4000,5000,6000];
     function randomNumber(){
       var random = Math.floor(Math.random() * 6);
-      for(var i = 0; i < notificationNumber.length;i++){
+      for(var i = 0; i < notificationNumber.length; i++){
         notificationNumber[i].textContent = random;
       }
     }
@@ -97,34 +105,34 @@
       return newTime;
     }
     function bellCheck(event){
-     // var isClickInside = bellIcon.contains(event.target);
-     //   if (isClickInside) {
-     //     dropdownMenu.classList.toggle('hide');
-     //     if(dropdownMenu.classList.contains('hide')){
-     //       clearInterval(notificationInterval);
-     //       notificationInterval = setInterval(randomNumber, 2000);  
-     //     }
-     //     else{
-     //     for(var i = 0; i < notificationNumber.length;i++){
-     //        notificationNumber[i].textContent = 0;
-     //        clearInterval(notificationInterval);
-     //     }
-     //   }
-     //   }
-     //   else {
-     //     dropdownMenu.classList.add('hide');
-     //     clearInterval(notificationInterval);
-     //     notificationInterval = setInterval(randomNumber, randomRange(timeDelay));
-      //  }
+      var isClickInside = bellIcon.contains(event.target);
+        if (isClickInside) {
+          dropdownMenu.classList.toggle('hide');
+          if(dropdownMenu.classList.contains('hide')){
+            clearInterval(notificationInterval);
+            notificationInterval = setInterval(randomNumber, 2000);  
+          }
+          else{
+          for(var i = 0; i < notificationNumber.length;i++){
+             notificationNumber[i].textContent = 0;
+             clearInterval(notificationInterval);
+           }
+         }
+        }
+        else {
+          dropdownMenu.classList.add('hide');
+          clearInterval(notificationInterval);
+          notificationInterval = setInterval(randomNumber, randomRange(timeDelay));
+        }
     }
-    var notificationInterval = setInterval(randomNumber, randomRange(timeDelay));
+    //var notificationInterval = setInterval(randomNumber, randomRange(timeDelay));
     window.addEventListener('click', bellCheck);
 </script>
 <script type="text/javascript">
   $(document).ready(function(){
-$('#action_menu_btn').click(function(){
-  $('.action_menu').toggle();
-});
+      $('#action_menu_btn').click(function(){
+      $('.action_menu').toggle();
+    });
   }); 
 </script>
 <script type="text/javascript">
@@ -153,12 +161,13 @@ $('#action_menu_btn').click(function(){
       $getmessageNotification = $obj->Payment_model->getallnotificationcount($user_id, 4);
       $getreviewsNotification = $obj->Payment_model->getallnotificationcount($user_id, 5);
 
-      $count_payment = count($notification_data_payment);
-      $count_missionanddemands = count($notification_missionanddemands);
-      $count_Offers = count($notification_Offers);
-      $count_messages = count($notification_messages);
-        
-      $count_Reviews = count($notification_Reviews);
+      $count_payment = count($getPaymentNotification);
+      $count_missionanddemands = count($getmissionNotification);
+      $count_Offers = count($getofferNotification);
+      $count_messages = count($getmessageNotification);
+      $count_Reviews = count($getreviewsNotification);
+
+      $total_notification_count = $count_payment + $count_missionanddemands + $count_Offers + $count_messages + $count_Reviews;
 
       $obj->load->model('Front/User');
       $self_user = $obj->User->getSelfUser();
@@ -214,7 +223,12 @@ $('#action_menu_btn').click(function(){
                   <li>
                     <div class="dropdown">
                     <?php if($this->session->userdata['id']){?>
-                      <a href="javascript:void(0)" class="dropdown-toggle btn btn-primary" data-toggle="dropdown" aria-expanded="false"><i class="far fa-bell"></i></a>
+                      <a href="javascript:void(0)" class="dropdown-toggle btn btn-primary" data-toggle="dropdown" aria-expanded="false">
+                        <i class="far fa-bell"></i>
+                        <?php if($total_notification_count != 0)  { ?>
+                          <span class="notification-number badge"><?php echo $total_notification_count; ?></span>
+                        <?php } ?>
+                      </a>
                     <?php } else {?>
                       <a href="<?php echo base_url('Front/home/login')?>" class="dropdown-toggle btn btn-primary"><i class="far fa-bell"></i></a>
                     <?php } ?>
@@ -346,7 +360,7 @@ $('#action_menu_btn').click(function(){
                         </li>
                         <?php }?>
                         <li>
-                          <a  href="<?php echo base_url('Front/home/support_contact')?>" class="hvr-bounce-to-right">
+                          <a href="<?php echo base_url('Front/home/support_contact')?>" class="hvr-bounce-to-right">
                               <div class="not_icon">
                                 <span><img src="<?php echo base_url();?>/assets/Front/img/drover5.png"></span>
                                 Support
@@ -364,7 +378,6 @@ $('#action_menu_btn').click(function(){
                       </ul>
                     </div>
                  </li>
-                 
                 </ul>
               </div>
             </div>

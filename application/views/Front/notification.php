@@ -1,11 +1,12 @@
 
 <?php
-$obj=&get_instance();
+$obj = &get_instance();
 $obj->load->model('Front/Posts_model');
 //$profile_url = $obj->RegisterModel->PictureUrl
 $type_id = $this->uri->segment(4);
-$notifications=$obj->Posts_model->GetNotification($type_id);
-//print_r($user);die();
+$notifications = $obj->Posts_model->GetNotification($type_id);
+//print_r($notifications);die();
+$obj->Posts_model->SetNotificaion_Read($type_id);
 ?> 
 
 <section>

@@ -44,6 +44,10 @@
 		$this->db->where($condition);
    		$query = $this->db->get();
  		if ($query) {
+			$this->db->set('read_status', 1);
+            $this->db->where('user_id', $this->session->userdata['id']);
+            $this->db->where('type_id', 4);
+            $this->db->update('notification');
 			 return $query->result_array();
 		 } else {
 			 return false;

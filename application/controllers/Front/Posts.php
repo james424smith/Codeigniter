@@ -205,7 +205,7 @@ class Posts extends CI_Controller
             );                     
         }
         else {  
-          var_dump("qq"); die();
+          //var_dump("qq"); die();
         
             $project_data = array(
                 'project_id' => $this->input->post('project_id'),
@@ -220,6 +220,7 @@ class Posts extends CI_Controller
         //print_r($project_data);die();
         $this->load->model('Front/Posts_model');
         $this->Posts_model->inprogress_mission($project_data);
+        $this->Posts_model->pushNotification($this->input->post('client_id'), 2, "Your offer was added succesfully");
         $this->session->set_flashdata('delivery_success', 'Your delivery was successfully sent.');
         redirect('Front/home/mymissions');
       }
@@ -321,9 +322,13 @@ class Posts extends CI_Controller
          //print_r( $project_data);die();
         $this->load->model('Front/Posts_model');
         $this->Posts_model->deliver_paym_demand($project_data);
+        $this->Posts_model->pushNotification($this->input->post('employer_id'), 1, "The payment was successful.");
+        $this->Posts_model->pushNotification($this->session->userdata['id'], 1, "The payment was successful.");
+
         if($this->input->post('rating') != 0)
         {
           $this->Posts_model->saveRating($rating_data);
+          $this->Posts_model->pushNotification($this->input->post('employer_id'), 5,  "You recived a review from your client");
         }
 
         
