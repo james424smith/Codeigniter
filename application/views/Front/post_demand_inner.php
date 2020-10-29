@@ -35,7 +35,7 @@
 						</div>
 						<div class="post_form_content post_form_content_budget">
 							<label>Ton Budget ( € ) </label>
-							<input type="text" class="number-input" id="integer" placeholder="Budget" name="budget" required>
+							<input type="number" class="number-input" id="integer" placeholder="Budget" name="budget" required>
 						</div>
 						<div class="post_form_content">
 							<label>Description</label>
@@ -94,10 +94,14 @@
 			//alert(e.target.files[0].name);
 			$('#file-name').html(e.target.files[0].name);
 		});
+		
+		$('#integer').on('input propertychange paste', function (e) {
+			var val = $(this).val()
+			var reg = /^0/gi;
+			if (val.match(reg)) {
+				$(this).val(val.replace(reg, ''));
+			}
+		});
 
-		document.getElementById("integer").addEventListener('input', restrictToInteger);
-		function restrictToInteger() {
-    		this.value = this.value.replace(/[^\d]/g, '');
-		}
 	});
 </script>
