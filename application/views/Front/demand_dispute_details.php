@@ -73,18 +73,12 @@
 					 	<b>Budget: <?php echo $mission->budget;?></b> <i class="fas fa-euro-sign"></i>
 						<b style="color:red;">&nbsp;&nbsp;&nbsp;Offer: <?php echo $mission->mission_budget;?> <i class="fas fa-euro-sign"></i></b>
 					 </p>
-				</div>
-				<div class="demand_check_box">
-					<ul>
-						<!-- <li>					
-							<a href="#" class="btn btn-primery">Release Payment</a>
-						</li>
--->
-						<!-- <li>							
-							<a href="#" class="btn btn-default">Ask to Modify</a>
-						</li> -->
-						
-					</ul>
+				</div><br>
+				<div class="demand_check_box" style="margin-left:-10px;">					
+					<form action="<?php echo base_url('ChatController/claim_chat')?>" method="post">
+						<input type="hidden" name="chat_customer" value="true">	
+						<button type="submit" class="btn btn-default" >Chat with Customer Service</button>&nbsp;&nbsp;
+					</form>	
 				</div>
 			</div>
 			<div class="col-md-6">

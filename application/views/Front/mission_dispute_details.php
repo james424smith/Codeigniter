@@ -59,6 +59,12 @@
 						<b style="color:red;">&nbsp;&nbsp;&nbsp;Offer: <?php echo $mission->mission_budget;?> <i class="fas fa-euro-sign"></i></b>
 					 </p>
 				</div>
+				<div class="demand_check_box" style="margin-left:-10px;">					
+					<form action="<?php echo base_url('ChatController/claim_chat')?>" method="post">
+						<input type="hidden" name="chat_customer" value="true">	
+						<button type="submit" class="btn btn-default" >Chat with Customer Service</button>&nbsp;&nbsp;
+					</form>	
+				</div>
 			</div>
 			<div class="col-md-6">
 				<div class="row post_demand_inner_row" style="min-height:30px;">

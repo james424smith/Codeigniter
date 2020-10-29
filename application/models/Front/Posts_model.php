@@ -301,7 +301,6 @@ class Posts_model extends CI_Model
         public function deliver_demand($project_data, $user_id) {
             //var_dump($project_data['project_id']);
             $this->db->insert('litigations', $project_data);
-
             $data= array('mission_status' => 4);
             $this->db->set($data);
             $this->db->where('accepted_by', $user_id); 

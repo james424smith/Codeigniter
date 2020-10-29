@@ -112,21 +112,21 @@
                           &nbsp;&nbsp; Budget : <?php echo '€' . $value['budget'];?>
                         </p>
                         <?php  
-                              if($value['mission_status']==0){ 
-                                 echo "<span>Proposed</span>";
-                              }
-                              if($value['mission_status']== 1){ 
-                                 echo "<span>In Progress</span>";
-                              }
-                              if($value['mission_status']== 2){ 
-                                 echo "<span>Delivred</span>";
-                              }
-                              if($value['mission_status']== 3){ 
-                                 echo "<span>Complete</span>";
-                              }
-                              if($value['mission_status']== 4){ 
-                                 echo "<span>Dispute</span>";
-                              }
+                              if($value['mission_status'] == 0){ 
+                                echo "<span style='color:#2d4fb1;'>Proposed</span>";
+                             }
+                             if($value['mission_status'] == 1){ 
+                                echo "<span style='color:#ffd400;'>In Progress</span>";
+                             }
+                             if($value['mission_status'] == 2){ 
+                                echo "<span style='color:#7402f1;'>Delivered</span>";
+                             }
+                             if($value['mission_status'] == 3){ 
+                                echo "<span style='color:#39ec0c;'>Complete</span>";
+                             }
+                             if($value['mission_status'] == 4){ 
+                                echo "<span style='color:#ff1800;'>Dispute</span>";
+                             }
                         ?>
                      </div>              
                   </div>

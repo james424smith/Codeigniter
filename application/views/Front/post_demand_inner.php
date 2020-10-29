@@ -54,7 +54,7 @@
 						
 						<div class="post_demand_form_btn">
 							<!-- <a href="#" class="btn btn-defult" data-toggle="modal" data-target="#myModal">Post Your Demand</a> -->
-							  <button type="submit" class="btn btn-primary" >Post </button> 
+							<button type="submit" class="btn btn-primary" >Post </button> 
 						</div>
 					</form>
 				</div>

@@ -79,7 +79,7 @@ class Posts extends CI_Controller
       }
     }
 
- 		public function  offerpost() {      
+ 		public function offerpost() {      
       if($this->session->userdata['id']) {
         if($this->input->post('accept_budget') == 0 && $this->input->post('offer_budget') == NULL)
         {
@@ -286,10 +286,12 @@ class Posts extends CI_Controller
         $status = $this->Posts_model->deliver_askmodify($data,$mission_id);
 
         if($status) {
-           redirect('Front/home/mydemands');
+          $this->session->set_flashdata('success_ask_modify', 'Your modification request has been sent successfully.');  
+          redirect('Front/home/mydemands');
         }
       }
-       public function complete_modify($mission_id){
+
+      public function complete_modify($mission_id){
      // print_r($mission_id);die();
        $this->load->library("session");
 

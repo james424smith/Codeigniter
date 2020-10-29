@@ -49,6 +49,54 @@ class ChatController extends CI_Controller {
             $this->parser->parse('construction_services/chat_template',$data);
     }
 
+    
+
+    public function claim_chat()
+    {
+        if($this->input->post('chat_customer') == "true")
+        {
+            $this->load->view('Front/claim_chat');
+            return;
+        }
+        //var_dump($this->input->post('user_id'));die();
+        $project_data = array(
+            'project_id' => $this->input->post('project_id'),
+            'user_email' => $this->input->post('user_email'),
+            'title' => $this->input->post('title'),
+            'description' => $this->input->post('description'),
+            'comment' => $this->input->post('description'),           
+            'date_created' => date('Y-m-d H:i:s'),
+            'date_modified' =>  date('Y-m-d H:i:s') 
+        ); 
+        $this->load->model('Front/Posts_model');
+        $this->Posts_model->deliver_demand($project_data, $this->input->post('user_id'));
+
+        $messageTxt = reduce_multiples($this->input->post('description'), ' ');
+        $data = [
+            'sender_id' => $this->session->userdata('id'),
+            'receiver_id' => 1,
+            'message' => $messageTxt,
+            'attachment_name' => "",
+            'file_ext' => "",
+            'mime_type' => "",
+            'message_date_time' => date('Y-m-d H:i:s'), //23 Jan 2:05 pm
+            'ip_address' => "127.0.0.1",
+            'project_id' => $this->input->post('project_id')
+        ];
+
+        $query = $this->ChatModel->SendTxtMessage($this->OuthModel->xss_clean($data)); 
+
+        $send_id = array('highlight' => 0);
+        $status_dispute = $this->ChatModel->updateHighlight(1, $send_id);
+
+        $taken_data = $this->ChatModel->gettokendata($this->OuthModel->Encryptor('decrypt', 1));
+
+        $this->firebase->send_notification($messageTxt ,$taken_data);
+
+        $this->firebase->insertMessage(array('user_type'=> 1, "demand_id" => 1, 'user_id'=> 1, 'notification' => $messageTxt, 'type_id' => 4));
+
+        $this->load->view('Front/claim_chat');
+    }
     public function send_text_message(){
 
             $post = $this->input->post();
@@ -94,9 +142,6 @@ class ChatController extends CI_Controller {
 
             $this->firebase->insertMessage(array('user_type'=> 1, "demand_id" => 1, 'user_id'=> $post['receiver_id'], 'notification' => $messageTxt, 'type_id' => 4));
             
-            //$this->load->model('Posts_model');
-            //$this->Posts_model->pushNotification($post['receiver_id'], 4, "You recived the message from who");
-
             $response='';
             if($query == true){
                 $response = ['status' => 1 ,'message' => '' ];

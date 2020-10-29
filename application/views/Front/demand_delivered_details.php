@@ -165,9 +165,9 @@
 
 					Si non,  pour toute autre demande merci de nous écrire via
 					 
-					la page de contact en cliquant ici: <a href="#" class="btn btn-primary">Contact Here</a>
+					la page de contact en cliquant ici: <a href="<?php echo base_url('Front/contact')?>" class="btn btn-primary">Contact Here</a>
 				</p>
-				<form action="<?php echo base_url('Front/Posts/inprogress_demand')?>" method="post">
+				<form action="<?php echo base_url('ChatController/claim_chat')?>" method="post">
 					<div class="">
 						<textarea placeholder="Description:" name="description"></textarea>
 						<input type="hidden" name="user_id" value="<?php echo $mission->accepted_by ?>">	
@@ -175,10 +175,14 @@
 						<input type="hidden" name="title" value="<?php echo $mission->mission_title ?>">	
 						<input type="hidden" name="user_email" value="<?php echo $comment->email ?>">
 					</div>
-					<button type="submit" class="btn btn-default">Retour</button>
-				</form>
+					
 				<!-- <a href="#" class="btn btn-default">Retour</a> -->
 			</div>
+			<div class="modal-footer">
+				<button type="submit" class="btn btn-default" >OK</button>&nbsp;&nbsp;
+				</form>	
+				<button type="button" class="btn btn-default" data-dismiss="modal" >Retour</button>
+		</div>                
 	    </div>                
       </div>
     </div>

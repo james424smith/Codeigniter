@@ -75,11 +75,11 @@
 						<b>Budget: <?php echo $mission->budget;?></b> <i class="fas fa-euro-sign"></i>
 						<b style="color:red;">&nbsp;&nbsp;&nbsp;Offer: <?php echo $mission->mission_budget;?> <i class="fas fa-euro-sign"></i></b>
 					 </p>
-				</div>
+				</div><br>
 				<div class="demand_check_box">
 					<ul>
 						<li>							
-							<a href="#" class="btn btn-default">Ask to Modify</a>
+							<a href="#" class="btn btn-default" id="modify">Ask to Modify</a>
 						</li>						
 					</ul>
 				</div>				
@@ -108,39 +108,32 @@
 						<h4>Heelper Comment</h4>
 					</div>
 				</div>
-				<div class="row" style="padding-left:10px;">
-					<?php if($comment->your_comments) { ?>
-					<div class="demand_details_content">
-						<?php echo $comment->your_comments?>				
-					</div>
+				<?php foreach ($all_comments as $each_comment) { ?>
+				<div class="row" style="padding-left:20px;">																
+					<p>
+						<?php echo $each_comment['your_comments'] ?>
+					</p>
 				</div>
-				<div class="row">	
-					<div class="demand_details_upload_btn">
-					<?php 
-						if($mission->mission_doc) {
-							echo $mission->mission_doc; 
-						}
-						else {
-							echo "No Attached File";
-						}
-					?>	
-						&nbsp;<i class="fas fa-download"></i>	
+				<div class="row" style="padding-left:20px;">
+					<div class="demand_details_upload_btn">							
+						<a href="<?php if($each_comment['project_files']){ echo base_url()?>Front/Posts/download/<?php echo $each_comment['project_files']; }
+								else { ?>#<?php }?>">
+								<?php 
+									if($each_comment['project_files'])
+										echo $each_comment['project_files'] . " <i class='fas fa-download'></i>";
+								?> 
+						</a>
 					</div>
-				</div>
-				<?php   }
-					else{ ?>
-				<div class="row" style="padding-left:10px;">	
-					<div class="demand_details_upload_btn">
-						No comments to display	
-					</div>
-					<?php } ?>
-				</div>
-			</div><br><br>
-			<div class="row claim_an_issue" style="padding-left:10px;">
+				</div><hr>
+				<?php  } ?>
+				<div class="row claim_an_issue" style="padding-left:10px;">
 					<a href="#" class="btn btn-default" data-toggle="modal" data-target="#myModal2">
 						Claim an issue
 					</a>
-				</div>	
+				</div>				
+			</div>
+			</div>
+			
 			<div class="col-md-2"></div>
 		</div> 				
 		</div>
@@ -165,20 +158,23 @@
 
 					Si non,  pour toute autre demande merci de nous écrire via
 					 
-					la page de contact en cliquant ici: <a href="#" class="btn btn-primary">Contact Here</a>
+					la page de contact en cliquant ici: <a href="<?php echo base_url('Front/contact')?>" class="btn btn-primary">Contact Here</a>
 				</p>
-				<form action="<?php echo base_url('Front/Posts/inprogress_demand')?>" method="post">
+				<form action="<?php echo base_url('ChatController/claim_chat')?>" method="post">
 					<div class="">
-						<textarea placeholder="Description:" name="description"></textarea>
+						<textarea placeholder="Description:" name="description" required></textarea>
+						<input type="hidden" name="user_id" value="<?php echo $mission->accepted_by ?>">	
 						<input type="hidden" name="project_id" value="<?php echo $mission->mission_id ?>">	
 						<input type="hidden" name="title" value="<?php echo $mission->mission_title ?>">	
+						<input type="hidden" name="user_email" value="<?php echo $comment->email ?>">
 					</div>
-					<button type="submit" class="btn btn-default">Retour</button>
-				</form>
-
-				<!-- <a href="#" class="btn btn-default">Retour</a> -->
 			</div>
-	    </div>                
+		</div>
+		<div class="modal-footer">
+			<button type="submit" class="btn btn-default" >OK</button>&nbsp;&nbsp;
+			</form>	
+			<button type="submit" class="btn btn-default" data-dismiss="modal" >Retour</button>
+		</div>                
       </div>
     </div>
   </div>
@@ -214,3 +210,8 @@
  </div>
 </div> -->
 <?php $this->load->view('Front/common/footer');  ?>
+<script>
+	$("#modify").click(function(){
+		swal("Your modification request has been sent successfully.");
+	});
+</script>

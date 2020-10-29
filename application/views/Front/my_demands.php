@@ -17,6 +17,11 @@
 ?>
 
 <section>
+<?php if($this->session->flashdata('success_ask_modify')){ ?>
+  <script>
+    swal("Your modification request has been sent successfully.");
+  </script> 
+<?php } ?>
    <div class="top_bnr section post_demand">
       <div class="container">
          <div class="row top-side about_title">
@@ -104,19 +109,19 @@
                               <p>By : <?php echo $value['username']?> &nbsp;&nbsp; Budget : <?php echo '€' . $value['budget'];?></p>
                               <?php  
                                     if($value['mission_status'] == 0){ 
-                                       echo "<span>Posted</span>";
+                                       echo "<span style='color:#2d4fb1;'>Posted</span>";
                                     }
                                     if($value['mission_status'] == 1){ 
-                                       echo "<span>In Progress</span>";
+                                       echo "<span style='color:#ffd400;'>In Progress</span>";
                                     }
                                     if($value['mission_status'] == 2){ 
-                                       echo "<span>Delivered</span>";
+                                       echo "<span style='color:#7402f1;'>Delivered</span>";
                                     }
                                     if($value['mission_status'] == 3){ 
-                                       echo "<span>Complete</span>";
+                                       echo "<span style='color:#39ec0c;'>Complete</span>";
                                     }
                                     if($value['mission_status'] == 4){ 
-                                       echo "<span>Dispute</span>";
+                                       echo "<span style='color:#ff1800;'>Dispute</span>";
                                     }
                            ?>
                            </div>               
