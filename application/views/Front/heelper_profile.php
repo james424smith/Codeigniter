@@ -24,7 +24,12 @@
 	                              <img class="my_pro" src="<?php echo $admin_url?>uploads/profiles/<?php echo $member['picture_url'];?>">
 	                         </div>
 	                          <div class="profile_dtls">
-	                          		<span><a href="#!" id="chat_show" class="heelpr_chat"><i class="fa fa-comments" aria-hidden="true"></i> Discuss</a></span>
+	                          		<span>
+									  	<form method="post" action="<?php echo base_url('ChatController/addChatMember')?>">
+											<button type="submit" class="btn btn-default accept_offer_btn">Discuss</button>
+											<input type=hidden name="member_id" value="<?php echo $id; ?>">
+										</form>
+									</span>
 									<!--<span><a href="<?php //echo base_url("Front/home/chat"); ?>" class="heelpr_chat"><i class="fa fa-comments" aria-hidden="true"></i> Discuss</a></span>-->
 	                                <h4><?php echo $member['skills']; ?></h4>
 	                          </div> 

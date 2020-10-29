@@ -325,8 +325,8 @@ class ChatController extends CI_Controller {
         $user_id = $this->session->userdata['id'];
         $post = $this->input->post();
         $data = [
-            'user_id' => $user_id,
-            'member_id' => $post['member_id']
+            'sender_id' => $user_id,
+            'reciver_id' => $post['member_id']
         ];
         $this->ChatModel->insertChattingMember($data);
         redirect(base_url("Front/home/chat"));

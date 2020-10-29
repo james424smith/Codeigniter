@@ -144,7 +144,7 @@
 								</div>
 								<div class="col-md-6 profile_img">
 									<form method="post" action="<?php echo base_url('ChatController/addChatMember')?>">
-										<button type="submit" class="btn btn-default accept_offer_btn">Chat</button>
+										<button type="submit" class="btn btn-default accept_offer_btn">Discuss</button>
 										<input type=hidden name="member_id" value="<?php echo $value['user_id']; ?>">
 									</form>
 					            </div>		            

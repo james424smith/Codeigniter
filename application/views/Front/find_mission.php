@@ -77,8 +77,11 @@
 						</div>	
 						<div class="col-md-2 make_btn">
 						</div>
-						<div class="col-md-4 make_btn">
-							<a href="<?php echo base_url('Front/home/heelper_profile/' . $post['client_id'])?>">Discuss</a>
+						<div class="col-md-4 make_btn">	
+							<form method="post" action="<?php echo base_url('ChatController/addChatMember')?>">
+								<button type="submit" class="btn btn-default accept_offer_btn">Discuss</button>
+								<input type=hidden name="member_id" value="<?php echo $post['client_id']; ?>">
+							</form>
 						</div>			            
 		            </div>
 	            </div>

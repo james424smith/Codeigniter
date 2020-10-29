@@ -128,16 +128,18 @@
 		$user_id = $this->session->userdata['id'];
 
 		$this->db->select('*');
-		$this->db->from('chatting_member');
-		$this->db->where('user_id', $user_id);
-		$this->db->where('member_id', $data['member_id']);
+		$this->db->from('add_discuss');
+		$this->db->where('reciver_id', $data['reciver_id']);
+		$this->db->where('sender_id', $data['sender_id']);
+		$this->db->or_where('reciver_id', $data['sender_id']);
+		$this->db->where('sender_id', $data['reciver_id']);
 		
 		$resultArray = $this->db->get();
 		$resultCheck = $resultArray->num_rows();
 
 		$res = 0;
 		if($resultCheck == 0)
-			$res = $this->db->insert('chatting_member', $data); 
+			$res = $this->db->insert('add_discuss', $data); 
  
 		if($res == 1)
  			return true;
@@ -149,19 +151,22 @@
 		$user_id = $this->session->userdata['id'];
 
 		$this->db->select('*');
-		$this->db->from('chatting_member');
-		$this->db->where('user_id', $user_id);
-		$this->db->join('users', 'users.id = chatting_member.member_id');
+		$this->db->from('add_discuss');
+		$this->db->where('sender_id', $user_id);
+		$this->db->join('users', 'users.id = add_discuss.reciver_id');
 		$query1 = $this->db->get();
-        //var_dump($query->result_array());die();
+        //var_dump($query1->result_array());die();
 		
 		$this->db->select('*');
-		$this->db->from('chatting_member');
-		$this->db->where('member_id', $user_id);
-		$this->db->join('users', 'users.id = chatting_member.user_id');
+		$this->db->from('add_discuss');
+		$this->db->where('reciver_id', $user_id);
+		$this->db->join('users', 'users.id = add_discuss.sender_id');
 		$query2 = $this->db->get();
-		
+		//var_dump($query2->result_array());die();
+
 		$result = array_merge($query1->result_array(), $query2->result_array());
+		// var_dump($result);die();
+
 		return $result;		
 	}
  }

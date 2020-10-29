@@ -401,7 +401,7 @@ class Posts_model extends CI_Model
         }
 
         public function SetNotificaion_Read($type_id) {
-
+            
             if($type_id == 4)
             {
                 $data = array(
