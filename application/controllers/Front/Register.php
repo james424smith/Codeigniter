@@ -11,6 +11,12 @@ class Register extends CI_Controller {
   
   function register()  
   { 
+    
+    if( $this->input->post('term') != "on")
+    {
+        $this->session->set_flashdata('terms_error', 'Please accept the terms');
+        redirect(base_url('Front/Home/signUp'));
+    }
     //redirect(base_url('Front/Home/signUp'));    
     $email = $this->input->post('email');  
     $username = $this->input->post('username');  

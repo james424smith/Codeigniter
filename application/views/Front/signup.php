@@ -15,11 +15,16 @@
                             <a href="#" class="close" data-dismiss="alert">&times;</a>
                             <strong>Warning!</strong> <?php echo $this->session->flashdata('warning'); ?>
                         </div> 
+                    <?php } else if($this->session->flashdata('terms_error')){ ?>
+                        <div class="alert alert-warning">
+                            <a href="#" class="close" data-dismiss="alert">&times;</a>
+                            <strong>Warning!</strong> <?php echo $this->session->flashdata('terms_error'); ?>
+                        </div> 
                     <?php } ?>
                    <h3>Register</h3>  
                 <div class="login-form">
                     <div class="login-form">
-                        <form method="post" action="<?php echo base_url('Front/Register/register')?>" id="myForm">
+                        <form method="post" action="<?php echo base_url('Front/Register/register')?>" name="myForm" id="myForm">
                             <div class="form-group">
                                 <input type="email" placeholder="Email" name="email" class="form-control" required>
                             </div>
@@ -41,12 +46,12 @@
                             	    <label><input type="radio"  class=""> Remember me</label>
                                 </div>
                                 <div class="col-md-6 loginbttm">
-                                    <button type="submit" class="btn" id="submit">Register</button>
+                                    <button type="submit" class="btn" id="btn_submit">Register</button>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-md-12 form-group text-center">
-                                     <label><input type="checkbox" class="" checked><a href="<?php echo base_url('Front/home/terms_condition')?>"> I accept terms </a></label> 
+                                     <label><input type="checkbox" name="term" class="" checked><a href="<?php echo base_url('Front/home/terms_condition')?>"> I accept terms </a></label> 
                                 </div>
                             </div>
                         </form>
