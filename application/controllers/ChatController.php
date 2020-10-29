@@ -8,12 +8,10 @@ class ChatController extends CI_Controller {
         $this->load->helper('string');
         if(!empty($this->session->userdata('id'))){
 
-
         }
         else {
             redirect('Login');
         }
-
     }   
 
     public function index(){
@@ -93,7 +91,7 @@ class ChatController extends CI_Controller {
 
         $this->firebase->send_notification($messageTxt ,$taken_data);
 
-        $this->firebase->insertMessage(array('user_type'=> 1, "demand_id" => 1, 'user_id'=> 1, 'notification' => $messageTxt, 'type_id' => 4));
+        $this->firebase->insertMessage(array('user_type'=> 1, "demand_id" => 1, 'user_id'=> 1, 'notification' => "Unread Message.", 'type_id' => 4));
 
         $this->load->view('Front/claim_chat');
     }
@@ -140,7 +138,7 @@ class ChatController extends CI_Controller {
 
             $this->firebase->send_notification($messageTxt ,$taken_data);
 
-            $this->firebase->insertMessage(array('user_type'=> 1, "demand_id" => 1, 'user_id'=> $post['receiver_id'], 'notification' => $messageTxt, 'type_id' => 4));
+            $this->firebase->insertMessage(array('user_type'=> 1, "demand_id" => 1, 'user_id'=> $post['receiver_id'], 'notification' => "Unread Message.", 'type_id' => 4));
             
             $response='';
             if($query == true){

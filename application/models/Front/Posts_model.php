@@ -401,7 +401,18 @@ class Posts_model extends CI_Model
         }
 
         public function SetNotificaion_Read($type_id) {
-            $this->db->set('read_status', 1);
+
+            if($type_id == 4)
+            {
+                $data = array(
+                    "notification" => "You read the message.",
+                    'read_status' => 1
+                );
+                $this->db->set($data);
+            }
+            else {
+                $this->db->set('read_status', 1);
+            }
             $this->db->where('user_id', $this->session->userdata['id']);
             $this->db->where('type_id', $type_id);
             $this->db->update('notification');

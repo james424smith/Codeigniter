@@ -15,16 +15,17 @@ $obj->Posts_model->SetNotificaion_Read($type_id);
 			<?php foreach ($notifications as  $notification) { ?>
 						
 					<div class="row">
-					<div class="Presentation note-page">
-
-					<div class="col-md-2"></div>
-						<div class="col-md-8">
-							<img class="notify" src="<?php echo base_url('assets/Front/img/Group-134.png');?>">
-							<p><?php echo $notification['notification']?></p>
+						
+						<div class="Presentation note-page">
+						<span style="float:right;"><?php echo $notification['created']?></span>
+							<div class="col-md-2">
+							</div>
+								<div class="col-md-8">
+									<img class="notify" src="<?php echo base_url('assets/Front/img/Group-134.png');?>">
+									<p><?php echo $notification['notification']?></p>
+								</div>
+							<div class="col-md-2"></div>
 						</div>
-					<div class="col-md-2"></div>
-                          		
-					</div>
 					</div>		
 					<?php }  ?>				
 							

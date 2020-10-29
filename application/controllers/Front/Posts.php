@@ -220,7 +220,7 @@ class Posts extends CI_Controller
         //print_r($project_data);die();
         $this->load->model('Front/Posts_model');
         $this->Posts_model->inprogress_mission($project_data);
-        $this->Posts_model->pushNotification($this->input->post('client_id'), 2, "Your offer was added succesfully");
+        $this->Posts_model->pushNotification($this->input->post('client_id'), 2, "You get a delivery.");
         $this->session->set_flashdata('delivery_success', 'Your delivery was successfully sent.');
         redirect('Front/home/mymissions');
       }

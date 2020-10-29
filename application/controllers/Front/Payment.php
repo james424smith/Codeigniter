@@ -256,7 +256,7 @@ $this->load->model('Front/Payment_model');
           $get_offer_user_id = $this->input->post('get_offer_user_id');
           $get_offer_project_id = $this->input->post('get_offer_project_id');
           
-          
+          $this->Posts_model->pushNotification($get_offer_user_id, 3, "Your offer has been accepted.");
           $this->load->view('Front/payment_success');
         }
       } 

@@ -37,6 +37,19 @@
     background-color: #fd9d39;
     color: white;
   }
+
+  .badge_1 {
+    position: absolute;
+    font-size: 50%;
+    border-radius: 50%;
+    background-color: #fd9d39;
+    color: white;
+    padding-left: 4px;
+    padding-right: 3.5px;
+    margin-top: -2px;
+    margin-left: 2px;
+    font-weight: bolder;
+  }
   @media (max-width:600px) {
     .top_right_side_icon {
       margin-right: 40px;
@@ -211,13 +224,17 @@
               <div class="top_right_side_icon">
                 <ul>
                   <li>
+                    
                     <?php if($this->session->userdata['id']){?>
                       <a href="<?php echo base_url('Front/home/chat')?>">
                     <?php } else {?>
                       <a href="<?php echo base_url('Front/home/login')?>">
                     <?php } ?>
                         <img class="chat_icn" src="<?php echo base_url();?>/assets/Front/img/chat.png" style="width:17px; margin-top:-12px;">
-                    </a>
+                        <?php if($count_messages != 0)  { ?>
+                          <span class="notification-number badge_1"><span><?php echo $count_messages; ?></span>
+                        <?php } ?>
+                     </a>
                       
                   </li>
                   <li>
