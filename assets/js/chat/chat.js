@@ -28,6 +28,14 @@ $("li").click(function(){
 		className_username = className_username.replace(" active", "");
 		$(".select-username").html($("." + className_username).html());
 
+		$.post("/addChatMember",
+		{
+			receiver_id: $("#receiver_id").val()
+		},
+		function(res){
+			
+		});
+
 		GetChatHistory(chat_reciver_id); 				
 		ScrollDown();
 	}
