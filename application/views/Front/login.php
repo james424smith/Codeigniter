@@ -25,7 +25,7 @@
                             <br>
                             <div class="row">
                                 <div class="col-md-6 form-group">
-                                     <label><input type="radio" name="remember" class=""> Remember me</label> 
+                                     <label><input type="checkbox" name="remember" class=""> Remember me</label> 
                                 </div>
                                 <div class="col-md-6 loginbttm">
                                     <button type="submit" class="btn">LOGIN</button>
