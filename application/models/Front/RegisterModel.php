@@ -144,7 +144,6 @@ class RegisterModel extends CI_Model {
         return false;
 
       }
-
   }
   public function edit($project_data, $id) {
         $this->db->set($project_data);

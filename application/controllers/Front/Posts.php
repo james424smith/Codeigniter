@@ -72,7 +72,7 @@ class Posts extends CI_Controller
         }
         $this->load->model('Front/Posts_model');
         $this->Posts_model->demand($project_data);
-        $this->Posts_model->pushNotification($this->session->userdata['id'], 2, "You requirement is posted successfully.");
+        $this->Posts_model->pushNotification($this->session->userdata['id'], 2, "Your requirement was posted successfully.");
         redirect('Front/home/mydemands');
       }
       else {
@@ -121,7 +121,9 @@ class Posts extends CI_Controller
             //$this->load->view('Front/make_an_offer');
             return null;
         }
-        $this->Posts_model->pushNotification($this->session->userdata['id'], 2, "You requirement is posted successfully.");
+        $this->Posts_model->pushNotification($this->session->userdata['id'], 3, "You offer was sent successfully.");
+        $this->Posts_model->pushNotification($this->input->post('client_id'), 3, "You get an offer.");
+
         $this->Posts_model->mission($project_data);
         redirect('Front/home/mymissions');
       }
@@ -138,7 +140,8 @@ class Posts extends CI_Controller
       $offer_budget = $this->input->post('offer_budget');
       $this->load->model('Front/Posts_model');
       $this->Posts_model->mission_update($mission_id, $message, $offer_budget);
-
+      $this->Posts_model->pushNotification($this->session->userdata['id'], 2, "You offer was updated successfully.");
+      
       redirect('Front/home/mission_posted_details/' . $mission_id);
       //var_dump($mission_id);die();
     }
@@ -222,7 +225,10 @@ class Posts extends CI_Controller
         //print_r($project_data);die();
         $this->load->model('Front/Posts_model');
         $this->Posts_model->inprogress_mission($project_data);
-        $this->Posts_model->pushNotification($this->input->post('client_id'), 2, "You get a delivery.");
+
+        $this->Posts_model->pushNotification($this->input->post('client_id'), 2, "You got a delivery.");
+        $this->Posts_model->pushNotification($this->session->userdata['id'], 2, "You sent a delivery.");
+
         $this->session->set_flashdata('delivery_success', 'Your delivery was successfully sent.');
         redirect('Front/home/mymissions');
       }
@@ -233,12 +239,10 @@ class Posts extends CI_Controller
             'title' => $this->input->post('title'),
             'description' => $this->input->post('description'),            
             'date_modified' =>  date('Y-m-d H:i:s') 
-
         ); 
         $this->load->model('Front/Posts_model');
         $this->Posts_model->deliver_mission($project_data);
         redirect('Front/home/mymissions');
-
       }
 
       public function acceptoffer(){
@@ -285,8 +289,8 @@ class Posts extends CI_Controller
 
         $this->load->model('Front/Posts_model');
         $data= array('mission_status' => 1);
-        $status = $this->Posts_model->deliver_askmodify($data,$mission_id);
-
+        $status = $this->Posts_model->deliver_askmodify($data, $mission_id);
+        $this->Posts_model->pushNotification($this->session->userdata['id'], 3, "Your modification request has been sent successfully.");
         if($status) {
           $this->session->set_flashdata('success_ask_modify', 'Your modification request has been sent successfully.');  
           redirect('Front/home/mydemands');
@@ -329,15 +333,14 @@ class Posts extends CI_Controller
          //print_r( $project_data);die();
         $this->load->model('Front/Posts_model');
         $this->Posts_model->deliver_paym_demand($project_data);
-        $this->Posts_model->pushNotification($this->input->post('employer_id'), 1, "The payment was successful.");
-        $this->Posts_model->pushNotification($this->session->userdata['id'], 1, "The payment was successful.");
+        $this->Posts_model->pushNotification($this->input->post('employer_id'), 1, "Payment is done successfully.");
+        $this->Posts_model->pushNotification($this->session->userdata['id'], 1, "New payment is received.");
 
         if($this->input->post('rating') != 0)
         {
           $this->Posts_model->saveRating($rating_data);
           $this->Posts_model->pushNotification($this->input->post('employer_id'), 5,  "You recived a review from your client");
         }
-
         
       redirect('Front/home/mydemands');
     }

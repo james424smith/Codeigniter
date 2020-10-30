@@ -262,7 +262,7 @@ $this->load->model('Front/Payment_model');
         }
       } 
 
- public function delivered_demand(){
+      public function delivered_demand(){
         $project_data = array(
             'project_id' => $this->input->post('project_id'),
             'title' => $this->input->post('title'),
