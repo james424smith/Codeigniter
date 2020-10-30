@@ -10,9 +10,12 @@ class Login extends CI_Controller {
   function login_validation()  
   {  
 
+    //var_dump($this->input->post('remember')); die();
+
     $this->load->library('form_validation');  
     $this->form_validation->set_rules('email', 'email', 'required');  
-    $this->form_validation->set_rules('password', 'password', 'required');  
+    $this->form_validation->set_rules('password', 'password', 'required'); 
+ 
     if($this->form_validation->run()== FALSE)  
     { 
 
@@ -32,9 +35,24 @@ class Login extends CI_Controller {
         //echo "Login"; die();
         $session_data = array(  
           'email' => $email  
-          );  
+        );  
         $this->session->set_userdata('users', $session_data);
-          
+
+        if ($this->input->post('remember') == 'on') {
+            $user_data = array(
+                'email' => $email,
+                'password' => $this->input->post('password')
+            );
+            $this->session->set_userdata($user_data);
+         } 
+         else
+         {
+          $user_data = array(
+            'email' => "",
+            'password' => ""
+        );
+        $this->session->set_userdata($user_data);
+         }
         redirect(base_url() . 'Front/home');  
       }  
       else  
@@ -51,6 +69,8 @@ class Login extends CI_Controller {
   {  
     // print_r($this->session->userdata('user'));exit;
     $this->session->unset_userdata('id');  
+    $this->session->unset_userdata('email');
+    $this->session->unset_userdata('password'); 
     redirect(base_url() . 'Front/login');  
 
   }  

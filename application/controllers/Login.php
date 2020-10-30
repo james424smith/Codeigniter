@@ -23,15 +23,12 @@ class Login extends CI_Controller {
 
   function login_validation()  
   {  
-
     $this->load->library('form_validation');  
     $this->form_validation->set_rules('username', 'Username', 'required');  
     $this->form_validation->set_rules('password', 'Password', 'required');  
     if($this->form_validation->run()== FALSE)  
     { 
-
       $this->load->view('login');
-
     }  
     else  
     { 
@@ -45,9 +42,22 @@ class Login extends CI_Controller {
         $session_data = array(  
           'username' => $username  
           );  
-        $this->session->set_userdata('user',$session_data);
+        $this->session->set_userdata('user', $session_data);
           
         redirect(base_url() . 'login/enter');  
+
+        if($this->input->post['remember'] == 1)
+        {
+          $cookie = array(
+            'name'   => 'remember_me_token',
+            'value'  => 'Random string',
+            'expire' => '1209600',  // Two weeks
+            'domain' => base_url(),
+            'path'   => 'Front/home'
+        );
+        
+        set_cookie($cookie);
+        }
       }  
       else  
       {  
