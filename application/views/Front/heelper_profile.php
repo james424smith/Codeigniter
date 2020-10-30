@@ -25,10 +25,9 @@
 	                         </div>
 	                          <div class="profile_dtls">
 	                          		<span>
-									  	<form method="post" action="<?php echo base_url('ChatController/addChatMember')?>">
-											<button type="submit" class="btn btn-default accept_offer_btn">Discuss</button>
-											<input type=hidden name="member_id" value="<?php echo $id; ?>">
-										</form>
+										<a href="#!" id="chat_show" class="heelpr_chat"><i class="fa fa-comments" id="chat_add" aria-hidden="true"></i> Discuss</a>
+										<input type=hidden id="sender_id" value="<?php echo $self_user[0]['id']; ?>">
+										<input type=hidden id="receiver_id" value="<?php echo $id; ?>">
 									</span>
 									<!--<span><a href="<?php //echo base_url("Front/home/chat"); ?>" class="heelpr_chat"><i class="fa fa-comments" aria-hidden="true"></i> Discuss</a></span>-->
 	                                <h4><?php echo $member['skills']; ?></h4>
@@ -151,7 +150,6 @@
 </div>
 <!-- Modal -->
 
-
 <!-- chat  --> 
 <div class="chatbox-holder">
   <div class="chatbox">
@@ -199,4 +197,20 @@
 <?php $this->load->view('Front/common/footer');  ?>
 <script src='../../../assets/js/chat/individual_chat.js'></script>
 
+<script>
 
+$(document).ready(function(){
+	$('#chat_show').click(function () {		
+		//alert($("#reciver_id").val());
+		ScrollDown();
+		$.post("/addChatMember",
+		{
+			sender_id: $("#sender_id").val(),
+			receiver_id: $("#receiver_id").val()
+		},
+		function(res){
+			
+		});
+	});
+});
+</script>

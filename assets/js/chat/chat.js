@@ -107,7 +107,21 @@ $('.ClearChat').click(function(){
 			}
 		});
  				
-});
+	});
+
+	$(".message").focus(function(){
+		//alert(chat_reciver_id);
+		if(chat_reciver_id == "")
+			return;
+		//alert($("#recive_id").val());
+		$.post("/unreadmessage",
+		{
+			receiver_id: chat_reciver_id
+		},
+		function(res){
+	
+		});
+	});
 
 });	///end of jquery
 
@@ -213,11 +227,22 @@ function GetChatHistory(receiver_id){
 					str += '<div class="msg_cotainer">';
 					if(element['message'] == 'NULL' && element['attachment_name'] != "")
 					{
-						str += '<a href="../../../uploads/myattachments/' + element['attachment_name'] + '" style="color:red;" >' + element['attachment_name'] + '</a>'
+						if(element['read_status'] == 0)
+							str += '<a href="../../../uploads/myattachments/' + element['attachment_name'] + '" style="color:#44e41c;" >' + element['attachment_name'] + '</a>'
+						else
+							str += '<a href="../../../uploads/myattachments/' + element['attachment_name'] + '" >' + element['attachment_name'] + '</a>'
+
 					}
 					else
 					{
-						str += element['message'];
+						if(element['read_status'] == 0)
+						{
+							str += '<span style="color:#44e41c;">' + element['message'] + '</span>';
+						}
+						else
+						{
+							str += '<span>' + element['message'] + '</span>';
+						}
 					}
 					str += '<span class="msg_time" style="width:150px; margin-left: 10px;">' + element['message_date_time'] + '</span></div></div>';
 				}

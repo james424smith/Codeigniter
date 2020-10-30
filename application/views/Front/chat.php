@@ -4,10 +4,12 @@
 <?php
 	$obj = &get_instance();
 	$user_id = $this->session->userdata['id'];
-	$obj->load->model('Front/User');
-	$self_user = $obj->User->getSelfUser();
+	
 	$obj->load->model('ChatModel');
 	$all_users = $obj->ChatModel->getChattingMembers();
+
+	$obj->load->model('Front/User');
+	$self_user = $obj->User->getSelfUser();
 	//var_dump($all_users);die();
 ?>
 <section>
@@ -31,25 +33,31 @@
 											if($user_id == $user['sender_id']) {
 									?> 
 											<li style="cursor:pointer;" class="<?php echo $user['reciver_id'];?>">
+												<?php
+													 $user_data = $obj->User->getUserByID($user['reciver_id']);
+												?>
 												<div class="d-flex bd-highlight">
 													<div class="img_cont">
-														<img src="<?php echo base_url('/uploads/profiles/' . $user['picture_url'])?>" class="rounded-circle user_img <?php echo "img-" . $user['id'];?>">
+														<img src="<?php echo base_url('/uploads/profiles/' . $user_data->picture_url)?>" class="rounded-circle user_img <?php echo "img-" . $user_data->id;?>">
 														<span class="online_icon"></span>
 													</div>
 													<div class="user_info">
-														<span class="<?php echo "username-" . $user['id'];?>"><?php echo $user['username']; ?></span>
+														<span class="<?php echo "username-" . $user_data->id;?>"><?php echo $user_data->username; ?></span>
 													</div>
 												</div>
 											</li>
 									<?php } else if ($user_id == $user['reciver_id']) { ?>
 											<li style="cursor:pointer;" class="<?php echo $user['sender_id'];?>">
+												<?php
+													$user_data = $obj->User->getUserByID($user['sender_id']);
+												?>
 												<div class="d-flex bd-highlight">
 													<div class="img_cont">
-														<img src="<?php echo base_url('/uploads/profiles/' . $user['picture_url'])?>" class="rounded-circle user_img <?php echo "img-" . $user['id'];?>">
+														<img src="<?php echo base_url('/uploads/profiles/' . $user_data->picture_url)?>" class="rounded-circle user_img <?php echo "img-" . $user_data->id;?>">
 														<span class="online_icon"></span>
 													</div>
 													<div class="user_info">
-														<span class="<?php echo "username-" . $user['id'];?>"><?php echo $user['username']; ?></span>
+														<span class="<?php echo "username-" . $user_data->id;?>"><?php echo $user_data->username; ?></span>
 													</div>
 												</div>
 											</li>

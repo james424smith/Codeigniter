@@ -151,8 +151,7 @@ class Posts extends CI_Controller
         $this->load->helper('download');
         if ($fileName) {
           $file = base_url("/uploads/demands_documents/") . $fileName;
-        //print_r($fileName);die();
-      // check file exists    
+  
         if ($file) {
 
         // get file content
@@ -350,11 +349,11 @@ class Posts extends CI_Controller
            'mission_id' => $this->input->post('mission_id'),
            'mission_amount' => $this->input->post('mission_amount'),
            'amount_to_pay' => $this->input->post('amount_to_pay'),          
-          'pay_status' => $this->input->post('pay_status'),
-          'date_created' => $this->input->post('date_created'),
-          'mission_status' =>  $this->input->post('mission_status'),
-          'employer_id' =>  $this->input->post('employer_id'),
-          'date_of_pay' =>  date('Y-m-d H:i:s'),
+           'pay_status' => $this->input->post('pay_status'),
+           'date_created' => $this->input->post('date_created'),
+           'mission_status' =>  $this->input->post('mission_status'),
+           'employer_id' =>  $this->input->post('employer_id'),
+           'date_of_pay' =>  date('Y-m-d H:i:s'),
 
          );  
          //print_r( $project_data);die();

@@ -74,10 +74,8 @@
 
 			<?php 
 				$user_id = $value['user_id'];
-
 				$obj->load->model('Front/User');
-				$class_star = $obj->User->getRatingClassName($user_id);
-				
+				$class_star = $obj->User->getRatingClassName($user_id);				
  			?>
 			    <li class="project <?php echo $class; ?>" style="display:<?php echo $style; ?>">
 				    <div class="col-md-6 all corporate">
@@ -136,17 +134,13 @@
 									</div>
 								</div>
 							</div>
-
 							<span><b>Offer:</b> <?php echo '€' . $value['offer_budget']; ?></span>
 			              	<div class="row">	
 			              		<div class="col-md-6 profile_img">
 					            	<a href="<?php echo base_url('Front/Payment/acceptoffer/')?><?php echo $value['offer_id']?>" class= "accept_offer_btn">Accept Offer</a>
 								</div>
 								<div class="col-md-6 profile_img">
-									<form method="post" action="<?php echo base_url('ChatController/addChatMember')?>">
-										<button type="submit" class="btn btn-default accept_offer_btn">Discuss</button>
-										<input type=hidden name="member_id" value="<?php echo $value['user_id']; ?>">
-									</form>
+									<a href="<?php echo base_url('Front/home/heelper_profile/' . $value['user_id'])?>" id="chat_show" class="accept_offer_btn"> Discuss</a>
 					            </div>		            
 			              	</div>	              
 			            </div>	            

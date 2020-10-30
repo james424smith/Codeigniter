@@ -326,9 +326,20 @@ class ChatController extends CI_Controller {
         $post = $this->input->post();
         $data = [
             'sender_id' => $user_id,
-            'reciver_id' => $post['member_id']
+            'reciver_id' => $post['receiver_id'],
+            'date_created' => date('Y-m-d H:i:s')
         ];
         $this->ChatModel->insertChattingMember($data);
-        redirect(base_url("Front/home/chat"));
+        //redirect(base_url("Front/home/chat"));
+        return "success";
+    }
+
+    public function setChatReadStatus() {
+        
+        $post = $this->input->post();
+        $sender_id = $post['receiver_id'];
+        $receiver_id = $this->session->userdata['id'];
+        //echo  $sender_id;
+        return $this->ChatModel->setReadStatus($sender_id, $receiver_id);
     }
 }

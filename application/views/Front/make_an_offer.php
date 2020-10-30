@@ -73,7 +73,7 @@
 						</div>
 						<div>
 							<label class="">Make an offer ( € )
-								<input type="number" class="number-input" name="offer_budget" placeholder="ex:200">								  
+								<input type="number" class="number-input" id="integer" name="offer_budget" placeholder="ex:200">								  
 							</label>
 						</div>
 						<div class="post_form_content">
@@ -129,5 +129,12 @@
     e.stopPropagation();
     this.value = this.checked ? 1 : 0;
   });
+  $('#integer').on('input propertychange paste', function (e) {
+			var val = $(this).val()
+			var reg = /^0/gi;
+			if (val.match(reg)) {
+				$(this).val(val.replace(reg, ''));
+			}
+		});
 })
 </script>

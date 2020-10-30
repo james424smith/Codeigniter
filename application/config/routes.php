@@ -54,6 +54,10 @@ $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
 $route['send-message']['POST'] = 'ChatController/send_text_message';
+$route['addChatMember']['POST'] = 'ChatController/addChatMember';
+$route['unreadmessage']['POST'] = 'ChatController/setChatReadStatus';
+
+
 $route['send-message1'] = 'ChatController/send_text_message1';
 $route['chat-attachment/upload']['POST'] = 'ChatController/send_text_message';
 $route['get-chat-history-vendor'] = 'ChatController/get_chat_history_by_vendor';

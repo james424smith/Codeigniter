@@ -463,7 +463,11 @@ $config['csrf_expire'] = 7200;
 $config['csrf_regenerate'] = TRUE;
 //$config['csrf_exclude_uris'] = array();
 
-$config['csrf_exclude_uris'] = array('ChatController/send_text_message', 'ChatController/get_chat_history_by_vendor', 'ChatController/chat_clear_client_cs');
+$config['csrf_exclude_uris'] = array('ChatController/send_text_message', 
+                                     'ChatController/get_chat_history_by_vendor', 
+                                     'ChatController/chat_clear_client_cs', 
+                                     'ChatController/addChatMember', 
+                                     'ChatController/setChatReadStatus');
 
 
 /*

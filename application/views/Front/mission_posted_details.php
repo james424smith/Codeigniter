@@ -83,7 +83,7 @@
 											<br>  
 											<div class="from-group">
 												<Label><h6>Offer Budget</h6></Label>
-												<input type="number" class="form-control" name="offer_budget" id="integer" value="<?php echo $value['offer_budget']; ?>">
+												<input type="number" pattern="[0-9]" class="form-control" name="offer_budget" id="integer" value="<?php echo $value['offer_budget']; ?>">
 				  							</div>
 											<input type="hidden" class="form-control" name="mission_id" value="<?php echo $id; ?>">
 											<br>
@@ -115,13 +115,12 @@
 									</div>
 								</div>
 							</div>
-
 			                <span><b>Offer:</b> € <?php echo $value['offer_budget']; ?></span>
-
 			              	<div class="row">
 			              		<div class="col-md-6 profile_img">
 					            </div>		            
 			              	</div>	              
+							  
 			            </div>	            
 			          </div>
 		           </div>

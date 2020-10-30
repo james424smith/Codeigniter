@@ -104,7 +104,6 @@
 										echo $each_comment['project_files'] . " <i class='fas fa-download'></i>";
             					?>
 						</a>
-						
 					</div>		
 				</div><hr>
 				<?php } ?>				

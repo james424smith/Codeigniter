@@ -140,11 +140,17 @@
 		$res = 0;
 		if($resultCheck == 0)
 			$res = $this->db->insert('add_discuss', $data); 
- 
-		if($res == 1)
- 			return true;
- 		else
- 			return false;
+		else {
+			//var_dump( date('Y-m-d H:i:s'));die();
+			$this->db->set("date_created", date('Y-m-d H:i:s'));
+			$this->db->where('reciver_id', $data['reciver_id']);
+			$this->db->where('sender_id', $data['sender_id']);
+			$this->db->or_where('reciver_id', $data['sender_id']);
+			$this->db->where('sender_id', $data['reciver_id']);
+			$this->db->update('add_discuss');
+		}
+		return true;
+		
 	}
 
 	public function getChattingMembers() {
@@ -153,20 +159,21 @@
 		$this->db->select('*');
 		$this->db->from('add_discuss');
 		$this->db->where('sender_id', $user_id);
-		$this->db->join('users', 'users.id = add_discuss.reciver_id');
+		$this->db->or_where('reciver_id', $user_id);
+		$this->db->order_by("date_created", 'DESC');
+		//$this->db->join('users', 'users.id = add_discuss.reciver_id');
 		$query1 = $this->db->get();
         //var_dump($query1->result_array());die();
+
+		return $query1->result_array();		
+	}
+
+	public function setReadStatus($sender_id, $receiver_id) {
 		
-		$this->db->select('*');
-		$this->db->from('add_discuss');
-		$this->db->where('reciver_id', $user_id);
-		$this->db->join('users', 'users.id = add_discuss.sender_id');
-		$query2 = $this->db->get();
-		//var_dump($query2->result_array());die();
-
-		$result = array_merge($query1->result_array(), $query2->result_array());
-		// var_dump($result);die();
-
-		return $result;		
+		$this->db->set('read_status', 1);
+		$this->db->where('sender_id', $sender_id);
+		$this->db->where('receiver_id', $receiver_id);
+		$this->db->update($this->Table);
+		return true;
 	}
  }
