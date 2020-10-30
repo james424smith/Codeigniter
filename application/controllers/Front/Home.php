@@ -39,15 +39,20 @@ $this->load->library("pagination");
     }  
 
     public function search() {
-
-      $this->load->view('Front/common/header');
-      $keywords = $this->input->post('keywords');
-      $home_data['team']=$this->HomeContent_model->display_ourteam_search($keywords);
       
-      $this->load->view('Front/search',$home_data);
-      $this->load->view('Front/common/footer');  
+        if($this->session->userdata['id'])
+        {
+        $this->load->view('Front/common/header');
+        $keywords = $this->input->post('keywords');
+        $home_data['team']=$this->HomeContent_model->display_ourteam_search($keywords);
+        
+        $this->load->view('Front/search',$home_data);
+        $this->load->view('Front/common/footer');  
 
-
+        }
+        else {
+            $this->load->view('Front/login');
+        }
     }
 
     public function logout()  

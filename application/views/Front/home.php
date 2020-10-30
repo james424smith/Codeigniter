@@ -1,6 +1,13 @@
 
-<?php $admin_url = $this->config->item('base_url'); ?>
 
+<?php $admin_url = $this->config->item('base_url'); ?>
+<style>
+.heelper {
+  width : 220px !important;
+  height : 300px !important;
+  margin-right : 20px !important;
+}
+</style>
 <!-- banner_sec -->
 <?php if($this->session->flashdata('success')){ ?>
   <script>
@@ -76,8 +83,6 @@
 </section> 
 
 <!-- post_sec -->
-
-
 <!-- Find a mission start -->
 <section class="find_bg">
   <div class="container">
@@ -163,7 +168,7 @@
             </div>
           </div>
         </div>
-        <div class=" row slider autoplay">
+        <div class="row slider autoplay">
            <?php  foreach ($team as $member) {  
                   if($member['id'] != $this->session->userdata['id']) {
            ?> 
@@ -233,14 +238,14 @@
                   $class_star = "stars-100";
                 }
           ?>
-          <div class="col-md-3">
+          <div class="col-md-3 heelper">
           <?php if($this->session->userdata['id']){?>
             <a href="<?php echo base_url('Front/home/heelper_profile/'.$member['id'])?>">
           <?php } else {?>
             <a href="<?php echo base_url('Front/home/login')?>">
           <?php } ?>
               <div class="find_content">
-                <img class="man_img" src="<?= $admin_url ?>/uploads/profiles/<?php echo $member['picture_url'] ?>">
+                <img class="man_img" src="<?= $admin_url ?>/uploads/profiles/<?php echo $member['picture_url'] ?>" style="width:180px; height:180px;">
                 <div class="find_content_inner">
                 <h5><?php echo ucfirst($member['username']);?></h5>
                 <ul>
