@@ -85,7 +85,7 @@ CREATE TABLE `add_discuss` (
   `sender_id` int(25) NOT NULL,
   `date_created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=35 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 /*Data for the table `add_discuss` */
 
@@ -102,9 +102,12 @@ CREATE TABLE `card_details` (
   `name` varchar(255) NOT NULL,
   `expiry` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=33 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=34 DEFAULT CHARSET=latin1;
 
 /*Data for the table `card_details` */
+
+insert  into `card_details`(`id`,`card_no`,`date_created`,`date_updated`,`user_id`,`name`,`expiry`) values 
+(33,0,'2020-10-27 23:18:57','2020-10-28 01:18:57',163,'','/');
 
 /*Table structure for table `chat` */
 
@@ -123,7 +126,7 @@ CREATE TABLE `chat` (
   `project_id` int(255) NOT NULL,
   `read_status` tinyint(4) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 /*Data for the table `chat` */
 
@@ -162,9 +165,12 @@ CREATE TABLE `chatting_member` (
   `user_id` int(11) unsigned NOT NULL,
   `member_id` int(11) unsigned NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
 /*Data for the table `chatting_member` */
+
+insert  into `chatting_member`(`id`,`user_id`,`member_id`) values 
+(1,163,162);
 
 /*Table structure for table `contact` */
 
@@ -297,12 +303,9 @@ CREATE TABLE `litigations` (
   `date_created` datetime NOT NULL,
   `date_modified` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 /*Data for the table `litigations` */
-
-insert  into `litigations`(`id`,`project_id`,`user_email`,`title`,`description`,`comment`,`date_created`,`date_modified`) values 
-(1,309,'test@test.com','test','test here','ok ,  non ok , in work  dd','2020-05-07 00:00:00','2020-05-14 08:15:13');
 
 /*Table structure for table `mission` */
 
@@ -333,7 +336,7 @@ CREATE TABLE `mission` (
   `bank_fee` varchar(255) NOT NULL,
   `satisfy` tinyint(4) NOT NULL,
   PRIMARY KEY (`mission_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=48 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 /*Data for the table `mission` */
 
@@ -351,13 +354,9 @@ CREATE TABLE `notification` (
   `created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `type_id` int(25) NOT NULL,
   PRIMARY KEY (`notification_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=583 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 /*Data for the table `notification` */
-
-insert  into `notification`(`notification_id`,`user_type`,`user_id`,`demand_id`,`notification`,`read_status`,`created`,`type_id`) values 
-(1,2,147,1,'payment request',1,'2020-06-27 09:55:23',1),
-(2,2,147,1,'Demand  added successfully',1,'2020-06-27 09:55:40',2);
 
 /*Table structure for table `posts` */
 
@@ -445,7 +444,7 @@ CREATE TABLE `project_offer` (
   `accept_status` int(25) NOT NULL,
   `client_id` int(255) NOT NULL,
   PRIMARY KEY (`offer_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=273 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 /*Data for the table `project_offer` */
 
@@ -465,7 +464,7 @@ CREATE TABLE `project_status` (
   `project_image` text NOT NULL,
   `client_id` int(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=190 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 /*Data for the table `project_status` */
 
@@ -486,311 +485,9 @@ CREATE TABLE `publishdemand` (
   `created` date NOT NULL,
   `status` int(10) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=323 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 /*Data for the table `publishdemand` */
-
-insert  into `publishdemand`(`id`,`title`,`description`,`currency`,`budget`,`project_category`,`client_id`,`file`,`image`,`created`,`status`) values 
-(10,'freelancer','i can work on this project','$','45000',0,2,'salary3.pdf','a38.png','2020-02-21',0),
-(11,'freelancer','i can work on this project','$','45000',32,2,'salary4.pdf','4e3d8c9ea986e76ebe5d42d6fa10a195.jpeg','2020-02-19',0),
-(12,'freelancer1','i can work on this project','$','45000',3,2,'salary5.pdf','34464b3d917345591411edde0b15c913.png','2020-02-18',0),
-(13,'freelancer','i can work on this project','$','45000',2,1,'salary6.pdf','a311.png','2020-02-17',0),
-(14,'auth module','i need a project for manage my all auth type project ','$','12,000',4,2,'salary7.pdf','Screenshot_from_2019-12-05_15-03-17.png','2020-02-21',1),
-(15,'auth module','i need a project for manage my all auth type project ','$','12,000',4,1,'salary8.pdf','Screenshot_from_2019-12-05_15-03-171.png','2020-02-21',1),
-(16,'codegniter project','i need a admin panel for manage all my project of company','$','1,20000',10,12,'','Screenshot_from_2019-11-29_14-14-36.png','2020-02-16',1),
-(20,'codegniter project','i need a admin panel for manage all my project of company','$','1,20000',5,12,'latter.pdf','Screenshot_from_2019-11-29_14-14-3623.png','2020-02-15',2),
-(21,'codegniter project','i need a admin panel for manage all my project of company','$','1,20000',5,12,'latter1.pdf','Screenshot_from_2019-11-29_14-14-3624.png','2020-02-24',2),
-(22,'codegniter project','i need a admin panel for manage all my project of company','$','1,20000',5,12,'latter2.pdf','Screenshot_from_2019-11-29_14-14-3625.png','2020-02-16',2),
-(23,'codegniter project','i need a admin panel for manage all my project of company','$','5',5,12,'latter3.pdf','Screenshot_from_2019-11-29_14-14-3626.png','2020-02-10',3),
-(24,'codegniter project','i need a admin panel for manage all my project of company','$','5',5,12,'latter4.pdf','Screenshot_from_2019-11-29_14-14-3627.png','2020-02-05',3),
-(25,'codegniter project','i need a admin panel for manage all my project of company','$','5',5,12,'','','2020-02-02',3),
-(26,'codegniter project','i need a admin panel for manage all my project of company','$','5',5,12,'','','2020-02-02',3),
-(27,'codegniter project','i need a admin panel for manage all my project of company','$','5',5,12,'','','2020-02-11',4),
-(28,'codegniter project','i need a admin panel for manage all my project of company','$','5',5,12,'','aboutus.png','2020-02-05',4),
-(29,'codegniter project','i need a admin panel for manage all my project of company','$','5',5,12,'latter5.pdf','Screenshot_from_2019-11-29_14-14-3628.png','2020-02-05',4),
-(40,'codegniter project','i need a admin panel for manage all my project of company','$','5',5,6,'AP_sheet.ods','','0000-00-00',4),
-(41,'codegniter project','i need a admin panel for manage all my project of company','$','5',5,6,'AP_sheet1.ods','','0000-00-00',4),
-(42,'Test task','Test task description','','200',1,1,'','','0000-00-00',0),
-(43,'Test task','Test task description','','200',1,1,'logo34.png','','0000-00-00',0),
-(44,'Test task','Test task description','','200',1,1,'header-banner.jpg','','0000-00-00',0),
-(45,'Test task','Test task description','','100',1,1,'close.png','','0000-00-00',0),
-(46,'Test task','Test task description','','100',1,1,'close1.png','','0000-00-00',0),
-(47,'Test task','Test task description','','100',1,1,'','','0000-00-00',0),
-(48,'Test task','Test task description','','100',1,1,'','','0000-00-00',0),
-(49,'Test task','Test task description','','100',1,1,'','','0000-00-00',0),
-(50,'Test task','Test task description','','100',1,1,'','','0000-00-00',0),
-(51,'Test task','Test task description','','100',1,1,'','','0000-00-00',0),
-(52,'Test task','Test taskhfghfg\nfghfghfgh description','','100',1,1,'','','0000-00-00',0),
-(53,'Test task','Test taskhfghfg\nfghfghfgh description','','100',1,1,'','','0000-00-00',0),
-(54,'','','','',0,0,'','','0000-00-00',0),
-(55,'','','','',0,0,'','','0000-00-00',0),
-(56,'','','','',0,0,'','','0000-00-00',0),
-(57,'','','','',0,0,'','','0000-00-00',0),
-(58,'','','','',0,0,'','','0000-00-00',0),
-(59,'','','','',0,0,'','','0000-00-00',0),
-(60,'','','','',0,0,'','','0000-00-00',0),
-(61,'','','','',0,0,'','','0000-00-00',0),
-(62,'','','','',0,0,'','','0000-00-00',0),
-(63,'','','','',0,0,'','','0000-00-00',0),
-(64,'','','','',0,0,'','','0000-00-00',0),
-(65,'','','','',0,0,'','','0000-00-00',0),
-(66,'','','','',0,0,'','','0000-00-00',0),
-(67,'','','','',0,0,'','','0000-00-00',0),
-(68,'','','','',0,0,'','','0000-00-00',0),
-(69,'','','','',0,0,'','','0000-00-00',0),
-(70,'','','','',0,0,'','','0000-00-00',0),
-(71,'','','','',0,0,'','','0000-00-00',0),
-(72,'Physique','','','500',1,1,'','','0000-00-00',0),
-(73,'Physique','','','500',1,1,'','','0000-00-00',0),
-(74,'Physique','','','500',1,1,'','','0000-00-00',0),
-(75,' Chimie','xyz......\n','','500',2,1,'','','0000-00-00',0),
-(76,' Chimie','asdfghbcdh\nhfdz\n','','50',2,1,'','','0000-00-00',0),
-(77,'Physique','dgndgjgjdgjgsj','','500',1,1,'','','0000-00-00',0),
-(78,'Physique','hffdd','','12',0,1,'','','0000-00-00',0),
-(79,' Chimie','qwert\nfghjk\nnbcs\nligcfhj\njh','','500',2,1,'','','0000-00-00',0),
-(80,'Physique','dfsdfsdfsdfsdfsdfsdfsdfsdfsgfdgfdgfdgfdgdfgdfgdfgdfgdfg','','100',1,1,'','','0000-00-00',0),
-(81,' Chimie','fuucng\njcyfguog\nnchgu\nfuydfu\njffudu\n','','500',2,1,'','','0000-00-00',0),
-(82,' Chimie','hey\nloginpage if we enter wrong mail I\'d with correct password then popup should incorrect mail I\'d but it\'s show popup incorrect password\n\n\nin profile page\nname tab is supposed to do edit name but it is unable to update the name \n\nbirth tab it\'s showing clander after 2020 \n\nin promotion page\nin sentence € sign is missing','','500',2,1,'','','0000-00-00',0),
-(83,'Test task','Test task description','','200',1,1,'','Untitlxed1.png,Untitledg1.png','0000-00-00',0),
-(84,'','','','',0,0,'','','0000-00-00',0),
-(85,'','','','',0,0,'','','0000-00-00',0),
-(86,'','','','',0,0,'','','0000-00-00',0),
-(87,'','','','',0,0,'','','0000-00-00',0),
-(88,'','','','',0,0,'','','0000-00-00',0),
-(89,'','','','',0,0,'','','0000-00-00',0),
-(90,'','','','',0,0,'','','0000-00-00',0),
-(91,'','','','',0,0,'','','0000-00-00',0),
-(92,'','','','',0,0,'','','0000-00-00',0),
-(93,'','','','',0,0,'','','0000-00-00',0),
-(94,'','','','',0,0,'','','0000-00-00',0),
-(95,'','','','',0,0,'','','0000-00-00',0),
-(96,'fsdfsd','sfsdfsds','','12',2,1,'','','0000-00-00',0),
-(97,'fsdfsd','sfsdfsds','','12',2,1,'','','0000-00-00',0),
-(98,'fsdfsd','sfsdfsds','','12',2,1,'','','0000-00-00',0),
-(99,'','','','',0,0,'','','0000-00-00',0),
-(100,'','','','',0,0,'','','0000-00-00',0),
-(101,'','','','',0,0,'','','0000-00-00',0),
-(102,'','','','',0,0,'','','0000-00-00',0),
-(103,'','','','',0,0,'','','0000-00-00',0),
-(104,'','','','',0,0,'','','0000-00-00',0),
-(105,'','','','',0,0,'','','0000-00-00',0),
-(106,'','','','',0,0,'','','0000-00-00',0),
-(107,'','','','',0,0,'','','0000-00-00',0),
-(108,'','','','',0,0,'','','0000-00-00',0),
-(109,'','','','',0,0,'','','0000-00-00',0),
-(110,'','','','',0,0,'','','0000-00-00',0),
-(111,'','','','',0,0,'','','0000-00-00',0),
-(112,'','','','',0,0,'','','0000-00-00',0),
-(113,'','','','',0,0,'','','0000-00-00',0),
-(114,'','','','',0,0,'','','0000-00-00',0),
-(115,'','','','',0,0,'','','0000-00-00',0),
-(116,'','','','',0,0,'','','0000-00-00',0),
-(117,'Test task','Test task description','','200',1,1,'Untitledsdd2.png,Untitlessdd4.png,Untitlded4.','Screenshot_from_2020-03-02_18-35-154.png,test','0000-00-00',0),
-(118,'fsdfsd','sfsdfsds','','12',2,1,'debug.log','','0000-00-00',0),
-(119,'fsdfsd','sfsdfsds','','12',2,1,'debug.log','','0000-00-00',0),
-(120,'','','','',0,0,'','','0000-00-00',0),
-(121,'','','','',0,0,'','','0000-00-00',0),
-(122,'','','','',0,0,'','','0000-00-00',0),
-(123,'','','','',0,0,'','','0000-00-00',0),
-(124,'','','','',0,0,'','','0000-00-00',0),
-(125,'','','','',0,0,'','','0000-00-00',0),
-(126,'','','','',0,0,'','','0000-00-00',0),
-(127,'','','','',0,0,'','','0000-00-00',0),
-(128,'','','','',0,0,'','','0000-00-00',0),
-(129,'','','','',0,0,'','','0000-00-00',0),
-(130,'','','','',0,0,'','','0000-00-00',0),
-(131,'','','','',0,0,'','','0000-00-00',0),
-(132,'','','','',0,0,'','','0000-00-00',0),
-(133,'','','','',0,0,'','','0000-00-00',0),
-(134,'','','','',0,0,'','','0000-00-00',0),
-(135,'','','','',0,0,'','','0000-00-00',0),
-(136,'','','','',0,0,'','','0000-00-00',0),
-(137,'','','','',0,0,'','','0000-00-00',0),
-(138,'','','','',0,0,'','','0000-00-00',0),
-(139,'','','','',0,0,'','','0000-00-00',0),
-(140,'','','','',0,0,'','','0000-00-00',0),
-(141,'','','','',0,0,'','','0000-00-00',0),
-(142,'','','','',0,0,'','','0000-00-00',0),
-(143,'','','','',0,0,'','','0000-00-00',0),
-(144,'','','','',0,0,'','','0000-00-00',0),
-(145,'','','','',0,0,'','','0000-00-00',0),
-(146,'','','','',0,0,'','','0000-00-00',0),
-(147,'','','','',0,0,'','','0000-00-00',0),
-(148,'','','','',0,0,'','','0000-00-00',0),
-(149,'','','','',0,0,'','','0000-00-00',0),
-(150,'','','','',0,0,'','','0000-00-00',0),
-(151,'','','','',0,0,'','','0000-00-00',0),
-(152,'','','','',0,0,'','','0000-00-00',0),
-(153,'','','','',0,0,'','','0000-00-00',0),
-(154,'','','','',0,0,'','','0000-00-00',0),
-(155,'','','','',0,0,'','','0000-00-00',0),
-(156,'','','','',0,0,'','','0000-00-00',0),
-(157,'','','','',0,0,'','','0000-00-00',0),
-(158,'','','','',0,0,'','','0000-00-00',0),
-(159,'','','','',0,0,'','','0000-00-00',0),
-(160,'','','','',0,0,'','','0000-00-00',0),
-(161,'','','','',0,0,'','','0000-00-00',0),
-(162,'','','','',0,0,'','','0000-00-00',0),
-(163,'','','','',0,0,'','','0000-00-00',0),
-(164,'','','','',0,0,'','','0000-00-00',0),
-(165,'','','','',0,0,'','','0000-00-00',0),
-(166,'','','','',0,0,'','','0000-00-00',0),
-(167,'','','','',0,0,'','','0000-00-00',0),
-(168,'Physique','sdfsdfsdf','','0',1,1,'','','0000-00-00',0),
-(169,'Physique','sdfsdfsdf','','0',1,1,'','','0000-00-00',0),
-(170,'fsdfsd','sfsdfsds','','12',0,1,'debug.log','','0000-00-00',0),
-(171,'fsdfsd','sfsdfsds','','12',0,0,'debug.log','','0000-00-00',0),
-(172,'fsdfsd','sfsdfsds','','12',0,0,'','','0000-00-00',0),
-(173,'Physique','rwerwerwer','','033',1,1,'','','0000-00-00',0),
-(174,'Physique','fsdfsd','','10',1,1,'','','0000-00-00',0),
-(175,'Physique','fsdfsd','','10',1,1,'','','0000-00-00',0),
-(176,'Physique','erwerew','','10',1,1,'','','0000-00-00',0),
-(177,'Physique','erwerew','','10',1,1,'','','0000-00-00',0),
-(178,'Physique','rerwer','','10',1,1,'','','0000-00-00',0),
-(179,'Physique','rerwer','','10',1,1,'','','0000-00-00',0),
-(180,'Physique','rerwer','','10',1,1,'','','0000-00-00',0),
-(181,'Physique','hkjhkjh1','','10',1,1,'','','0000-00-00',0),
-(182,'fsdfsd','sfsdfsds','','12',12,1,'','','0000-00-00',0),
-(183,'fsdfsd','sfsdfsds','','12',12,1,'debug.log','','0000-00-00',0),
-(184,'Test task','Test task description','','200',1,1,'Untitledsdd3.png,Untitlessdd5.png,Untitlded5.','Screenshot_from_2020-03-02_18-35-155.png,test','0000-00-00',0),
-(185,'Physique','hkjhkjh1','','10',1,1,'','','0000-00-00',0),
-(186,'Physique','hkjhkjh1','','10',1,1,'','','0000-00-00',0),
-(187,'fsdfsd','sfsdfsds','','12',2,1,'Untitledsdd4.png,Untitlessdd6.png','cleaning.txt','0000-00-00',0),
-(188,'fsdfsd','sfsdfsds','','12',12,1,'debug.log','','0000-00-00',0),
-(189,'fsdfsd','sfsdfsds','','12',12,1,'demo.txt','','0000-00-00',0),
-(190,'fsdfsd','sfsdfsds','','12',12,1,'demo.txt,Screenshot_1585640086.png,Screenshot','Screenshot_1585640085.png,Screenshot_15856400','0000-00-00',0),
-(191,'fsdfsd','sfsdfsds','','12',12,1,'','Screenshot_15856400851.png,Screenshot_1585640','0000-00-00',0),
-(192,'fsdfsd','sfsdfsds','','12',12,1,'','Screenshot_15856400852.png,Screenshot_1585640','0000-00-00',0),
-(193,'fsdfsd','sfsdfsds','','12',12,1,'demo.txt,Screenshot_15856401123.png','Screenshot_15856401093.png,Screenshot_1585640','0000-00-00',0),
-(194,'fsdfsd','sfsdfsds','','12',12,1,'','Screenshot_15856401094.png,Screenshot_1585640','0000-00-00',0),
-(195,'Physique','ggv\n','','10',1,1,'','image-39032306-5a7b-4800-a461-0a74a29376a4.jp','0000-00-00',0),
-(196,'Physique','ggv\n','','10',1,1,'','image-39032306-5a7b-4800-a461-0a74a29376a41.j','0000-00-00',0),
-(197,'Physique','ggv\n','','10',1,1,'','image-39032306-5a7b-4800-a461-0a74a29376a42.j','0000-00-00',0),
-(198,'Physique','ggv\n','','10',1,1,'','image-39032306-5a7b-4800-a461-0a74a29376a43.j','0000-00-00',0),
-(199,'Physique','ggv\n','','10',1,1,'','image-39032306-5a7b-4800-a461-0a74a29376a44.j','0000-00-00',0),
-(200,'Physique','ggv\n','','10',1,1,'','image-39032306-5a7b-4800-a461-0a74a29376a45.j','0000-00-00',0),
-(201,'Physique','ghhjj','','100',1,1,'','image-b82d17b3-2c40-4140-bada-df6bf92d8a52.jp','0000-00-00',0),
-(202,'Physique','ghhjj','','100',1,1,'','image-b82d17b3-2c40-4140-bada-df6bf92d8a521.j','0000-00-00',0),
-(203,'Physique','ghhjj','','100',1,1,'','image-b82d17b3-2c40-4140-bada-df6bf92d8a522.j','0000-00-00',0),
-(204,'Physique','ghhjj','','100',1,1,'','image-b82d17b3-2c40-4140-bada-df6bf92d8a523.j','0000-00-00',0),
-(205,'fsdfsd','sfsdfsds','','12',12,1,'demo.txt,Screenshot_15856401125.png','Screenshot_15856401095.png,Screenshot_1585640','0000-00-00',0),
-(206,'Physique','thh','','0',1,1,'','','0000-00-00',0),
-(207,'Physique','thh','','0',1,1,'','','0000-00-00',0),
-(208,'Physique','thh','','0',1,1,'','','0000-00-00',0),
-(209,'Physique','thh','','0',1,1,'','','0000-00-00',0),
-(210,'Physique','thh','','0',1,1,'','','0000-00-00',0),
-(211,'Physique','thh','','0',1,1,'','','0000-00-00',0),
-(212,'Physique','thh','','0',1,1,'','','0000-00-00',0),
-(213,'Physique','thh','','0',1,1,'','','0000-00-00',0),
-(214,'Physique','thh','','0',1,1,'','','0000-00-00',0),
-(215,'Physique','thh','','0',1,1,'','','0000-00-00',0),
-(216,'Physique','ggg\n','','110',1,1,'','','0000-00-00',0),
-(217,'Physique','ggg\n','','110',1,1,'','','0000-00-00',0),
-(218,'Physique','ggg\n','','110',1,1,'','','0000-00-00',0),
-(219,'Physique','ggg\nghb','','0',1,1,'','20200305_165254.jpg,image-b82d17b3-2c40-4140-','0000-00-00',0),
-(220,'Physique','ggg\nghb','','0',1,1,'','20200305_1652541.jpg,image-b82d17b3-2c40-4140','0000-00-00',0),
-(221,'Physique','ggg\nghb','','0',1,1,'','20200305_1652542.jpg,image-b82d17b3-2c40-4140','0000-00-00',0),
-(222,'Physique','ggg\nghb','','0',1,1,'','20200305_1652543.jpg,image-b82d17b3-2c40-4140','0000-00-00',0),
-(223,'fsdfsd','sfsdfsds','','12',12,1,'','Screenshot_15856401096.png,Screenshot_1585640','0000-00-00',0),
-(224,'Physique','fhdd','','0',1,1,'','20200305_1652544.jpg,image-b82d17b3-2c40-4140','0000-00-00',0),
-(225,'Physique','hi I am ','','110',1,1,'','image-b82d17b3-2c40-4140-bada-df6bf92d8a529.j','0000-00-00',0),
-(226,'fsdfsd','sfsdfsds','','12',12,1,'demo.txt,Screenshot_15856401127.png','Screenshot_15856401097.png,Screenshot_15856401127.png','0000-00-00',0),
-(227,'Physique','ffv\n','','0',1,1,'','20200305_1652545.jpg,','0000-00-00',0),
-(228,'Physique','ffv\n','','0',1,1,'','20200305_1652546.jpg,','0000-00-00',0),
-(229,'Physique','ffv\n','','0',1,1,'','20200305_1652547.jpg,','0000-00-00',0),
-(230,'Physique','ffv\n','','0',1,1,'','20200305_1652548.jpg,','0000-00-00',0),
-(231,'Physique','ffv\n','','0',1,1,'','20200305_1652549.jpg,','0000-00-00',0),
-(232,'Physique','ffv\n','','0',1,1,'','20200305_16525410.jpg,','0000-00-00',0),
-(233,'Physique','ffv\n','','0',1,1,'','20200305_16525411.jpg,','0000-00-00',0),
-(234,'Physique','ffv\n','','0',1,1,'','20200305_16525412.jpg,','0000-00-00',0),
-(235,'Physique','ffv\n','','0',1,1,'','20200305_16525413.jpg,','0000-00-00',0),
-(236,'Physique','ffv\n','','0',1,1,'','20200305_16525414.jpg,','0000-00-00',0),
-(237,'Physique','ffv\n','','0',1,1,'','20200305_16525415.jpg,','0000-00-00',0),
-(238,'Physique','ffv\n','','0',1,1,'','20200305_16525416.jpg,','0000-00-00',0),
-(239,'Physique','ffv\n','','0',1,1,'','20200305_16525417.jpg,','0000-00-00',0),
-(240,'Physique','ffv\n','','0',1,1,'','20200305_16525418.jpg,','0000-00-00',0),
-(241,'Physique','ffv\n','','0',1,1,'','20200305_16525419.jpg,','0000-00-00',0),
-(242,'Physique','ffv\n','','0',1,1,'','20200305_16525420.jpg,','0000-00-00',0),
-(243,'Physique','ffv\n','','0',1,1,'','20200305_16525421.jpg,','0000-00-00',0),
-(244,'Physique','ffv\n','','0',1,1,'','20200305_16525422.jpg,','0000-00-00',0),
-(245,'Physique','ffv\n','','0',1,1,'','20200305_16525423.jpg,','0000-00-00',0),
-(246,'Physique','ffv\n','','0',1,1,'','20200305_16525424.jpg,','0000-00-00',0),
-(247,'Physique','ffv\n','','0',1,1,'','20200305_16525425.jpg,','0000-00-00',0),
-(248,'Physique','ffv\n','','0',1,1,'','20200305_16525426.jpg,','0000-00-00',0),
-(249,'Physique','ffv\n','','0',1,1,'','20200305_16525427.jpg,','0000-00-00',0),
-(250,'Physique','ffv\n','','0',1,1,'','20200305_16525428.jpg,','0000-00-00',0),
-(251,'Physique','ffv\n','','0',1,1,'','20200305_16525429.jpg,','0000-00-00',0),
-(252,'Physique','ffv\n','','0',1,1,'','20200305_16525430.jpg,','0000-00-00',0),
-(253,'Physique','ffv\n','','0',1,1,'','20200305_16525431.jpg,','0000-00-00',0),
-(254,'Physique','ffv\n','','0',1,1,'','20200305_16525432.jpg,','0000-00-00',0),
-(255,'Physique','ffv\n','','0',1,1,'','20200305_16525433.jpg,','0000-00-00',0),
-(256,'Physique','ffv\n','','0',1,1,'','20200305_16525434.jpg,','0000-00-00',0),
-(257,'Physique','ffv\n','','0',1,1,'','20200305_16525435.jpg,','0000-00-00',0),
-(258,'Physique','ffv\n','','0',1,1,'','20200305_16525436.jpg,','0000-00-00',0),
-(259,'Physique','ffv\n','','0',1,1,'','20200305_16525437.jpg,','0000-00-00',0),
-(260,'Physique','ffv\n','','0',1,1,'','20200305_16525438.jpg,','0000-00-00',0),
-(261,'Physique','ffv\n','','0',1,1,'','20200305_16525439.jpg,','0000-00-00',0),
-(262,'Physique','ffv\n','','0',1,1,'','20200305_16525440.jpg,','0000-00-00',0),
-(263,'Physique','ffv\n','','0',1,1,'','20200305_16525441.jpg,','0000-00-00',0),
-(264,'Physique','ffv\n','','0',1,1,'','20200305_16525442.jpg,','0000-00-00',0),
-(265,'Physique','ffv\n','','0',1,1,'','20200305_16525443.jpg,','0000-00-00',0),
-(266,'Physique','ffv\n','','0',1,1,'','20200305_16525444.jpg,','0000-00-00',0),
-(267,'Physique','ffv\n','','0',1,1,'','20200305_16525445.jpg,','0000-00-00',0),
-(268,'Physique','ffv\n','','0',1,1,'','20200305_16525446.jpg,','0000-00-00',0),
-(269,'Physique','ffv\n','','0',1,1,'','20200305_16525447.jpg,','0000-00-00',0),
-(270,'Physique','ffv\n','','0',1,1,'','20200305_16525448.jpg,','0000-00-00',0),
-(271,'Physique','ffv\n','','0',1,1,'','20200305_16525449.jpg,','0000-00-00',0),
-(272,'Physique','ffv\n','','0',1,1,'','20200305_16525450.jpg,','0000-00-00',0),
-(273,'Physique','ffv\n','','0',1,1,'','20200305_16525451.jpg,','0000-00-00',0),
-(274,'Physique','ffv\n','','0',1,1,'','20200305_16525452.jpg,','0000-00-00',0),
-(275,'Physique','ffv\n','','0',1,1,'','20200305_16525453.jpg,','0000-00-00',0),
-(276,'Physique','ffv\n','','0',1,1,'','20200305_16525454.jpg,','0000-00-00',0),
-(277,'Physique','ffv\n','','0',1,1,'','20200305_16525455.jpg,','0000-00-00',0),
-(278,'Physique','ffv\n','','0',1,1,'','20200305_16525456.jpg,','0000-00-00',0),
-(279,'Physique','ffv\n','','0',1,1,'','20200305_16525457.jpg,','0000-00-00',0),
-(280,'Physique','ffv\n','','0',1,1,'','20200305_16525458.jpg,','0000-00-00',0),
-(281,'Physique','ffv\n','','0',1,1,'','20200305_16525459.jpg,','0000-00-00',0),
-(282,'Physique','ffv\n','','0',1,1,'','20200305_16525460.jpg,','0000-00-00',0),
-(283,'Physique','ffv\n','','0',1,1,'','20200305_16525461.jpg,','0000-00-00',0),
-(284,'Physique','ffv\n','','0',1,1,'','20200305_16525462.jpg,','0000-00-00',0),
-(285,'Physique','ffv\n','','0',1,1,'','20200305_16525463.jpg,','0000-00-00',0),
-(286,'Physique','ffv\n','','0',1,1,'','20200305_16525464.jpg,','0000-00-00',0),
-(287,'Physique','ffv\n','','0',1,1,'','20200305_16525465.jpg,','0000-00-00',0),
-(288,'Physique','ffv\n','','0',1,1,'','20200305_16525466.jpg,','0000-00-00',0),
-(289,'Physique','ffv\n','','0',1,1,'','20200305_16525467.jpg,','0000-00-00',0),
-(290,'Physique','ffv\n','','0',1,1,'','','0000-00-00',0),
-(291,'Physique','ffv\n','','0',1,1,'','20200305_16525468.jpg,','0000-00-00',0),
-(292,'Physique','ffv\n','','0',1,1,'','20200305_16525469.jpg,','0000-00-00',0),
-(293,'Physique','ffv\n','','0',1,1,'','20200305_16525470.jpg,','0000-00-00',0),
-(294,'Physique','vvv','','0',1,1,'','','0000-00-00',0),
-(295,'Physique','ggyy','','0',1,1,'','image-b82d17b3-2c40-4140-bada-df6bf92d8a5210.jpg,','0000-00-00',0),
-(296,'Physique','ggyy','','0',1,1,'','image-b82d17b3-2c40-4140-bada-df6bf92d8a5211.jpg,','0000-00-00',0),
-(297,'Physique','ggyy','','0',1,1,'','image-b82d17b3-2c40-4140-bada-df6bf92d8a5212.jpg,','0000-00-00',0),
-(298,'Physique','ggyy','','0',1,1,'','image-b82d17b3-2c40-4140-bada-df6bf92d8a5213.jpg,','0000-00-00',0),
-(299,'Physique','ggyy','','0',1,1,'','image-b82d17b3-2c40-4140-bada-df6bf92d8a5214.jpg,','0000-00-00',0),
-(300,'Physique','ggyy','','0',1,1,'','image-b82d17b3-2c40-4140-bada-df6bf92d8a5215.jpg,','0000-00-00',0),
-(301,'Physique','ggyy','','0',1,1,'','image-b82d17b3-2c40-4140-bada-df6bf92d8a5216.jpg,','0000-00-00',0),
-(302,'Physique','ggyy','','0',1,1,'','image-b82d17b3-2c40-4140-bada-df6bf92d8a5217.jpg,','0000-00-00',0),
-(303,'Physique','ggyy','','0',1,1,'','image-b82d17b3-2c40-4140-bada-df6bf92d8a5218.jpg,','0000-00-00',0),
-(304,'Physique','ggyy','','0',1,1,'','image-b82d17b3-2c40-4140-bada-df6bf92d8a5219.jpg,','0000-00-00',0),
-(305,'Physique','ggyy','','0',1,1,'','image-b82d17b3-2c40-4140-bada-df6bf92d8a5220.jpg,','0000-00-00',0),
-(306,'Physique','ggyy','','0',1,1,'','image-b82d17b3-2c40-4140-bada-df6bf92d8a5221.jpg,','0000-00-00',0),
-(307,'Physique','ggyy','','0',1,1,'','image-b82d17b3-2c40-4140-bada-df6bf92d8a5222.jpg,','0000-00-00',0),
-(308,'Physique','ggyy','','0',1,1,'','image-b82d17b3-2c40-4140-bada-df6bf92d8a5223.jpg,','0000-00-00',0),
-(309,'Physique','ggyy','','0',1,1,'','image-b82d17b3-2c40-4140-bada-df6bf92d8a5224.jpg,','0000-00-00',0),
-(310,'Physique','ggyy','','0',1,1,'','image-b82d17b3-2c40-4140-bada-df6bf92d8a5225.jpg,','0000-00-00',0),
-(311,'Physique','ggyy','','0',1,1,'','image-b82d17b3-2c40-4140-bada-df6bf92d8a5226.jpg,','0000-00-00',0),
-(312,'Physique','ggyy','','0',1,1,'','image-b82d17b3-2c40-4140-bada-df6bf92d8a5227.jpg,','0000-00-00',0),
-(313,'Physique','ggyy','','0',1,1,'','image-b82d17b3-2c40-4140-bada-df6bf92d8a5228.jpg,','0000-00-00',0),
-(314,'Physique','ggyy','','0',1,1,'','image-b82d17b3-2c40-4140-bada-df6bf92d8a5229.jpg,','0000-00-00',0),
-(315,'Physique','yyy\n','','0',1,1,'','image-b82d17b3-2c40-4140-bada-df6bf92d8a5230.jpg,','0000-00-00',0),
-(316,'Physique','yyy\n','','0',1,1,'','image-b82d17b3-2c40-4140-bada-df6bf92d8a5231.jpg,','0000-00-00',0),
-(317,'Physique','yyy\n','','0',1,1,'','image-b82d17b3-2c40-4140-bada-df6bf92d8a5232.jpg,','0000-00-00',0),
-(318,'Physique','yyy\n','','0',1,1,'','image-b82d17b3-2c40-4140-bada-df6bf92d8a5233.jpg,','0000-00-00',0),
-(319,'fsdfsd','sfsdfsds','','12',2,1,'Untitledsdd5.png,Untitlessdd7.png','test2.png','0000-00-00',0),
-(320,'physique',' lorem ipsum lorem ipsum lorem ipsum','','50$',0,0,'Sumans_Kitchen_Pictures.pdf','','0000-00-00',0),
-(321,'math','lorem lorem ','','50$',3,0,'user.png','','0000-00-00',0),
-(322,'Physique','QWERCTFUYH','','650$',1,0,'user2.png','','0000-00-00',0);
 
 /*Table structure for table `stripe_card_details` */
 
@@ -844,9 +541,20 @@ CREATE TABLE `transaction` (
   `mission_id` int(25) NOT NULL,
   `status` int(25) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=110 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=119 DEFAULT CHARSET=latin1;
 
 /*Data for the table `transaction` */
+
+insert  into `transaction`(`id`,`sent_from`,`sent_to`,`amount`,`tra_id`,`created_date`,`username`,`project_title`,`mission_id`,`status`) values 
+(112,162,163,'3000','txn_1HhFIqJPZuhal6eZt2x2R8gh','2020-10-28 15:10:04','5','notification',50,1),
+(111,163,162,'123','txn_1Hh0bZJPZuhal6eZZU0F2BFU','2020-10-27 23:26:12','4','123123',49,0),
+(110,163,162,'222','txn_1Hh0U9JPZuhal6eZhyo2CTRd','2020-10-27 23:18:27','4','asdf',48,0),
+(113,163,162,'120','txn_1Hhg2GJPZuhal6eZSDlvBNUX','2020-10-29 19:40:28','6','claim chat',60,0),
+(114,163,162,'201','txn_1HhgPkJPZuhal6eZToQhXzjh','2020-10-29 20:07:45','6','complete',61,1),
+(115,163,162,'201','txn_1HhgzpJPZuhal6eZuy0tuWhO','2020-10-29 20:42:04','6','claim test 2',62,0),
+(116,162,163,'3453450','txn_1HhhJ7JPZuhal6eZhsFvebY4','2020-10-29 21:02:01','5','wertwert',57,0),
+(117,163,162,'1121','txn_1HhlB5JPZuhal6eZ3aG7dp0x','2020-10-30 01:09:54','6','sdfasdf',63,0),
+(118,163,162,'123','txn_1HhpxTJPZuhal6eZQKjfOHJy','2020-10-30 06:16:13','6','asdf',66,0);
 
 /*Table structure for table `user_review` */
 
@@ -860,7 +568,7 @@ CREATE TABLE `user_review` (
   `comment` text,
   `created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=49 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 /*Data for the table `user_review` */
 
@@ -931,7 +639,7 @@ CREATE TABLE `users` (
   `oauth_uid` varchar(100) NOT NULL,
   `link` varchar(100) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=167 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=173 DEFAULT CHARSET=latin1;
 
 /*Data for the table `users` */
 
@@ -943,11 +651,9 @@ insert  into `users`(`id`,`username`,`password`,`role`,`source`,`status`,`is_ema
 (36,'you','f1887d3f9e6ee7a32fe5e76f4ab80d63','admin',0,0,0,'me ','me ','store','Firststore.service@gmail.com','','9009856453','','16.jpg','','','2020-04-02','','','','','','France ','Vfbfbfh','','','',0,0,0,'','Jdjdjdkk','Bdbfbfb','','Bdbdj','Jfjdjdkfkdk',0,'','','','',0,0,'eofwSbFLQ5aiNmLO7vow7B:APA91bG9QR7K9nhfn-nMvp7c2ZwnzQAfoo03so2UIxLFclmwhjFNok-nAK0y8FF0157XlO9Yl02yh4WbmnoDWgwZa_aimWAeesiltW99WMuaxiZ9eby_JSc78XpUC5gPpyw8Evzy1OaZ','Jfjfjdk','','2020-07-05 07:40:15','','','','','0',0,0,'','','2020-07-05 04:40:15','facebook','',''),
 (37,'gopal123','b57e63ce8b73e370cd2a4c6865fc611b','admin',0,0,0,'','gopal','sharma','gopalsh02221@gmail.com','','3456455345','','default.png','','','','','','','','','','','','','',0,0,0,'','','','','0','English',0,'','','','',0,0,'','','','2020-10-22 18:10:46','','','','','0',0,0,'','','0000-00-00 00:00:00','facebook','',''),
 (39,'Gopal123','12345','admin',0,0,0,'','gopal','sharma','gopalsh021@gmail.com','','7440498598','','default.png','','','','male','','','indore','','india','school','','','indore',0,0,0,'','','','','0','physics',0,'','','','',0,0,'','','','2020-10-22 18:10:52','','','','','0',0,0,'','','0000-00-00 00:00:00','facebook','',''),
-(162,'hello','25f9e794323b453885f5181f1b624d0b','client',0,1,0,'','hello','123','hello@sample.com','','','','medical-insuarnce.png','','','','','','','','','Canada','','','','',0,0,0,'','2','Math','asdfasdf','ererer','ee',0,'','','','',0,0,'','ljaslkdjfklajsdflkjasdfasdf','','2020-10-28 00:40:18','','','','','0',0,0,'','','0000-00-00 00:00:00','facebook','',''),
-(163,'hi','25f9e794323b453885f5181f1b624d0b','client',0,0,0,'','elie','kassis','hi@sample.com','','','','me1.png','','','','','','','','','Canada','','','','',0,0,0,'','234','asdfasdf','asdfasdf','asdfasf','aa',0,'','','','',0,0,'','hello','','2020-10-28 00:40:11','','','','','0',0,0,'','','0000-00-00 00:00:00','facebook','',''),
-(164,'first','25f9e794323b453885f5181f1b624d0b','client',0,0,0,'','','','first@sample.com','','','','default.png','','','','','','','','','','','','','',0,0,0,'','','','','','dd',0,'','','','',0,0,'','','','2020-10-22 18:10:59','','','','','0',0,0,'','','0000-00-00 00:00:00','facebook','',''),
-(165,'seconds@sample.com','25f9e794323b453885f5181f1b624d0b','client',0,0,0,'','','','seconds','','','','default.png','','','','','','','','','','','','','',0,0,0,'','','','','','gg ddd',0,'','','','',0,0,'','','','2020-10-22 18:11:13','','','','','0',0,0,'','','0000-00-00 00:00:00','facebook','',''),
-(166,'Resiger','25f9e794323b453885f5181f1b624d0b','client',0,0,0,'','','','Register@sample.com','','','','default.png','','','','','','','','','','','','','',0,0,0,'','','','','','rr tt',0,'','','','',0,0,'','','','2020-10-22 18:11:05','','','','','0',0,0,'','','0000-00-00 00:00:00','facebook','','');
+(162,'hello','25f9e794323b453885f5181f1b624d0b','client',0,1,0,'','hello','123','hello@sample.com','','','','medical-insuarnce.png','','','','','','','','','Canada','','','','',0,176.88,0,'','2','Math','asdfasdf','ererer','ee',0,'','','','',0,0,'','ljaslkdjfklajsdflkjasdfasdf','','2020-10-29 22:07:46','','','','','0',0,0,'','','0000-00-00 00:00:00','facebook','',''),
+(163,'hi','25f9e794323b453885f5181f1b624d0b','client',0,0,0,'','elie','kassis','hi@sample.com','','','','me1.png','','','','','','','','','Canada','','','','',0,2640,0,'','234','asdfasdf','asdfasdf','asdfasf','aa',0,'','','','',0,0,'','hello','','2020-10-28 17:10:04','','','','','0',0,0,'','','0000-00-00 00:00:00','facebook','',''),
+(170,'Mydev','25f9e794323b453885f5181f1b624d0b','client',0,0,0,'','','','Mydev@gmail.com','','','','default.png','','','','','','','','','','','','','',0,0,0,'','','','','','',0,'','','','',0,0,'','','','2020-10-30 00:58:00','','','','','0',0,0,'','','0000-00-00 00:00:00','facebook','','');
 
 /*Table structure for table `walletwithdrawask` */
 
@@ -987,7 +693,7 @@ CREATE TABLE `withdrawpayment` (
   `emplyee_id` int(25) NOT NULL,
   `transection_id` text NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=32 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 /*Data for the table `withdrawpayment` */
 
