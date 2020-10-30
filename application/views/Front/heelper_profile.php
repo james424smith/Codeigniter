@@ -35,8 +35,9 @@
 								<?php
 									$class_star = $obj->User->getRatingClassName($member['id']); 
 							   ?>
+							   <span class="stars-container <?php echo $class_star; ?>">★★★★★</span><br>
 							   	<a href="<?php echo base_url('Front/home/review_profile/' . $member['id'])?>">
-									<span class="stars-container <?php echo $class_star; ?>">★★★★★</span>
+									Reviews
 								</a>	                        
 						</div>
 					</div>
