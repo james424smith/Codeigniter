@@ -55,19 +55,19 @@
 
                 <div class="card_number_input">
                   <p>Card Number</p>
-                  <input type="text" name="cardNumber" autocomplete="off" placeholder="Enter your card number..." id="cardNumber" required>
+                  <input type="number" name="cardNumber" autocomplete="off" placeholder="Enter your card number..." id="cardNumber" required>
                 </div>
                 <div class="card_ul_li">
                   <ul>
                     <li>
                       <p>CVV</p>
-                      <input type="text" name="cardCVC" id="cardCVC" autocomplete="off" required>
+                      <input type="number" name="cardCVC" id="cardCVC" autocomplete="off" required>
                     </li>
                   
                     <li>
                       <p>Expiry</p>
-                      <input type="text" name="cardExpMonth" placeholder="MM" id="cardExpMonth" required> 
-                      <input type="text" name="cardExpYear" placeholder="YYYY" id="cardExpYear" required>
+                      <input type="number" name="cardExpMonth" placeholder="MM" id="cardExpMonth" required> 
+                      <input type="number" name="cardExpYear" placeholder="YYYY" id="cardExpYear" required>
                       <input type="hidden" name="get_offer_amount" placeholder="" id="get_offer_amount" value="<?php echo $get_offer_amount; ?>">
                       <input type="hidden" name="get_offer_user_id" placeholder="" id="get_offer_user_id" value="<?php echo $get_offer_user_id; ?>">
                       <input type="hidden" name="get_offer_project_id" placeholder="" id="get_offer_project_id" value="<?php echo $get_offer_project_id; ?>">
@@ -81,25 +81,40 @@
                 <input type="submit" id="makePayment" class="btn btn-success" value="Make Payment">
               </div>
                 </form>
-            </div>
-
-          
+            </div>          
           </div>
           <div class="col-md-3"></div>
     
     </div>    
   </div>
 </section>
-
-<!-- <script>
-$(document).ready(function(){
-  $("#hide").click(function(){
-    $(".card_btn_info").hide();
-  });
-
-
-  
-});
-</script> -->
-
 <?php $this->load->view('Front/common/footer');  ?>
+<script>
+	$(document).ready(function(){		
+		$('#cardCVC').on('input propertychange paste', function (e) {
+			var val = $(this).val()
+			var reg = /^.{4,5}/gi;
+			if (val.match(reg)) {
+				$(this).val(val.replace(reg, ''));
+			}
+    });
+    $('#cardNumber').on('input propertychange paste', function () {
+      var val = $(this).val()
+      var reg = /^.{20,21}/gi;   
+			if (val.match(reg)) {
+				$(this).val(val.replace(reg1, ''));
+			}
+    });
+    $('#cardExpMonth').on('input propertychange paste', function (e) {
+      var val = $(this).val()
+      var reg = /^(0[1-9]|1[0-2])$/;   
+			if (val.match(reg)) {
+				$(this).val(val.replace(reg1, ''));
+			}
+
+
+    });
+
+
+	});
+</script>

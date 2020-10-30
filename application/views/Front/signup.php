@@ -26,7 +26,8 @@
                     <div class="login-form">
                         <form method="post" action="<?php echo base_url('Front/Register/register')?>" name="myForm" id="myForm">
                             <div class="form-group">
-                                <input type="email" placeholder="Email" name="email" class="form-control" required>
+                                <input type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" placeholder="Email" name="email" class="form-control"
+                                title="The eamil must include symbol @ and . example: xxx@gmail.com" required>
                             </div>
                             <div class="form-group">
                                 <input type="text" placeholder="Username" name="username" class="form-control" required> 

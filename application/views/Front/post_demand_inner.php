@@ -102,6 +102,5 @@
 				$(this).val(val.replace(reg, ''));
 			}
 		});
-
 	});
 </script>

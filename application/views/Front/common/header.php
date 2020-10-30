@@ -180,7 +180,7 @@
       $count_messages = count($getmessageNotification);
       $count_Reviews = count($getreviewsNotification);
 
-      $total_notification_count = $count_payment + $count_missionanddemands + $count_Offers + $count_messages + $count_Reviews;
+      $total_notification_count = $count_payment + $count_missionanddemands + $count_Offers + $count_Reviews;
 
       $obj->load->model('Front/User');
       $self_user = $obj->User->getSelfUser();
@@ -284,17 +284,6 @@
                               </div>
                               <div class="not_status">
                                 <p><?php echo $count_Offers; ?></p>
-                              </div>
-                          </a>
-                        </li>
-                        <li>
-                          <a href="<?php echo base_url('Front/Posts/Notification/4')?>" class="hvr-bounce-to-right">
-                              <div class="not_icon">
-                                <img src="<?php echo base_url();?>/assets/Front/img/not_icn4.png">
-                                Messages
-                              </div>
-                              <div class="not_status">
-                                <p><?php echo $count_messages; ?></p>
                               </div>
                           </a>
                         </li>
