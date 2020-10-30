@@ -14,7 +14,6 @@
  	$class_star = $obj->User->getRatingClassName($user_id);
  ?>
 
-
 <section>
   <div class="top_bnr section post_demand">
     <div class="container">
@@ -84,7 +83,7 @@
 											<br>  
 											<div class="from-group">
 												<Label><h6>Offer Budget</h6></Label>
-												<input type="text" class="form-control" name="offer_budget" value="<?php echo $value['offer_budget']; ?>">
+												<input type="number" class="form-control" name="offer_budget" id="integer" value="<?php echo $value['offer_budget']; ?>">
 				  							</div>
 											<input type="hidden" class="form-control" name="mission_id" value="<?php echo $id; ?>">
 											<br>
@@ -134,3 +133,14 @@
 </section>
 
 <?php $this->load->view('Front/common/footer');  ?>
+<script>
+	$(document).ready(function(){		
+		$('#integer').on('input propertychange paste', function (e) {
+			var val = $(this).val()
+			var reg = /^0/gi;
+			if (val.match(reg)) {
+				$(this).val(val.replace(reg, ''));
+			}
+		});
+	});
+</script>
