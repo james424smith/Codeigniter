@@ -253,9 +253,10 @@ $this->load->model('Front/Payment_model');
         }
         else 
         {
+          //var_dump($this->input->post('get_offer_user_id')); die();
           $get_offer_user_id = $this->input->post('get_offer_user_id');
           $get_offer_project_id = $this->input->post('get_offer_project_id');
-          
+          $this->load->model('Front/Posts_model');
           $this->Posts_model->pushNotification($get_offer_user_id, 3, "Your offer has been accepted.");
           $this->load->view('Front/payment_success');
         }

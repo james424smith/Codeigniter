@@ -11,6 +11,7 @@
       $get_offer_user_id = $offer_amount[0]['user_id'];
       $get_offer_project_id = $offer_amount[0]['project_id'];
 
+      //var_dump($get_offer_user_id);die();
       $offer_username = $obj->Payment_model->get_username($get_offer_user_id);
       $get_offer_username = $get_offer_project_id[0]['username'];
 
@@ -25,7 +26,7 @@
 
 ?>
 <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
-<script type="text/javascript" src="http://alphawizz.com/Freelance/assets/js/payment.js"></script>
+<script type="text/javascript" src="../../../assets/js/payment.js"></script>
 
 <section>
   <div class="top_bnr section post_demand">
