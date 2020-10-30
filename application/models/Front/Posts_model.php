@@ -377,7 +377,7 @@ class Posts_model extends CI_Model
                 return false;  
             }
         }
-
+        
         public function selectAvgOfRating($user_id)
         {
             $this->db->select("rating");
@@ -395,13 +395,15 @@ class Posts_model extends CI_Model
             $this->db->from('notification');
             $this->db->where('user_id', $this->session->userdata['id']);
             $this->db->where('type_id', $type_id);
+            $this->db->order_by('notification_id', 'DESC');
+
             //$this->db->where('read_status', 0);
             $result = $this->db->get()->result_array();
             return $result;
         }
 
         public function SetNotificaion_Read($type_id) {
-            
+
             if($type_id == 4)
             {
                 $data = array(

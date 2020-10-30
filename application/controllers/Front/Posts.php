@@ -72,6 +72,7 @@ class Posts extends CI_Controller
         }
         $this->load->model('Front/Posts_model');
         $this->Posts_model->demand($project_data);
+        $this->Posts_model->pushNotification($this->session->userdata['id'], 2, "You requirement is posted successfully.");
         redirect('Front/home/mydemands');
       }
       else {
@@ -120,6 +121,7 @@ class Posts extends CI_Controller
             //$this->load->view('Front/make_an_offer');
             return null;
         }
+        $this->Posts_model->pushNotification($this->session->userdata['id'], 2, "You requirement is posted successfully.");
         $this->Posts_model->mission($project_data);
         redirect('Front/home/mymissions');
       }

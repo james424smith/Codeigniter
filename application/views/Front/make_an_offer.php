@@ -73,7 +73,7 @@
 						</div>
 						<div>
 							<label class="">Make an offer ( € )
-								  <input type="number" class="number-input" name="offer_budget" placeholder="ex:200">								  
+								<input type="number" class="number-input" name="offer_budget" placeholder="ex:200">								  
 							</label>
 						</div>
 						<div class="post_form_content">
@@ -109,7 +109,7 @@
 				<img class="demand_popup_logo" src="<?php echo base_url('assets/Front/img/heelp.png')?>">
 				<h4>Confirmation</h4>
 				<p>
-					Demand posted succefully
+					Demand posted successfully
 				</p>
 				<img class="demand_popup_right_img" src="<?php echo base_url('assets/Front/img/right.png')?>">
 
