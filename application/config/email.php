@@ -1,7 +1,7 @@
 <?php 
 $config = array(
     'protocol' => 'smtp', // 'mail', 'sendmail', or 'smtp'
-    'smtp_host' => ' mail12.lwspanel.com', 
+    'smtp_host' => 'mail12.lwspanel.com',
     'smtp_port' => 465,
     'smtp_user' => 'contact@heelp.fr',
     'smtp_pass' => 'Sharepass15!',

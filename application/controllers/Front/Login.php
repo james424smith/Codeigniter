@@ -94,7 +94,7 @@ class Login extends CI_Controller {
                 $message  .=  '<div class="container">';
                 $message  .=  '<div class="container">';
                 $message  .=  '<div class="jumbotron text-center">';
-                $message  .=  '<h1>Hii, '.$admin_info['first_name'].'</h1>';
+                $message  .=  '<h1>Hi, '.$admin_info['first_name'].'</h1>';
                 $message  .=  '<p class="content">You Recently Requested to reset password for your doctor admin account </br> we reset your password and your new password for username '.$admin_info['username'].' is '.$password;
                 $message .= '</div>';
                 $message .= '</div>';
