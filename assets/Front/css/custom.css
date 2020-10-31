@@ -506,7 +506,7 @@ a.prfl_btn {
     text-decoration: none;
 }
 .top_right_side_icon ul li .drover_box li:first-child {
-   /* background-image: url(https://www.alphawizz.com/heelp_front/assets/img/light-blue.jpg);*/
+    background-image: url(https://www.alphawizz.com/heelp_front/assets/img/light-blue.jpg);
     background-repeat: no-repeat;
     background-size: 100%;
     background-position: 0px -170px;
@@ -530,7 +530,7 @@ a.prfl_btn {
     box-shadow: 0px 0px 20px #ccc;
 }
 .my_prfl_cont {
-   /* background-image: url(https://www.alphawizz.com/heelp_front/assets/img/light-blue.jpg);*/
+    background-image: url(https://www.alphawizz.com/heelp_front/assets/img/light-blue.jpg);
     background-repeat: no-repeat;
     /* background-size: 100% 100%; */
     background-position: 0px -256px;
