@@ -81,6 +81,7 @@ class Login extends CI_Controller {
             $password = rand(10000,100000000);
             $this->load->model('Front/RegisterModel');
             $admin_info = $this->RegisterModel->checkEmailAvailable($email);
+            //var_dump()
             if($admin_info['status']){
                 $this->load->config('email');
                 $this->load->library('email');
@@ -105,7 +106,8 @@ class Login extends CI_Controller {
                 $this->email->to($to);
                 $this->email->subject($subject);
                 $this->email->message($message);
-        
+
+                //var_dump($to);die();
                 if ($this->email->send()) 
                 { 
                     $this->RegisterModel->changePassword($password,$email);
@@ -114,7 +116,7 @@ class Login extends CI_Controller {
                 } 
                 else 
                 {
-                     // print_r($this->email->print_debugger());exit;
+                    print_r($this->email->print_debugger());exit;
                     $this->session->set_flashdata('result_forget_password','Unable to send email.');
                     redirect('Front/Login/reset');
                 }
