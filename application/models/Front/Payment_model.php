@@ -392,7 +392,7 @@ class Payment_model extends CI_Model
     {
         if(!empty($app))
         {
-            $this->db->insert('card_details',$app);
+            $this->db->insert('card_details', $app);
             $insert_id = $this->db->insert_id();
             $this->db->select("*");
             $this->db->from('card_details');

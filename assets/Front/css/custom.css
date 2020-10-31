@@ -512,7 +512,7 @@ a.prfl_btn {
     background-position: 0px -170px;
     position: relative;
 }
-.top_right_side_icon ul li .drover_box li:first-child:before {
+/*.top_right_side_icon ul li .drover_box li:first-child:before {
     /*content: "";
     background: #52c4ec;
     top: 0px;
@@ -522,8 +522,8 @@ a.prfl_btn {
     bottom: 0;
     width: 100%;
     z-index: -1;
-    position: absolute;*/
-}
+    position: absolute;
+} */
 .my_profile_box {
     background: #fff;
     padding: 0px 0px 20px 0px !important;

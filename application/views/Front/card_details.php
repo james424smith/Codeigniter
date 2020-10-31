@@ -13,8 +13,9 @@
 
       //var_dump($get_offer_user_id);die();
       $offer_username = $obj->Payment_model->get_username($get_offer_user_id);
-      $get_offer_username = $get_offer_project_id[0]['username'];
-
+     
+      $get_offer_username = "username";//$get_offer_project_id[0]['username'];
+      //var_dump($get_offer_username); die();
       $offer_mission_name = $obj->Payment_model->get_mission_name($get_offer_project_id);
       $get_offer_mission_name = $offer_mission_name[0]['mission_title'];
 
@@ -44,7 +45,7 @@
           <div class="col-md-3"></div>      
           <div class="col-md-6">          
             <div class="edit_card credit_card">
-              <div class="credit_card_head"><h4>Edit Your Card Details</h4></div>
+              <div class="credit_card_head"><h4 style="color:#31b731;">Edit Your Card Details</h4></div><hr><br>
               <form action="<?php echo base_url('Front/Payment/payment_success/')?>" method="POST" id="paymentForm">
 
                 <div class="card_number_input">

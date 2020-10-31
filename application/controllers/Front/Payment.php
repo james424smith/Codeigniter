@@ -277,8 +277,9 @@ $this->load->model('Front/Payment_model');
       }
 
 
-      public function add_credit_card()
+    public function add_credit_card()
     {
+        //var_dump("save_credit");die();
        
         $card_no = strip_tags($this->input->post('card_no'));
         $date_created = date('Y-m-d H:i:s');
@@ -289,27 +290,19 @@ $this->load->model('Front/Payment_model');
         $expiry_year = strip_tags($this->input->post('expiry_year'));
         $expiry = $expiry_month . "/" . $expiry_year;
 
-
-        $add_card_details = array('card_no'=>$card_no,'date_created'=>$date_created,'user_id'=>$user_id,'name'=>$name,'expiry'=>$expiry);
-
-
-        
-
-           
-          $result = $this->Payment_model->add_card_details($add_card_details);
-         
- redirect(base_url() . 'Front/payment/credit_card'); 
-         
-}
+        $add_card_details = array('card_no'=>$card_no,'date_created'=>$date_created,'user_id'=>$user_id,'name'=>$name,'expiry'=>$expiry);           
+        $result = $this->Payment_model->add_card_details($add_card_details);         
+        redirect(base_url() . 'Front/payment/credit_card');          
+    }
 
 
-public function update_credit_card()
+    public function update_credit_card()
     {
-       
+        //var_dump("update_credit");die();
         $card_no = strip_tags($this->input->post('card_no'));
         $expiry_month = strip_tags($this->input->post('expiry_month'));
         $expiry_year = strip_tags($this->input->post('expiry_year'));
-       $expiry = $expiry_month . "/" . $expiry_year;
+        $expiry = $expiry_month . "/" . $expiry_year;
         $date_created = date('Y-m-d H:i:s');
         $user_id = strip_tags($this->input->post('user_id'));
         $card_id = strip_tags($this->input->post('card_id'));
@@ -352,25 +345,14 @@ redirect(base_url() . 'Front/payment/credit_card');
 
 
 
-public function credit_card()
-
-{
-  $this->load->model('Front/Payment_model');
-
-  $user_id = $this->session->userdata['id'];
-
-
-
-$card_details_data['card_details'] = $this->Payment_model->get_card_details($user_id);
+  public function credit_card()
+  {
+    $this->load->model('Front/Payment_model');
+    $user_id = $this->session->userdata['id'];
+    $card_details_data['card_details'] = $this->Payment_model->get_card_details($user_id);
          
+    $this->load->view('Front/credit_card', $card_details_data);
 
-         $this->load->view('Front/credit_card',$card_details_data);
-
- }
-
-
-
-
-
+  }
 }
 ?>

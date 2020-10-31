@@ -21,8 +21,8 @@ $user_id = $this->session->userdata['id'];
 			<div class="col-md-12">
 				<div class="row">
 					<div class="col-md-6">					
-						<div class="edit_card credit_card">
-							<div class="credit_card_head"><h4>Edit Your Card Details</h4></div>
+						<div class="edit_card credit_card" style="padding:14px;">
+							<div class="credit_card_head"><h4 style="color:#31b731;">Edit Your Card Details</h4></div><hr>
 							<?php foreach ($card_details as $value) { ?>
 								<?php 
 								$expiry = $value->expiry;
@@ -49,43 +49,37 @@ $user_id = $this->session->userdata['id'];
 								</li> -->
 							</ul>
 							</div>
-							<div class="save_credit_card">
-								
+							<div class="save_credit_card">								
 								<input type="submit" name="submit" value="Submit" class="btn btn-info card_btn_info">
 							</div>
-						</form>
-						<?php } ?>
-							
-								
-						
-						</div>
-
-					
+						</form><br><hr><br>
+						<?php } ?>																		
+						</div>					
 					</div>
 					
 					<div class="col-md-6">
 						<div class="add_Card_btn">	
-							<div class="credit_card_head"><h4>Edit Your Card Details</h4></div>					 
-							  <button id="hide" type="button" class="btn btn-info card_btn_info" data-toggle="collapse" data-target="#demo">Add New Card</button>
+							<div class="credit_card_head"><h4 style="color:#31b731;">Edit Your Card Details</h4></div><hr>					 
+							  <button id="hide" type="button" class="btn btn-info card_btn_info" data-toggle="collapse" data-target="#demo" style="margin-top:200px;">Add New Card</button>
 							  <div id="demo" class="collapse">
 							    <form name="add_credit_card" method="post" id="add_card"  action="<?php echo base_url('Front/Payment/add_credit_card/')?>">
 
 							    <div class="card_number_input">
 								<p>Card Number</p>
-								<input type="number" name="card_no" placeholder="">
+								<input type="number" name="card_no" placeholder="" required>
 								<input type="hidden" name="user_id" value="<?php echo $user_id; ?>">
 							</div>
 							<div class="card_ul_li">
 								<ul>
 								<li><p>Expiry</p>
-									<input type="number" name="expiry_month" placeholder="MM"> 
-									<input type="number" name="expiry_year" placeholder="YY">
+									<input type="number" name="expiry_month" placeholder="MM" required> 
+									<input type="number" name="expiry_year" placeholder="YY" required>
 								</li>
 								
 							</ul>
 							</div>
 							<div class="save_credit_card">
-								<input type="submit" name="submit" value="submit">
+								<button type="submit" class="btn btn-default" name="submit">Submit</button>
 							</div>
 						</form>
 							  </div>
@@ -94,7 +88,6 @@ $user_id = $this->session->userdata['id'];
 				</div>
 				<div class="row">
 					
-
 				</div>
 			</div>
 		</div>		
@@ -106,8 +99,6 @@ $(document).ready(function(){
   $("#hide").click(function(){
     $(".card_btn_info").hide();
   });
-
-
   
 });
 </script>
