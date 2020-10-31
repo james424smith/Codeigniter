@@ -205,7 +205,7 @@ div#user_profile button.btn.btn-default {
 } 
 .banner_section {
     padding: 100px 0px 70px;
-    background-image: url(https://www.alphawizz.com/heelp_front/assets/img/banner_top.jpg);
+    /*background-image: url(https://www.alphawizz.com/heelp_front/assets/img/banner_top.jpg);*/
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -1100,7 +1100,9 @@ a.dropdown-toggle.btn.btn-primary {
 
 .top_bnr.section {
     padding: 90px 0px;
-    background-image: url(https://www.alphawizz.com/heelp_front/assets/img/1bg.png);
+    /*background-image: url(https://www.alphawizz.com/heelp_front/assets/img/1bg.png);*/
+    
+
     background-repeat: no-repeat;
     background-size: 100% 100%;
     position: relative;
@@ -1112,7 +1114,7 @@ a.dropdown-toggle.btn.btn-primary {
     right: 0;
     top: 0;
     bottom: 0;
-    background: #33333357;
+    /*background: white#33333357 back color*/;
     z-index: 99;
     /* height: 100vh; */
     width: 100%;
@@ -1127,7 +1129,8 @@ a.dropdown-toggle.btn.btn-primary {
     text-shadow: 0px 3px 10px #333;
 }
 .top_bnr.section.about_top_sec{
-    background-image: url(https://www.alphawizz.com/heelp_front/assets/img/about_bg.png);
+    /*background-image: url(https://www.alphawizz.com/heelp_front/assets/img/about_bg.png);*/
+
 }
 .slider_content img {
     height: 171px;
@@ -1167,11 +1170,12 @@ a.dropdown-toggle.btn.btn-primary {
     padding-top: 20px;
 }
 .form-control:focus {
-    box-shadow: none;
+    box-shadow: none;   
 }
 
 .top_bnr.section.post_demand {
-    background-image: url(https://www.alphawizz.com/heelp_front/assets/img/cat_bg.png);
+    /*background-image: url(https://www.alphawizz.com/heelp_front/assets/img/cat_bg.png);*/
+
 }
 
 /* 10-april start */
@@ -1657,7 +1661,7 @@ div#myModal2 .modal-dialog {
           align-items: center;
 }
 .header__profile .profile__photo {
-  background: url(https://cdn.tutsplus.com/net/uploads/legacy/213_chris/ChrisThumbnail.jpg);
+ /* background: url(https://cdn.tutsplus.com/net/uploads/legacy/213_chris/ChrisThumbnail.jpg);*/
   width: 30px;
   height: 30px;
   background-size: cover;

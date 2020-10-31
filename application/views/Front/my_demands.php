@@ -22,12 +22,13 @@
     swal("Your modification request has been sent successfully.");
   </script> 
 <?php } ?>
+
    <div class="top_bnr section post_demand">
       <div class="container">
          <div class="row top-side about_title">
             <div class="col-md-12 text-center">
-               <img src="<?php  echo base_url('assets/Front/img/myrequestblue.png'); ?>" />
-               <h4 class="title">My Demands</h4>
+               <img src="<?php  echo base_url('assets/Front/img/demands.png'); ?>" />
+
              </div>
          </div>
       </div>

@@ -1,6 +1,6 @@
 <?php 
 $config = array(
-    'protocol' => 'sendmail', // 'mail', 'sendmail', or 'smtp'
+    'protocol' => 'smtp', // 'mail', 'sendmail', or 'smtp'
     'smtp_host' => ' mail12.lwspanel.com', 
     'smtp_port' => 465,
     'smtp_user' => 'contact@heelp.fr',

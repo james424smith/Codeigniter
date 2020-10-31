@@ -25,7 +25,7 @@
                             <br>
                             <div class="row">
                                 <div class="col-md-6 form-group">
-                                     <label><input type="checkbox" name="remember" class=""> Remember me</label> 
+                                    <label><input type="checkbox" name="remember" class=""> Remember me</label> 
                                 </div>
                                 <div class="col-md-6 loginbttm">
                                     <button type="submit" class="btn">LOGIN</button>
@@ -33,7 +33,7 @@
                             </div>
                             <div class="row">
                                 <div class="col-md-12 form-group text-center">
-                                     <label><input type="checkbox" class="" checked><a href="<?php echo base_url('Front/home/terms_condition')?>"> I accept terms </a></label> 
+                                    <label><input type="checkbox" class="" checked><a href="<?php echo base_url('Front/home/terms_condition')?>"> I accept terms </a></label> 
                                 </div>
                             </div>
                         </form>
