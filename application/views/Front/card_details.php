@@ -112,8 +112,6 @@
 			if (val.match(reg)) {
 				$(this).val(val.replace(reg1, ''));
 			}
-
-
     });
 
 

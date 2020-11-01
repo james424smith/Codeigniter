@@ -1,78 +1,86 @@
  <section class="find_bg search-content">
-      <div class="container">        
+      <div class="container">
+        <div class="row">
+            <div class="col-md-12 find_search">
+              <form action="<?php echo base_url('Front/Home/search')?>" method="post" >
+                <i class="fas fa-search"></i>
+                <input type="text" name="keywords" id="keywords" placeholder="Search" >
+              </form>
+            </div>
+        </div>        
         <div class="row" id="data_heelp">
           <?php foreach ($team as $member) {  ?> 
             <?php //print_r($team);die();
             ?>
-                    <?php
-                                $count = 0;
-            $total = 0;
-                    $obj=&get_instance();
-$obj->load->model('Front/Posts_model');
-        //$user_id = $value['user_id'];
-$avg = $this->Posts_model->selectAvgOfRating($member['id']);
+            <?php
+              $count = 0;
+              $total = 0;
+              $obj=&get_instance();
+              $obj->load->model('Front/Posts_model');
+              //$user_id = $value['user_id'];
+              $avg = $this->Posts_model->selectAvgOfRating($member['id']);
 
 
 
-            for($j=0;$j<count($avg);$j++)
-            {
+              for($j=0;$j<count($avg);$j++)
+              {
                 $total += $avg[$j]->rating;
                 $count++;
-            }
-            if($count != 0)
-            {
-                $av =$total/$count;
-                $user_detail = round(number_format($av, 2, '.', ''));
-            }
-            else
-            {
-                $user_detail = 0;
-            }
+              }
+              if($count != 0)
+              {
+                  $av =$total/$count;
+                  $user_detail = round(number_format($av, 2, '.', ''));
+              }
+              else
+              {
+                  $user_detail = 0;
+              }
 
-            if($user_detail == 0)
-            {
-              $class_star = "stars-0";
-            }
-            elseif($user_detail == 0.50)
-            {
-              $class_star = "stars-10";
-            }
-            elseif($user_detail == 1.00)
-            {
-              $class_star = "stars-20";
-            }
-            elseif($user_detail == 1.50)
-            {
-              $class_star = "stars-30";
-            }
-            elseif($user_detail == 2.00)
-            {
-              $class_star = "stars-40";
-            }
-            elseif($user_detail == 2.50)
-            {
-              $class_star = "stars-50";
-            }
-            elseif($user_detail == 3.00)
-            {
-              $class_star = "stars-60";
-            }
-            elseif($user_detail == 3.50)
-            {
-              $class_star = "stars-70";
-            }
-            elseif($user_detail == 4.00)
-            {
-              $class_star = "stars-80";
-            }
-            elseif($user_detail == 4.50)
-            {
-              $class_star = "stars-90";
-            }
-            elseif($user_detail == 5.00)
-            {
-              $class_star = "stars-100";
-            }
+              if($user_detail == 0)
+              {
+                $class_star = "stars-0";
+              }
+              elseif($user_detail == 0.50)
+              {
+                $class_star = "stars-10";
+              }
+              elseif($user_detail == 1.00)
+              {
+                $class_star = "stars-20";
+              }
+              elseif($user_detail == 1.50)
+              {
+                $class_star = "stars-30";
+              }
+              elseif($user_detail == 2.00)
+              {
+                $class_star = "stars-40";
+              }
+              elseif($user_detail == 2.50)
+              {
+                $class_star = "stars-50";
+              }
+              elseif($user_detail == 3.00)
+              {
+                $class_star = "stars-60";
+              }
+              elseif($user_detail == 3.50)
+              {
+                $class_star = "stars-70";
+              }
+              elseif($user_detail == 4.00)
+              {
+                $class_star = "stars-80";
+              }
+              elseif($user_detail == 4.50)
+              {
+                $class_star = "stars-90";
+              }
+              elseif($user_detail == 5.00)
+              {
+                $class_star = "stars-100";
+              }
  ?>
           <div class="col-md-3">
             <a href="<?php echo base_url('Front/home/heelper_profile/'.$member['id'])?>">
