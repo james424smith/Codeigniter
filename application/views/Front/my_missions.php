@@ -28,7 +28,7 @@
    <div class="top_bnr section post_demand">
       <div class="container">
          <div class="top-side about_title">
-            <img src="<?php  echo base_url('assets/Front/img/mission.png'); ?>" />
+         <img src="<?php  echo base_url('assets/Front/img/My missions.PNG'); ?>"/>
          </div>
       </div>
    </div>

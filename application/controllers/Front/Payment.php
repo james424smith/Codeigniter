@@ -223,7 +223,15 @@ $this->load->model('Front/Payment_model');
         //var_dump("ddd");die();
         $this->load->view('Front/card_details');
       } 
-
+      
+      public function payment_success_with_savecard()
+      {
+          $get_offer_user_id = $this->input->post('get_offer_user_id');
+          $get_offer_project_id = $this->input->post('get_offer_project_id');
+          $this->load->model('Front/Posts_model');
+          $this->Posts_model->pushNotification($get_offer_user_id, 3, "Your offer has been accepted.");
+          $this->load->view('Front/payment_success');
+      }
       public function payment_success(){
         
         $is_wallet = $this->input->post('wallet');
@@ -280,7 +288,7 @@ $this->load->model('Front/Payment_model');
     public function add_credit_card()
     {
         //var_dump("save_credit");die();
-       
+    
         $card_no = strip_tags($this->input->post('card_no'));
         $date_created = date('Y-m-d H:i:s');
         $user_id = strip_tags($this->input->post('user_id'));
@@ -289,8 +297,9 @@ $this->load->model('Front/Payment_model');
         $expiry_month = strip_tags($this->input->post('expiry_month'));
         $expiry_year = strip_tags($this->input->post('expiry_year'));
         $expiry = $expiry_month . "/" . $expiry_year;
-
-        $add_card_details = array('card_no'=>$card_no,'date_created'=>$date_created,'user_id'=>$user_id,'name'=>$name,'expiry'=>$expiry);           
+        
+        $cvv_code = strip_tags($this->input->post('cvv_code'));
+        $add_card_details = array('card_no' => $card_no, 'date_created' => $date_created, 'user_id' => $user_id, 'name' => $name, 'expiry' => $expiry, 'cvv' => $cvv_code);           
         $result = $this->Payment_model->add_card_details($add_card_details);         
         redirect(base_url() . 'Front/payment/credit_card');          
     }
@@ -308,51 +317,46 @@ $this->load->model('Front/Payment_model');
         $card_id = strip_tags($this->input->post('card_id'));
         //$user_id = strip_tags($this->post('user_id'));
         $name = strip_tags($this->input->post('name'));
-//$expiry = strip_tags($this->post('expiry'));
 
         $update_card_details = array('card_no'=>$card_no,'date_created'=>$date_created,'name'=>$name,'expiry'=>$expiry);
-
-
-        
-
-           
-          $result = $this->Payment_model->update_card_details($card_id,$update_card_details);
+        $result = $this->Payment_model->update_card_details($card_id,$update_card_details);
          
-redirect(base_url() . 'Front/payment/credit_card'); 
+        redirect(base_url() . 'Front/payment/credit_card'); 
          
-}
-
-        /*public function delete_card_details_post(){
-        $card_id = strip_tags($this->post('card_id'));
-        $card_data = $this->Payment_model->delete_card_details($card_id);
-        if($card_data)
-        {
+    }
+    public function delete_credit_card()
+    {
+      $card_id = strip_tags($this->input->post('card_id'));
+      $card_data = $this->Payment_model->delete_card_details($card_id);
+      redirect(base_url() . 'Front/payment/credit_card');
+    }
+    /*public function delete_card_details_post(){
+      $card_id = strip_tags($this->post('card_id'));
+      $card_data = $this->Payment_model->delete_card_details($card_id);
+      if($card_data)
+      {
         $this->response([
         'status' => TRUE,
         'message' => ('Card Deleted'),
         'data'=>$card_data,
         ], REST_Controller::HTTP_OK);
-        }
+      }
 
-        else 
-        {
+      else 
+      {
         $this->response([
         'status' => false,
         'message' => ('Card not Deleted'),
         ], REST_Controller::HTTP_OK);
-        }
-        }*/
-
-
+      }
+    }*/
 
   public function credit_card()
   {
     $this->load->model('Front/Payment_model');
     $user_id = $this->session->userdata['id'];
-    $card_details_data['card_details'] = $this->Payment_model->get_card_details($user_id);
-         
+    $card_details_data['card_details'] = $this->Payment_model->get_card_details($user_id);         
     $this->load->view('Front/credit_card', $card_details_data);
-
   }
 }
 ?>

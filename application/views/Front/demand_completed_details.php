@@ -22,11 +22,11 @@
 <section>
   <div class="top_bnr section post_demand">
     <div class="container">
-      <div class="top-side about_title">
-          <h4 class="title">Completed</h4>
-        </div>
+    	<div class="top-side about_title">
+			<img src="<?php  echo base_url('assets/Front/img/Demand completed.png'); ?>"/>
+		</div>
     </div>
-  </div>
+  </div><hr>
 </section>
 
 <section class="demand_deails_section mission_complete">

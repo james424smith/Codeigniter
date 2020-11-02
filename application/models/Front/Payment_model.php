@@ -383,7 +383,7 @@ class Payment_model extends CI_Model
         }
 
     public function delete_card_details($id){
-        $this->db->where('id',$id);
+        $this->db->where('id', $id);
         $activity =  $this->db->delete('card_details');
         return $activity;
     }
@@ -403,10 +403,9 @@ class Payment_model extends CI_Model
 
     }
 
-    public function update_card_details($card_id,$data)
+    public function update_card_details($card_id, $data)
     {
       $this->db->where('id', $card_id);
-
       $this->db->update('card_details', $data);
       if($this->db->affected_rows() > 0)
       {
@@ -423,7 +422,7 @@ class Payment_model extends CI_Model
     {
       $this->db->select("*");
       $this->db->from('card_details');
-      $this->db->where('user_id',$id);
+      $this->db->where('user_id', $id);
       $data = $this->db->get()->result();
       return $data;
 

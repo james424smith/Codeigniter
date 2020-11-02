@@ -19,7 +19,7 @@
   <div class="top_bnr section post_demand">
     <div class="container">
       <div class="top-side about_title">
-          <h4 class="title">Dispute</h4>
+		  <img src="<?php  echo base_url('assets/Front/img/Mission dispute.png'); ?>"/>
         </div>
     </div>
   </div>

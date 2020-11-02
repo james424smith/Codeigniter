@@ -18,10 +18,10 @@
   <div class="top_bnr section post_demand">
     <div class="container">
       <div class="top-side about_title">
-          <h4 class="title">Proposed</h4>
+		  	<img src="<?php  echo base_url('assets/Front/img/Mission proposed.png'); ?>"/>
         </div>
     </div>
-  </div>
+  </div><hr>
 </section>
 
 <section class="demand_posted_details mymission">

@@ -28,9 +28,9 @@
 <section>
   <div class="top_bnr section post_demand">
     <div class="container">
-      <div class="top-side about_title">
-          <h4 class="title">Posted</h4>
-        </div>
+      	<div class="top-side about_title">
+	  		<img src="<?php  echo base_url('assets/Front/img/Posted demand.PNG'); ?>"/>
+    	</div>
     </div>
   </div>
 </section>

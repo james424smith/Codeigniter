@@ -12,7 +12,7 @@
 	<div class="top_bnr section" style="background-color:white;">
 		<div class="container">
 			<div class="top-side">
-		      <h4 class="title">Find a Mission</h4>
+				<img src="<?php  echo base_url('assets/Front/img/Find a mission.png'); ?>"/>
 		    </div>
 		</div>
 	</div>

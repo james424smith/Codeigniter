@@ -32,10 +32,10 @@
   <div class="top_bnr section post_demand">
     <div class="container">
       <div class="top-side about_title">
-          <h4 class="title">Delivered</h4>
+		  <img src="<?php  echo base_url('assets/Front/img/Demand delivred.png'); ?>"/>
         </div>
     </div>
-  </div>
+  </div><hr>
 </section>
 
 <section class="demand_deails_section">
@@ -214,7 +214,7 @@
 							<P>
 								<h5>I want to release payment.</h5>
 							</p>
-						</div>
+						</div> 
 						<br>
 						<div class="row">
 							<div class="col-md-2" style="margin-top:20px;">

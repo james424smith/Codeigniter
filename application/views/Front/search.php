@@ -15,14 +15,12 @@
             <?php
               $count = 0;
               $total = 0;
-              $obj=&get_instance();
+              $obj = &get_instance();
               $obj->load->model('Front/Posts_model');
               //$user_id = $value['user_id'];
               $avg = $this->Posts_model->selectAvgOfRating($member['id']);
 
-
-
-              for($j=0;$j<count($avg);$j++)
+              for($j = 0; $j < count($avg); $j++)
               {
                 $total += $avg[$j]->rating;
                 $count++;
