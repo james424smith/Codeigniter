@@ -2,7 +2,7 @@
 <?php $admin_url = $this->config->item('base_url'); 
 ?>
 <section class="contact_bnr">
-    <div class="container">
+   <div class="container">
         <div class="row">
         <?php 
           foreach ($section_1 as $contact) {           
@@ -85,7 +85,7 @@
                           <!-- Contact form -->
 
                           <form class="contact2-form validate-form" action="" method="post">
-                              <h3>Contact US</h3>
+                              <h3>Contactez-nous</h3>
 
                               <div class="wrap-input2 validate-input">
                                   <input class="wrap-input2 validate-input" type="text" name="name" value="<?php echo !empty($postData['name'])?$postData['name']:''; ?>" placeholder="Enter Name" required>

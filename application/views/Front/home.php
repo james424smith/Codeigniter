@@ -118,7 +118,7 @@
       <div class="col-md-12">
         <div class="slider autoplay">
           <?php     
-              $i=0;
+              $i = 0;
               foreach ($missions as $row){ 
                 $i++; ?>
                   <div class="col-md-12 all corporate">
