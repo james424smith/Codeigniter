@@ -5,7 +5,7 @@
   <div class="top_bnr section post_demand">
     <div class="container">
       <div class="top-side about_title">
-          <h4 class="title">My Payment</h4>
+          <h4 class="title">Mes Paiment</h4>
         </div>
     </div>
   </div>
@@ -35,7 +35,7 @@
                             <label for="radio2">
                               <img src="<?php echo base_url();?>/assets/Front/img/card1.png">
                             </label>
-                            <p><a href="<?php echo base_url('Front/Payment/credit_card')?>" class="btn btn_default">Credit Card</a></p>
+                            <p><a href="<?php echo base_url('Front/Payment/credit_card')?>" class="btn btn_default">Carte bancaire</a></p>
                           </div>
                         </div>
 

@@ -55,7 +55,7 @@
 					</p>
 					<p class="budget_details_p">
 					 	<b>Budget: <?php echo $mission->budget;?></b> <i class="fas fa-euro-sign"></i>
-						<b style="color:red;">&nbsp;&nbsp;&nbsp;Offer: <?php echo $mission->mission_budget;?> <i class="fas fa-euro-sign"></i></b>
+						<b style="color:red;">&nbsp;&nbsp;&nbsp;Offre: <?php echo $mission->mission_budget;?> <i class="fas fa-euro-sign"></i></b>
 					</p>
 				</div>
 				<div class="demand_details_upload_btn">
@@ -66,7 +66,7 @@
 										echo $mission->mission_doc; 
 									}
 									else {
-										echo "No Attached File";
+										echo "Aucune pièce jointe";
 									}
 								?>	
 								&nbsp;<i class="fas fa-download"></i>	
@@ -90,7 +90,7 @@
 						</div>
 					</div>
 					<div class="col-md-10">
-						<h4>My Comment</h4>
+						<h4>Mon commentaire</h4>
 					</div>
 				</div>
 				<?php foreach ($all_comments as $each_comment) { ?>
@@ -115,10 +115,10 @@
 				<div class="row" style="padding-left:10px;">				
 					<div class="claim_an_issue">
 						<a href="<?php echo base_url("Front/home/mission_inprogress_details/" . $id) ?>" class="btn btn-default">
-							New delivery
+							Livrable
 						</a> &nbsp;&nbsp;&nbsp;
 						 <a href="#" class="btn btn-default" data-toggle="modal" data-target="#myModal2">
-							Claim an issue
+						 	Ouvrir un litige
 						</a>
 						<!--<button type="submit" class="btn btn-default" data-toggle="modal"> Claim an issue </button>-->
 					</div>	
@@ -148,11 +148,11 @@
 
 					Si non,  pour toute autre demande merci de nous écrire via
 					 
-					la page de contact en cliquant ici: <a href="<?php echo base_url('Front/contact')?>" class="btn btn-primary">Contact Here</a>
+					la page de contact en cliquant ici: <a href="<?php echo base_url('Front/contact')?>" class="btn btn-primary">Contactez ici</a>
 				</p>
 				<form action="<?php echo base_url('ChatController/claim_chat')?>" method="post">
 					<div class="">
-						<textarea placeholder="Description:" name="description"></textarea>
+						<textarea placeholder="Déscription..." name="description"></textarea>
 						<input type="hidden" name="user_id" value="<?php echo $mission->client_id ?>">	
 						<input type="hidden" name="project_id" value="<?php echo $mission->mission_id ?>">	
 						<input type="hidden" name="title" value="<?php echo $mission->mission_title ?>">	

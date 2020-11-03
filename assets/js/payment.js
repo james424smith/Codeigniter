@@ -17,7 +17,7 @@ $(document).ready(function() {
 function handleStripeResponse(status, response) {
 	console.log(JSON.stringify(response));
     if (response.error) {
-        swal("Card Error", "Your card information is not correct.", "error");
+        swal("Erreur de carte", "Les informations de votre carte ne sont pas correctes.", "error");
         $('#makePayment').removeAttr("disabled");
         $(".paymentErrors").html(response.error.message);
     } else {

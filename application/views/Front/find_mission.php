@@ -21,9 +21,9 @@
   <div class="container">
     <div class="filters-content">
     	<div class="dropdown all_cat">   
-		  <label for="">Categories</label>		  
+		  <label for="">Catégories</label>		  
 			<select name="category" onChange="window.location.href=this.value">
-				<option value="<?php echo base_url('Front/home/find_mission')?>">All</option>
+				<option value="<?php echo base_url('Front/home/find_mission')?>">Tout</option>
 				<?php 
 					foreach ($categories as $category) {
 		  		?>
@@ -35,7 +35,7 @@
 			<br><br><br>
             <div class="row">
             <div class="col-md-12 text-center">
-               <h4>No Mission to display.</h4>
+               <h4>Aucune mission à afficher.</h4>
             </div>
             </div>
             <br><br>
@@ -59,7 +59,7 @@
                       	$your_date = strtotime($post['created_date']);
                       	$datediff = $now - $your_date;
                     ?>
-					<p class="cat_date"><?php echo round($datediff / (60 * 60 * 24)); ?>days ago</p>
+					<p class="cat_date">Il y a <?php echo round($datediff / (60 * 60 * 24)); ?> jours</p>
 					
 					<h5><?php echo $post['mission_title'] ?></h5>
 					<p><?php echo $post['mission_description'] ?></p>
@@ -71,13 +71,13 @@
 									echo base_url('Front/home/make_an_offer/'.$post['mission_id']); }
 								else {
 									echo base_url('Front/home/login');
-								} ?>">Make an Offer</a>
+								} ?>" style="width:190px;">Proposer une offre</a>
 						</div>	
 						<div class="col-md-2 make_btn">
 						</div>
 						<div class="col-md-4 make_btn">	
 							<span>
-								<a href="<?php echo base_url('Front/home/heelper_profile/' . $post['client_id'])?>" id="chat_show" class="btn btn-default"> Discuss</a>
+								<a href="<?php echo base_url('Front/home/heelper_profile/' . $post['client_id'])?>" id="chat_show" class="btn btn-default"> Chat</a>
 								<input type=hidden id="sender_id" value="<?php echo $this->session->userdata['id']; ?>">
 								<input type=hidden id="receiver_id" value="<?php echo $post['client_id']; ?>">
 							</span>

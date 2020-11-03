@@ -162,13 +162,13 @@ $('#action_menu_btn').click(function(){
                 <div class="nav-links">
                   <a href="<?php echo base_url();?>Front/home">Home</a>
                   <!-- <a href="<?php echo base_url();?>Front/about">About Us</a> -->
-                  <a href="<?php echo base_url();?>Front/home/post_demand">Post a demand</a>
-                  <a href="<?php echo base_url();?>Front/home/find_mission">Find a Mission</a>
-                  <!-- <a href="#">My Demands</a> -->
+                  <a href="<?php echo base_url();?>Front/home/post_demand">Publier une demande</a>
+                  <a href="<?php echo base_url();?>Front/home/find_mission">Trouver une mission</a>
+                  <!-- <a href="#">Mes demandes</a> -->
                   <!-- <a href="<?php echo base_url();?>Front/contact">Contact Us</a> -->
-                  <a href="<?php echo base_url();?>Front/Home/search">Find A heelper</a>
+                  <a href="<?php echo base_url();?>Front/Home/search">Trouver un Heelper</a>
                                       
-                      <a href="<?php echo base_url();?>Front/home/login">Log in</a>
+                      <a href="<?php echo base_url();?>Front/home/login">Se connecter</a>
                                    </div>
               </div>
             </div>
@@ -199,7 +199,7 @@ $('#action_menu_btn').click(function(){
                           <a href="<?php echo base_url();?>Front/Posts/Notification/2" class="hvr-bounce-to-right">
                               <div class="not_icon">
                                 <img src="<?php echo base_url();?>/assets/Front/img/not_icn2.png">
-                                <span>Missions & demands Status</span>
+                                <span>Statut des missions et demandes</span>
                               </div>
                               <div class="not_status">
                                 <p>0</p>
@@ -278,7 +278,7 @@ $('#action_menu_btn').click(function(){
                           <a href="<?php echo base_url();?>Front/home/about_heelp" class="hvr-bounce-to-right">
                               <div class="not_icon">
                                 <span><img src="<?php echo base_url();?>/assets/Front/img/drover6.png"></span>
-                                About Heelp
+                                A propos de Heelp
                               </div>
                           </a>
                         </li>
@@ -294,7 +294,7 @@ $('#action_menu_btn').click(function(){
       </div>
       <!-- fixed button right side -->
       <div class="find_a_mission_top_btn">
-        <a href="<?php echo base_url();?>Front/home/find_mission" class="btn btn-default">Find a Mission</a>
+        <a href="<?php echo base_url();?>Front/home/find_mission" class="btn btn-default">Trouver une mission</a>
       </div>
       <!-- fixed button right side end-->
 
@@ -334,8 +334,8 @@ $('#action_menu_btn').click(function(){
                <div class="col-md-7">
                   <div class="footer_left_menu">
                     <ul>
-                      <li><a href="<?php echo base_url();?>Front/home/mymissions">My Missions</a></li>
-                      <li><a href="<?php echo base_url();?>Front/home/mydemands">My Demands</a></li>
+                      <li><a href="<?php echo base_url();?>Front/home/mymissions">Mes missions</a></li>
+                      <li><a href="<?php echo base_url();?>Front/home/mydemands">Mes demandes</a></li>
                       <li><a href="<?php echo base_url();?>Front/contact">Contact Us</a></li>
                       <li><a href="<?php echo base_url();?>Front/home/terms_condition">Terms & Conditions</a></li>
                     </ul>

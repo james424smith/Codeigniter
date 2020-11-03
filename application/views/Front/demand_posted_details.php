@@ -29,7 +29,7 @@
   <div class="top_bnr section post_demand">
     <div class="container">
       	<div class="top-side about_title">
-	  		<img src="<?php  echo base_url('assets/Front/img/Posted_demand.PNG'); ?>"/>
+	  		<img src="<?php  echo base_url('assets/Front/img/Posted_demand.png'); ?>"/>
     	</div>
     </div>
   </div>
@@ -39,7 +39,7 @@
 	<div class="section portfolio">
 		<main id="main" class="container">
 			<nav class="nav">
-			    <a href="#" class="nav-item active" data-rel="option-1">Note</a>
+			    <a href="#" class="nav-item active" data-rel="option-1">Remarque</a>
 			    <a href="#" class="nav-item" data-rel="option-2">Budget</a>
 			    <a href="#" class="nav-item" data-rel="option-3">Date</a>
 		  </nav>
@@ -47,7 +47,7 @@
 				<div class="row text-center" style="margin-top:100px;">
 					<div class="col-md-4"></div>
 					<div class="col-md-4">
-						<h4>No data to display</h4>
+						<h4>Aucune donnée à afficher</h4>
 					</div>
 					
 				</div>
@@ -101,7 +101,7 @@
                       			$your_date = strtotime($value['created_date']);
                       			$datediff = $now - $your_date;
                       		?>
-                        <p class="cat_date"><?php echo round($datediff / (60 * 60 * 24)); ?> Days ago</p>			        		
+                        <p class="cat_date">Il y a <?php echo round($datediff / (60 * 60 * 24)); ?> jours</p>			        		
 			                <h5>
 								<?php 
 									$show_text = $value['message'];
@@ -111,14 +111,14 @@
 								?>
 							</h5>
 							
-							<a href="" data-toggle="modal" data-target="#myModal<?php echo $value['offer_id'];?>">read more</a><hr>
+							<a href="" data-toggle="modal" data-target="#myModal<?php echo $value['offer_id'];?>">Voir plus</a><hr>
 							<!-- The Modal -->
 							<div class="modal fade" id="myModal<?php echo $value['offer_id'];?>">
 								<div class="modal-dialog modal-dialog-centered">
 									<div class="modal-content">
 										<!-- Modal Header -->
 										<div class="modal-header" style="background-color: #5cb85c;">
-											<h4 class="modal-title">Proposal</h4>
+											<h4 class="modal-title">Proposition</h4>
 											<button type="button" class="close" data-dismiss="modal">&times;</button>
 										</div>
 										
@@ -129,18 +129,18 @@
 										
 										<!-- Modal footer -->
 										<div class="modal-footer">
-										<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+										<button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
 										</div>
 									</div>
 								</div>
 							</div>
-							<span><b>Offer:</b> <?php echo '€' . $value['offer_budget']; ?></span>
+							<span><b>Offre:</b> <?php echo '€' . $value['offer_budget']; ?></span>
 			              	<div class="row">	
 			              		<div class="col-md-6 profile_img">
-					            	<a href="<?php echo base_url('Front/Payment/acceptoffer/')?><?php echo $value['offer_id']?>" class= "accept_offer_btn">Accept Offer</a>
+					            	<a href="<?php echo base_url('Front/Payment/acceptoffer/')?><?php echo $value['offer_id']?>" class= "accept_offer_btn">Accepter l'offre</a>
 								</div>
 								<div class="col-md-6 profile_img">
-									<a href="<?php echo base_url('Front/home/heelper_profile/' . $value['user_id'])?>" id="chat_show" class="accept_offer_btn"> Discuss</a>
+									<a href="<?php echo base_url('Front/home/heelper_profile/' . $value['user_id'])?>" id="chat_show" class="accept_offer_btn"> Chat</a>
 					            </div>		            
 			              	</div>	              
 			            </div>	            

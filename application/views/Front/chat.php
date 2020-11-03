@@ -21,7 +21,7 @@
 						<div class="card mb-sm-3 mb-md-0 contacts_card">
 							<div class="card-header" style="margin-bottom:10px;">
 								<div class="input-group">
-									<input type="text" placeholder="Search..." name="" class="form-control search">
+									<input type="text" placeholder="Chercher..." name="" class="form-control search">
 									<div class="input-group-prepend">
 										<span class="input-group-text search_btn"><i class="fas fa-search"></i></span>
 									</div>	
@@ -77,7 +77,7 @@
 										<span class="online_icon"></span>
 									</div>
 									<div class="user_info">
-										<span class="select-username">Chat Room</span>
+										<span class="select-username">Messenger</span>
 									</div>
 									<div class="video_cam">
 										<!-- <span><i class="fas fa-video"></i></span>
@@ -95,7 +95,7 @@
 										</span>
 										<input type="file" name="file" id="files" class="upload_attachmentfile" style="display:none;"/>
 									</div>
-									<textarea name="" class="form-control message" placeholder="Type your message..." class="message" id="message"></textarea>
+									<textarea name="" class="form-control message" placeholder="Tapez votre message..." class="message" id="message"></textarea>
 									<div class="input-group-append">
 										<span class="input-group-text send_btn"><i class="fas fa-location-arrow"></i></span>
 									</div>

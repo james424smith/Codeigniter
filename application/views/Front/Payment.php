@@ -5,7 +5,7 @@
   <div class="top_bnr section post_demand">
     <div class="container">
       <div class="top-side about_title">
-          <h4 class="title">Payment</h4>
+          <h4 class="title">Paiement</h4>
         </div>
     </div>
   </div>
@@ -24,21 +24,21 @@
                       </thead>
                       <tbody>
                         <tr>
-                          <td>Amount</td>
+                          <td>Montante</td>
                           <td>600 €</td>
                         </tr>
                         <tr>
-                          <td>Service fees</td>
+                          <td>Frais de service</td>
                           <td></td>
                         </tr>
                         <tr>
-                          <td>Bank fees</td>
+                          <td>frais bancaires</td>
                           <td>10,5 €</td>
                         </tr>
                       </tbody>
                       <tfoot>
                         <tr>
-                          <td>Amount  to pay</td>
+                          <td>Montant à payer</td>
                           <td>610,5 €</td>
                         </tr>
                       </tfoot>
@@ -46,12 +46,12 @@
 
                     <div class="col-md-12 Payment_card">
                           <div class="">  
-                              <h3>Choose a payment method</h3>
+                              <h3>Méthode de paiement</h3>
                               <div class="radiobuttons">
                                 <div class="rdio radio_frst rdio-primary radio-inline"> <input name="radio" value="1" id="radio1" type="radio" checked>
                                   <label for="radio1">
                                     <img src="<?php echo base_url();?>/assets/Front/img/card1.png">
-                                    Credit card
+                                    Carte bancaire
                                   </label>
                                 </div>
                                 <div class="rdio rdio-primary radio-inline">
@@ -62,7 +62,7 @@
                                   </label>
                                 </div>
                               </div>
-                              <a class="nex_btn" href="#">Next</a>
+                              <a class="nex_btn" href="#">prochain</a>
                           </div>
                     </div>
             </div>

@@ -65,10 +65,10 @@
                       <div class="form-group">
                         <label for="" class="col-sm-2 control-label"><?= $this->lang->line('Name')?></label>
                         <div class="col-sm-5">
-                          <input type="text" class="form-control" name="first_name" value="<?=$user['first_name']?>" placeholder="First Name">
+                          <input type="text" class="form-control" name="first_name" value="<?=$user['first_name']?>" placeholder="Prénom">
                         </div>
                         <div class="col-sm-5">
-                          <input type="text" class="form-control" name="last_name" value="<?=$user['last_name']?>" placeholder="Last Name">
+                          <input type="text" class="form-control" name="last_name" value="<?=$user['last_name']?>" placeholder="Nom">
                         </div>
                       </div>
 
@@ -83,7 +83,7 @@
                       <div class="form-group">
                         <label for="" class="col-sm-2 control-label"><?= $this->lang->line('Mobile Number') ?></label>
                         <div class="col-sm-10">
-                          <input type="number" class="form-control" name="mobile_no" value="<?=$user['mobile_no']?>" placeholder="Mobile No.">
+                          <input type="number" class="form-control" name="mobile_no" value="<?=$user['mobile_no']?>" placeholder="mobile Non.">
                         </div>
                       </div>
 
@@ -91,14 +91,14 @@
                         <label for="inputExperience" class="col-sm-2 control-label"><?= $this->lang->line('Address')?></label>
 
                         <div class="col-sm-10">
-                          <textarea class="form-control" name="address" placeholder="Address"><?=$user['address']?></textarea>
+                          <textarea class="form-control" name="address" placeholder="Adresse"><?=$user['address']?></textarea>
                         </div>
                       </div>
 
                       <div class="form-group">
                         <label for="" class="col-sm-2 control-label"><?= $this->lang->line('Pincode')?> </label>
                         <div class="col-sm-10">
-                          <input type="number" class="form-control" name="pincode" value="<?=$user['pincode']?>" placeholder="Pincode">
+                          <input type="number" class="form-control" name="pincode" value="<?=$user['pincode']?>" placeholder="Code PIN">
                         </div>
                       </div>
 
@@ -108,14 +108,14 @@
                         <label for="inputExperience" class="col-sm-2 control-label"><?= $this->lang->line('About')?></label>
 
                         <div class="col-sm-10">
-                          <textarea class="form-control" name="about" placeholder="About Yourself"><?=$user['about']?></textarea>
+                          <textarea class="form-control" name="about" placeholder="A propos de toi"><?=$user['about']?></textarea>
                         </div>
                       </div>
                     
 
                       <div class="form-group">
                         <div class="col-sm-offset-2 col-sm-10">
-                          <button type="submit" class="btn btn-danger"><?= $this->lang->line('Submit')?></button>
+                          <button type="submit" class="btn btn-danger"><?= $this->lang->line('OK')?></button>
                         </div>
                       </div>
                     </form>

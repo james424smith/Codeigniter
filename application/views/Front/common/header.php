@@ -188,13 +188,11 @@
    <body>
       <div class="top_header">
         <div class="container">
-          <div class="row">
-            <div class="col-md-2" >
-              <div class="logo" style="margin-top:15px;">
+          <div class="logo" style="margin-top:15px; float:left;">
                 <a href="<?php echo base_url('Front/home')?>"><img class="navbar-img" src="<?php echo base_url()?>assets/Front/img/MyLogo.png"></a>
-              </div>
-            </div>
-            <div class="col-md-7 text-right">  
+          </div>
+          <div class="row">
+            <div class="col-md-9 text-right">  
               <div class="nav top_nav">
                 <input type="checkbox" id="nav-check">                
                 <div class="nav-btn">
@@ -205,17 +203,17 @@
                   </label>
                 </div>                
                 <div class="nav-links">
-                  <a href="<?php echo base_url('Front/home')?>">Home</a>
+                  <a href="<?php echo base_url('Front/home')?>" >Home</a>
                   <!-- <a href="<?php //echo base_url('Front/about')?>">About Us</a> -->
-                  <a href="<?php echo base_url('Front/home/post_demand')?>">Post a demand</a>
-                  <a href="<?php echo base_url('Front/home/find_mission')?>">Find a Mission</a>
-                  <!-- <a href="#">My Demands</a> -->
+                  <a href="<?php echo base_url('Front/home/post_demand')?>" style="font-size:15px;">Publier une demande</a>
+                  <a href="<?php echo base_url('Front/home/find_mission')?>" style="font-size:15px;">Trouver une mission</a>
+                  <!-- <a href="#">Mes demandes</a> -->
                   <!-- <a href="<?php //echo base_url('Front/contact')?>">Contact Us</a> -->
-                  <a href="<?php echo base_url('Front/Home/search')?>">Find A heelper</a>
+                  <a href="<?php echo base_url('Front/Home/search')?>" style="font-size:15px;">Trouver un Heelper</a>
                   <?php if($this->session->userdata['id']){?>
-                     <a href="<?php echo base_url('Front/home/logout')?>">Log out</a>                 
+                     <a href="<?php echo base_url('Front/home/logout')?>" style="font-size:15px;">Se déconnecter</a>                 
                   <?php } else {?>                    
-                      <a href="<?php echo base_url('Front/home/login')?>">Log in</a>
+                      <a href="<?php echo base_url('Front/home/login')?>" style="font-size:15px;">LSe connecter</a>
                    <?php } ?>           
                 </div>
               </div>
@@ -258,7 +256,7 @@
                           <a href="<?php echo base_url('Front/Posts/Notification/1')?>" class="hvr-bounce-to-right">
                               <div class="not_icon">
                                 <img src="<?php echo base_url();?>/assets/Front/img/not_icn1.png">
-                                Payments
+                                Paiements
                               </div>
                               <div class="not_status">
                                 <p><?php echo $count_payment; ?></p>
@@ -269,7 +267,7 @@
                           <a href="<?php echo base_url('Front/Posts/Notification/2')?>" class="hvr-bounce-to-right">
                               <div class="not_icon">
                                 <img src="<?php echo base_url();?>/assets/Front/img/not_icn2.png">
-                                <span>Missions & demands Status</span>
+                                <span>Statut des missions et demandes</span>
                               </div>
                               <div class="not_status">
                                 <p><?php echo $count_missionanddemands; ?></p>
@@ -280,7 +278,7 @@
                           <a href="<?php echo base_url('Front/Posts/Notification/3')?>" class="hvr-bounce-to-right">
                               <div class="not_icon">
                                 <img src="<?php echo base_url();?>/assets/Front/img/not_icn3.png">
-                                Offers
+                                Offres
                               </div>
                               <div class="not_status">
                                 <p><?php echo $count_Offers; ?></p>
@@ -291,7 +289,7 @@
                           <a href="<?php echo base_url('Front/Posts/Notification/5')?>" class="hvr-bounce-to-right">
                               <div class="not_icon">
                                 <img src="<?php echo base_url();?>/assets/Front/img/not_icn5.png">
-                                Reviews
+                                Avis
                               </div>
                               <div class="not_status">
                                 <p><?php echo $count_Reviews; ?></p>
@@ -341,9 +339,9 @@
                                 <h4><?=empty($user['username']) ? '' : $user['username'] ?></h4>
                                 <p><b><?= $user['Current_Balance'] ?></b> <i class="fas fa-euro-sign"></i></p>
                           </div>
-                          <a class="prfl_btn" href="<?php echo base_url('Front/home/my_profile')?>">View Profile</a>
-                          <a class="my_demands" href="<?php echo base_url('Front/home/mydemands')?>">My demands</a>
-                          <a class="my_missions" href="<?php echo base_url('Front/home/mymissions')?>">My missions</a>
+                          <a class="prfl_btn" href="<?php echo base_url('Front/home/my_profile')?>">Voir mon profil</a>
+                          <a class="my_demands" href="<?php echo base_url('Front/home/mydemands')?>">Mes demandes</a>
+                          <a class="my_missions" href="<?php echo base_url('Front/home/mymissions')?>">Mes missions</a>
                         <?php }?>
                         </li>
 
@@ -351,7 +349,7 @@
                           <a href="<?php echo base_url('Front/home/offer')?>" class="hvr-bounce-to-right">
                               <div class="not_icon">
                                 <span><img src="<?php echo base_url();?>/assets/Front/img/drover2.png"></span>
-                                Promotion offer
+                                Offre et promotion
                               </div>
                           </a>
                         </li>
@@ -360,7 +358,7 @@
                           <a href="<?php echo base_url('Front/home/my_payment')?>" class="hvr-bounce-to-right">
                               <div class="not_icon">
                                 <span><img src="<?php echo base_url();?>/assets/Front/img/drover3.png"></span>
-                                Payment
+                                Paiements
                               </div>
                           </a>
                         </li>
@@ -377,7 +375,7 @@
                           <a href="<?php echo base_url('Front/home/about_heelp')?>" class="hvr-bounce-to-right">
                               <div class="not_icon">
                                 <span><img src="<?php echo base_url();?>/assets/Front/img/drover6.png"></span>
-                                About Heelp
+                                A propos de Heelp
                               </div>
                           </a>
                         </li>
@@ -392,7 +390,7 @@
       </div>
       <!-- fixed button right side -->
       <div class="find_a_mission_top_btn">        
-        <a href="<?php echo base_url('Front/home/find_mission')?>" class="btn btn-default">Find a Mission</a>
+        <a href="<?php echo base_url('Front/home/find_mission')?>" class="btn btn-default">FTrouver une mission</a>
       </div>     
       <!-- fixed button right side end-->
 

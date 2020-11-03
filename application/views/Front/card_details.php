@@ -35,7 +35,7 @@
   <div class="top_bnr section post_demand">
     <div class="container">
       <div class="top-side about_title">
-          <h4 class="title">Credit Card</h4>
+          <h4 class="title">Carte bancaire</h4>
         </div>
     </div>
   </div>
@@ -46,7 +46,7 @@
     <div class="row">
       <div class="col-md-6">					
 						<div class="edit_card credit_card">
-							<div class="credit_card_head"><h4 style="color:#31b731;">Your credit cards</h4></div><hr>
+							<div class="credit_card_head"><h4 style="color:#31b731;">Carte bancaire enregistrée</h4></div><hr>
 							<?php foreach ($card_details as $value) { ?>
                 <?php
                   $idx ++; 
@@ -77,17 +77,17 @@
 					</div>	  
           <div class="col-md-6">          
             <div class="edit_card credit_card">
-              <div class="credit_card_head"><h4 style="color:#31b731;">Edit Your Card Details</h4></div><hr><br>
+              <div class="credit_card_head"><h4 style="color:#31b731;">Modifier la carte bancaire</h4></div><hr><br>
               <form action="<?php echo base_url('Front/Payment/payment_success/')?>" method="POST" id="paymentForm">
                 <div class="card_number_input">
                   <p>Name on Card</p>
-                  <input type="text" name="custName" placeholder="Name on Card" id="custName" required>
+                  <input type="text" name="custName" placeholder="Nom sur la carte" id="custName" required>
                   <input type="hidden" name="custEmail" class="form-control">
                 </div>
 
                 <div class="card_number_input">
                   <p>Card Number</p>
-                  <input type="number" name="cardNumber" autocomplete="off" placeholder="Enter your card number..." id="cardNumber" required>
+                  <input type="number" name="cardNumber" autocomplete="off" placeholder="Entrez votre numéro de carte..." id="cardNumber" required>
                 </div>
                 <div class="card_ul_li">
                   <ul>
@@ -109,7 +109,7 @@
                 </ul>
               </div>
               <div class="save_credit_card">
-                <input type="submit" id="makePayment" class="btn btn-success" value="Make Payment">
+                <input type="submit" id="makePayment" style="width:180px;" class="btn btn-success" value="Effectuer le paiement">
               </div>
               </form>
             </div>          
@@ -136,7 +136,7 @@
 			}
     });
 
-    $('#cardExpYear').on('input propertychange paste', function (e) {
+    $('#cardExpYear1').on('input propertychange paste', function (e) {
       var val = $(this).val()
       var reg = /^.19[5-9]\d|20[0-4]\d|2050/gi;   
 			if (val.match(reg)) {

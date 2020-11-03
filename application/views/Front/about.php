@@ -6,7 +6,7 @@
   <div class="top_bnr section about_top_sec">
     <div class="container">
       <div class="top-side about_title">
-          <h4 class="title">About Heelp</h4>
+          <h4 class="title">A propos de Heelp</h4>
         </div>
     </div>
   </div>

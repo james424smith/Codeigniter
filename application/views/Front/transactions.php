@@ -25,7 +25,7 @@
   <div class="section portfolio">
     <main id="main" class="container">
       <nav class="nav">
-          <a href="#" class="nav-item active" data-rel="all" style="color:#680dc3;">All</a>
+          <a href="#" class="nav-item active" data-rel="all" style="color:#680dc3;">Tout</a>
           <a href="#" class="nav-item" data-rel="option-1" style="color:#1ee21e;">In</a>
           <a href="#" class="nav-item" data-rel="option-2" style="color:#ea3d09;">Out</a>
       </nav>
@@ -36,7 +36,7 @@
         <br><br><br>
             <div class="row">
             <div class="col-md-12 text-center">
-               <h4>No Transaction to display.</h4>
+               <h4>Aucune transaction à afficher.</h4>
             </div>
             </div>
             <br><br>
@@ -63,7 +63,7 @@
                     </div>            
                     <div class="col-md-8 cat_content">
                           <h5><?php echo $value['project_title']; ?></h5>
-                          <p>Project of : <?php echo $value['sent_from_username']; ?></p>
+                          <p>Project de : <?php echo $value['sent_from_username']; ?></p>
                           <div class="row">
                             <div class="col-md-12 status Delivred">
                               <p>$ <?php echo  $value['amount']; ?></p>
@@ -75,7 +75,7 @@
                       $your_date = strtotime($value['created_date']);
                       $datediff = $now - $your_date;
                       ?>
-                     <p class="cat_date"><?php echo round($datediff / (60 * 60 * 24)); ?> Days ago</p>
+                     <p class="cat_date">Il y a <?php echo round($datediff / (60 * 60 * 24)); ?> jours</p>
              </div>
           </li> 
           <?php } ?>  

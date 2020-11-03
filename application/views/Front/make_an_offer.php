@@ -10,7 +10,7 @@
   <div class="top_bnr section post_demand">
     <div class="container">
       <div class="top-side about_title">
-          <h4 class="title">Make an Offer</h4>
+          <h4 class="title">Proposer une offre</h4>
         </div>
     </div>
   </div>
@@ -36,7 +36,7 @@
 				<div class="post_demand_inner_form">					
 					<form action="<?php echo base_url('Front/Posts/offerpost')?>" method="post">
 						<div class="post_form_content post_form_content_title">
-							<label>Title</label>
+							<label>Titre</label>
 							<input type="text" name="" value="<?php echo $mission->mission_title;?>" disabled>
 						</div>
 						<div class="post_form_content post_form_content_budget">
@@ -45,7 +45,7 @@
 							<input type="hidden" name="missionbudget" value="<?php echo $mission->budget;?>">
 						</div>
 						<div class="post_form_content">
-							<label>Description</label>
+							<label>Déscription</label>
 							<textarea disabled><?php echo $mission->description;?></textarea>
 						</div>
 						<div class="make_an_offfer_checkbox">
@@ -58,21 +58,21 @@
 									}
 									else { 
 								?>
-								 No File
+								 Pas de fichier
 								 <?php 
 									}
 								 ?>
 								<i class="fas fa-download"></i></a>								
 							</div>
 							<div class="make_an_offfer_checkbox_input">
-								<label class="container_check">Accept budget
+								<label class="container_check">Accepter le budget
 								  <input type="checkbox" name="accept_budget" id="budget" value="0">
 								  <span class="checkmark"></span>
 								</label>								
 							</div>
 						</div>
 						<div>
-							<label class="">Make an offer ( € )
+							<label class="">Proposer une offre ( € )
 								<input type="number" class="number-input" id="integer" name="offer_budget" placeholder="ex:200">								  
 							</label>
 						</div>
@@ -86,7 +86,7 @@
 						<div class="make_an_offer_form_btn">
 							<!-- <a href="#" class="btn btn-defult" data-toggle="modal" data-target="#myModal">
 							Send Offer</a> -->
-							<button type="submit" class="btn btn-primary"> Send Offer </button>
+							<button type="submit" class="btn btn-primary"> Envoyer une offre </button>
 						</div>
 					</form>
 				</div>

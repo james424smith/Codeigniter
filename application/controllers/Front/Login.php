@@ -58,7 +58,7 @@ class Login extends CI_Controller {
       else  
       {
         //echo "3";die();  
-        $this->session->set_flashdata('error', 'Invalid Username and Password');  
+        $this->session->set_flashdata('error', "Nom d'utilisateur et mot de passe invalides.");  
         redirect(base_url() . 'Front/home/login');  
       }  
 
@@ -111,18 +111,18 @@ class Login extends CI_Controller {
                 if ($this->email->send()) 
                 { 
                     $this->RegisterModel->changePassword($password,$email);
-                    $this->session->set_flashdata('result_success_forget_password','Your password send in email.');
+                    $this->session->set_flashdata('result_success_forget_password','Votre mot de passe a été envoyé par e-mail.');
                     redirect('Front/Login/reset');
                 } 
                 else 
                 {
-                    print_r($this->email->print_debugger());exit;
-                    $this->session->set_flashdata('result_forget_password','Unable to send email.');
+                    //print_r($this->email->print_debugger());exit;
+                    $this->session->set_flashdata('result_forget_password', "Incapable d'envoyer des emails.");
                     redirect('Front/Login/reset');
                 }
               }   
                 else {
-                    $this->session->set_flashdata('result_forget_password','Email is not belogs to you');
+                    $this->session->set_flashdata('result_forget_password', 'Le courriel ne vous appartient pas.');
                     redirect('Front/Login/reset');
                 }
         }

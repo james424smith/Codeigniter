@@ -4,7 +4,7 @@
             <div class="col-md-12 find_search">
               <form action="<?php echo base_url('Front/Home/search')?>" method="post" >
                 <i class="fas fa-search"></i>
-                <input type="text" name="keywords" id="keywords" placeholder="Search" >
+                <input type="text" name="keywords" id="keywords" placeholder="Chercher" >
               </form>
             </div>
         </div>        
@@ -87,7 +87,7 @@
                 <div class="find_content_inner">
                 <h5><?php echo ucfirst($member['username']);?></h5>
                 <ul>
-                  <li><strong>Skills:</strong></li>
+                  <li><strong>Compétences:</strong></li>
                   <li><?php echo $member['skills'];?></li>                
                 </ul>
                 <!-- <img class="rating_img" src="<?php echo base_url('assets/Front/img/rating.png')?>"> -->

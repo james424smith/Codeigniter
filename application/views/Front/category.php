@@ -15,7 +15,7 @@
 	<div class="top_bnr section">
 		<div class="container">
 			<div class="top-side">
-		      <h4 class="title">Find a Mission</h4>
+		      <h4 class="title">Trouver une mission</h4>
 		    </div>
 		</div>
 	</div>
@@ -63,7 +63,7 @@
 		                <span><b>Budget:</b><?php echo $post['mission_budget'] ?></span>
 		              	<div class="row">
 		              		<div class="col-md-6 make_btn">
-				            	<a href="<?php echo base_url('Front/home/make_an_offer')?>/<?php echo $post['mission_id']?>">Make an Offer</a>
+				            	<a href="<?php echo base_url('Front/home/make_an_offer')?>/<?php echo $post['mission_id']?>">Proposer une offre</a>
 				            </div>	
 		              		<!-- <div class="col-md-6 profile_img">
 				            	<a href="#!" id="chat_show">
@@ -186,7 +186,7 @@
 									<div class="input-group-append">
 										<span class="input-group-text attach_btn"><i class="fas fa-paperclip"></i></span>
 									</div>
-									<textarea name="" class="form-control type_msg" placeholder="Type your message..."></textarea>
+									<textarea name="" class="form-control type_msg" placeholder="Tapez votre message..."></textarea>
 									<div class="input-group-append">
 										<span class="input-group-text send_btn"><i class="fas fa-location-arrow"></i></span>
 									</div>

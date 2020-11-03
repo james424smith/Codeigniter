@@ -60,7 +60,7 @@
 									echo $mission->mission_doc; 
 								}
 								else {
-									echo "No Attached File";
+									echo "Aucune pièce jointe";
 								}
 							?>	
 							&nbsp;<i class="fas fa-download"></i>	
@@ -69,7 +69,7 @@
 					</div>
 					 <p class="budget_details_p">
 					 	<b>Budget: <?php echo $mission->budget;?></b> <i class="fas fa-euro-sign"></i>
-						<b style="color:red;">&nbsp;&nbsp;&nbsp;Offer: <?php echo $mission->mission_budget;?> <i class="fas fa-euro-sign"></i></b>
+						<b style="color:red;">&nbsp;&nbsp;&nbsp;Offre: <?php echo $mission->mission_budget;?> <i class="fas fa-euro-sign"></i></b>
 					 </p>
 				</div>
 			</div>
@@ -89,7 +89,7 @@
 						</div>
 					</div>
 					<div class="col-md-10">
-						<h4>Heelper Comment</h4>
+						<h4>Commentaire du Heelper</h4>
 					</div>
 				</div>
 				<br>
@@ -114,7 +114,7 @@
 				<?php } 
 				else{ ?>
 				<div class="row demand_details_upload_btn">
-					<p>No Data to Display</p>
+					<p>Aucune donnée à afficher</p>
 				</div>
 				<?php }?><hr>
 				<?php  } ?>	

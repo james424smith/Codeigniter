@@ -42,7 +42,7 @@
         </a>
         <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
           <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="sr-only">Next</span>
+          <span class="sr-only">prochain</span>
         </a>
       </div>
         </div>
@@ -57,7 +57,7 @@
     <div class="row">
       <div class="col-md-12">
         <div class="post_title">
-          <h1>Post a Demand</h1>
+          <h1>Publier une demande</h1>
         </div>
       </div>
     </div>
@@ -89,7 +89,7 @@
   <div class="row">
       <div class="col-md-12">
         <div class="find_view_more_btn">
-              <a href="<?php echo base_url('Front/home/post_demand')?>" class="btn btn-default">View More</a>
+              <a href="<?php echo base_url('Front/home/post_demand')?>" class="btn btn-default">Voir plus</a>
         </div>
       </div>
     </div>
@@ -103,7 +103,7 @@
       <div class="col-md-12">
         <div class="col-md-12">
           <div class="post_title">
-            <h1>Find a Mission</h1>
+            <h1>Trouver une mission</h1>
             </div>
           </div>
         <!--<div class="find_search">
@@ -135,7 +135,7 @@
                       	  $your_date = strtotime($row->created_date);
                       	  $datediff = $now - $your_date;
                         ?>
-                        <p class="cat_date"><?php echo round($datediff / (60 * 60 * 24)); ?>days ago</p>
+                        <p class="cat_date">Il y a <?php echo round($datediff / (60 * 60 * 24)); ?> jours</p>
                         <h5><?php echo $row->mission_title ?></h5>
 					              <p><?php echo $row->description ?></p>
 					              <span><b>Budget:</b> <?php echo '€' . $row->budget ?></span>
@@ -146,7 +146,7 @@
                                     echo base_url('Front/home/make_an_offer/' . $row->mission_id); }
                                   else {
                                     echo base_url('Front/home/login');
-                                  } ?>">Make an Offer</a>
+                                  } ?>">Proposer une offre</a>
                           </div>			            
 		                    </div>
                       </div>                        
@@ -159,7 +159,7 @@
     <div class="row">
       <div class="col-md-12">
         <div class="find_view_more_btn">
-            <a href="<?php echo base_url('Front/home/find_mission')?>" class="btn btn-default">View More</a>
+            <a href="<?php echo base_url('Front/home/find_mission')?>" class="btn btn-default">Voir plus</a>
         </div>
       </div>
     </div>
@@ -171,12 +171,12 @@
         <div class="row">
           <div class="col-md-12">
             <div class="find_heading">
-              <h2>Find a Heelper</h2>              
+              <h2>Trouver un Heelper</h2>              
             </div>
             <div class="find_search">
               <form action="<?php echo base_url('Front/Home/search')?>" method="post" >
                 <i class="fas fa-search"></i>
-                <input type="text" name="keywords" id="keywords" placeholder="Search" >
+                <input type="text" name="keywords" id="keywords" placeholder="Chercher" >
               </form>
             </div>
           </div>
@@ -262,7 +262,7 @@
                 <div class="find_content_inner">
                 <h5><?php echo ucfirst($member['username']);?></h5>
                 <ul>
-                  <li><strong>Skills:</strong></li>
+                  <li><strong>Compétences:</strong></li>
                   <li><?php echo $member['skills'];?></li>                
                 </ul>
                 <!-- <img class="rating_img" src="<?php echo base_url('assets/Front/img/rating.png')?>"> -->

@@ -116,7 +116,7 @@ if($this->session->flashdata('wallet_pay_success'))
   <div class="top_bnr section post_demand">
     <div class="container">
       <div class="top-side about_title">
-          <h4 class="title">Credit Card</h4>
+          <h4 class="title">Carte bancaire</h4>
         </div>
     </div>
   </div>
@@ -131,7 +131,7 @@ if($this->session->flashdata('wallet_pay_success'))
             <div class="edit_card credit_card">
               <div class="credit_card_head">
                 <img class="success_img" src="<?php echo base_url("assets/Front/img/success.png"); ?>">
-                <h4>Payment success</h4>
+                <h4>Succès du paiement</h4>
               </div> 
               <a href="<?php echo base_url("Front/home"); ?>" class="btn btn-defult">Home Page</a>
             </div>          
@@ -139,7 +139,7 @@ if($this->session->flashdata('wallet_pay_success'))
           
 <!--           <div class="col-md-6">
             <div class="add_Card_btn">  
-              <div class="credit_card_head"><h4>Edit Your Card Details</h4></div>          
+              <div class="credit_card_head"><h4>Modifier la carte bancaire</h4></div>          
                 <button id="hide" type="button" class="btn btn-info card_btn_info" data-toggle="collapse" data-target="#demo">Add New Card</button>
                 <div id="demo" class="collapse">
                   <div class="card_number_input">

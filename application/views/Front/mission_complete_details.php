@@ -56,7 +56,7 @@
 										echo $mission->mission_doc; 
 									}
 									else {
-										echo "No Attached File";
+										echo "Aucune pièce jointe";
 									}
 								?>	
 								&nbsp;<i class="fas fa-download"></i>
@@ -65,7 +65,7 @@
 					 </div>
 					 <p class="budget_details_p">
 					 	<b>Budget: <?php echo $mission->budget;?></b> <i class="fas fa-euro-sign"></i>
-						<b style="color:red;">&nbsp;&nbsp;&nbsp;Offer: <?php echo $mission->mission_budget;?> <i class="fas fa-euro-sign"></i></b>
+						<b style="color:red;">&nbsp;&nbsp;&nbsp;Offre: <?php echo $mission->mission_budget;?> <i class="fas fa-euro-sign"></i></b>
 					 </p>
 				</div>
 					
@@ -86,7 +86,7 @@
 						</div>
 					</div>
 					<div class="col-md-10">
-						<h4>My Comment</h4>
+						<h4>Mon commentaire</h4>
 					</div>
 				</div><br>
 				<?php foreach ($all_comments as $each_comment) { ?>
@@ -131,11 +131,11 @@
 
 					Si non,  pour toute autre demande merci de nous écrire via
 					 
-					la page de contact en cliquant ici: <a href="#" class="btn btn-primary">Contact Here</a>
+					la page de contact en cliquant ici: <a href="#" class="btn btn-primary">Contactez ici</a>
 				</p>
 				<form >
 					<div class="">
-						<textarea placeholder="Description:"></textarea>
+						<textarea placeholder="Déscription..."></textarea>
 					</div>
 				</form>
 

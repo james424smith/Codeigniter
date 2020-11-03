@@ -25,11 +25,11 @@
 	                         </div>
 	                          <div class="profile_dtls">
 	                          		<span>
-										<a href="#!" id="chat_show" class="heelpr_chat"><i class="fa fa-comments" id="chat_add" aria-hidden="true"></i> Discuss</a>
+										<a href="#!" id="chat_show" class="heelpr_chat"><i class="fa fa-comments" id="chat_add" aria-hidden="true"></i> Chat</a>
 										<input type=hidden id="sender_id" value="<?php echo $self_user[0]['id']; ?>">
 										<input type=hidden id="receiver_id" value="<?php echo $id; ?>">
 									</span>
-									<!--<span><a href="<?php //echo base_url("Front/home/chat"); ?>" class="heelpr_chat"><i class="fa fa-comments" aria-hidden="true"></i> Discuss</a></span>-->
+									<!--<span><a href="<?php //echo base_url("Front/home/chat"); ?>" class="heelpr_chat"><i class="fa fa-comments" aria-hidden="true"></i> Chat</a></span>-->
 	                                <h4><?php echo $member['skills']; ?></h4>
 	                          </div> 
 								<?php
@@ -37,32 +37,32 @@
 							   ?>
 							   <span class="stars-container <?php echo $class_star; ?>">★★★★★</span><br>
 							   	<a href="<?php echo base_url('Front/home/review_profile/' . $member['id'])?>">
-									Reviews
+								   Avis
 								</a>	                        
 						</div>
 					</div>
 					<div class="Presentation">
-								<h5>Presentation:</h5>
+								<h5>Présentation:</h5>
                           		<p><?=empty($member['presentation'])?'':$member['presentation']?></p>
 					</div>
 					<div class="Presentation">
-                          		<h5>Level of Studies:</h5>
+                          		<h5>Niveau d'études:</h5>
                           		<p><?=empty($member['level_of_study'])?'':$member['level_of_study']?></p>
 					</div>
 					<div class="Presentation">
-                          		<h5>Field of Studies:</h5>
+                          		<h5>Domaine d'études</h5>
                           		<p><?=empty($member['Field_of_study'])?'':$member['Field_of_study']?></p>
 					</div>
 					<div class="Presentation">
-                          		<h5>Univecity / School:</h5>
+                          		<h5>Université/Ecole</h5>
                           		<p><?=empty($member['university'])?'':$member['university']?></p>
 					</div>
 					<div class="Presentation">
-                          		<h5>Categories of interest on heelp:</h5>
+                          		<h5>Catégories d'interêt sur Heelp</h5>
                           		<p><?=empty($member['intrested_category'])?'':$member['intrested_category']?></p>
 					</div>
 					<div class="Presentation">
-                          		<h5>Skills:</h5>
+                          		<h5>Compétences:</h5>
                           		<p><?=empty($member['skills'])?'':$member['skills']?></p>
 					</div>				
 				</div>
@@ -82,7 +82,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Edit Profile</h4>
+        <h4 class="modal-title">Modifier le profil</h4>
       </div>
       <div class="modal-body">
         <form action="">
@@ -116,7 +116,7 @@
 				    <input type="text" class="form-control" id="">
 				  </div>
 				  <div class="form-group col-md-6">
-				    <label for="text">Presentation:</label>
+				    <label for="text">Présentation:</label>
 				    <input type="text" class="form-control" id="">
 				  </div>
 				  <div class="form-group col-md-6">
@@ -124,7 +124,7 @@
 				    <input type="text" class="form-control" id="">
 				  </div>
 				  <div class="form-group col-md-6">
-				    <label for="text">Field of studies:</label>
+				    <label for="text">Domaine d'études</label>
 				    <input type="text" class="form-control" id="">
 				  </div>
 				  <div class="form-group col-md-6">
@@ -132,17 +132,17 @@
 				    <input type="text" class="form-control" id="">
 				  </div>
 				  <div class="form-group col-md-6">
-				    <label for="text">Categories of interest on heelp:</label>
+				    <label for="text">Catégories d'interêt sur Heelp</label>
 				    <input type="text" class="form-control" id="">
 				  </div>
 				  <div class="form-group col-md-6">
-				    <label for="text">SKills:</label>
+				    <label for="text">Compétences:</label>
 				    <input type="text" class="form-control" id="">
 				  </div> 
 		   </div>
       </div>
       <div class="modal-footer">
-        <button type="submit" class="btn btn-default">Save</button>
+        <button type="submit" class="btn btn-default">enregistrer</button>
       </div>
       </form>
     </div>
@@ -184,7 +184,7 @@
 					</span>
 					<input type="file" name="file" id="files" class="upload_attachmentfile" style="display:none;"/>
 				</div>
-				<textarea name="" class="form-control type_msg message" placeholder="Type your message..."></textarea>
+				<textarea name="" class="form-control type_msg message" placeholder="Tapez votre message..."></textarea>
 				<div class="input-group-append">
 					<span class="input-group-text send_btn"><i class="fas fa-location-arrow"></i></span>
 				</div>

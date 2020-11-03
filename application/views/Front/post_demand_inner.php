@@ -12,7 +12,7 @@
   <div class="top_bnr section post_demand">
     <div class="container">
       <div class="top-side about_title">
-          <h4 class="title">Post a Demand</h4>
+          <h4 class="title">Publier une demande</h4>
         </div>
     </div>
   </div>
@@ -30,31 +30,31 @@
 				</div>
 					<form action="<?php echo base_url('Front/Posts/demandpost/')?>" enctype="multipart/form-data" method="post">
 						<div class="post_form_content post_form_content_title">
-							<label>Title</label>
-							<input type="text" placeholder="Title" name="title" required>
+							<label>Titre</label>
+							<input type="text" placeholder="Titre" name="title" required>
 						</div>
 						<div class="post_form_content post_form_content_budget">
 							<label>Ton Budget ( € ) </label>
 							<input type="number" class="number-input" id="integer" placeholder="Budget" name="budget" required>
 						</div>
 						<div class="post_form_content">
-							<label>Description</label>
-							<textarea name="description" placeholder="Description" required></textarea>
+							<label>Déscription</label>
+							<textarea name="description" placeholder="Déscription" required></textarea>
 						</div>	
 						<div class="post_form_content">
 							<div class="post_inner_upload_file">
 								<input type="file" name="file" id="file">
-								<span>+ Upload File Here</span>
+								<span>+ Joindre un fichier</span>
 							</div>
 						</div>
 						<div class="post_form_content text-center">
-							<span id="file-name" style="color:blue;">No File</span>
+							<span id="file-name" style="color:blue;">Pas de fichier</span>
 						</div>
 						<input type="hidden"  name="project_category" value="<?php echo $id?>"> 
 						
 						<div class="post_demand_form_btn">
 							<!-- <a href="#" class="btn btn-defult" data-toggle="modal" data-target="#myModal">Post Your Demand</a> -->
-							<button type="submit" class="btn btn-primary" >Post </button> 
+							<button type="submit" class="btn btn-primary" >Publier</button> 
 						</div>
 					</form>
 				</div>

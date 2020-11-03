@@ -72,7 +72,7 @@ class Posts extends CI_Controller
         }
         $this->load->model('Front/Posts_model');
         $this->Posts_model->demand($project_data);
-        $this->Posts_model->pushNotification($this->session->userdata['id'], 2, "Your requirement was posted successfully.");
+        $this->Posts_model->pushNotification($this->session->userdata['id'], 2, "Votre demande a bien été publiée");
         redirect('Front/home/mydemands');
       }
       else {
@@ -84,7 +84,7 @@ class Posts extends CI_Controller
       if($this->session->userdata['id']) {
         if($this->input->post('accept_budget') == 0 && $this->input->post('offer_budget') == NULL)
         {
-          $this->session->set_flashdata('warning', 'Please send your offer budget.');  
+          $this->session->set_flashdata('warning', "Veuillez envoyer votre budget d'offre.");  
           redirect('Front/home/make_an_offer/'. $this->input->post('project_id'));
           return null;
         }
@@ -116,13 +116,13 @@ class Posts extends CI_Controller
  		    $this->load->model('Front/Posts_model');
         if($this->Posts_model->checkMission($project_data))
         {
-            $this->session->set_flashdata('error', 'You already proposed.');  
+            $this->session->set_flashdata('error', 'Vous avez déjà proposé.');  
             redirect('Front/home/make_an_offer/'. $project_data['project_id']);
             //$this->load->view('Front/make_an_offer');
             return null;
         }
-        $this->Posts_model->pushNotification($this->session->userdata['id'], 3, "You offer was sent successfully.");
-        $this->Posts_model->pushNotification($this->input->post('client_id'), 3, "You get an offer.");
+        $this->Posts_model->pushNotification($this->session->userdata['id'], 3, "Votre offre a été envoyée avec succès.");
+        $this->Posts_model->pushNotification($this->input->post('client_id'), 3, "Vous avez reçu une offre");
 
         $this->Posts_model->mission($project_data);
         redirect('Front/home/mymissions');
@@ -168,7 +168,7 @@ class Posts extends CI_Controller
     public function  inprogress() {   
           if(empty($_FILES['project_files']['name']) || !$this->input->post('your_comments'))
           {
-              $this->session->set_flashdata('error_send', 'Send your delivery and comment');
+              $this->session->set_flashdata('error_send', 'Envoyez votre livraison et commentez');
               redirect('Front/home/mission_inprogress_details/' . $this->input->post('project_id')); 
           }
 
@@ -186,7 +186,7 @@ class Posts extends CI_Controller
               
               $error = array('error' => $this->upload->display_errors());
               $image_name = '';
-              $this->session->set_flashdata('error_file', 'The file is wrong.');
+              $this->session->set_flashdata('error_file', 'Le fichier est faux.');
               redirect('Front/home/mission_inprogress_details/' . $this->input->post('project_id')); 
             } 
             else 
@@ -225,10 +225,10 @@ class Posts extends CI_Controller
         $this->load->model('Front/Posts_model');
         $this->Posts_model->inprogress_mission($project_data);
 
-        $this->Posts_model->pushNotification($this->input->post('client_id'), 2, "You got a delivery.");
-        $this->Posts_model->pushNotification($this->session->userdata['id'], 2, "You sent a delivery.");
+        $this->Posts_model->pushNotification($this->input->post('client_id'), 2, "Vous avez reçu un nouveau livrable.");
+        $this->Posts_model->pushNotification($this->session->userdata['id'], 2, "Vous avez reçu un nouveau livrable.");
 
-        $this->session->set_flashdata('delivery_success', 'Your delivery was successfully sent.');
+        $this->session->set_flashdata('delivery_success', 'Votre livraison a été envoyée avec succès.');
         redirect('Front/home/mymissions');
       }
 
@@ -291,7 +291,7 @@ class Posts extends CI_Controller
         $status = $this->Posts_model->deliver_askmodify($data, $mission_id);
         $this->Posts_model->pushNotification($this->session->userdata['id'], 3, "Your modification request has been sent successfully.");
         if($status) {
-          $this->session->set_flashdata('success_ask_modify', 'Your modification request has been sent successfully.');  
+          $this->session->set_flashdata('success_ask_modify', 'Votre demande de modification a été envoyée avec succès.');  
           redirect('Front/home/mydemands');
         }
       }
@@ -332,13 +332,13 @@ class Posts extends CI_Controller
          //print_r( $project_data);die();
         $this->load->model('Front/Posts_model');
         $this->Posts_model->deliver_paym_demand($project_data);
-        $this->Posts_model->pushNotification($this->input->post('employer_id'), 1, "Payment is done successfully.");
-        $this->Posts_model->pushNotification($this->session->userdata['id'], 1, "New payment is received.");
+        $this->Posts_model->pushNotification($this->input->post('employer_id'), 1, "Paiement effectué avec succés.");
+        $this->Posts_model->pushNotification($this->session->userdata['id'], 1, "Un nouveau paiement a été reçu.");
 
         if($this->input->post('rating') != 0)
         {
           $this->Posts_model->saveRating($rating_data);
-          $this->Posts_model->pushNotification($this->input->post('employer_id'), 5,  "You recived a review from your client");
+          $this->Posts_model->pushNotification($this->input->post('employer_id'), 5,  "Vous avez reçu un avis de votre client.");
         }
         
       redirect('Front/home/mydemands');

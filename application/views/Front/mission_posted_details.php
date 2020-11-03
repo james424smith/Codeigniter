@@ -59,7 +59,7 @@
 								?>
 							</h5>
 
-							<a href="" data-toggle="modal" data-target="#myModal<?php echo $value['offer_id'];?>">read more</a><hr>
+							<a href="" data-toggle="modal" data-target="#myModal<?php echo $value['offer_id'];?>">Voir plus</a><hr>
 							<!-- The Modal -->
 							<div class="modal fade" id="myModal<?php echo $value['offer_id'];?>">
 								<div class="modal-dialog modal-dialog-centered">
@@ -73,16 +73,16 @@
 										<!-- Modal body -->
 										<div class="modal-body">
 											<P>
-												Proposals
+												Les propositions
 											</p>
 											<form action="<?php echo base_url('Front/Posts/mission_update')?>" enctype="multipart/form-data" method="post">
 											<div class="from-group">
-												<Label><h6>Description</h6></Label>
+												<Label><h6>Déscription</h6></Label>
 												<textarea class="form-control" name="message"><?php echo $value['message']; ?></textarea>
 											</div>
 											<br>  
 											<div class="from-group">
-												<Label><h6>Offer Budget</h6></Label>
+												<Label><h6>Proposer Budget</h6></Label>
 												<input type="number" pattern="[0-9]" class="form-control" name="offer_budget" id="integer" value="<?php echo $value['offer_budget']; ?>">
 				  							</div>
 											<input type="hidden" class="form-control" name="mission_id" value="<?php echo $id; ?>">
@@ -96,7 +96,7 @@
 																	echo $mission->mission_doc; 
 																}
 																else {
-																	echo "No Attached File";
+																	echo "Aucune pièce jointe";
 																}
 															?>	
 															&nbsp;<i class="fas fa-download"></i>	
@@ -107,15 +107,15 @@
 										
 										<!-- Modal footer -->
 										<div class="modal-footer">
-											<button type="submit" class="btn btn-secondary">Update</button>
+											<button type="submit" class="btn btn-secondary">Mise à jour</button>
 										  </form>
 										  
-										<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+										<button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
 										</div>
 									</div>
 								</div>
 							</div>
-			                <span><b>Offer:</b> € <?php echo $value['offer_budget']; ?></span>
+			                <span><b>Offre:</b> € <?php echo $value['offer_budget']; ?></span>
 			              	<div class="row">
 			              		<div class="col-md-6 profile_img">
 					            </div>		            

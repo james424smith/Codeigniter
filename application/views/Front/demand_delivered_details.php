@@ -71,7 +71,7 @@
 									echo $mission->mission_doc; 
 								}
 								else {
-									echo "No Attached File";
+									echo "Aucune pièce jointe";
 								}
 							?>	
 							&nbsp;<i class="fas fa-download"></i>			
@@ -81,17 +81,17 @@
 					 <br>
 					 <p class="budget_details_p">
 					 	<b>Budget: <?php echo $mission->budget;?></b> <i class="fas fa-euro-sign"></i>
-						<b style="color:red;">&nbsp;&nbsp;&nbsp;Offer: <?php echo $mission->mission_budget;?> <i class="fas fa-euro-sign"></i></b>
+						<b style="color:red;">&nbsp;&nbsp;&nbsp;Offre: <?php echo $mission->mission_budget;?> <i class="fas fa-euro-sign"></i></b>
 					 </p>
 				</div><br>
 				<div class="demand_check_box" style="margin-left: -10px;" >
 					<ul>
 						<li>					
-							<a href="#" class="btn btn-primery" data-toggle="modal" data-target="#myModalpayment">Release Payment</a>
+							<a href="#" class="btn btn-primery" data-toggle="modal" data-target="#myModalpayment">Je suis satisfait</a>
 						</li>
 
 							<li>							
-							<a href="<?php echo base_url('Front/Posts/modify/'.$mission->mission_id)?>" class="btn btn-default">Ask to Modify</a>
+							<a href="<?php echo base_url('Front/Posts/modify/'.$mission->mission_id)?>" style="width:230px;" class="btn btn-default">Demander une modification</a>
 						</li> 
 						
 					</ul>
@@ -118,7 +118,7 @@
 						</div>
 					</div>
 					<div class="col-md-10">
-						<h4>Heelper Comment</h4>
+						<h4>Commentaire du Heelper</h4>
 					</div>
 				</div>
 				<?php foreach ($all_comments as $each_comment) { ?>
@@ -141,7 +141,7 @@
 				<?php  } ?>
 				<div class="row claim_an_issue" style="padding-left:10px;">
 					<a href="#" class="btn btn-default" data-toggle="modal" data-target="#myModal2">
-						Claim an issue
+						Ouvrir un litige
 					</a>
 				</div>				
 			</div>
@@ -165,11 +165,11 @@
 
 					Si non,  pour toute autre demande merci de nous écrire via
 					 
-					la page de contact en cliquant ici: <a href="<?php echo base_url('Front/contact')?>" class="btn btn-primary">Contact Here</a>
+					la page de contact en cliquant ici: <a href="<?php echo base_url('Front/contact')?>" class="btn btn-primary">Contactez ici</a>
 				</p>
 				<form action="<?php echo base_url('ChatController/claim_chat')?>" method="post">
 					<div class="">
-						<textarea placeholder="Description:" name="description"></textarea>
+						<textarea placeholder="La description..." name="description"></textarea>
 						<input type="hidden" name="user_id" value="<?php echo $mission->accepted_by ?>">	
 						<input type="hidden" name="project_id" value="<?php echo $mission->mission_id ?>">	
 						<input type="hidden" name="title" value="<?php echo $mission->mission_title ?>">	
@@ -195,7 +195,7 @@
 			<!-- Modal content-->
 			<div class="modal-content">
 				<div class="modal-header" style="color: #5cb85c;">
-					<h4 class="modal-title">Release</h4>
+					<h4 class="modal-title">Je suis satisfait</h4>
 					<button type="button" class="close" data-dismiss="modal">&times;</button>
 					
 				</div>
@@ -212,7 +212,7 @@
 							<input type="hidden" name="employer_id" value="<?php echo $mission->user_id ?>">
 							<input type="hidden" name="rating" id="star_rating" value="0">	
 							<P>
-								<h5>I want to release payment.</h5>
+								<h5>Je veux libérer le paiement.</h5>
 							</p>
 						</div> 
 						<br>
@@ -241,7 +241,7 @@
 						</div>
 						<br>
 						<div class="row" style="border-color:green;">
-							<textarea name="comment" class="form-control" placeholder="Leave the review"></textarea>
+							<textarea name="comment" class="form-control" placeholder="Avis"></textarea>
 						</div>
 						<hr>
 						<button type="submit" class="btn btn-default">Confirmation</button>

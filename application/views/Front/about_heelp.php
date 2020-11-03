@@ -1,11 +1,16 @@
 
 <?php $this->load->view('Front/common/header');  ?>
-
+<style>
+	ul {
+    	padding-left:1em !important;
+    	margin-left:1em;
+	}
+</style>
 <section>
   <div class="top_bnr section post_demand">
     <div class="container">
       <div class="top-side about_title">
-          <h4 class="title">About heelp</h4>
+          <h4 class="title">A propos de Heelp</h4>
         </div>
     </div>
   </div>
@@ -19,7 +24,7 @@
 					<p><b>Heelp</b> est une application qui a été conçue en collaboration avec des 
 						étudiants dans le but de répondre à trois principaux besoins de l’étudiant.</p>
 					<p><b>Heelp</b> permet aux étudiants de :</p>
-					<ul>
+					<ul >
 						<li>1-S’entraider pour pouvoir faire leurs devoirs ou projets scolaires à distance
 						</li>
 						<li>2-Développer leurs connaissances et compétences en échangeant avec d’autres étudiants </li>

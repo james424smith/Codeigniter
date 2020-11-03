@@ -60,12 +60,12 @@ $this->load->model('Api_models/ClientApiModel');
 			{
 				
 				//echo $token = $this->firebase->getFirebaseToken('users',$client_id);
- $taken_data = $this->ClientApiModel->gettokendata($client_id);
+ 				$taken_data = $this->ClientApiModel->gettokendata($client_id);
 
 
-        $this->firebase->send_notification("You have received an offer",$taken_data);
+        		$this->firebase->send_notification("You have received an offer",$taken_data);
 
-        $this->firebase->insertMessage(array('user_id'=>$client_id,'notification'=>"You have received an offer",'demand_id'=>$project_id,'type_id'=>3));
+        		$this->firebase->insertMessage(array('user_id'=>$client_id,'notification'=>"You have received an offer",'demand_id'=>$project_id,'type_id'=>3));
 
 
 				$this->response([

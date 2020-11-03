@@ -4,7 +4,7 @@
   <div class="top_bnr section post_demand">
     <div class="container">
       <div class="top-side about_title">
-          <h4 class="title">Promotion Offer</h4>
+          <h4 class="title">Offre et promotion</h4>
         </div>
     </div>
   </div>
@@ -17,7 +17,7 @@
 				<div class="offer_box">
 					<img class="offer_box_img" src="<?php echo base_url('assets/Front/img/offer.png')?>">
 					<p class="keep_p">
-						Keep a review Share the app with your friends and earn money<span>€</span><br>for each new registration !
+						Promotion bientôt disponible!
 					</p>	
 					<div class="smile_box">
 						<img src="<?php echo base_url('assets/Front/img/smile.png')?>">

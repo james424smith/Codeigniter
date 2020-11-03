@@ -47,7 +47,7 @@
                                                         </div>
                                                         <div class="form-group row">
                                                            <div class="col-lg-9 ml-auto">
-                                                           <button type="submit" class="btn btn-primary">Submit</button>
+                                                           <button type="submit" class="btn btn-primary">OK</button>
                                                            </div>
                                                         </div>
                                                      </form>

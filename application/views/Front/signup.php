@@ -21,7 +21,7 @@
                             <strong>Warning!</strong> <?php echo $this->session->flashdata('terms_error'); ?>
                         </div> 
                     <?php } ?>
-                   <h3>Register</h3>  
+                   <h3>S'inscrire</h3>  
                 <div class="login-form">
                     <div class="login-form">
                         <form method="post" action="<?php echo base_url('Front/Register/register')?>" name="myForm" id="myForm">
@@ -30,29 +30,29 @@
                                 title="The eamil must include symbol @ and . example: xxx@gmail.com" required>
                             </div>
                             <div class="form-group">
-                                <input type="text" placeholder="Username" name="username" class="form-control" required> 
+                                <input type="text" placeholder="Nom d'utilisateur" name="username" class="form-control" required> 
                             </div>
                             <div class="form-group">
-                                <input type="password" pattern="[a-zA-Z0-9]{8,}" placeholder="Password" name="password" class="form-control" id="password1"
+                                <input type="password" pattern="[a-zA-Z0-9]{8,}" placeholder="Mot de passe" name="password" class="form-control" id="password1"
                                 title="The password should include at least 8 alphanumeric character." required>
                             </div>
                             <div class="form-group">
-                                <input type="password" placeholder="Confirm Password" name="cpassword" id="password2" class="form-control" required>
+                                <input type="password" placeholder="Confirmez le mot de passe" name="cpassword" id="password2" class="form-control" required>
                             </div>
                             <div class="form-group">
                                 <input type="hidden" value="client" name="role" class="form-control">
                             </div>
                             <div class="row">
                                 <div class="col-md-6 form-group">
-                            	    <label><input type="radio"  class=""> Remember me</label>
+                            	    <label><input type="radio"  class=""> Enregistrer</label>
                                 </div>
                                 <div class="col-md-6 loginbttm">
-                                    <button type="submit" class="btn" id="btn_submit">Register</button>
+                                    <button type="submit" class="btn" id="btn_submit">S'inscrire</button>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-md-12 form-group text-center">
-                                     <label><input type="checkbox" name="term" class="" checked><a href="<?php echo base_url('Front/home/terms_condition')?>"> I accept terms </a></label> 
+                                     <label><input type="checkbox" name="term" class="" checked><a href="<?php echo base_url('Front/home/terms_condition')?>"> J'accepte les conditions générales d'utilisations </a></label> 
                                 </div>
                             </div>
                         </form>
@@ -61,7 +61,7 @@
                         	<a class="fb" href="#">Facebook</a>
                         	<a class="google" href="#">Google</a>
                         </div>
-                        <p>You already have an account ? <a href="<?php echo base_url('Front/home/login')?>">Log in </a></p>
+                        <p>Avez vous déjà un compte? <a href="<?php echo base_url('Front/home/login')?>">Se connecter</a></p>
                     </div>
             </div>
         </div>

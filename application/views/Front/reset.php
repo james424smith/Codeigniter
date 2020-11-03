@@ -4,7 +4,7 @@
      <div class="container">
         <div class="row">
             <div class="col-md-offset-3 col-md-6 login-box">
-                   <h3>Forgot Password</h3>  
+                   <h3>Mot de passe oublié ?</h3>  
                 <div class="login-form">
                     <div class="login-form">
                 <?php if($this->session->flashdata('result_forget_password')){ ?>

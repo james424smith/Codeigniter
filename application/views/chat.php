@@ -71,9 +71,9 @@ $name = $_POST['search_name'];
                <input type="hidden" id="Sender_Name" value="<?=$user['name'];?>">
                <input type="hidden" id="Sender_ProfilePic" value="<?=$profile_url;?>">
                <input type="hidden" id="ReciverId_txt">
-               <input type="text" name="message" placeholder="Type Message ..." class="form-control message">
+               <input type="text" name="message" placeholder="Type de message ..." class="form-control message">
                <span class="input-group-btn">
-                  <button type="button" class="btn btn-success btn-flat btnSend" id="nav_down">Send</button>
+                  <button type="button" class="btn btn-success btn-flat btnSend" id="nav_down">Envoyer</button>
                   <div class="fileDiv btn btn-info btn-flat"> <i class="fa fa-upload"></i> 
                      <input type="file" name="file" class="upload_attachmentfile"/>
                   </div>

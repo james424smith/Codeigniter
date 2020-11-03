@@ -88,28 +88,28 @@
                               <h3>Contactez-nous</h3>
 
                               <div class="wrap-input2 validate-input">
-                                  <input class="wrap-input2 validate-input" type="text" name="name" value="<?php echo !empty($postData['name'])?$postData['name']:''; ?>" placeholder="Enter Name" required>
+                                  <input class="wrap-input2 validate-input" type="text" name="name" value="<?php echo !empty($postData['name'])?$postData['name']:''; ?>" placeholder="Entrez le nom" required>
                                   <?php echo form_error('name','<p class="field-error">','</p>'); ?>
                               </div>
                               
                               <div class="wrap-input2 validate-input">
-                                  <input class="wrap-input2 validate-input" type="email" name="email" value="<?php echo !empty($postData['email'])?$postData['email']:''; ?>" placeholder="Enter Email" required>
+                                  <input class="wrap-input2 validate-input" type="email" name="email" value="<?php echo !empty($postData['email'])?$postData['email']:''; ?>" placeholder="Entrez votre e-mail" required>
                                   <?php echo form_error('email','<p class="field-error">','</p>'); ?>
                               </div>
                               
                               <div class="wrap-input2 validate-input">
-                                 <input placeholder="Enter Number" class="mc-field-group" type="text" name="contact_no" pattern="[1-9]{1}[0-9]{9}" minlength="10"  maxlength="10" id="" value="<?php echo set_value('contact_no'); ?>" required>          
+                                 <input placeholder="Entrer un nombre" class="mc-field-group" type="text" name="contact_no" pattern="[1-9]{1}[0-9]{9}" minlength="10"  maxlength="10" id="" value="<?php echo set_value('contact_no'); ?>" required>          
                                 </div>
                                   <!-- <input class="wrap-input2 validate-input" type="number" name="contact_no" min_length="10" max_length="10" pattern="[1-9]{1}[0-9]{9}" value=" <?php echo !empty($postData['contact_no'])?$postData['contact_no']:''; ?>"  placeholder="Enter Number" required>
                                   <?php echo form_error('contact_no','<p class="field-error">','</p>'); ?>
                               </div> -->
                               
                               <div class="wrap-input2 validate-input textarea_field">
-                                  <textarea class="wrap-input2 validate-input" name="message" placeholder="Enter Comment" ><?php echo !empty($postData['message'])?$postData['message']:''; ?></textarea>
+                                  <textarea class="wrap-input2 validate-input" name="message" placeholder="Entrez un commentaire" ><?php echo !empty($postData['message'])?$postData['message']:''; ?></textarea>
                                   <?php echo form_error('message','<p class="field-error">','</p>'); ?>
                               </div>
                              <div  class="container-contact2-form-btn">
-                              <input class="contact2-form-btn" type="submit" name="contactSubmit"  value="Submit">
+                              <input class="contact2-form-btn" type="submit" name="contactSubmit"  value="Ok">
                              </div>
                           </form>
                     </div>

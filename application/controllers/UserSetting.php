@@ -41,7 +41,7 @@ class UserSetting extends CI_Controller {
 
 			if($this->Resetpassword_model->updatePassword($new_password , $userid)) {
 
-				$this->session->set_flashdata('result','Password Updated Successfully');
+				$this->session->set_flashdata('result','Mot de passe mis à jour avec succès.');
 				redirect('user');
 			}
 		}
@@ -57,7 +57,7 @@ class UserSetting extends CI_Controller {
 
 		if($this->db->update('users',$update_data)){
 			$this->session->set_userdata('user',array('username'=>$update_data['username']));
-			$this->session->set_flashdata('result','User Updated Successfully');
+			$this->session->set_flashdata('result','Informations utilisateur mises à jour avec succès.');
 			redirect('UserSetting/Account');
 		}
 

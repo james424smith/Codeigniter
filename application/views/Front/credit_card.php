@@ -7,7 +7,7 @@
   <div class="top_bnr section post_demand">
     <div class="container">
       <div class="top-side about_title">
-          <h4 class="title">Credit Card</h4>
+          <h4 class="title">Carte bancaire</h4>
         </div>
     </div>
   </div>
@@ -20,7 +20,7 @@
 				<div class="row">
 					<div class="col-md-6">					
 						<div class="edit_card credit_card" style="padding:14px;">
-							<div class="credit_card_head"><h4 style="color:#31b731;">Your credit cards</h4></div><hr>
+							<div class="credit_card_head"><h4 style="color:#31b731;">Carte bancaire enregistrée</h4></div><hr>
 							<?php foreach ($card_details as $value) { ?>
 								<?php 
 									$expiry = $value->expiry;
@@ -32,11 +32,11 @@
 								?>
 							<form name="update_credit_card" method="post" action="<?php echo base_url('Front/Payment/delete_credit_card/')?>">
 								<div class="card_number_input row">
-									<div class="col-md-10">
+									<div class="col-md-7" style="margin-right:60px;">
 										<h5><?php echo $value->name; ?> &nbsp;&nbsp;&nbsp;.... &nbsp;&nbsp;.... &nbsp;&nbsp;.... &nbsp;&nbsp;<?php echo $display_number;?></h5>
 									</div>
 									<div class="col-md-2">
-										<button type="submit" class="btn btn-default">Delete</button>
+										<button type="submit" class="btn btn-default">Supprimer</button>
 									</div>
 								</div>
 								<input type="hidden" name="card_no" placeholder="" value="<?php echo $value->card_no; ?>">
@@ -66,16 +66,16 @@
 					</div>					
 					<div class="col-md-6">
 						<div class="add_Card_btn">	
-							<div class="credit_card_head"><h4 style="color:#31b731;">Add Your Card Details</h4></div><hr>					 
-								<button id="hide" type="button" class="btn btn-info card_btn_info" data-toggle="collapse" data-target="#demo" style="margin-top:200px;">Add New Card</button>
+							<div class="credit_card_head"><h4 style="color:#31b731;">Ajouter une nouvelle carte</h4></div><hr>					 
+								<button id="hide" type="button" class="btn btn-info card_btn_info" data-toggle="collapse" data-target="#demo" style="margin-top:200px;">Ajouter une nouvelle carte</button>
 								<div id="demo" class="collapse">
 									<form name="add_credit_card" method="post" id="add_card"  action="<?php echo base_url('Front/Payment/add_credit_card/')?>">
 										<div class="card_number_input">
-											<p>Card Name</p>
+											<p>Nom de la carte</p>
 											<input type="text" name="name" placeholder="" required>
 										</div>
 										<div class="card_number_input">
-											<p>Card Number</p>
+											<p>Numéro de carte</p>
 											<input type="number" name="card_no" id="card_no" placeholder="" required />
 											<input type="hidden" name="user_id" value="<?php echo $user_id; ?>" />
 										</div>
@@ -89,7 +89,7 @@
 											</ul>
 										</div>
 										<div class="save_credit_card">
-											<button type="submit" class="btn btn-default" name="submit">Submit</button>
+											<button type="submit" class="btn btn-default" name="submit">OK</button>
 										</div>
 									</form>
 								</div>

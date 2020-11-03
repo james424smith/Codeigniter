@@ -2001,9 +2001,9 @@ $status = $this->ClientApiModel->acceptOfferafter($mission_id);
 
         $taken_data1 = $this->ClientApiModel->gettokendata($user_id);
 
-        $this->firebase->send_notification("Your payment has been done",$taken_data1);
+        $this->firebase->send_notification("Paiement effectué avec succés ",$taken_data1);
 
-        $this->firebase->insertMessage(array('user_id'=>$user_id,'notification'=>"Your payment has been done",'demand_id'=>$mission_id,'type_id'=>1));
+        $this->firebase->insertMessage(array('user_id'=>$user_id, 'notification' => "Paiement effectué avec succés ",'demand_id'=>$mission_id,'type_id'=>1));
 
 $charge_transection = $charge->balance_transaction;
 $add_demand = array('sent_from'=>$client_id,'sent_to'=>$user_id,'amount'=>$amount,'tra_id'=>$charge_transection,'created_date'=>$date_created,'username'=>$user_name,'project_title'=>$projectaname,'mission_id'=>$mission_id);

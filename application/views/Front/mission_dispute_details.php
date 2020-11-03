@@ -48,7 +48,7 @@
 												echo $mission->mission_doc; 
 											}
 											else {
-												echo "No Attached File";
+												echo "Aucune pièce jointe";
 											}
 										?>	
 									&nbsp;<i class="fas fa-download"></i>	
@@ -56,13 +56,13 @@
 					</div>
 					 <p class="budget_details_p">
 					 	<b>Budget: <?php echo $mission->budget;?></b> <i class="fas fa-euro-sign"></i>
-						<b style="color:red;">&nbsp;&nbsp;&nbsp;Offer: <?php echo $mission->mission_budget;?> <i class="fas fa-euro-sign"></i></b>
+						<b style="color:red;">&nbsp;&nbsp;&nbsp;Offre: <?php echo $mission->mission_budget;?> <i class="fas fa-euro-sign"></i></b>
 					 </p>
 				</div>
 				<div class="demand_check_box" style="margin-left:-10px;">					
 					<form action="<?php echo base_url('ChatController/claim_chat')?>" method="post">
 						<input type="hidden" name="chat_customer" value="true">	
-						<button type="submit" class="btn btn-default" >Chat with Customer Service</button>&nbsp;&nbsp;
+						<button type="submit" class="btn btn-default" >discuter avec le service client</button>&nbsp;&nbsp;
 					</form>	
 				</div>
 			</div>
@@ -82,7 +82,7 @@
 						</div>
 					</div>
 					<div class="col-md-10">
-						<h4>My Comment</h4>
+						<h4>Mon commentaire</h4>
 					</div>
 				</div>
 				<?php foreach ($all_comments as $each_comment) { ?>
@@ -128,7 +128,7 @@
 
 					Si non,  pour toute autre demande merci de nous écrire via
 					 
-					la page de contact en cliquant ici: <a href="#" class="btn btn-primary">Contact Here</a>
+					la page de contact en cliquant ici: <a href="#" class="btn btn-primary">Contactez ici</a>
 				</p>
 				<form >
 					<div class="">

@@ -28,7 +28,7 @@
 	                         </div>
 	                         
 	                        	<div class="profile_dtls">
-	                          		<span><a href="#" data-toggle="modal" data-target="#edit_profile">Edit Profile</a></span>
+	                          		<span><a href="#" data-toggle="modal" data-target="#edit_profile">Modifier le profil</a></span>
 	                                <h4><?=empty($user['username'])?'':$user['username']?></h4>
 	                                <p><?=empty($user['skills'])?'':$user['skills']?></p>	                               
 	                          	</div>
@@ -38,27 +38,27 @@
 						</div>
 					</div>
 					<div class="Presentation">
-                          		<h5>Presentation:</h5>
+                          		<h5>Présentation:</h5>
                           		<p><?=empty($user['presentation'])?'':$use['presentation']?></p>
 					</div>
 					<div class="Presentation">
-                          		<h5>Level of Studies:</h5>
+                          		<h5>Niveau d'études:</h5>
                           		<p><?=empty($user['level_of_study'])?'':$user['level_of_study']?></p>
 					</div>
 					<div class="Presentation">
-                          		<h5>Field of Studies:</h5>
+                          		<h5>Domaine d'études</h5>
                           		<p><?=empty($user['Field_of_study'])?'':$user['Field_of_study']?></p>
 					</div>
 					<div class="Presentation">
-                          		<h5>Univecity / School:</h5>
+                          		<h5>Université/Ecole</h5>
                           		<p><?=empty($user['university'])?'':$user['university']?></p>
 					</div>
 					<div class="Presentation">
-                          		<h5>Categories of interest on heelp:</h5>
+                          		<h5>Catégories d'interêt sur Heelp</h5>
                           		<p><?=empty($user['intrested_category'])?'':$user['intrested_category']?></p>
 					</div>
 					<div class="Presentation">
-                          		<h5>Skills:</h5>
+                          		<h5>Compétences:</h5>
                           		<p><?=empty($user['skills'])?'':$user['skills']?></p>
 					</div>
 				</div>
@@ -74,25 +74,25 @@
 		 <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Edit Profile Picture</h4>
+        <h4 class="modal-title">Modifier le profil Picture</h4>
       </div>
       <div class="modal-body">
         <form action="<?php echo base_url('Front/Register/userprofile/')?>" method="post" enctype="multipart/form-data">
         	<div class="row">
 				  <div class="form-group col-md-12">
 				  	<div class="profile_upload_input">
-				  	  <label for="text">Upload Profile</label>
+				  	  <label for="text">Joindre un fichier</label>
 				  	  <input type="file" class="form-control" name="picture_url" value="" id="file">			  	   
 				    </div>
 					<br>
 					<div class="post_form_content text-center">
-						<span id="file-name" style="color:blue;">No File</span>
+						<span id="file-name" style="color:blue;">Pas de fichier</span>
 					</div>
 				  </div>
 				  <input type="hidden" class="form-control" name="id" value="<?=$user['id']?>" id="">
 				</div>
 				 <div class="modal-footer">
-		        <button type="submit" class="btn btn-default">Save</button>
+		        <button type="submit" class="btn btn-default">enregistrer</button>
 		      </div>
 			</form>
 		</div>
@@ -108,21 +108,21 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Edit Profile</h4>
+        <h4 class="modal-title">Modifier le profil</h4>
       </div>
       <div class="modal-body">
         <form action="<?php echo base_url('Front/Register/editprofile')?>" method="post">
         	<div class="row">
 				  <div class="form-group col-md-6">
-				    <label for="text">First Name:</label>
+				    <label for="text">Prénom:</label>
 				    <input type="text" class="form-control" name="first_name" value="<?=empty($user['first_name'])?'':$user['first_name']?>" id="">
 				  </div>
 				  <div class="form-group col-md-6">
-				    <label for="text">Last Name:</label>
+				    <label for="text">Nom:</label>
 				    <input type="text" class="form-control" name="last_name" value="<?=empty($user['last_name'])?'':$user['last_name']?>" id="">
 				  </div>
 				  <div class="form-group col-md-6">
-				    <label for="text">User Name:</label>
+				    <label for="text">Nom d'utilisateur:</label>
 				    <input type="text" class="form-control"  name="username" value="<?=empty($user['username'])?'':$user['username']?>"id="">
 				  </div>
 				  <div class="form-group col-md-6">
@@ -135,35 +135,35 @@
 				  </div>
 				 
 				  <div class="form-group col-md-6">
-				    <label for="text">Birth:</label>
+				    <label for="text">Date de naissance:</label>
 				    <input type="date" class="form-control" name="dob" value="<?=empty($user['dob'])?'':$user['dob']?>" id="">
 				  </div>
 				  <div class="form-group col-md-6">
-				    <label for="text">Country:</label>
+				    <label for="text">Pays:</label>
 				    <input type="text" class="form-control" name="country" value="<?=empty($user['country'])?'':$user['country']?>" id="">
 				  </div>
 				  <div class="form-group col-md-6">
-				    <label for="text">Presentation:</label>
+				    <label for="text">Présentation:</label>
 				    <input type="text" class="form-control" name="presentation" value="<?=empty($user['presentation'])?'':$user['presentation']?>" id="">
 				  </div>
 				  <div class="form-group col-md-6">
-				    <label for="text">Lavel of studies:</label>
+				    <label for="text">Niveau d'études:</label>
 				    <input type="text" class="form-control" name="level_of_study" value="<?=empty($user['level_of_study'])?'':$user['level_of_study']?>" id="">
 				  </div>
 				  <div class="form-group col-md-6">
-				    <label for="text">Field of studies:</label>
+				    <label for="text">Domaine d'études</label>
 				    <input type="text" class="form-control" name="Field_of_study" value="<?=empty($user['Field_of_study'])?'':$user['Field_of_study']?>" id="">
 				  </div>
 				  <div class="form-group col-md-6">
-				    <label for="text">Univercity /School:</label>
+				    <label for="text">Université/Ecole:</label>
 				    <input type="text" class="form-control" name="university" value="<?=empty($user['university'])?'':$user['university']?>" id="">
 				  </div>
 				  <div class="form-group col-md-6">
-				    <label for="text">Categories of interest on heelp:</label>
+				    <label for="text">Catégories d'interêt sur Heelp</label>
 				    <input type="text" class="form-control" name="intrested_category" value="<?=empty($user['intrested_category'])?'':$user['intrested_category']?>" id="">
 				  </div>
 				  <div class="form-group col-md-6">
-				    <label for="text">SKills:</label>
+				    <label for="text">Compétences:</label>
 				    <input type="text" class="form-control" name="skills" value="<?=empty($user['skills'])?'':$user['skills']?>" id="">
 				  </div> 
 				    <input type="hidden" class="form-control" name="id" value="<?=$user['id']?>" id="">
@@ -171,7 +171,7 @@
 		   </div>
       </div>
       <div class="modal-footer">
-        <button type="submit" class="btn btn-default">Save</button>
+        <button type="submit" class="btn btn-default">enregistrer</button>
       </div>
       </form>
     </div>

@@ -65,7 +65,7 @@
 										echo $mission->mission_doc; 
 									}
 									else {
-										echo "No Attached File";
+										echo "Aucune pièce jointe";
 									}
 								?>	
 								&nbsp;<i class="fas fa-download"></i>		
@@ -75,13 +75,13 @@
 					<br>
 					 <p class="budget_details_p">
 						<b>Budget: <?php echo $mission->budget;?></b> <i class="fas fa-euro-sign"></i>
-						<b style="color:red;">&nbsp;&nbsp;&nbsp;Offer: <?php echo $mission->mission_budget;?> <i class="fas fa-euro-sign"></i></b>
+						<b style="color:red;">&nbsp;&nbsp;&nbsp;Offre: <?php echo $mission->mission_budget;?> <i class="fas fa-euro-sign"></i></b>
 					 </p>
 				</div><br>
 				<div class="demand_check_box">
 					<ul>
 						<li>							
-							<a href="#" class="btn btn-default" id="modify">Ask to Modify</a>
+							<a href="#" class="btn btn-default" style="width:250px;" id="modify">Demander une modification</a>
 						</li>						
 					</ul>
 				</div>				
@@ -107,7 +107,7 @@
 						</div>
 					</div>
 					<div class="col-md-10">
-						<h4>Heelper Comment</h4>
+						<h4>Commentaire du Heelper</h4>
 					</div>
 				</div>
 				<?php foreach ($all_comments as $each_comment) { ?>
@@ -130,7 +130,7 @@
 				<?php  } ?>
 				<div class="row claim_an_issue" style="padding-left:10px;">
 					<a href="#" class="btn btn-default" data-toggle="modal" data-target="#myModal2">
-						Claim an issue
+						Ouvrir un litige
 					</a>
 				</div>				
 			</div>
@@ -160,11 +160,11 @@
 
 					Si non,  pour toute autre demande merci de nous écrire via
 					 
-					la page de contact en cliquant ici: <a href="<?php echo base_url('Front/contact')?>" class="btn btn-primary">Contact Here</a>
+					la page de contact en cliquant ici: <a href="<?php echo base_url('Front/contact')?>" class="btn btn-primary">contactez ici</a>
 				</p>
 				<form action="<?php echo base_url('ChatController/claim_chat')?>" method="post">
 					<div class="">
-						<textarea placeholder="Description:" name="description" required></textarea>
+						<textarea placeholder="La description..." name="description" required></textarea>
 						<input type="hidden" name="user_id" value="<?php echo $mission->accepted_by ?>">	
 						<input type="hidden" name="project_id" value="<?php echo $mission->mission_id ?>">	
 						<input type="hidden" name="title" value="<?php echo $mission->mission_title ?>">	
@@ -202,7 +202,7 @@
 						<input type="hidden" name="mission_id" value="<?php echo $mission->mission_id ?>">
 						<input type="hidden" name="employer_id" value="<?php echo $mission->user_id ?>">		
 					</div>
-					<button type="submit" class="btn btn-default">Submit</button>
+					<button type="submit" class="btn btn-default">OK</button>
 				</form>
 
 				
@@ -214,6 +214,6 @@
 <?php $this->load->view('Front/common/footer');  ?>
 <script>
 	$("#modify").click(function(){
-		swal("Your modification request has been sent successfully.");
+		swal("Votre demande de modification a été envoyée avec succès.");
 	});
 </script>

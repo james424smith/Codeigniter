@@ -14,7 +14,7 @@ class Register extends CI_Controller {
     
     if( $this->input->post('term') != "on")
     {
-        $this->session->set_flashdata('terms_error', 'Please accept the terms');
+        $this->session->set_flashdata('terms_error', 'Veuillez accepter les conditions.');
         redirect(base_url('Front/Home/signUp'));
     }
     //redirect(base_url('Front/Home/signUp'));    
@@ -35,17 +35,17 @@ class Register extends CI_Controller {
       
       if($this->RegisterModel->checkUserForRegistor($data))
       {
-        $this->session->set_flashdata('error', 'The user already exists');
+        $this->session->set_flashdata('error', "L'utilisateur existe déjà.");
         redirect(base_url('Front/Home/signUp'));
       }
       
       $this->RegisterModel->user_data($data);
-      $this->session->set_flashdata('success', 'success');
+      $this->session->set_flashdata('success', 'Succès');
       redirect(base_url('Front/Home'));
    }
 
    else {
-     $this->session->set_flashdata('warning', 'Invalid Password');
+     $this->session->set_flashdata('warning', 'Mot de passe incorrect.');
      redirect(base_url('Front/Home/signUp'));
   
    }   

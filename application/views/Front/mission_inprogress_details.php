@@ -64,7 +64,7 @@
 					 </p>
 					 <p class="budget_details_p">
 					 	<b>Budget: <?php echo $mission->budget;?></b> <i class="fas fa-euro-sign"></i>
-						<b style="color:red;">&nbsp;&nbsp;&nbsp;Offer: <?php echo $mission->mission_budget;?> <i class="fas fa-euro-sign"></i></b>
+						<b style="color:red;">&nbsp;&nbsp;&nbsp;Offre: <?php echo $mission->mission_budget;?> <i class="fas fa-euro-sign"></i></b>
 					 </p>
 				</div>
 				<div class="demand_details_upload_btn">
@@ -98,7 +98,7 @@
 					</div>
 					<div class="col-md-10">
 						<div class="demand_details_content">
-							<h4>My Comment</h4>						
+							<h4>Mon commentaire</h4>						
 						</div>
 					</div>
 				</div>
@@ -122,17 +122,17 @@
 			<div class="col-md-8">
 				<form action="<?php echo base_url('Front/Posts/inprogress')?>"  method="post" enctype="multipart/form-data">
 					<div class="mission_inprogress_textarea">
-						<label>Send a new Delivery</label>
-						<textarea placeholder="My comment: I finished again " name="your_comments"></textarea>
+						<label>Envoyer une nouvelle livraison</label>
+						<textarea placeholder="Mon commentaire: I finished again " name="your_comments"></textarea>
 					</div>			 	
 					<div class="post_form_content">
 						<div class="post_inner_upload_file">
 							<input type="file" name="project_files" id="file">
-							<span>+ Upload File Here</span>
+							<span>+ Joindre un fichier</span>
 						</div>
 					</div>
 					<div class="post_form_content text-center">
-						<span id="file-name" style="color:blue;">No File</span>
+						<span id="file-name" style="color:blue;">Pas de fichier</span>
 					</div>				
 					<input type="hidden" name="client_id" value="<?php echo $mission->client_id;?>">
 					<input type="hidden" name="project_status" value="<?php echo $mission->mission_status;?>">
@@ -142,7 +142,7 @@
 						<!-- <a href="#" class="btn btn-default" data-toggle="modal" data-target="#myModal2">
 							Claim an issue
 						</a> -->
-					<button type="submit" class="btn btn-default"> Submit </button>
+					<button type="submit" class="btn btn-default"> OK </button>
 				</div>
 				</form>
 			</div>
@@ -168,11 +168,11 @@
 
 					Si non,  pour toute autre demande merci de nous écrire via
 					 
-					la page de contact en cliquant ici: <a href="#" class="btn btn-primary">Contact Here</a>
+					la page de contact en cliquant ici: <a href="#" class="btn btn-primary">Contactez ici</a>
 				</p>
 				<form>
 					<div class="">
-						<textarea placeholder="Description:"></textarea>
+						<textarea placeholder="La description..."></textarea>
 					</div>
 				</form>
 

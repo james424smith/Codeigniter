@@ -8,10 +8,10 @@
                <div class="col-md-7">
                   <div class="footer_left_menu">
                     <ul>
-                      <li><a href="<?php echo base_url('Front/home/mymissions')?>">My Missions</a></li>
-                      <li><a href="<?php echo base_url('Front/home/mydemands')?>">My Demands</a></li>
-                      <li><a href="<?php echo base_url('Front/contact')?>">Contact Us</a></li>
-                      <li><a href="<?php echo base_url('Front/home/terms_condition')?>">Terms & Conditions</a></li>
+                      <li><a href="<?php echo base_url('Front/home/mymissions')?>">Mes missions</a></li>
+                      <li><a href="<?php echo base_url('Front/home/mydemands')?>">Mes demandes</a></li>
+                      <li><a href="<?php echo base_url('Front/contact')?>">Nous contacter</a></li>
+                      <li><a href="<?php echo base_url('Front/home/terms_condition')?>">Conditions générales</a></li>
                     </ul>
                   </div>
                </div>              

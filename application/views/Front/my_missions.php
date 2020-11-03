@@ -22,7 +22,7 @@
     <?php if($this->session->flashdata('delivery_success')){ 
     ?>
 			<script>
-				swal("Your delivery was successfully sent.");
+				swal("Votre livraison a été envoyée avec succès.");
 			</script>
 		<?php } ?>
    <div class="top_bnr section post_demand">
@@ -37,12 +37,12 @@
    <div class="section portfolio">
       <main id="main" class="container">
          <nav class="nav">
-            <a href="" class="nav-item active" onclick="location.reload();" style="color:#0abdf3;">All</a>
-            <a href="#" class="nav-item" data-rel="Proposed" style="color:#2d4fb1;">Proposed</a>
-            <a href="#" class="nav-item" data-rel="option-1" style="color:#ffd400;">In progress</a>
-            <a href="#" class="nav-item" data-rel="option-2" style="color:#7402f1;">Delivered</a>
-            <a href="#" class="nav-item" data-rel="option-3" style="color:#39ec0c;">Completed</a>
-            <a href="#" class="nav-item" data-rel="option-4" style="color:#ff1800;">Dispute</a> 
+            <a href="" class="nav-item active" onclick="location.reload();" style="color:#0abdf3;">Tout</a>
+            <a href="#" class="nav-item" data-rel="Proposed" style="color:#2d4fb1;">Proposée</a>
+            <a href="#" class="nav-item" data-rel="option-1" style="color:#ffd400;">En cours</a>
+            <a href="#" class="nav-item" data-rel="option-2" style="color:#7402f1;">Livrée</a>
+            <a href="#" class="nav-item" data-rel="option-3" style="color:#39ec0c;">Complétée</a>
+            <a href="#" class="nav-item" data-rel="option-4" style="color:#ff1800;">Litige</a> 
          </nav>
 
       <?php
@@ -52,7 +52,7 @@
       <br><br><br>
       <div class="row">
         <div class="col-md-12 text-center">
-          <h4>No Missions to display.</h4>
+          <h4>Aucune mission à afficher.</h4>
         </div>
       </div>
       <br><br>
@@ -108,24 +108,24 @@
                      <div class="row">
                         <div class="col-md-12 status Delivred">
                         <p>
-                          By : <?php echo $value['username']?>
+                          Par : <?php echo $value['username']?>
                           &nbsp;&nbsp; Budget : <?php echo '€' . $value['budget'];?>
                         </p>
                         <?php  
                               if($value['mission_status'] == 0){ 
-                                echo "<span style='color:#2d4fb1;'>Proposed</span>";
+                                echo "<span style='color:#2d4fb1;'>Proposée</span>";
                              }
                              if($value['mission_status'] == 1){ 
-                                echo "<span style='color:#ffd400;'>In Progress</span>";
+                                echo "<span style='color:#ffd400;'>En cours</span>";
                              }
                              if($value['mission_status'] == 2){ 
-                                echo "<span style='color:#7402f1;'>Delivered</span>";
+                                echo "<span style='color:#7402f1;'>Livrée</span>";
                              }
                              if($value['mission_status'] == 3){ 
-                                echo "<span style='color:#39ec0c;'>Complete</span>";
+                                echo "<span style='color:#39ec0c;'>Complétée</span>";
                              }
                              if($value['mission_status'] == 4){ 
-                                echo "<span style='color:#ff1800;'>Dispute</span>";
+                                echo "<span style='color:#ff1800;'>Litige</span>";
                              }
                         ?>
                      </div>              
@@ -136,7 +136,7 @@
                      $your_date = strtotime($value['created_date']);
                      $datediff = $now - $your_date;
                      ?>
-                  <p class="cat_date"><?php echo round($datediff / (60 * 60 * 24)); ?> Days ago</p>                     
+                  <p class="cat_date">Il y a <?php echo round($datediff / (60 * 60 * 24)); ?> jours</p>                     
              </div>
            </a>
           </li>

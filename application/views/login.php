@@ -42,7 +42,7 @@
 
 <div class="container">  
     <div class="col-md-4 col-md-offset-4 login_box">
-        <h3>Login</h3>
+        <h3>Se connecter</h3>
         <?php echo '<label class="text-danger">'.$this->session->flashdata("error").'</label>';?>
         <form method="post" action="<?php echo base_url(); ?>login/login_validation">  
             <div class="form-group">  

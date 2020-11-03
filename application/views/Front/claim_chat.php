@@ -42,7 +42,7 @@
 										</span>
 										<input type="file" name="file" id="files" class="upload_attachmentfile" style="display:none;"/>
 									</div>
-									<textarea name="" class="form-control message" placeholder="Type your message..." class="message" id="message"></textarea>
+									<textarea name="" class="form-control message" placeholder="Tapez votre message..." class="message" id="message"></textarea>
 									<div class="input-group-append">
 										<span class="input-group-text send_btn"><i class="fas fa-location-arrow"></i></span>
 									</div>

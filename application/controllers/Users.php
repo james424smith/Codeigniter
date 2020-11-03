@@ -61,7 +61,7 @@ class Users extends CI_Controller {
 					}
 				if(empty($errors))
 				{
-					$this->session->set_flashdata('success', 'Profile updated successfuly');
+					$this->session->set_flashdata('success', 'Mise à jour du profil réussie');
 					$this->user->update($id, $details);	
 				}
 				
