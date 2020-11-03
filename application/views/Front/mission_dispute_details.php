@@ -99,8 +99,7 @@
 								if($each_comment['project_files'])
 									echo $each_comment['project_files'] . " <i class='fas fa-download'></i>";
 							?>
-						</a>
-						
+						</a>						
 					</div>
 				</div> <hr>
 				<?php } ?>		
