@@ -23,7 +23,7 @@
   <div class="top_bnr section post_demand">
     <div class="container">
       <div class="top-side about_title">
-		  <img src="<?php  echo base_url('assets/Front/img/Demand in dispute.png'); ?>"/>
+		  <img src="<?php  echo base_url('assets/Front/img/Demand_in_dispute.png'); ?>"/>
         </div>
     </div>
   </div><hr>

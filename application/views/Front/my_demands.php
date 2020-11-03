@@ -27,7 +27,7 @@
       <div class="container">
          <div class="row top-side about_title">
             <div class="col-md-12 text-center">
-               <img src="<?php  echo base_url('assets/Front/img/My demands.PNG'); ?>"/>
+               <img src="<?php  echo base_url('assets/Front/img/My_demands.png'); ?>"/>
              </div>
          </div>
       </div>
