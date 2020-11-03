@@ -18,7 +18,7 @@
 <section>
   <div class="top_bnr section post_demand">
     <div class="container">
-      <div class="top-side about_title">
+      	<div class="top-side about_title">
 		  <img src="<?php  echo base_url('assets/Front/img/Mission dispute.png'); ?>"/>
         </div>
     </div>
@@ -37,20 +37,20 @@
 						<h2 style="margin-top: 10px; margin-left: 10px;"><?php echo $mission->mission_title;?></h2>				
 					</div>
 					<br>
-					 <p class="top_details_p">
+					<p class="top_details_p">
 					 	<?php echo $mission->mission_description;?>
-					 </p>
+					</p>
 					 <div class="demand_details_upload_btn">
 						<a href="<?php if($mission->mission_doc){ echo base_url()?>Front/Posts/download/<?php echo $mission->mission_doc;}
-									else { ?>#<?php }?>">
-									<?php 
-										if($mission->mission_doc) {
-											echo $mission->mission_doc; 
-										}
-										else {
-											echo "No Attached File";
-										}
-									?>	
+										else { ?>#<?php }?>">
+										<?php 
+											if($mission->mission_doc) {
+												echo $mission->mission_doc; 
+											}
+											else {
+												echo "No Attached File";
+											}
+										?>	
 									&nbsp;<i class="fas fa-download"></i>	
 						</a>
 					</div>

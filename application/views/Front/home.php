@@ -20,7 +20,7 @@
           <?php foreach ($section_1 as $s1) {  ?>
             <div class="col-md-6">
                 <div class="banner_sec">
-                    <?php //print_r($value); die();?>
+                  <?php //print_r($value); die();?>
                   <h1><?php echo $s1['section_1_title'];?></h1>
                   <p><?php echo $s1['section_1_content'];?>
                   </p>

@@ -426,7 +426,7 @@ section.demand_deails_section.mission_complete {
     padding: 0px;
 }
 .about_heelp_cont ul li {
-    list-style: none;
+    /*list-style: none;*/
     padding: 7px 0px;
 }
 .about_heelp_cont span, .support_cont span {
