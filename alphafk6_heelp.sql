@@ -85,7 +85,7 @@ CREATE TABLE `add_discuss` (
   `sender_id` int(25) NOT NULL,
   `date_created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
 /*Data for the table `add_discuss` */
 
@@ -287,7 +287,7 @@ CREATE TABLE `card_details` (
   `expiry` varchar(255) NOT NULL,
   `cvv` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
 /*Data for the table `card_details` */
 
@@ -309,19 +309,6 @@ CREATE TABLE `carts` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 /*Data for the table `carts` */
-
-insert  into `carts`(`id`,`user_id`,`product_id`,`variation`,`price`,`tax`,`shipping_cost`,`quantity`,`created_at`,`updated_at`) values 
-(1,32,424,NULL,3600.00,0.00,30.00,1,'2020-07-30 19:10:04','2020-07-30 19:10:04'),
-(2,34,306,'64GB',150.00,0.00,0.00,1,'2020-08-01 10:46:36','2020-08-01 10:46:36'),
-(3,34,369,NULL,450.00,0.00,0.00,1,'2020-08-01 10:50:04','2020-08-01 10:50:04'),
-(4,34,434,NULL,3000.00,0.00,0.00,1,'2020-08-01 10:56:27','2020-08-01 10:56:27'),
-(5,39,229,NULL,250.00,0.00,0.00,1,'2020-08-01 17:04:45','2020-08-01 17:04:45'),
-(7,22,342,NULL,70.00,0.00,20.00,1,'2020-08-05 14:55:13','2020-08-18 12:50:04'),
-(8,44,322,NULL,400.00,0.00,0.00,1,'2020-08-09 13:54:09','2020-08-10 13:27:25'),
-(9,46,416,NULL,3200.00,0.00,0.00,1,'2020-08-10 00:57:26','2020-08-10 00:57:26'),
-(10,44,232,NULL,500.00,0.00,0.00,1,'2020-08-10 20:08:11','2020-08-10 20:08:11'),
-(11,25,632,'Black-40',250.00,0.00,0.00,1,'2020-08-19 16:06:13','2020-08-19 16:06:13'),
-(12,61,565,NULL,580.00,0.00,0.00,1,'2020-08-20 17:42:39','2020-08-20 17:42:50');
 
 /*Table structure for table `categories` */
 
@@ -362,7 +349,7 @@ CREATE TABLE `chat` (
   `project_id` int(255) NOT NULL,
   `read_status` tinyint(4) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=37 DEFAULT CHARSET=latin1;
 
 /*Data for the table `chat` */
 
@@ -603,7 +590,7 @@ CREATE TABLE `contact_content` (
 /*Data for the table `contact_content` */
 
 insert  into `contact_content`(`id`,`contact_section_title1`,`contact_section_image1`,`contact_section_content1`,`contact_map`,`address_title`,`address_content`,`call_us_title`,`call_us_content`,`email_title`,`email_content`) values 
-(1,'Contact us','Contact_img1.png','<p><span style=\"vertical-align: inherit;\"><span style=\"vertical-align: inherit;\"><span style=\"vertical-align: inherit;\"><span style=\"vertical-align: inherit;\">We are a design studio partnering with brands of multiple industries scattered all across the globe. </span></span></span><span style=\"vertical-align: inherit;\"><span style=\"vertical-align: inherit;\"><span style=\"vertical-align: inherit;\">Our work is to build.</span></span></span></span></p>','','Address','<p>Freinville 93270 Sevran-France</p>','Call Us','<p>+91 9898989898</p>\r\n<p>+91 9786454876</p>','E-Mail','<p>Contact@heelp.fr</p>');
+(1,'Contact us','Contact_img1.png','<p><span style=\"vertical-align: inherit;\"><span style=\"vertical-align: inherit;\"><span style=\"vertical-align: inherit;\"><span style=\"vertical-align: inherit;\">We are a design studio partnering with brands of multiple industries scattered all across the globe. </span></span></span><span style=\"vertical-align: inherit;\"><span style=\"vertical-align: inherit;\"><span style=\"vertical-align: inherit;\">Our work is to build.</span></span></span></span></p>','','Address','<p>Freinville 93270 Sevran-France</p>','Call Us','<p>(+33)09 75 61 33 38</p>\r\n','E-Mail','<p>Contact@heelp.fr</p>');
 
 /*Table structure for table `conversations` */
 
@@ -1313,7 +1300,7 @@ CREATE TABLE `litigations` (
   `date_created` datetime NOT NULL,
   `date_modified` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=14 DEFAULT CHARSET=latin1;
 
 /*Data for the table `litigations` */
 
@@ -1399,7 +1386,7 @@ CREATE TABLE `mission` (
   `bank_fee` varchar(255) NOT NULL,
   `satisfy` tinyint(4) NOT NULL,
   PRIMARY KEY (`mission_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=25 DEFAULT CHARSET=latin1;
 
 /*Data for the table `mission` */
 
@@ -1417,7 +1404,7 @@ CREATE TABLE `notification` (
   `created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `type_id` int(25) NOT NULL,
   PRIMARY KEY (`notification_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=158 DEFAULT CHARSET=latin1;
 
 /*Data for the table `notification` */
 
@@ -1525,7 +1512,7 @@ CREATE TABLE `project_offer` (
   `accept_status` int(25) NOT NULL,
   `client_id` int(255) NOT NULL,
   PRIMARY KEY (`offer_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=latin1;
 
 /*Data for the table `project_offer` */
 
@@ -1545,9 +1532,17 @@ CREATE TABLE `project_status` (
   `project_image` text NOT NULL,
   `client_id` int(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
 
 /*Data for the table `project_status` */
+
+insert  into `project_status`(`id`,`project_id`,`user_id`,`your_comments`,`project_files`,`project_status`,`date_created`,`date_updated`,`project_image`,`client_id`) values 
+(10,23,162,'qweqwe','hi1.txt',2,'0000-00-00 00:00:00','2020-11-04 23:41:30','',163),
+(9,21,162,'asdsadf','13.docx',2,'0000-00-00 00:00:00','2020-11-04 23:35:05','',163),
+(8,17,162,'werwer','12.docx',2,'0000-00-00 00:00:00','2020-11-04 22:14:34','',163),
+(7,19,162,'werwer','me.png',2,'0000-00-00 00:00:00','2020-11-04 22:14:22','',163),
+(6,16,162,'adasdasd','hi.png',2,'0000-00-00 00:00:00','2020-11-04 06:25:13','',163),
+(11,24,162,'asdfasdf','hi2.txt',2,'0000-00-00 00:00:00','2020-11-04 23:46:20','',163);
 
 /*Table structure for table `publishdemand` */
 
@@ -1622,7 +1617,7 @@ CREATE TABLE `transaction` (
   `mission_id` int(25) NOT NULL,
   `status` int(25) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=16 DEFAULT CHARSET=latin1;
 
 /*Data for the table `transaction` */
 
@@ -1638,7 +1633,7 @@ CREATE TABLE `user_review` (
   `comment` text,
   `created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
 
 /*Data for the table `user_review` */
 
@@ -1721,8 +1716,8 @@ insert  into `users`(`id`,`username`,`password`,`role`,`source`,`status`,`is_ema
 (36,'you','f1887d3f9e6ee7a32fe5e76f4ab80d63','admin',0,0,0,'me ','me ','store','Firststore.service@gmail.com','','9009856453','','16.jpg','','','2020-04-02','','','','','','France ','Vfbfbfh','','','',0,0,0,'','Jdjdjdkk','Bdbfbfb','','Bdbdj','Jfjdjdkfkdk',0,'','','','',0,0,'eofwSbFLQ5aiNmLO7vow7B:APA91bG9QR7K9nhfn-nMvp7c2ZwnzQAfoo03so2UIxLFclmwhjFNok-nAK0y8FF0157XlO9Yl02yh4WbmnoDWgwZa_aimWAeesiltW99WMuaxiZ9eby_JSc78XpUC5gPpyw8Evzy1OaZ','Jfjfjdk','','2020-07-05 07:40:15','','','','','0',0,0,'','','2020-07-05 04:40:15','facebook','',''),
 (37,'gopal123','b57e63ce8b73e370cd2a4c6865fc611b','admin',0,0,0,'','gopal','sharma','gopalsh02221@gmail.com','','3456455345','','default.png','','','','','','','','','','','','','',0,0,0,'','','','','0','English',0,'','','','',0,0,'','','','2020-10-22 18:10:46','','','','','0',0,0,'','','0000-00-00 00:00:00','facebook','',''),
 (39,'Gopal123','12345','admin',0,0,0,'','gopal','sharma','gopalsh021@gmail.com','','7440498598','','default.png','','','','male','','','indore','','india','school','','','indore',0,0,0,'','','','','0','physics',0,'','','','',0,0,'','','','2020-10-22 18:10:52','','','','','0',0,0,'','','0000-00-00 00:00:00','facebook','',''),
-(162,'hello','25f9e794323b453885f5181f1b624d0b','client',0,1,0,'','hello','123','hello@sample.com','','','','medical-insuarnce.png','','','','','','','','','Canada','','','','',0,176.88,0,'','2','Math','asdfasdf','ererer','ee',0,'','','','',0,0,'','ljaslkdjfklajsdflkjasdfasdf','','2020-10-29 22:07:46','','','','','0',0,0,'','','0000-00-00 00:00:00','facebook','',''),
-(163,'hi','25f9e794323b453885f5181f1b624d0b','client',0,0,0,'','elie','kassis','hi@sample.com','','','','me1.png','','','','','','','','','Canada','','','','',0,2816,0,'','234','asdfasdf','asdfasdf','asdfasf','aa',0,'','','','',0,0,'','hello','','2020-11-02 07:10:01','','','','','0',0,0,'','','0000-00-00 00:00:00','facebook','',''),
+(162,'hello','25f9e794323b453885f5181f1b624d0b','client',0,1,0,'','hello','123','hello@sample.com','','','','medical-insuarnce.png','','','','','','','','','Canada','','','','',0,9894.72,0,'','2','Math','asdfasdf','ererer','ee',0,'','','','',0,0,'','ljaslkdjfklajsdflkjasdfasdf','','2020-11-05 01:49:29','','','','','0',0,0,'','','0000-00-00 00:00:00','facebook','',''),
+(163,'hi','25f9e794323b453885f5181f1b624d0b','client',0,0,0,'','elie','kassis','hi@sample.com','','','','me1.png','','','','','','','','','Canada','','','','',0,2992,0,'','234','asdfasdf','asdfasdf','asdfasf','aa',0,'','','','',0,0,'','hello','','2020-11-03 17:04:14','','','','','0',0,0,'','','0000-00-00 00:00:00','facebook','',''),
 (174,'Mydev','25f9e794323b453885f5181f1b624d0b','client',0,0,0,'','','','Mydev@gmail.com','','','','default.png','','','','','','','','','','','','','',0,0,0,'','','','','','',0,'','','','',0,0,'','','','2020-11-03 11:56:35','','','','','0',0,0,'','','0000-00-00 00:00:00','facebook','',''),
 (175,'Yourdev','25f9e794323b453885f5181f1b624d0b','client',0,0,0,'','','','Yourdev@gmail.com','','','','default.png','','','','','','','','','','','','','',0,0,0,'','','','','','',0,'','','','',0,0,'','','','2020-11-03 11:57:18','','','','','0',0,0,'','','0000-00-00 00:00:00','facebook','','');
 
@@ -1764,7 +1759,7 @@ CREATE TABLE `withdrawpayment` (
   `emplyee_id` int(25) NOT NULL,
   `transection_id` text NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=13 DEFAULT CHARSET=latin1;
 
 /*Data for the table `withdrawpayment` */
 
