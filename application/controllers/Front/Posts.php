@@ -289,7 +289,7 @@ class Posts extends CI_Controller
         $this->load->model('Front/Posts_model');
         $data= array('mission_status' => 1);
         $status = $this->Posts_model->deliver_askmodify($data, $mission_id);
-        $this->Posts_model->pushNotification($this->session->userdata['id'], 3, "Your modification request has been sent successfully.");
+        $this->Posts_model->pushNotification($this->session->userdata['id'], 3, "vous avez reçu une demande de modification.");
         if($status) {
           $this->session->set_flashdata('success_ask_modify', 'Votre demande de modification a été envoyée avec succès.');  
           redirect('Front/home/mydemands');

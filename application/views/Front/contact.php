@@ -9,8 +9,9 @@
         ?>
             <div class="col-md-6">
                 <div class="banner_sec">
-                  <h1><?php echo $contact['contact_section_title1'];?></h1>
-                  <p><?php echo $contact['contact_section_content1'];?>
+                  <h1>Contactez-nous</h1>
+                  <p>
+                     Pour toute demande Contactez-nous par email ou via le formulaire ci-dessous
                   </p>
                 </div>
             </div>

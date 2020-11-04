@@ -85,7 +85,7 @@
                                   </label>
                                 </div>-->
                               </div>
-                              <a class="nex_btn" id="card" href="<?php echo base_url('Front/Payment/payment_card_details/')?><?php echo $id; ?>">prochain</a>
+                              <a class="nex_btn" id="card" href="<?php echo base_url('Front/Payment/payment_card_details/')?><?php echo $id; ?>">Suivant</a>
                               <!--<a class="nex_btn" id="wallet" href="" data-toggle="modal" data-target="#myModalpayment">Next</a>-->
                           </div>
                     </div>

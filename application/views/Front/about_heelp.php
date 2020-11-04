@@ -31,7 +31,7 @@
 						<li>3-Gagner l’argent depuis leurs domiciles simplement en aidant d’autres étudiants </li>
 					</ul>
 					<p>Contacter l’équipe Heelp par mail</p>
-					<span>contact@heelp.com</span>
+					<span>contact@heelp.fr</span>
 				</div>
 			</div>
 		</div>

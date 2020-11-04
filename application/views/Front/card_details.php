@@ -59,11 +59,11 @@
 								?>
 		
 								<div class="card_number_input row">
-									<div class="col-md-10">
+									<div class="col-md-9">
 										<h5><?php echo $value->name; ?> &nbsp;&nbsp;&nbsp;.... &nbsp;&nbsp;.... &nbsp;&nbsp;.... &nbsp;&nbsp;<?php echo $display_number;?></h5>
 									</div>
-									<div class="col-md-2">
-										<button type="button" class="btn btn-success" onclick="onclick_use(<?php echo $idx; ?>)">Use</button>
+									<div class="col-md-3">
+										<button type="button" class="btn btn-success" onclick="onclick_use(<?php echo $idx; ?>)">Utilisation</button>
 									</div>
 								</div>
                 <input type="hidden" id="card_name<?=$idx?>" value="<?php echo $value->name;?>">

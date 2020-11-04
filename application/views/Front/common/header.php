@@ -213,7 +213,7 @@
                   <?php if($this->session->userdata['id']){?>
                      <a href="<?php echo base_url('Front/home/logout')?>" style="font-size:15px;">Se déconnecter</a>                 
                   <?php } else {?>                    
-                      <a href="<?php echo base_url('Front/home/login')?>" style="font-size:15px;">LSe connecter</a>
+                      <a href="<?php echo base_url('Front/home/login')?>" style="font-size:15px;">Se connecter</a>
                    <?php } ?>           
                 </div>
               </div>
@@ -344,7 +344,6 @@
                           <a class="my_missions" href="<?php echo base_url('Front/home/mymissions')?>">Mes missions</a>
                         <?php }?>
                         </li>
-
                         <li>
                           <a href="<?php echo base_url('Front/home/offer')?>" class="hvr-bounce-to-right">
                               <div class="not_icon">
@@ -390,7 +389,7 @@
       </div>
       <!-- fixed button right side -->
       <div class="find_a_mission_top_btn">        
-        <a href="<?php echo base_url('Front/home/find_mission')?>" class="btn btn-default">FTrouver une mission</a>
+        <a href="<?php echo base_url('Front/home/find_mission')?>" class="btn btn-default">Trouver une mission</a>
       </div>     
       <!-- fixed button right side end-->
 

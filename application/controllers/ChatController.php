@@ -53,6 +53,7 @@ class ChatController extends CI_Controller {
     {
         if($this->input->post('chat_customer') == "true")
         {
+            //var_dump("")
             $this->load->view('Front/claim_chat');
             return;
         }
@@ -68,6 +69,17 @@ class ChatController extends CI_Controller {
         ); 
         $this->load->model('Front/Posts_model');
         $this->Posts_model->deliver_demand($project_data, $this->input->post('user_id'));
+        if($this->input->post('mission_dispute') == "mission_dispute")
+        {
+            $this->Posts_model->pushNotification($this->session->userdata('id'), 2, "Un litige concernant une de vos Mission a été ouvert!");
+            $this->Posts_model->pushNotification($this->input->post('mission_client'), 2, "Un litige concernant une de vos Demande a été ouvert!");    
+        }
+        else
+        {
+            $this->Posts_model->pushNotification($this->session->userdata('id'), 2, "Un litige concernant une de vos Demande a été ouvert!");
+            $this->Posts_model->pushNotification($this->input->post('user_id'), 2, "Un litige concernant une de vos Mission a été ouvert!");    
+        }
+
 
         $messageTxt = reduce_multiples($this->input->post('description'), ' ');
         $data = [

@@ -19,7 +19,7 @@
 <section>
 <?php if($this->session->flashdata('success_ask_modify')){ ?>
   <script>
-    swal("Your modification request has been sent successfully.");
+    swal("vous avez reçu une demande de modification.");
   </script> 
 <?php } ?>
 

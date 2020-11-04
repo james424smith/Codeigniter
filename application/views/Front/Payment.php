@@ -62,7 +62,7 @@
                                   </label>
                                 </div>
                               </div>
-                              <a class="nex_btn" href="#">prochain</a>
+                              <a class="nex_btn" href="#">Suivant</a>
                           </div>
                     </div>
             </div>

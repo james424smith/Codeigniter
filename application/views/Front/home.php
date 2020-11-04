@@ -42,7 +42,7 @@
         </a>
         <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
           <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="sr-only">prochain</span>
+          <span class="sr-only">Suivant</span>
         </a>
       </div>
         </div>

@@ -36,7 +36,7 @@
 					  <button type="submit" class="Submit_btn" >OK</button>
 					</form>
 					<p>Contacter l’équipe Heelp par mail :</p>
-					<span>contact@heelp.com</span>
+					<span>contact@heelp.fr</span>
 				</div>
 				<div class="col-md-3"></div>
 			</div>

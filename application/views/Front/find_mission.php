@@ -71,7 +71,7 @@
 									echo base_url('Front/home/make_an_offer/'.$post['mission_id']); }
 								else {
 									echo base_url('Front/home/login');
-								} ?>" style="width:190px;">Proposer une offre</a>
+								} ?>" style="width:190px; text-align: center;">Proposer une offre</a>
 						</div>	
 						<div class="col-md-2 make_btn">
 						</div>

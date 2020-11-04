@@ -159,13 +159,11 @@
         <!-- Modal body -->
         <div class="modal-body">
 			<div class="post_demand_details_popup">
-				<h4>Do you want to open a dispute?</h4>
+				<h4>Etes vous sûr de vouloir ouvrir un litige ?</h4>
 				<p>
-					Si oui merci de préciser la nature du problème
-
-					Si non,  pour toute autre demande merci de nous écrire via
-					 
-					la page de contact en cliquant ici: <a href="<?php echo base_url('Front/contact')?>" class="btn btn-primary">Contactez ici</a>
+					Si vous souhaitez ouvrir un litige, veuillez renseigner le champs de description.
+					Pour toute autre demande merci de nous écrire vie le formulaire de contact en cliquant ici: 
+					<a href="<?php echo base_url('Front/contact')?>" class="btn btn-primary">Contactez ici</a>
 				</p>
 				<form action="<?php echo base_url('ChatController/claim_chat')?>" method="post">
 					<div class="">
@@ -173,7 +171,7 @@
 						<input type="hidden" name="user_id" value="<?php echo $mission->accepted_by ?>">	
 						<input type="hidden" name="project_id" value="<?php echo $mission->mission_id ?>">	
 						<input type="hidden" name="title" value="<?php echo $mission->mission_title ?>">	
-						<input type="hidden" name="user_email" value="<?php echo $comment->email ?>">
+						<input type="hidden" name="user_email" value="<?php echo $self_user[0]['email'] ?>">
 					</div>
 					
 				<!-- <a href="#" class="btn btn-default">Retour</a> -->
