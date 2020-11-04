@@ -51,6 +51,8 @@ class ChatController extends CI_Controller {
 
     public function claim_chat()
     {
+        $self_id = $this->session->userdata('id');
+        $oppsite_id = $this->input->post('user_id');
         if($this->input->post('chat_customer') == "true")
         {
             //var_dump("")
@@ -71,17 +73,53 @@ class ChatController extends CI_Controller {
         $this->Posts_model->deliver_demand($project_data, $this->input->post('user_id'));
         if($this->input->post('mission_dispute') == "mission_dispute")
         {
-            $this->Posts_model->pushNotification($this->session->userdata('id'), 2, "Un litige concernant une de vos Mission a été ouvert!");
-            $this->Posts_model->pushNotification($this->input->post('mission_client'), 2, "Un litige concernant une de vos Demande a été ouvert!");    
+            $this->Posts_model->pushNotification($self_id, 2, "Un litige concernant une de vos Mission a été ouvert!");
+            $this->Posts_model->pushNotification($this->input->post('mission_client'), 2, "Un litige concernant une de vos Demande a été ouvert!"); 
+            $oppsite_id = $this->input->post('mission_client');
         }
         else
         {
-            $this->Posts_model->pushNotification($this->session->userdata('id'), 2, "Un litige concernant une de vos Demande a été ouvert!");
+            $this->Posts_model->pushNotification($self_id, 2, "Un litige concernant une de vos Demande a été ouvert!");
             $this->Posts_model->pushNotification($this->input->post('user_id'), 2, "Un litige concernant une de vos Mission a été ouvert!");    
+            $oppsite_id = $this->input->post('user_id');
         }
 
 
         $messageTxt = reduce_multiples($this->input->post('description'), ' ');
+        
+        $claim_msg_first = "Nous sommes désolés de votre insatisfaction.<br>
+                            Cependant, votre litige a été ouvert avec succès, Le délai moyen de traitement est de 14 jours ouvrés.<br>
+                            Vous pouvez desormais, nous contacter via ce service de Chat si vous vous êtes arranger amicalement avec le Heelper concerné, ou si vous avez d'autres informations à nous envoyer.<br>
+                            Veuillez noter que le traitement de vos messages peut prendre quelques jours.<br> Merci.";
+        
+        $claim_msg_second = "Un litige concernant une de vous Demande/Mission a été ouvert.<br> 
+                            Le délai moyen de traitement est de 14 jours ouvrés.<br>
+                            Nous vous invitons à nous comuniquer dès maintenant toute information que vous jugez importante par rapport à ce litige via ce service de chat.<br>
+                            Veuillez noter que le traitement de vos messages peut prendre quelques jours.<br> Merci.";
+        
+        $data_admin_first = [
+            'sender_id' => 1,
+            'receiver_id' => $self_id,
+            'message' => $claim_msg_first,
+            'attachment_name' => "",
+            'file_ext' => "",
+            'mime_type' => "",
+            'message_date_time' => date('Y-m-d H:i:s'), //23 Jan 2:05 pm
+            'ip_address' => "127.0.0.1",
+            'project_id' => $this->input->post('project_id')
+        ];
+        $data_admin_second = [
+            'sender_id' => 1,
+            'receiver_id' => $oppsite_id,
+            'message' => $claim_msg_second,
+            'attachment_name' => "",
+            'file_ext' => "",
+            'mime_type' => "",
+            'message_date_time' => date('Y-m-d H:i:s'), //23 Jan 2:05 pm
+            'ip_address' => "127.0.0.1",
+            'project_id' => $this->input->post('project_id')
+        ];
+
         $data = [
             'sender_id' => $this->session->userdata('id'),
             'receiver_id' => 1,
@@ -94,14 +132,27 @@ class ChatController extends CI_Controller {
             'project_id' => $this->input->post('project_id')
         ];
 
-        $query = $this->ChatModel->SendTxtMessage($this->OuthModel->xss_clean($data)); 
+        $query1 = $this->ChatModel->SendTxtMessage($this->OuthModel->xss_clean($data_admin_first)); 
+        $send_id = array('highlight' => 0);
+        $status_dispute = $this->ChatModel->updateHighlight($self_id, $send_id);
+        $taken_data1 = $this->ChatModel->gettokendata($this->OuthModel->Encryptor('decrypt', $self_id));
+        $this->firebase->send_notification($claim_msg_first ,$taken_data1);
+        //$this->firebase->insertMessage(array('user_type'=> 1, "demand_id" => 1, 'user_id'=> $self_id, 'notification' => "Unread Message.", 'type_id' => 4));
 
+
+        $query2 = $this->ChatModel->SendTxtMessage($this->OuthModel->xss_clean($data_admin_second));
+        $send_id = array('highlight' => 0);
+        $status_dispute = $this->ChatModel->updateHighlight($oppsite_id, $send_id);
+        $taken_data2 = $this->ChatModel->gettokendata($this->OuthModel->Encryptor('decrypt', $oppsite_id));
+        $this->firebase->send_notification($claim_msg_second ,$taken_data2);
+        //$this->firebase->insertMessage(array('user_type'=> 1, "demand_id" => 1, 'user_id'=> $oppsite_id, 'notification' => "Unread Message.", 'type_id' => 4));
+
+        
+        $query3 = $this->ChatModel->SendTxtMessage($this->OuthModel->xss_clean($data)); 
         $send_id = array('highlight' => 0);
         $status_dispute = $this->ChatModel->updateHighlight(1, $send_id);
-
-        $taken_data = $this->ChatModel->gettokendata($this->OuthModel->Encryptor('decrypt', 1));
-
-        $this->firebase->send_notification($messageTxt ,$taken_data);
+        $taken_data3 = $this->ChatModel->gettokendata($this->OuthModel->Encryptor('decrypt', 1));
+        $this->firebase->send_notification($messageTxt ,$taken_data3);
 
         $this->firebase->insertMessage(array('user_type'=> 1, "demand_id" => 1, 'user_id'=> 1, 'notification' => "Unread Message.", 'type_id' => 4));
 

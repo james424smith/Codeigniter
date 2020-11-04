@@ -160,16 +160,16 @@ function GetChatHistory(receiver_id){
             var current_time = new Date().toLocaleString(); // for now
             $('#content').html(str);
             
-            str = '<div class="d-flex justify-content-start mb-4">';
-            str += '<div class="img_cont_msg">';
-            str += '<img src="' + chat_reciver_img_src + '" class="rounded-circle user_img_msg"></div>';
-            str += '<div class="msg_cotainer">';            
-            str += "Customer Service: <br><br>We are very sorry for your dissatisfaction.<br>However, your dispute has been successfully opened.The average processing time is 8 working days.<br><br>You can with customer service in case you have arranged with the concerned Heelper, or if you have other information to send us.<br><br> Please, note that it may take a few days to process your messages. Thank you.";
-            str += '<span class="msg_time" style="width:150px; margin-left: 10px;"></span></div></div>';
+            //str = '<div class="d-flex justify-content-start mb-4">';
+            //str += '<div class="img_cont_msg">';
+            //str += '<img src="' + chat_reciver_img_src + '" class="rounded-circle user_img_msg"></div>';
+            //str += '<div class="msg_cotainer">';            
+            //str += "Nous sommes désolés de votre insatisfaction.<br>Cependant, votre litige a été ouvert avec succès, Le délai moyen de traitement est de 14 jours ouvrés.<br>Vous pouvez desormais, nous contacter via ce service de Chat si vous vous êtes arranger amicalement avec le Heelper concerné, ou si vous avez d'autres informations à nous envoyer.<br>Veuillez noter que le traitement de vos messages peut prendre quelques jours.<br> Merci.";
+            //str += '<span class="msg_time" style="width:150px; margin-left: 10px;"></span></div></div>';
 
 			chat_history.forEach(element => {
 				if(element['receiver_id'] == receiver_id) {
-					str += '<div class="d-flex justify-content-end mb-4">';
+					str = '<div class="d-flex justify-content-end mb-4">';
 					str += '<div class="msg_cotainer_send">';
 					if(element['message'] == 'NULL' && element['attachment_name'] != "")
 					{
@@ -185,7 +185,7 @@ function GetChatHistory(receiver_id){
 				}
 				else if (element['sender_id'] == receiver_id)
 				{
-					str += '<div class="d-flex justify-content-start mb-4">';
+					str = '<div class="d-flex justify-content-start mb-4">';
 					str += '<div class="img_cont_msg">';
 					str += '<img src="' + chat_reciver_img_src + '" class="rounded-circle user_img_msg"></div>';
 					str += '<div class="msg_cotainer">';
