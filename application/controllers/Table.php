@@ -16,18 +16,17 @@ class Table extends CI_Controller {
 
     }    
 
-
     public function index()
     {
         $this->load->view('common/sidebar');
         $this->load->view('common/header');
         /*Display user list*/
-  // if($role =='Admin' ){
+        // if($role =='Admin' ){
         $userlist['userlist'] = $this->Register_model->UserList();
         // echo '<pre>';print_r($userlist['userlist']);exit;
         $this->load->view('userlist', $userlist); 
         $this->load->view('common/footer');
-    // }
+        // }
 
     }
 

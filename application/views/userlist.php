@@ -5,7 +5,7 @@
       <div class="row">
         <div class="col-md-12">
           <div class="card ">
-          <div class="card-header card-header-primary">
+          <div class="card-header card-header-primary match-box">
           <h3><?= ('User List') ?></h3>
           <p class="card-category"><?= ('Here is a subtitle for this table')?></p>
           </div>
@@ -19,18 +19,17 @@
             </div>
           </form>
         <script type="text/javascript">
-            $(function () {
-                $('#from_date').datetimepicker({
-                 format: 'DD/MM/YYYY'
-           });
+          $(function () {
+            $('#from_date').datetimepicker({
+              format: 'DD/MM/YYYY'
             });
-             $(function () {
-                $('#to_date').datetimepicker({
-                 format: 'DD/MM/YYYY'
-           });
+          });
+          $(function () {
+            $('#to_date').datetimepicker({
+              format: 'DD/MM/YYYY'
             });
+          });
         </script>
-
             <div class="card-body">
               <div class="table-responsive">
                 <table  id="dtBasicExample" class="table table-striped  table-sm" cellspacing="0" width="100%">
@@ -49,11 +48,9 @@
                     <th><?= ('stripe_customer_id')?></th>
                     <th><?= ('stripe_card_id')?></th>
                     <th><?= ('Action')?></th>
-
                   </thead>
-                 
+                
                   <tbody>
-
                      <?php  foreach($userlist as $user){?>
                     <tr>
                       <td><?php echo date("d-m-Y", strtotime($user->date_updated)); ?></td>
@@ -68,8 +65,8 @@
                       <td> <?php echo $user->Total_earned_amount;?> </td>
                       <td> <?php echo $user->Current_Balance;?> </td>
                       <td> <?php echo $user->stripe_customer_id;?> </td>
-                       <td> <?php echo $user->stripe_card_id;?> </td>
-                        <td><a href='<?=base_url("table/edit_users/$user->id");?>' onclick="return confirm('Are you sure you want to edit this item?');"><i class="fa fa-edit"></i></a>
+                      <td> <?php echo $user->stripe_card_id;?> </td>
+                      <td><a href='<?=base_url("table/edit_users/$user->id");?>' onclick="return confirm('Are you sure you want to edit this item?');"><i class="fa fa-edit"></i></a>
                           <a href='<?php echo base_url("Table/block_row/$user->id");?>' onclick="return confirm('Are you sure you want to block this item?');"><i class="fa fa-ban" <?php if($user->block == 1){ ?> style="color: red"<?php }?> ></i></a>
                           <a href='<?php echo base_url("Table/delete_row/$user->id");?>' onclick="return confirm('Are you sure you want to delete this item?');"><i class="fa fa-trash"></i></a></td> 
                        

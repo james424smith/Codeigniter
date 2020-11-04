@@ -1,7 +1,4 @@
-<style>
 
-
-</style>
 <div class="main-panel">
   <div class="content">
           <div class="container-fluid">
@@ -9,7 +6,7 @@
               <div class="col-lg-6 col-md-6 col-sm-6">
                 <div class="card card-stats">
                   <div class="card-header card-header-warning card-header-icon">
-                    <div class="card-icon">
+                    <div class="card-icon match-box">
                       <i class="material-icons">person</i>
                     </div>
                     <p class="card-category"><?= ('Number of Users')?></p>
@@ -28,7 +25,7 @@
               <div class="col-lg-6 col-md-6 col-sm-6">
                 <div class="card card-stats">
                   <div class="card-header card-header-success card-header-icon">
-                    <div class="card-icon">
+                    <div class="card-icon match-box">
                       <i class="material-icons">business</i>
                     </div>
                     <p class="card-category"><?= ('Number Of Projects') ?></p>
@@ -323,7 +320,7 @@
               </div> -->
               <div class="col-lg-12 col-md-12">
                 <div class="card">
-                  <div class="card-header card-header-warning">
+                  <div class="card-header card-header-warning match-box">
                     <h4 class="card-title"><?= ('Latest Projects')?></h4>
                     <p class="card-category"><?= ('New projects')?></p>
                   </div>
@@ -354,11 +351,9 @@
                   </div>
                 </div>
               </div>
-
-
                <div class="col-lg-12 col-md-12">
                 <div class="card">
-                  <div class="card-header card-header-warning">
+                  <div class="card-header card-header-warning match-box">
                     <h4 class="card-title"><?= ('Latest Users')?></h4>
                     <p class="card-category"><?= ('New Users')?></p>
                   </div>
@@ -392,10 +387,6 @@
                 </div>
               </div>
             </div>
-
-            
-
-
           </div>
   </div>
 </div>

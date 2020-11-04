@@ -642,3 +642,6 @@ div#dtBasicExample_wrapper tr th {
     font-size: 11px;
 }
 
+.match-box {
+    margin-top: 20px !important;
+}

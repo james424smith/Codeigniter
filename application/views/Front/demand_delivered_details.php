@@ -202,12 +202,13 @@
 						<div class="">
 							<!-- <textarea value="" readonly=""><?php echo $mission->mission_description ?></textarea> -->
 							<input type="hidden" readonly="" name="mission_amount" value="<?php echo $mission->mission_budget ?>">
+							<input type="hidden" readonly="" name="budget" value="<?php echo $mission->budget ?>" >
 							<input type="hidden" name="amount_to_pay" value="<?php echo $total_amount; ?>">	
 							<input type="hidden" name="pay_status" value="2">
 							<input type="hidden" name="date_created" value="<?php echo $mission->created ?>">
 							<input type="hidden" name="mission_status" value="<?php echo $mission->mission_status ?>">
 							<input type="hidden" name="mission_id" value="<?php echo $mission->mission_id ?>">
-							<input type="hidden" name="employer_id" value="<?php echo $mission->user_id ?>">
+							<input type="hidden" name="employee_id" value="<?php echo $mission->user_id ?>">
 							<input type="hidden" name="rating" id="star_rating" value="0">	
 							<P>
 								<h5>Je veux libérer le paiement.</h5>

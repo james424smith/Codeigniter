@@ -18,15 +18,15 @@ class DemandsList extends CI_Controller {
         $this->load->view('common/sidebar');
         $this->load->view('common/header');
         /*Display user list*/
-
+        
         $demandslist['demandslist'] = $this->Demands_model->MissionList();
        
         $this->load->view('demandsList', $demandslist); 
         $this->load->view('common/footer');
 
     }
-public function export_csv(){ 
-$post = $this->input->post();
+    public function export_csv() { 
+        $post = $this->input->post();
         $from_date = $this->input->post('from_date');
         $from_date_new = date('Y-m-d', strtotime($from_date)); 
     
@@ -64,11 +64,11 @@ $post = $this->input->post();
         $id  = $this->uri->segment(3);
       //  $data_litigations = $this->db->query("select * from  mission  where mission_id=" . $id);
         $this->db->select("mission.mission_id,mission.mission_title,mission.mission_description,mission.mission_status,mission.client_id,mission.accepted_by,mission.budget,project_category.title as category_title,mission.created");
-    $this->db->from("mission");
-    $this->db->join("project_category","project_category.project_id = mission.mission_category");
+        $this->db->from("mission");
+        $this->db->join("project_category","project_category.project_id = mission.mission_category");
 
-    $this->db->where('mission.mission_id', $id);
-$data['demands_edit'] = $this->db->get()->result();
+        $this->db->where('mission.mission_id', $id);
+        $data['demands_edit'] = $this->db->get()->result();
         // $data_projects['project_edit'] = $data_projects->result_array();
 
         //$data['demands_edit'] = $data_demands->result_array();

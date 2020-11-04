@@ -313,17 +313,19 @@ class Posts extends CI_Controller
           $date_created = date('Y-m-d H:i:s');
           $project_data = array(
             'mission_id' => $this->input->post('mission_id'),
-            'mission_amount' => $this->input->post('mission_amount'),
+            'mission_amount' => $this->input->post('budget'),
+            'offer_amount' => $this->input->post('mission_amount'),
             'amount_to_pay' => $this->input->post('amount_to_pay'),          
             'pay_status' => $this->input->post('pay_status'),
             'date_created' => $date_created,
             'mission_status' =>  $this->input->post('mission_status'),
-            'employer_id' => $this->input->post('employer_id'),
+            'employer_id' => $this->session->userdata['id'],
+            'emplyee_id' => $this->input->post('employee_id'),
             'date_of_pay' =>  date('Y-m-d H:i:s')
          );
          $rating_data = array(
            "by_user_id" => $this->session->userdata['id'],
-           "to_user_id" => $this->input->post('employer_id'),
+           "to_user_id" => $this->input->post('employee_id'),
            "rating" => $this->input->post('rating'),
            "comment" => $this->input->post('comment'),
            "created" => $date_created
@@ -332,13 +334,13 @@ class Posts extends CI_Controller
          //print_r( $project_data);die();
         $this->load->model('Front/Posts_model');
         $this->Posts_model->deliver_paym_demand($project_data);
-        $this->Posts_model->pushNotification($this->input->post('employer_id'), 1, "Paiement effectué avec succés.");
+        $this->Posts_model->pushNotification($this->input->post('employee_id'), 1, "Paiement effectué avec succés.");
         $this->Posts_model->pushNotification($this->session->userdata['id'], 1, "Un nouveau paiement a été reçu.");
 
         if($this->input->post('rating') != 0)
         {
           $this->Posts_model->saveRating($rating_data);
-          $this->Posts_model->pushNotification($this->input->post('employer_id'), 5,  "Vous avez reçu un avis de votre client.");
+          $this->Posts_model->pushNotification($this->input->post('employee_id'), 5,  "Vous avez reçu un avis de votre client.");
         }
         
       redirect('Front/home/mydemands');

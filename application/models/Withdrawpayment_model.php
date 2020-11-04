@@ -111,13 +111,27 @@ return $data;
   /*Project List */
 
   public function WithdrawpaymentList() {
-    $this->db->select("$this->withdrawpayment.mission_id, $this->withdrawpayment.id, mission.mission_title, $this->withdrawpayment.mission_amount,$this->withdrawpayment.offer_amount,$this->withdrawpayment.amount_to_pay,$this->withdrawpayment.pay_status,$this->withdrawpayment.date_created,$this->withdrawpayment.date_of_pay,$this->withdrawpayment.date_updated,$this->withdrawpayment.mission_status,$this->withdrawpayment.employer_id,$this->withdrawpayment.emplyee_id,transection_id");
+    $this->db->select("$this->withdrawpayment.mission_id, 
+                       $this->withdrawpayment.id, 
+                       mission.mission_title, 
+                       $this->withdrawpayment.mission_amount,
+                       $this->withdrawpayment.offer_amount,
+                       $this->withdrawpayment.amount_to_pay,
+                       $this->withdrawpayment.pay_status,
+                       $this->withdrawpayment.date_created,
+                       $this->withdrawpayment.date_of_pay,
+                       $this->withdrawpayment.date_updated,
+                       $this->withdrawpayment.mission_status,
+                       $this->withdrawpayment.employer_id,
+                       $this->withdrawpayment.emplyee_id,
+                       transection_id");
+                       
     $this->db->from($this->withdrawpayment);
     $this->db->join("mission","$this->withdrawpayment.mission_id = mission.mission_id");
     $this->db->order_by("$this->withdrawpayment.id","desc");
     //$this->db->limit(5);
     $data = $this->db->get()->result();
-return $data;
+    return $data;
 /*    $query = $this->db->get($this->withdrawpayment);
     return $query->result();*/
   }

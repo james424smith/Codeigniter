@@ -17,7 +17,7 @@ div#dtBasicExample_length {
       <div class="row">
         <div class="col-md-12">
           <div class="card ">
-          <div class="card-header card-header-primary">
+          <div class="card-header card-header-primary match-box">
           <h3><?= ('Litigations List') ?></h3>
           <p class="card-category"><?= ('Here is a subtitle for this table')?></p>
           </div>
@@ -30,18 +30,18 @@ div#dtBasicExample_length {
               </ul>
             </div>
           </form>
-        <script type="text/javascript">
-            $(function () {
-                $('#from_date').datetimepicker({
-                 format: 'DD/MM/YYYY'
-           });
-            });
-             $(function () {
-                $('#to_date').datetimepicker({
-                 format: 'DD/MM/YYYY'
-           });
-            });
-        </script>
+              <script type="text/javascript">
+                $(function () {
+                    $('#from_date').datetimepicker({
+                      format: 'DD/MM/YYYY'
+                    });
+                });
+                $(function () {
+                    $('#to_date').datetimepicker({
+                      format: 'DD/MM/YYYY'
+                    });
+                });
+              </script>
             <div class="card-body">
               <div class="table-responsive">
                 <table id="dtBasicExample" class="table table-striped  table-sm" cellspacing="0" width="100%">
@@ -53,20 +53,13 @@ div#dtBasicExample_length {
                     <th><?=('Description of litigation')?></th> 
                     <th><?=('Comment')?></th>
                     <th><?=('Action')?></th> 
-                  </thead>
-                  
+                  </thead>                  
                   <tbody>
-
-
-                    <?php  foreach($litigationslist as $user){
-
+                    <?php  
+                      foreach($litigationslist as $user){
                       $newDate = date("dmy", strtotime($user->date_created));
-
                       $invID = str_pad($user->project_id, 5, '0', STR_PAD_LEFT);
-
-
-                      ?>
-
+                    ?>
                   <tr>
                   <td ><?php echo date("d-m-Y", strtotime($user->date_created)); ?> </td>
                   <!-- <td><?php echo $user->project_id;?> </td> -->
@@ -76,9 +69,10 @@ div#dtBasicExample_length {
                   <td> <?php echo $user->description;?> </td>
                   <td> <?php echo $user->comment;?> </td>
                   <!-- <td> <?php echo $user->date_created;?> </td> -->
-<td>
-                  <a href='<?=base_url("litigationsList/edit_litigations/$user->id");?>' onclick="return confirm('Are you sure you want to edit this item?');"><i class="fa fa-edit"></i></a>
-                  <a href='<?php echo base_url("litigationsList/delete_litigations/$user->id");?>' onclick="return confirm('Are you sure you want to delete this item?');"><i class="fa fa-trash"></i></a></td>
+                  <td>
+                    <a href='<?=base_url("litigationsList/edit_litigations/$user->id");?>' onclick="return confirm('Are you sure you want to edit this item?');"><i class="fa fa-edit"></i></a>
+                    <a href='<?php echo base_url("litigationsList/delete_litigations/$user->id");?>' onclick="return confirm('Are you sure you want to delete this item?');"><i class="fa fa-trash"></i></a>
+                  </td>
 
                   </tr>   
                       <?php }?>                 

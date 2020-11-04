@@ -323,7 +323,7 @@ class Posts_model extends CI_Model
             $status = $this->db->insert('user_review', $rating_data);
         }
 
-        public function deliver_paym_demand ($project_data){
+        public function deliver_paym_demand($project_data){
 
             $status = $this->db->insert('withdrawpayment', $project_data);
 
@@ -433,7 +433,7 @@ class Posts_model extends CI_Model
                     "created" => $date_created,
                     "type_id" => $type_id
                 );
-
+                //var_dump($data); die();
                 $this->db->insert('notification', $data);
                 return true;
 

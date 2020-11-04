@@ -5,7 +5,7 @@
 }
 </style>
  <!-- Navbar -->
- <div class="main-panel">
+<div class="main-panel">
   <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute">
       <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
         <span class="sr-only">Toggle navigation</span>
@@ -14,25 +14,13 @@
         <span class="navbar-toggler-icon icon-bar"></span>
       </button>
       <div class="collapse navbar-collapse justify-content-end">
-       
         <ul class="navbar-nav">
-       
-          <li class="nav-item dropdown">
-           
-            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-              <a class="dropdown-item" href="#">Mike John responded to your email</a>
-              <a class="dropdown-item" href="#">You have 5 new tasks</a>
-              <a class="dropdown-item" href="#">You're now friend with Andrew</a>
-              <a class="dropdown-item" href="#">Another Notification</a>
-              <a class="dropdown-item" href="#">Another One</a>
-            </div>
-          </li>
             <?php
-              $obj=&get_instance();
-        $obj->load->model('UserModel');
-        $profile_url = $obj->UserModel->PictureUrl();
-        $user=$obj->UserModel->GetUserData();
-      ?>
+              $obj = &get_instance();
+              $obj->load->model('UserModel');
+              $profile_url = $obj->UserModel->PictureUrl();
+              $user = $obj->UserModel->GetUserData();
+            ?>
           <li class="nav-item dropdown profile_class">
             <a class="nav-link" href="#pablo" id="navbarDropdownProfile" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
              <img src="<?=$profile_url;?>" class="user-image profileImgUrl" alt="User Image">
@@ -50,10 +38,9 @@
             </div>
           </li>
         </ul>
-      </div>
-   
+      </div>   
   </nav>
-  </div>
+</div>
 
 
   <!-- End Navbar -->

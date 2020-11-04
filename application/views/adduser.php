@@ -11,7 +11,7 @@ input#date {
       <div class="row">
         <div class="col-md-12">
           <div class="card">
-            <div class="card-header card-header-primary">
+            <div class="card-header card-header-primary match-box">
               <div class="row">
                 <div class="col-md-6">
               <h4 class="card-title"><?= ('Add User') ?></h4>
@@ -135,13 +135,8 @@ input#date {
                         </select>
                       </div>
                     </div>
-                     
-                   
+                 
                     </div>
-
-
-                  
-
 
                   <div class="row">
                   <div class="col-md-6">

@@ -24,7 +24,7 @@ class Home extends CI_Controller
 		$data['latest_user_list'] = $this->Register_model->getLatestUserList();
 		$this->load->view('common/sidebar');
 		$this->load->view('common/header');
-		$this->load->view('home',$data);
+		$this->load->view('home', $data);
 		$this->load->view('common/footer');
 	}
 }

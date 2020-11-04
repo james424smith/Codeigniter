@@ -28,14 +28,6 @@ $("li").click(function(){
 		className_username = className_username.replace(" active", "");
 		$(".select-username").html($("." + className_username).html());
 
-		$.post("/addChatMember",
-		{
-			receiver_id: $("#receiver_id").val()
-		},
-		function(res){
-			
-		});
-
 		GetChatHistory(chat_reciver_id); 				
 		ScrollDown();
 	}
@@ -160,8 +152,11 @@ ChatSection(0);
 
 function ScrollDown(){
 	var elmnt = document.getElementById("content");
-    var h = elmnt.scrollHeight;
-   $('#content').animate({scrollTop: h}, 500);
+	if(elmnt != null)
+    {	
+		var h = elmnt.scrollHeight;
+		$('#content').animate({scrollTop: h}, 500);
+	}
 }
 window.onload = ScrollDown();
 
