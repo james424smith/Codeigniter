@@ -9,7 +9,7 @@ class Register_model extends CI_Model
     $this->load->database();
     $this->userTbl = 'users';
     $this->proCat ='project_category';
-    $this->publishTable = 'publishDemand';
+    $this->publishTable = 'publishdemand';
   }
   
 
