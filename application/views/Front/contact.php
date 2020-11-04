@@ -68,7 +68,10 @@
        <div class="container">   
              <div class="row">
                 <div class="col-md-6">
-                     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d235527.45447540554!2d75.7237599625956!3d22.723911728174144!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3962fcad1b410ddb%3A0x96ec4da356240f4!2sIndore%2C%20Madhya%20Pradesh!5e0!3m2!1sen!2sin!4v1585826843933!5m2!1sen!2sin" width="100%" height="380" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>                          
+                  <div class="container" id="map" style="width:100%; height:380px;">
+
+                  </div>
+                     <!--<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d235527.45447540554!2d75.7237599625956!3d22.723911728174144!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3962fcad1b410ddb%3A0x96ec4da356240f4!2sIndore%2C%20Madhya%20Pradesh!5e0!3m2!1sen!2sin!4v1585826843933!5m2!1sen!2sin" width="100%" height="380" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>-->                          
                 </div>
                 <div class="col-md-6">
                    <?php if(!empty($this->session->flashdata('msg'))){ ?>
@@ -125,4 +128,21 @@
    </div>
 </section>
 <!-- contact form end -->
+<script type="text/javascript">
+         function initMap() {
+            var latitude = 34.397;
+            var longitude = 150.644;
+
+            // The location of Uluru
+            var uluru = {lat: -latitude, lng: longitude};
+            // The map, centered at Uluru
+            
+            var map = new google.maps.Map(
+                document.getElementById('map'), {zoom: 4, center: uluru});
+            // The marker, positioned at Uluru
+            var marker = new google.maps.Marker({position: uluru, map: map});
+        }
+</script>
+<script defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAMC3-sMMvbrm4QdjoOOU6c2TQgyGQIHCc&callback=initMap"></script>
+
 
