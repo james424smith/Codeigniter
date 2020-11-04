@@ -146,7 +146,7 @@
                                     echo base_url('Front/home/make_an_offer/' . $row->mission_id); }
                                   else {
                                     echo base_url('Front/home/login');
-                                  } ?>">Proposer une offre</a>
+                                  } ?>" style="width: 200px; margin-left:-50px; text-align: center;">Proposer une offre</a>
                           </div>			            
 		                    </div>
                       </div>                        
