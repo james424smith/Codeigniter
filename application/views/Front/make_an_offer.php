@@ -9,8 +9,8 @@
 <section>
   <div class="top_bnr section post_demand">
     <div class="container">
-      <div class="top-side about_title">
-          <h4 class="title">Proposer une offre</h4>
+      	<div class="top-side about_title">
+	  		<img src="<?php  echo base_url('assets/Front/img/Find_a_mission.png'); ?>"/>
         </div>
     </div>
   </div>
