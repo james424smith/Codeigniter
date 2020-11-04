@@ -188,7 +188,7 @@ $this->db->where('date_updated <=', $to_date);
   public function getDemandCount()
   {
     $this->db->select("*");
-    $this->db->from('publishDemand');
+    $this->db->from('publishdemand');
     $count = $this->db->get()->num_rows();
     return $count;
   }
