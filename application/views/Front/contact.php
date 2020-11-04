@@ -33,21 +33,25 @@
       <div class="row">
             <div class="col-md-4">
                <div class="contact_address" data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="5000">
-                  <span><img src="https://www.alphawizz.com/heelp_front/assets/img/2.png" alt="" title=""></span>
+                  <!--<span><img src="https://www.alphawizz.com/heelp_front/assets/img/2.png" alt="" title=""></span>-->
+                  <span><img src="<?php echo base_url('assets/img/2.png') ?>" alt="" title=""></span>
+                  
                   <h3><?php echo $contact['address_title'];?></h3>
                   <p><?php echo $contact['address_content'];?></p>
                </div>
             </div>
             <div class="col-md-4">
                <div class="contact_address" data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="4000">
-                  <span><img src="https://www.alphawizz.com/heelp_front/assets/img/1.png" alt="" title=""></span>
+                  <!--<span><img src="https://www.alphawizz.com/heelp_front/assets/img/1.png" alt="" title=""></span>-->
+                  <span><img src="<?php echo base_url('assets/img/1.png') ?>" alt="" title=""></span>
                   <h3><?php echo $contact['call_us_title'];?></h3>                  
                   <p><?php echo $contact['call_us_content'];?></p>                 
                </div>
             </div>
             <div class="col-md-4">
                <div class="contact_address" data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="3000">
-                  <span><img src="https://www.alphawizz.com/heelp_front/assets/img/3.png" alt="" title=""></span>
+                  <!--<span><img src="https://www.alphawizz.com/heelp_front/assets/img/3.png" alt="" title=""></span>-->
+                  <span><img src="<?php echo base_url('assets/img/3.png') ?>" alt="" title=""></span>
                   <h3><?php echo $contact['email_title'];?></h3>
                   <p><?php echo $contact['email_content'];?></p>
                </div>
