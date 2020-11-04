@@ -339,7 +339,7 @@
                                 <h4><?=empty($user['username']) ? '' : $user['username'] ?></h4>
                                 <p><b><?= $user['Current_Balance'] ?></b> <i class="fas fa-euro-sign"></i></p>
                           </div>
-                          <a class="prfl_btn" href="<?php echo base_url('Front/home/my_profile')?>">Voir mon profil</a>
+                          <a class="prfl_btn" href="<?php echo base_url('Front/home/my_profile')?>" style="width:120px !important;">Voir mon profil</a>
                           <a class="my_demands" href="<?php echo base_url('Front/home/mydemands')?>">Mes demandes</a>
                           <a class="my_missions" href="<?php echo base_url('Front/home/mymissions')?>">Mes missions</a>
                         <?php }?>
