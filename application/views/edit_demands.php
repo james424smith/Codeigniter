@@ -42,11 +42,9 @@
                                 </label>
                                 <br>
                                 <div class="col-md-9">
-                                    <input type="text"  id="mission_id" name="mission_id" value="<?php echo $demands_edit[0]->mission_id;?>">
+                                    <input type="text"  id="mission_id" name="mission_id" value="<?php echo $demands_edit[0]->mission_id;?>" >
                                 </div>
                             </div>
-
-
 
                             <div class="form-group row">
                                 <label class="col-md-3 "><?= ('Title')?> <span class="text-danger">*</span>
@@ -63,7 +61,7 @@
                                 </label>
                                 <br>
                                 <div class="col-md-9">
-                                    <input type="text"  id="mission_description" name="mission_description" value="<?php echo $demands_edit[0]->mission_description;?>">
+                                    <input type="text"  id="mission_description" name="mission_description" value="<?php echo $demands_edit[0]->description;?>">
                                 </div>
                             </div>
 
@@ -72,23 +70,15 @@
                                 </label>
                                 <br>
                                 <div class="col-md-9">
-
-                                   <!--  <input type="text"  id="status" name="status" value="<?php echo $demands_edit[0]->status;?>"> -->
-
-                                    <select name="status" id="status" >
-                                        <option value="">select</option>
-                                        <option value="0" <?php if($demands_edit[0]->status == 0) { ?> selected <?php } ?>>Posted</option>
-                                        <option value="1" <?php if($demands_edit[0]->status == 1) { ?> selected <?php } ?>>In Progress</option>
-                                        <option value="0" <?php if($demands_edit[0]->status == 2) { ?> selected <?php } ?>>Delivered</option>
-                                        <option value="0" <?php if($demands_edit[0]->status == 3) { ?> selected <?php } ?>>Completed</option>
-                                        <option value="0" <?php if($demands_edit[0]->status == 4) { ?> selected <?php } ?>>Dispute</option>
+                                    <select name="status" id="status">
+                                        <option value="0" <?php if($demands_edit[0]->mission_status == 0) { ?> selected <?php } ?>>Posted</option>
+                                        <option value="1" <?php if($demands_edit[0]->mission_status == 1) { ?> selected <?php } ?>>In Progress</option>
+                                        <option value="2" <?php if($demands_edit[0]->mission_status == 2) { ?> selected <?php } ?>>Delivered</option>
+                                        <option value="3" <?php if($demands_edit[0]->mission_status == 3) { ?> selected <?php } ?>>Completed</option>
+                                        <option value="4" <?php if($demands_edit[0]->mission_status == 4) { ?> selected <?php } ?>>Dispute</option>
                                     </select>
                                 </div>
                             </div>
-                              
-
-
-
                              <div class="form-group row">
                                 <label class="col-md-3 "><?= ('Task By')?> <span class="text-danger">*</span>
                                 </label>
@@ -110,21 +100,15 @@
                                 </label>
                                 <br>
                                 <div class="col-md-9">
-
-<?php
-
-$this->db->select("username");
-$this->db->from("users");
-$this->db->where('id', $demands_edit[0]->accepted_by);
-    $data = $this->db->get()->result();
-
-    ?>
-
-
+                                <?php
+                                    $this->db->select("username");
+                                    $this->db->from("users");
+                                    $this->db->where('id', $demands_edit[0]->accepted_by);
+                                    $data = $this->db->get()->result();
+                                ?>
                                     <input type="text"  id="accepted_by" name="accepted_by" value="<?php echo $data[0]->username;?>">
                                 </div>
                             </div>
-
                             <div class="form-group row">
                                 <label class="col-md-3 "><?= ('Budget')?> <span class="text-danger">*</span>
                                 </label>
@@ -144,15 +128,13 @@ $this->db->where('id', $demands_edit[0]->accepted_by);
                             </div>
 
                              <div class="form-group row">
-                                <label class="col-md-3 "><?= ('created')?> <span class="text-danger">*</span>
+                                <label class="col-md-3 "><?= ('Created Date')?> <span class="text-danger">*</span>
                                 </label>
                                 <br>
                                 <div class="col-md-9">
-                                    <input type="text"  id="created" name="created" value="<?php echo $demands_edit[0]->created;?>">
+                                    <input type="date"  id="created" name="created" value="<?php echo $demands_edit[0]->created_date;?>">
                                 </div>
                             </div>
-                            
-
                             <div class="form-group row">
                                 <div class="col-lg-8 ml-auto">
                                     <input type="hidden" name="id" value="<?php echo $demands_edit[0]->misssion_id;?>">

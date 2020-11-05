@@ -66,7 +66,7 @@ $name = $_POST['search_name'];
                   $obj = &get_instance();
                   $obj->load->model('UserModel');
                   $profile_url = $obj->UserModel->PictureUrl();
-                  $user = $obj->UserModel->GetUserData();
+                  $user =$obj->UserModel->GetUserData();
                ?>
                <input type="hidden" id="Sender_Name" value="<?=$user['name'];?>">
                <input type="hidden" id="Sender_ProfilePic" value="<?=$profile_url;?>">

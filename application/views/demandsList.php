@@ -30,18 +30,18 @@ div#dtBasicExample_length {
               </ul>
             </div>
           </form>
-        <!--<script type="text/javascript">
-            $(function () {
-                $('#from_date').datetimepicker({
-                 format: 'DD/MM/YYYY'
-           });
-            });
-             $(function () {
-                $('#to_date').datetimepicker({
-                 format: 'DD/MM/YYYY'
-           });
-            });
-        </script>-->
+          <!--<script type="text/javascript">
+              $(function () {
+                  $('#from_date').datetimepicker({
+                    format: 'DD/MM/YYYY'
+                  });
+              });
+              $(function () {
+                  $('#to_date').datetimepicker({
+                    format: 'DD/MM/YYYY'
+                  });
+              });
+          </script>-->
             <div class="card-body">
               <div class="table-responsive">
                 <table id="dtBasicExample" class="table table-striped  table-sm" cellspacing="0" width="100%">
@@ -71,10 +71,10 @@ div#dtBasicExample_length {
                   <td style="width:15px !important;"> <?php echo $user->mission_id; ?>	</td>
                   <td><?php echo date("d-m-Y", strtotime($user->created)); ?> </td>
                   <td><?php  echo $newDate . "0000:" . $invID; ?> </td>
-                  <td> <?php echo $user->category_title;?> </td>
-                  <td> <?php echo $user->mission_title;?> </td>
-                  <td> <?php echo $user->description;?> </td>
-                  <td> <?php  if($user->mission_status==0) { echo "Posted"; } if($user->mission_status==1) { echo "In Progress"; } if($user->mission_status==2) { echo "Delivered"; } if($user->mission_status==3) { echo "Completed"; } if($user->mission_status==4) { echo "Dispute"; } ?> </td>
+                  <td><?php echo $user->category_title;?> </td>
+                  <td><?php echo $user->mission_title;?> </td>
+                  <td><?php echo $user->description;?> </td>
+                  <td><?php  if($user->mission_status==0) { echo "Posted"; } if($user->mission_status==1) { echo "In Progress"; } if($user->mission_status==2) { echo "Delivered"; } if($user->mission_status==3) { echo "Completed"; } if($user->mission_status==4) { echo "Dispute"; } ?> </td>
                   <td> 
                     <?php
                       $this->db->select("email");
@@ -83,28 +83,27 @@ div#dtBasicExample_length {
                       $data = $this->db->get()->result();
                       echo $data[0]->email;
                     ?>
-                                      </td>
-                    <td> 
-                      <?php
-                        $this->db->select("email");
-                        $this->db->from("users");
-                        $this->db->where('id', $user->accepted_by);
-                        $data = $this->db->get()->result();
-                        echo $data[0]->email;
-                      ?> 
-                    </td>
-                    <td><?php echo $user->budget; ?></td>
-                    <td>
+                  </td>
+                  <td> 
+                    <?php
+                      $this->db->select("email");
+                      $this->db->from("users");
+                      $this->db->where('id', $user->accepted_by);
+                      $data = $this->db->get()->result();
+                      echo $data[0]->email;
+                    ?> 
+                  </td>
+                  <td><?php echo $user->budget; ?></td>
+                  <td>
                       <?php 
                         $this->db->select("offer_budget");
                         $this->db->from("project_offer");
                         $this->db->where('project_id', $user->mission_id);
                         $this->db->where('user_id', $user->accepted_by);
                         $data = $this->db->get()->result();
-                        echo $data[0]->offer_budget; ?></td><!-- <td>
-                      <?php echo $user->offer_budget; ?></td> -->
-
-                    <td>
+                        echo $data[0]->offer_budget; ?>
+                  </td>
+                  <td>
                       <?php 
                         $this->db->select("offer_budget");
                         $this->db->from("project_offer");
@@ -164,20 +163,19 @@ div#dtBasicExample_length {
   integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
   crossorigin="anonymous"></script>
 <script>
-$(document).ready(function(){
-  $('.image').click(function(){
-    var image = $(this).attr('src');
-    $('#target_element').attr('src',image);
-    // $('#target_element').attr('width','300px');
-    // $('#target_element').attr('height','300px');
-  })
+  $(document).ready(function(){
+    $('.image').click(function(){
+      var image = $(this).attr('src');
+      $('#target_element').attr('src',image);
+      // $('#target_element').attr('width','300px');
+      // $('#target_element').attr('height','300px');
+    })
 
-  $('#dtBasicExample').DataTable({
-    "paging": true, // false to disable pagination (or any other option)
-    "pageLength": 10,   
-  });
-})
-  
+    $('#dtBasicExample').DataTable({
+      "paging": true, // false to disable pagination (or any other option)
+      "pageLength": 10,   
+    });
+  })
 </script>
 
 

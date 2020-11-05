@@ -53,17 +53,24 @@ class DemandsList extends CI_Controller {
     public function delete_demands($id) {
         $this->load->model("Demands_model");
         $this->Demands_model->did_delete_projectrow($id);
-        $projectlist['demandslist'] = $this->Demands_model->DemandsList();
+        $projectlist['demandslist'] = $this->Demands_model->MissionList();
         redirect('demandsList');
     }
-
 
     public function edit_demands(){
         $this->load->model('Demands_model');
         // $this->load->view('sidebar');
         $id  = $this->uri->segment(3);
       //  $data_litigations = $this->db->query("select * from  mission  where mission_id=" . $id);
-        $this->db->select("mission.mission_id,mission.mission_title,mission.mission_description,mission.mission_status,mission.client_id,mission.accepted_by,mission.budget,project_category.title as category_title,mission.created");
+        $this->db->select("mission.mission_id,
+                           mission.mission_title,
+                           mission.description,
+                           mission.mission_status,
+                           mission.client_id,
+                           mission.accepted_by,
+                           mission.budget,
+                           project_category.title as category_title,
+                           mission.created_date");
         $this->db->from("mission");
         $this->db->join("project_category","project_category.project_id = mission.mission_category");
 
@@ -79,22 +86,24 @@ class DemandsList extends CI_Controller {
         $this->load->view('common/header');
         $this->load->view("edit_demands", $data);  
         $this->load->view('common/footer');
-        
-        
     }
 
     public function save_demands(){
         // print_r($this->input->post());exit;
         $post = $this->input->post();
-        $id = $this->input->post('id');
+        $id = $this->input->post('mission_id');
+        $demands_update = array(
+            'mission_title' => $post['mission_title'],
+            'mission_description' => $post['mission_description'],
+            'budget' => $post['budget'],
+            'mission_status' => $post['mission_status']
+        );
 
-
-        $demands_update = array('mission_title'=>$post['mission_title'],'mission_description'=>$post['mission_description'],'budget'=>$post['budget'],'mission_status'=>$post['mission_status']);
+        $this->db->set($demands_update);               
+        $this->db->where('mission_id', $id);
+        $this->db->update('mission');
         
-            
-            $this->db->where('mission_id',$id);
-            $this->db->update('mission',$demands_update);
-            redirect('demandsList');    
+        redirect('demandsList');    
     }
     
 }
