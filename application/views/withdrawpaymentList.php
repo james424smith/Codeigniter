@@ -51,7 +51,7 @@ div#dtBasicExample_length {
                     ?>
                   <tr>
                       <td><?php echo date("d-m-Y", strtotime($user->date_created)); ?> </td>
-                      <td> <?php echo $user->mission_id;//$newDate . $invID;?>
+                      <td> <?php echo $newDate . "0000:" . $invID;?>
                       <td> 
                         <?php 
                           if($user->mission_status == 0) 

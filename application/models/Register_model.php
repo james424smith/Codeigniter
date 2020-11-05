@@ -67,17 +67,17 @@ class Register_model extends CI_Model
   {
     $this->db->select("users.*,stripe_card_details.stripe_customer_id,stripe_card_details.stripe_card_id");
     $this->db->from($this->userTbl);
-        $this->db->join("stripe_card_details","users.id = stripe_card_details.user_id","left");
-    $this->db->where("$this->userTbl.role !=","Admin");
-    $this->db->order_by("$this->userTbl.id","desc");
+    $this->db->join("stripe_card_details", "users.id = stripe_card_details.user_id", "left");
+    $this->db->where("$this->userTbl.role !=", "Admin");
+    $this->db->order_by("$this->userTbl.id", "desc");
     return $this->db->get()->result();
   }
-public function getUserList($from_date,$to_date) 
+public function getUserList($from_date, $to_date) 
   {
     $this->db->select("date_updated,first_name,last_name,email,dob,school_address,country,Profile_Rate,Total_earned_amount,Current_Balance");
     //$this->db->from($this->userTbl);
     $this->db->where('date_updated >=', $from_date);
-$this->db->where('date_updated <=', $to_date);
+    $this->db->where('date_updated <=', $to_date);
     $this->db->where("$this->userTbl.role !=","Admin");
     $this->db->order_by("$this->userTbl.id","desc");
     $q = $this->db->get('users');
@@ -155,13 +155,17 @@ $this->db->where('date_updated <=', $to_date);
 
   public function getLatestProject()
   {
-    $this->db->select("$this->publishTable.title as publish_title,$this->publishTable.description as publish_descrition,$this->proCat.title as product_caterory_name,$this->publishTable.currency as currency,$this->publishTable.budget as budget");
-    $this->db->from($this->publishTable);
-    $this->db->join("$this->proCat","$this->publishTable.project_category = $this->proCat.project_id");
-    $this->db->order_by("$this->publishTable.id","desc");
+    //$this->db->select("$this->publishTable.title as publish_title,$this->publishTable.description as publish_descrition,$this->proCat.title as product_caterory_name,$this->publishTable.currency as currency,$this->publishTable.budget as budget");
+    //$this->db->from($this->publishTable);
+    $this->db->select("mission.mission_title, mission.description as missiondescription, mission.mission_category, mission.mission_budget, mission.mission_status, $this->proCat.title as product_caterory_name");
+    $this->db->from('mission');
+    $this->db->join("$this->proCat", "mission.mission_category = $this->proCat.project_id");
+    $this->db->order_by("mission.mission_id", "desc");
     //$this->db->limit(5);
     $data = $this->db->get()->result();
-    
+    //print_r($data);die();
+    if(count($data) > 100)
+      $remove_user_to_display = array_splice($data, 100);
     return $data;
   }
 
@@ -170,8 +174,11 @@ $this->db->where('date_updated <=', $to_date);
   {
     $this->db->select("*");
     $this->db->from("users");
+    $this->db->order_by("id","desc");
     $data = $this->db->get()->result();
-
+    if(count($data) > 100)
+      $remove_user_to_display = array_splice($data, 100);
+    //var_dump($remove_user_to_display);die();
     return $data;
   }
 

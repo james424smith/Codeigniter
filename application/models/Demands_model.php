@@ -111,7 +111,7 @@ public function getUserList($from_date,$to_date)
   public function MissionList() {
     $this->db->select("mission.mission_id, 
                        mission.mission_title, 
-                       mission.mission_description, 
+                       mission.description, 
                        mission.mission_status, 
                        mission.client_id,
                        mission.accepted_by,
@@ -119,7 +119,7 @@ public function getUserList($from_date,$to_date)
                        project_category.title as category_title,
                        mission.created_date,
                        mission.accepted_by");
-                       
+
     $this->db->from("mission");
     $this->db->join("project_category","project_category.project_id = mission.mission_category");
     //$this->db->join('Project_offer','mission.mission_id = Project_offer.project_id', 'left');

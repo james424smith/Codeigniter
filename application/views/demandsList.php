@@ -24,13 +24,13 @@ div#dtBasicExample_length {
           <form method="post" action="<?php echo base_url('table/export_csv')?>">
             <div class="from_to_date_picker">             
               <ul>
-                <li><label>From Date:</label> <input type="text" name="from_date" id="from_date" value="" required=""></li>
-                <li><label>To Date:</label> <input type="text" name="to_date" id="to_date" value="" required=""> </li>
+                <li><label>From Date:</label> <input type="date" name="from_date" id="from_date" value="" required=""></li>
+                <li><label>To Date:</label> <input type="date" name="to_date" id="to_date" value="" required=""> </li>
                 <li><input type="submit" name="export" class="export_btn" id="export" value="Export"></li>
               </ul>
             </div>
           </form>
-        <script type="text/javascript">
+        <!--<script type="text/javascript">
             $(function () {
                 $('#from_date').datetimepicker({
                  format: 'DD/MM/YYYY'
@@ -41,23 +41,23 @@ div#dtBasicExample_length {
                  format: 'DD/MM/YYYY'
            });
             });
-        </script>
+        </script>-->
             <div class="card-body">
               <div class="table-responsive">
                 <table id="dtBasicExample" class="table table-striped  table-sm" cellspacing="0" width="100%">
                   <thead class=" text-primary">
                   	<th><?=('Id')?></th> 
-                    <th><?=('Date of project creation')?></th> 
+                    <th><?=('Creation date')?></th> 
                     <th><?=('Project Id')?></th>
                     <th><?=('Category')?></th>
                     <th><?=('Title')?></th>
                     <th><?=('Description')?></th> 
-                    <th><?=('Current Projet Status')?></th> 
-                    <th><?=('Person who posted the task')?></th>
+                    <th><?=('Current Status')?></th> 
+                    <th><?=('Owner')?></th>
                     <th><?=('Hired Person')?></th> 
-                    <th><?=('Mission Budget')?></th>
-                    <th><?=('Offer Budget')?></th>
-                    <th><?=('Paid amount')?></th>
+                    <th><?=('Budget')?></th>
+                    <th><?=('Offer')?></th>
+                    <th><?=('Paid')?></th>
                     <th><?=('Action')?></th>
                   </thead>
                   
@@ -68,12 +68,12 @@ div#dtBasicExample_length {
                         $invID = str_pad($user->mission_id, 5, '0', STR_PAD_LEFT);
                       ?>
                   <tr>
-                  <td><?php echo $user->mission_id; ?>	</td>
+                  <td style="width:15px !important;"> <?php echo $user->mission_id; ?>	</td>
                   <td><?php echo date("d-m-Y", strtotime($user->created)); ?> </td>
-                  <td><?php  echo $newDate . $invID; ?> </td>
+                  <td><?php  echo $newDate . "0000:" . $invID; ?> </td>
                   <td> <?php echo $user->category_title;?> </td>
                   <td> <?php echo $user->mission_title;?> </td>
-                  <td> <?php echo $user->mission_description;?> </td>
+                  <td> <?php echo $user->description;?> </td>
                   <td> <?php  if($user->mission_status==0) { echo "Posted"; } if($user->mission_status==1) { echo "In Progress"; } if($user->mission_status==2) { echo "Delivered"; } if($user->mission_status==3) { echo "Completed"; } if($user->mission_status==4) { echo "Dispute"; } ?> </td>
                   <td> 
                     <?php

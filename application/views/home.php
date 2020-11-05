@@ -332,6 +332,7 @@
                         <th><?= ('Description')?></th>
                         <th><?= ('Category')?></th>
                         <th><?= ('Budget')?></th>
+                        <th><?=('Status')?></th>
                       </thead>
                       <tbody>
                         <?php $count = 0;?>
@@ -339,10 +340,27 @@
                         <tr>
                           <?php $count++; ?>
                           <td><?= $count ?></td>
-                          <td><?= $latest_project->publish_title ?></td>
-                          <td><?= $latest_project->publish_descrition ?></td>
+                          <td><?= $latest_project->mission_title ?></td>
+                          <td><?= $latest_project->missiondescription ?></td>
                           <td><?= $latest_project->product_caterory_name ?></td>
-                          <td><?= empty($latest_project->currency)?'':$latest_project->currency ?><?= $latest_project->budget ?></td>
+                          <td><?= "€" . $latest_project->mission_budget ?></td>
+                          <?php  
+                                if($latest_project->mission_status == 0){ 
+                                    echo "<td>Posted</td>";
+                                }
+                                if($latest_project->mission_status == 1){ 
+                                    echo "<td>In progress</td>";
+                                }
+                                if($latest_project->mission_status == 2){ 
+                                    echo "<td>Deliverd</td>";
+                                }
+                                if($latest_project->mission_status == 3){ 
+                                    echo "<td>Completed</td>";
+                                }
+                                if($latest_project->mission_status == 4){
+                                    echo "<td>Disputed</td>";
+                                }
+                          ?>
                         </tr>
                        <?php endforeach; ?>
                       </tbody>

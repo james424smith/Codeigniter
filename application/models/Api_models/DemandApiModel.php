@@ -9,7 +9,7 @@ class DemandApiModel extends CI_Model
         $this->bidding_table_name = 'project_bidding';
         $this->user_table_name = 'users';
         $this->logged_in_with='';
-        $this->response=array();
+        $this->response = array();
     }
 
 
@@ -36,7 +36,7 @@ class DemandApiModel extends CI_Model
  {
    $this->db->select("*");
    $this->db->from('user_review');
-   $this->db->where('to_user_id',$user_id);
+   $this->db->where('to_user_id', $user_id);
    $data = $this->db->get();
 
    //$count = $data->num_rows();

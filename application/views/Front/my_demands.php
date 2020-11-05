@@ -151,7 +151,7 @@
                                     if($value['mission_status'] == 4){
                                        echo "<span style='color:#ff1800;'>Litige</span>";
                                     }
-                           ?>
+                              ?>
                            </div>               
                         </div>
                   </div>
