@@ -121,17 +121,13 @@ public function getUserList($from_date,$to_date)
                        mission.accepted_by");
 
     $this->db->from("mission");
-    $this->db->join("project_category","project_category.project_id = mission.mission_category");
+    $this->db->join("project_category", "project_category.project_id = mission.mission_category");
     //$this->db->join('Project_offer','mission.mission_id = Project_offer.project_id', 'left');
     //$this->db->where('accept_status',1);
+    $this->db->order_by("mission.mission_id", "desc");
     $this->db->group_by('mission.mission_id'); 
-    $this->db->order_by("mission.mission_id","desc");
-    
+    //var_dump($this->db->get()->result());die();
     return $this->db->get()->result();
-/*echo $str = $this->db->last_query();
-exit();*/
-    /*$query = $this->db->get($this->mission);
-    return $query->result();*/
   }
 
   //delete project list by id

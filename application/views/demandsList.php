@@ -1,4 +1,4 @@
-
+<?php //var_dump($demandslist);die(); ?>
 <style>
   .modal-content {
     width: 625px;
@@ -44,8 +44,8 @@ div#dtBasicExample_length {
           </script>-->
             <div class="card-body">
               <div class="table-responsive">
-                <table id="dtBasicExample" class="table table-striped  table-sm" cellspacing="0" width="100%">
-                  <thead class=" text-primary">
+                <table id="dtBasicExample" class="table table-striped table-sm" cellspacing="0" width="100%">
+                  <thead class="text-primary" style="cursor: pointer;">
                   	<th><?=('Id')?></th> 
                     <th><?=('Creation date')?></th> 
                     <th><?=('Project Id')?></th>
@@ -64,12 +64,12 @@ div#dtBasicExample_length {
                   <tbody>
                     <?php 
                       foreach($demandslist as $user) {
-                        $newDate = date("dmy", strtotime($user->created));
+                        $newDate = date("dmy", strtotime($user->created_date));
                         $invID = str_pad($user->mission_id, 5, '0', STR_PAD_LEFT);
                       ?>
                   <tr>
                   <td style="width:15px !important;"> <?php echo $user->mission_id; ?>	</td>
-                  <td><?php echo date("d-m-Y", strtotime($user->created)); ?> </td>
+                  <td><?php echo date("d-m-Y", strtotime($user->created_date)); ?> </td>
                   <td><?php  echo $newDate . "0000:" . $invID; ?> </td>
                   <td><?php echo $user->category_title;?> </td>
                   <td><?php echo $user->mission_title;?> </td>
@@ -125,7 +125,6 @@ div#dtBasicExample_length {
                       <a href='<?=base_url("demandsList/edit_demands/$user->mission_id");?>' onclick="return confirm('Are you sure you want to edit this item?');"><i class="fa fa-edit"></i></a>
                       <a href='<?php echo base_url("demandsList/delete_demands/$user->mission_id");?>' onclick="return confirm('Are you sure you want to delete this item?');"><i class="fa fa-trash"></i></a>
                     </td>
-
                   </tr>   
                       <?php }?>                 
                   </tbody>
