@@ -242,58 +242,58 @@
                         <?php } ?>
                       </a>
                     <?php } else {?>
-                      <a href="<?php echo base_url('Front/home/login')?>" class="dropdown-toggle btn btn-primary"><i class="far fa-bell"></i></a>
-                    <?php } ?>
+                        <a href="<?php echo base_url('Front/home/login')?>" class="dropdown-toggle btn btn-primary"><i class="far fa-bell"></i></a>
+                      <?php } ?>
 
-                      <ul class="dropdown-menu animated fadeInUp notification_popup">
-                        <li>
-                          <h3>Notifications</h3>
-                        </li>
-                        <li>
-                          <a href="<?php echo base_url('Front/Posts/Notification/1')?>" class="hvr-bounce-to-right">
-                              <div class="not_icon">
-                                <img src="<?php echo base_url();?>/assets/Front/img/not_icn1.png">
-                                Paiements
-                              </div>
-                              <div class="not_status">
-                                <p><?php echo $count_payment; ?></p>
-                              </div>
-                          </a>
-                        </li>
-                        <li>
-                          <a href="<?php echo base_url('Front/Posts/Notification/2')?>" class="hvr-bounce-to-right">
-                              <div class="not_icon">
-                                <img src="<?php echo base_url();?>/assets/Front/img/not_icn2.png">
-                                <span>Statut des missions et demandes</span>
-                              </div>
-                              <div class="not_status">
-                                <p><?php echo $count_missionanddemands; ?></p>
-                              </div>
-                          </a>
-                        </li>
-                        <li>
-                          <a href="<?php echo base_url('Front/Posts/Notification/3')?>" class="hvr-bounce-to-right">
-                              <div class="not_icon">
-                                <img src="<?php echo base_url();?>/assets/Front/img/not_icn3.png">
-                                Offres
-                              </div>
-                              <div class="not_status">
-                                <p><?php echo $count_Offers; ?></p>
-                              </div>
-                          </a>
-                        </li>
-                        <li>
-                          <a href="<?php echo base_url('Front/Posts/Notification/5')?>" class="hvr-bounce-to-right">
-                              <div class="not_icon">
-                                <img src="<?php echo base_url();?>/assets/Front/img/not_icn5.png">
-                                Avis
-                              </div>
-                              <div class="not_status">
-                                <p><?php echo $count_Reviews; ?></p>
-                              </div>
-                          </a>
-                        </li>
-                      </ul>
+                        <ul class="dropdown-menu animated fadeInUp notification_popup">
+                          <li>
+                            <h3>Notifications</h3>
+                          </li>
+                          <li>
+                            <a href="<?php echo base_url('Front/Posts/Notification/1')?>" class="hvr-bounce-to-right">
+                                <div class="not_icon">
+                                  <img src="<?php echo base_url();?>/assets/Front/img/not_icn1.png">
+                                  Paiements
+                                </div>
+                                <div class="not_status">
+                                  <p><?php echo $count_payment; ?></p>
+                                </div>
+                            </a>
+                          </li>
+                          <li>
+                            <a href="<?php echo base_url('Front/Posts/Notification/2')?>" class="hvr-bounce-to-right">
+                                <div class="not_icon">
+                                  <img src="<?php echo base_url();?>/assets/Front/img/not_icn2.png">
+                                  <span>Statut des missions et demandes</span>
+                                </div>
+                                <div class="not_status">
+                                  <p><?php echo $count_missionanddemands; ?></p>
+                                </div>
+                            </a>
+                          </li>
+                          <li>
+                            <a href="<?php echo base_url('Front/Posts/Notification/3')?>" class="hvr-bounce-to-right">
+                                <div class="not_icon">
+                                  <img src="<?php echo base_url();?>/assets/Front/img/not_icn3.png">
+                                  Offres
+                                </div>
+                                <div class="not_status">
+                                  <p><?php echo $count_Offers; ?></p>
+                                </div>
+                            </a>
+                          </li>
+                          <li>
+                            <a href="<?php echo base_url('Front/Posts/Notification/5')?>" class="hvr-bounce-to-right">
+                                <div class="not_icon">
+                                  <img src="<?php echo base_url();?>/assets/Front/img/not_icn5.png">
+                                  Avis
+                                </div>
+                                <div class="not_status">
+                                  <p><?php echo $count_Reviews; ?></p>
+                                </div>
+                            </a>
+                          </li>
+                        </ul>
                     </div>
                  </li>
                  <li>

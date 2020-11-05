@@ -28,8 +28,7 @@ div#dtBasicExample_length {
                 </ul>
             </div>
          </form>
-            <div class="card-body">
-              <div class="table-responsive">
+            <div class="card-body table-responsive">
                 <table id="dtBasicExample" class="table table-striped  table-sm" cellspacing="0" width="100%">
                   <thead class=" text-primary">
                     <!-- <th><?=('id')?></th>  -->
@@ -102,7 +101,6 @@ div#dtBasicExample_length {
                     <?php }?>                 
                   </tbody>                
                 </table>
-              </div>
             </div>
             <div id="myModal" class="modal fade" role="dialog">
             <div class="modal-dialog">

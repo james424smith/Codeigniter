@@ -22,9 +22,13 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/css/bootstrap-datetimepicker.min.css">
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
-
+<style>
+  .main-panel>.content {
+    margin-top:30px !important;
+  }
+</style>
 </head>
 <body>
   <div class="col-md-3">
@@ -34,8 +38,9 @@
            <img src="<?php echo base_url('assets/img/logo12.png');?>" class="img-circle profileImgUrl" alt="User Image">
         </a>
       </div>
+      
       <?php $currentpage = $this->uri->segment(1);?>
-      <div class="sidebar-wrapper">
+      <div class="sidebar-wrapper">   
         <ul class="nav">
          
           <li class="nav-item <?php if($currentpage=="home") { echo "active"; } ?>  ">

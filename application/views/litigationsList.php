@@ -24,13 +24,13 @@ div#dtBasicExample_length {
           <form method="post" action="<?php echo base_url('table/export_csv')?>">
             <div class="from_to_date_picker">             
               <ul>
-                <li><label>From Date:</label> <input type="text" name="from_date" id="from_date" value="" required=""></li>
-                <li><label>To Date:</label> <input type="text" name="to_date" id="to_date" value="" required=""> </li>
+                <li><label>From Date:</label> <input type="date" name="from_date" id="from_date" value="" required=""></li>
+                <li><label>To Date:</label> <input type="date" name="to_date" id="to_date" value="" required=""> </li>
                 <li><input type="submit" name="export" class="export_btn" id="export" value="Export"></li>
               </ul>
             </div>
           </form>
-              <script type="text/javascript">
+              <!--<script type="text/javascript">
                 $(function () {
                     $('#from_date').datetimepicker({
                       format: 'DD/MM/YYYY'
@@ -41,9 +41,8 @@ div#dtBasicExample_length {
                       format: 'DD/MM/YYYY'
                     });
                 });
-              </script>
-            <div class="card-body">
-              <div class="table-responsive">
+              </script>-->
+            <div class="card-body table-responsive">
                 <table id="dtBasicExample" class="table table-striped  table-sm" cellspacing="0" width="100%">
                   <thead class=" text-primary">
                     <th><?=('Date of litigation')?></th> 
@@ -79,27 +78,26 @@ div#dtBasicExample_length {
                   </tbody>
                 
                 </table>
-              </div>
             </div>
             <div id="myModal" class="modal fade" role="dialog">
-  <div class="modal-dialog">
+                    <div class="modal-dialog">
 
-    <!-- Modal content-->
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Modal Header</h4>
-      </div>
-      <div class="modal-body">
-        <img src="" width="100%" height="inherit" id="target_element"> </div>
-      </div>
-      <!-- <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-      </div> -->
-    </div>
+                      <!-- Modal content-->
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal">&times;</button>
+                          <h4 class="modal-title">Modal Header</h4>
+                        </div>
+                        <div class="modal-body">
+                          <img src="" width="100%" height="inherit" id="target_element"> </div>
+                        </div>
+                        <!-- <div class="modal-footer">
+                          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div> -->
+                      </div>
 
-  </div>
-</div>
+                    </div>
+                  </div>
         </div>
       </div>
     </div>

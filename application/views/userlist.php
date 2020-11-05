@@ -64,7 +64,8 @@
                       <td> <?php echo "€" . $user->Total_earned_amount;?> </td>
                       <td> <?php echo "€" . $user->spent;?> </td>
                       <td>
-                          <a href='<?=base_url("table/edit_users/$user->id");?>' onclick="return confirm('Are you sure you want to edit this item?');">
+                          <a onclick="onClickEditUser(<?=$no?>)">
+                            <input type="hidden" id="<?php echo "edit_url" . $no?>" value="<?=base_url("table/edit_users/$user->id");?>">
                             <i class="fa fa-edit"></i>
                           </a>
                           <a href="" data-toggle="modal" data-target="#myModal<?php echo $user->id;?>">
@@ -105,10 +106,13 @@
                                   </div>
                                 </div>
                               </div>                    
-                            <a href='<?php echo base_url("Table/block_row/$user->id");?>' <?php if($user->block == 0) {?> onclick="return confirm('Are you sure you want to block this item?');" <?php } else {?> onclick="return confirm('Are you sure you want to remove block this item?');"<?php } ?> >
+                            <a onclick="onClickBlockUser(<?=$no?>)">
+                              <input type="hidden" id="<?php echo "block_url" . $no?>" value="<?php echo base_url("Table/block_row/$user->id");?>">
+                              <input type="hidden" id="<?php echo "block_status" . $no?>" value="<?php echo $user->block;?>">
                               <i class="fa fa-ban" <?php if($user->block == 1){ ?> style="color: red"<?php }?> ></i>
                             </a>
-                            <a href='<?php echo base_url("Table/delete_row/$user->id");?>' onclick="return confirm('Are you sure you want to delete this item?');">
+                            <a onclick="onClickDeleteUser(<?=$no?>)">
+                              <input type="hidden" id="<?php echo "delete_url" . $no?>" value="<?php echo base_url("Table/delete_row/$user->id");?>">
                               <i class="fa fa-trash"></i>
                             </a>
                       </td>              
@@ -137,8 +141,33 @@ $(document).ready(function () {
    
   });
  
-  $('.dataTables_length').addClass('bs-select');  
+  $('.dataTables_length').addClass('bs-select');
+});
 
-  })
+function onClickEditUser(idx)
+{
+    var str = prompt("What's your second password?");
+    if(str == 'hello')
+      location.href = $('#edit_url' + idx).val();
+}
+function onClickBlockUser(idx)
+{
+    var msg = "";
+    if($('#block_status' + idx).val() == 0)
+      msg = "Are you sure to block this user?";
+    else
+      msg = "Are you sure to remove block this user?";
+    
+    var str = prompt(msg);
+    if(str == 'hello')
+      location.href = $('#block_url' + idx).val();
+}  
+
+function onClickDeleteUser(idx)
+{
+    var str = prompt("Are you sure to delete this user?");
+    if(str == 'hello')
+      location.href = $('#delete_url' + idx).val();
+}
 
 </script>

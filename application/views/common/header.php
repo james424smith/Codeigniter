@@ -1,10 +1,12 @@
 <style>
   .profile_class {
     position: relative;
-    left: 103px;
+    margin-left:1150px;
 }
 </style>
+
  <!-- Navbar -->
+ 
 <div class="main-panel">
   <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute">
       <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
@@ -13,7 +15,7 @@
         <span class="navbar-toggler-icon icon-bar"></span>
         <span class="navbar-toggler-icon icon-bar"></span>
       </button>
-      <div class="collapse navbar-collapse justify-content-end">
+      <div class="collapse navbar-collapse">
         <ul class="navbar-nav">
             <?php
               $obj = &get_instance();
@@ -40,6 +42,8 @@
         </ul>
       </div>   
   </nav>
+
+  
 </div>
 
 
