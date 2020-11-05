@@ -12,13 +12,13 @@
           <form method="post" action="<?php echo base_url('table/export_csv')?>">
             <div class="from_to_date_picker">             
               <ul>
-                <li><label>From Date:</label> <input type="text" name="from_date" id="from_date" value="" required=""></li>
-                <li><label>To Date:</label> <input type="text" name="to_date" id="to_date" value="" required=""> </li>
+                <li><label>From Date:</label> <input type="date" name="from_date" id="from_date" value="" required=""></li>
+                <li><label>To Date:</label> <input type="date" name="to_date" id="to_date" value="" required=""> </li>
                 <li><input type="submit" name="export" class="export_btn" id="export" value="Export"></li>
               </ul>
             </div>
           </form>
-        <script type="text/javascript">
+        <!--<script type="text/javascript">
           $(function () {
             $('#from_date').datetimepicker({
               format: 'DD/MM/YYYY'
@@ -29,7 +29,7 @@
               format: 'DD/MM/YYYY'
             });
           });
-        </script>
+        </script>-->
             <div class="card-body">
               <div class="table-responsive">
                 <table  id="dtBasicExample" class="table table-striped  table-sm" cellspacing="0" width="100%">
@@ -66,9 +66,17 @@
                       <td> <?php echo $user->Current_Balance;?> </td>
                       <td> <?php echo $user->stripe_customer_id;?> </td>
                       <td> <?php echo $user->stripe_card_id;?> </td>
-                      <td><a href='<?=base_url("table/edit_users/$user->id");?>' onclick="return confirm('Are you sure you want to edit this item?');"><i class="fa fa-edit"></i></a>
-                          <a href='<?php echo base_url("Table/block_row/$user->id");?>' onclick="return confirm('Are you sure you want to block this item?');"><i class="fa fa-ban" <?php if($user->block == 1){ ?> style="color: red"<?php }?> ></i></a>
-                          <a href='<?php echo base_url("Table/delete_row/$user->id");?>' onclick="return confirm('Are you sure you want to delete this item?');"><i class="fa fa-trash"></i></a></td> 
+                      <td>
+                          <a href='<?=base_url("table/edit_users/$user->id");?>' onclick="return confirm('Are you sure you want to edit this item?');">
+                            <i class="fa fa-edit"></i>
+                          </a>
+                     <a href='<?php echo base_url("Table/block_row/$user->id");?>' <?php if($user->block == 0) {?> onclick="return confirm('Are you sure you want to block this item?');" <?php } else {?> onclick="return confirm('Are you sure you want to remove block this item?');"<?php } ?> >
+                            <i class="fa fa-ban" <?php if($user->block == 1){ ?> style="color: red"<?php }?> ></i>
+                          </a>
+                          <a href='<?php echo base_url("Table/delete_row/$user->id");?>' onclick="return confirm('Are you sure you want to delete this item?');">
+                            <i class="fa fa-trash"></i>
+                          </a>
+                      </td> 
                        
                     </tr>     
                     <?php }?>               

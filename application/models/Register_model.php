@@ -102,9 +102,16 @@ public function getUserList($from_date, $to_date)
   }
 
    public function did_block_row($id){
-     $data['block'] = 1;
-     $update = $this->db->update($this->userTbl , $data, array('id'=>$id));
-     
+    
+    $this->db->select("block");
+    $this->db->from("users");
+    $this->db->where("id", $id);
+    $user = $this->db->get()->row();
+    if($user->block == 1)
+      $data['block'] = 0;
+    else
+      $data['block'] = 1;
+    $update = $this->db->update($this->userTbl , $data, array('id'=>$id)); 
     return  $update?true:false;
   }
   //delete demand list by id
