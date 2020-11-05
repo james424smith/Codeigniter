@@ -39,7 +39,7 @@
 	<div class="section portfolio">
 		<main id="main" class="container">
 			<nav class="nav">
-			    <a href="#" class="nav-item active" data-rel="option-1">Avis</a>
+			    <a href="#" class="nav-item active" data-rel="option-1">Remarque</a>
 			    <a href="#" class="nav-item" data-rel="option-2">Budget</a>
 			    <a href="#" class="nav-item" data-rel="option-3">Date</a>
 		  </nav>

@@ -38,42 +38,41 @@ class Table extends CI_Controller {
     // }
 
     public function edit_users(){
-        $this->load->model('Demands_model');
-        // $this->load->view('sidebar');
+        
         $id  = $this->uri->segment(3);
-      //  $data_litigations = $this->db->query("select * from  mission  where mission_id=" . $id);
-        $this->db->select("mission.mission_id,mission.mission_title,mission.mission_description,mission.status,mission.client_id,mission.accepted_by,mission.budget,project_category.title as category_title,mission.created");
-    $this->db->from("mission");
-    $this->db->join("project_category","project_category.project_id = mission.mission_category");
-
-    $this->db->where('mission.mission_id', $id);
-$data['demands_edit'] = $this->db->get()->result();
-        // $data_projects['project_edit'] = $data_projects->result_array();
-
-        //$data['demands_edit'] = $data_demands->result_array();
-        // echo '<pre>';print_r($data['project_edit']);exit;
-       // print_r($data['services_edit']);exit;
+        $this->db->select("*");
+        $this->db->from("users");
+        $this->db->where('id', $id);
+        $data['users_edit'] = $this->db->get()->result();
         
         $this->load->view('common/sidebar');
         $this->load->view('common/header');
         $this->load->view("edit_users", $data);  
         $this->load->view('common/footer');
-        
-        
     }
 
     public function save_users(){
-        // print_r($this->input->post());exit;
+        //print_r($this->input->post());exit;
         $post = $this->input->post();
-        $id = $this->input->post('id');
+        $id = $this->input->post('user_id');
 
+        $user_update = array(
+            'first_name' => $post['first_name'],
+            'last_name' => $post['last_name'],
+            'username' => $post['username'],
+            'email' => $post['email'],
+            'dob' => $post['username'],
+            'school_address' => $post['school_address'],
+            'country' => $post['country'],
+            'Profile_Rate' => $post['Profile_Rate'],
+            'Total_earned_amount' => $post['Total_earned_amount'],       
+            'Current_Balance' => $post['Current_Balance'],
+        );
 
-        $demands_update = array('mission_title'=>$post['mission_title'],'mission_description'=>$post['mission_description'],'budget'=>$post['budget'],'status'=>$post['status']);
-        
-            
-            $this->db->where('mission_id',$id);
-            $this->db->update('mission',$demands_update);
-            redirect('demandsList');    
+        $this->db->set($user_update);
+        $this->db->where('id', $id);
+        $this->db->update('users');
+        redirect('table');    
     }
 
 // delete data
@@ -92,7 +91,7 @@ $data['demands_edit'] = $this->db->get()->result();
     }
 
     public function export_csv(){ 
-  $post = $this->input->post();
+        $post = $this->input->post();
         $from_date = $this->input->post('from_date');
         $from_date_new = date('Y-m-d', strtotime($from_date)); 
     

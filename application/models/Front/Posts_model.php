@@ -345,10 +345,26 @@ class Posts_model extends CI_Model
                 //var_dump($mission);die();
                
                 $ballence = $accepted_user->Current_Balance + $mission->mission_budget * 88 / 100;
+                $total_earned_amount = $accepted_user->Total_earned_amount + $mission->mission_budget;
                 //var_dump($mission->offer_budget);die();
-                $this->db->set('Current_Balance', $ballence);
+                $employee_user_update_data = array(
+                    'Current_Balance' => $ballence,
+                    'Total_earned_amount' => $total_earned_amount
+                );
+                $this->db->set($employee_user_update_data);
                 $this->db->where('id', $mission->accepted_by);
                 $status = $this->db->update('users');
+                
+                $this->db->select("*");
+                $this->db->from('users'); 
+                $this->db->where('id', $this->session->userdata['id']);
+                $employer_user = $this->db->get()->row();
+                
+                $total_spent = $employer_user->spent + $mission->mission_budget;
+                $this->db->set('spent', $total_spent);
+                $this->db->where('id', $this->session->userdata['id']);
+                $status = $this->db->update('users');
+                
 
                 $update_data = array(
                     'created_date' => $project_data['date_created'],

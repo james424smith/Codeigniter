@@ -26,7 +26,7 @@
 }
 
 </style>
-
+<?php //var_dump($users_edit[0]->id);die();?>
 <div class="col-md-9">
 <div class="dashboard-wrapper">
     <div class="container  dashboard-content">
@@ -36,6 +36,8 @@
                     <div class="card-header"><h5 class="mb-0"></h5></div>
                     <div class="card-body">
                         <form class="form-valide" action="<?php echo base_url('table/save_users')?>" enctype="multipart/form-data" method="post" accept-charset="utf-8">
+                     
+                            <input type="hidden"  id="id" name="user_id" value="<?php echo $users_edit[0]->id;?>">
 
                              <div class="form-group row">
                                 <label class="col-md-3 "><?= ('First Name')?> <span class="text-danger">*</span>
@@ -46,8 +48,6 @@
                                 </div>
                             </div>
 
-
-
                             <div class="form-group row">
                                 <label class="col-md-3 "><?= ('Last Name')?> <span class="text-danger">*</span>
                                 </label>
@@ -56,8 +56,14 @@
                                     <input type="text"  id="last_name" name="last_name" value="<?php echo $users_edit[0]->last_name;?>">
                                 </div>
                             </div>
-
-
+                            <div class="form-group row">
+                                <label class="col-md-3 "><?= ('Username')?> <span class="text-danger">*</span>
+                                </label>
+                                <br>
+                                <div class="col-md-9">
+                                    <input type="text"  id="text" name="username" value="<?php echo $users_edit[0]->username;?>">
+                                </div>
+                            </div> 
                            <div class="form-group row">
                                 <label class="col-md-3 "><?= ('Email')?> <span class="text-danger">*</span>
                                 </label>
@@ -67,10 +73,8 @@
                                 </div>
                             </div>
 
-                            
-
                             <div class="form-group row">
-                                <label class="col-md-3 "><?= ('Date of birth')?> <span class="text-danger">*</span>
+                                <label class="col-md-3 "><?= ('Birthday')?> <span class="text-danger">*</span>
                                 </label>
                                 <br>
                                 <div class="col-md-9">
@@ -106,7 +110,7 @@
                             </div>
                             
                             <div class="form-group row">
-                                <label class="col-md-3 "><?= ('Total earned amount')?> <span class="text-danger">*</span>
+                                <label class="col-md-3 "><?= ('Earned')?> <span class="text-danger">*</span>
                                 </label>
                                 <br>
                                 <div class="col-md-9">
@@ -114,7 +118,7 @@
                                 </div>
                             </div> 
 
-<div class="form-group row">
+                            <div class="form-group row">
                                 <label class="col-md-3 "><?= ('Current Balance')?> <span class="text-danger">*</span>
                                 </label>
                                 <br>
@@ -122,19 +126,9 @@
                                     <input type="text"  id="Current_Balance" name="Current_Balance" value="<?php echo $users_edit[0]->Current_Balance;?>">
                                 </div>
                             </div>
-
-                            <div class="form-group row">
-                                <label class="col-md-3 "><?= ('Walet balance')?> <span class="text-danger">*</span>
-                                </label>
-                                <br>
-                                <div class="col-md-9">
-                                    <input type="text"  id="walet_balance" name="walet_balance" value="<?php echo $users_edit[0]->walet_balance;?>">
-                                </div>
-                            </div>
                             <div class="form-group row">
                                 <div class="col-lg-8 ml-auto">
-                                    <input type="hidden" name="id" value="<?php echo $users_edit[0]->misssion_id;?>">
-                                    
+                                    <input type="hidden" name="id" value="<?php echo $users_edit[0]->misssion_id;?>">  
                                     <button type="submit" class="btn btn-primary"><?= ('Submit')?></button>
                                 </div>
                             </div>
