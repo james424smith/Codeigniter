@@ -423,21 +423,35 @@ class Posts_model extends CI_Model
 
         public function pushNotification($user_id, $type_id, $notification_msg)
         {    
-                $date_created = date('Y-m-d H:i:s');
-                $data = array(
-                    "user_type" => 1,
-                    "user_id" => $user_id,
-                    "demand_id" => 1,
-                    "notification" => $notification_msg,
-                    "read_status" => 0,
-                    "created" => $date_created,
-                    "type_id" => $type_id
-                );
-                //var_dump($data); die();
-                $this->db->insert('notification', $data);
-                return true;
-
-            
+            $date_created = date('Y-m-d H:i:s');
+            $data = array(
+                "user_type" => 1,
+                "user_id" => $user_id,
+                "demand_id" => 1,
+                "notification" => $notification_msg,
+                "read_status" => 0,
+                "created" => $date_created,
+                "type_id" => $type_id
+            );
+            //var_dump($data); die();
+            $this->db->insert('notification', $data);
+            return true;
+        }
+        public function pushNotificationoffer($user_id, $project_id, $type_id, $notification_msg)
+        {    
+            $date_created = date('Y-m-d H:i:s');
+            $data = array(
+                "user_type" => $project_id,
+                "user_id" => $user_id,
+                "demand_id" => 1,
+                "notification" => $notification_msg,
+                "read_status" => 0,
+                "created" => $date_created,
+                "type_id" => $type_id
+            );
+            //var_dump($data); die();
+            $this->db->insert('notification', $data);
+            return true;
         }
         public function checkMission($offer_data = array()) {
             if(!empty($offer_data)) {

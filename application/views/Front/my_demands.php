@@ -12,10 +12,21 @@
    $demands2 = $obj->Posts_model->mydemand($status3);
    $demands3 = $obj->Posts_model->mydemand($status4);
    $demands4 = $obj->Posts_model->mydemand($status5);
-   //var_dump($demands1);die();
    
+   $user_id = $this->session->userdata['id'];
+   //var_dump($demands1);die();
+   $obj->load->model('Front/Payment_model');
 ?>
-
+<style>
+     .badge_1 {
+         position: absolute;
+         font-size: 100% !important;
+         border-radius: 50%;
+         background-color: #fd9d39;
+         color: white !important;
+         margin-top: -25px;
+      }
+</style>
 <section>
 <?php if($this->session->flashdata('success_ask_modify')){ ?>
   <script>
@@ -95,6 +106,23 @@
       <li class="project <?php echo  $class; ?>" style="display: <?php echo $style; ?>">
          <a href="<?php echo base_url('Front/home/' . $link . '/' . $value['mission_id'])?>">
             <div class="item row">
+                  <?php if($value['mission_status'] == 4){ ?>
+                     <p class="cat_date" style="left:10px; background-color:white;">
+                        <img class="chat_icn" src="<?php echo base_url();?>/assets/Front/img/chat.png" style="width:20px; height:20px;">
+                        <?php
+                           $litigation_count = count($obj->Payment_model->getlitigationnotification($user_id, $value['mission_id']));
+                        ?>
+                        <span class="badge_1"><?php echo $litigation_count;?></span>
+                     </p>
+                  <?php } ?>
+                  <?php if($value['mission_status'] == 0){ ?>
+                     <p class="cat_date" style="left:10px; background-color:white;">
+                        <?php
+                           $offer_count = count($obj->Payment_model->getoffernotification($user_id, $value['mission_id']));
+                        ?>
+                        <span style="color:#2d4fb1;"><?php echo $offer_count;?></span>
+                     </p>
+                  <?php } ?> 
                   <div class="col-md-12 img_box">
                      <?php 
                         $cat_image = $this->db->query("select * from  project_category  where project_id=".$value['mission_category'])->row();
@@ -120,7 +148,7 @@
                                     if($value['mission_status'] == 3){ 
                                        echo "<span style='color:#39ec0c;'>Complétée</span>";
                                     }
-                                    if($value['mission_status'] == 4){ 
+                                    if($value['mission_status'] == 4){
                                        echo "<span style='color:#ff1800;'>Litige</span>";
                                     }
                            ?>
@@ -133,6 +161,7 @@
                      $datediff = $now - $your_date;
                   ?>
                   <p class="cat_date">Il y a <?php echo round($datediff / (60 * 60 * 24)); ?> jours</p>
+                  
             </div>
             </a>
          </li>

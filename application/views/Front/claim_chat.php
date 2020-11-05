@@ -6,11 +6,9 @@
 	$user_id = $this->session->userdata['id'];
 	//$obj->load->model('ChatModel');
 	//$chating_members = $obj->ChatModel->getChattingMembers();
-	
 	$obj->load->model('Front/User');
 	$self_user = $obj->User->getSelfUser();
 	$all_users = $obj->User->getAllUsers();
-
 ?>
 <section>
 	<div class="chat_box">
@@ -28,7 +26,7 @@
 										<input type="hidden" id="self_img" value="<?php echo base_url('/uploads/profiles/'. $self_user[0]['picture_url'])?>"/>
 									</div>
 									<div class="user_info">
-										<span class="select-username">Admin</span>
+										<span class="select-username">Service Client</span>
 									</div>
 								</div>
 							</div>

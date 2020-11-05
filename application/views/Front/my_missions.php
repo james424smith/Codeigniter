@@ -17,7 +17,19 @@
    $missions3 = $obj->Posts_model->mymission($status4);
    $missions4 = $obj->Posts_model->mymission($status5);
    //print_r($missions);die();
+
+   $obj->load->model('Front/Payment_model');
 ?> 
+<style>
+  .badge_1 {
+      position: absolute;
+      font-size: 100% !important;
+      border-radius: 50%;
+      background-color: #fd9d39;
+      color: white !important;
+      margin-top: -25px;
+  }
+</style>
 <section>
     <?php if($this->session->flashdata('delivery_success')){ 
     ?>
@@ -95,6 +107,15 @@
           <li class="project <?php echo  $class; ?>" style="display: <?php echo $style; ?>">
              <a href="<?php echo base_url('Front/home/' .$link.'/'.$value['mission_id'])?>">
               <div class="item row">
+                  <?php if($value['mission_status'] == 4){ ?>
+                     <p class="cat_date" style="left:10px; background-color:white;">
+                        <img class="chat_icn" src="<?php echo base_url();?>/assets/Front/img/chat.png" style="width:20px; height:20px;">
+                        <?php
+                           $litigation_count = count($obj->Payment_model->getlitigationnotification($user_id, $value['mission_id']));
+                        ?>
+                        <span class="badge_1"><?php echo $litigation_count;?></span>
+                     </p>
+                  <?php } ?>
                   <div class="col-md-12 img_box">
                   <?php 
                      $cat_image=$this->db->query("select * from  project_category  where project_id=".$value['mission_category'])->row();

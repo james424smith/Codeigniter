@@ -299,7 +299,8 @@ class Payment_model extends CI_Model
                 $this->db->from('notification');
             // $this->db->join("$this->user_table_name","$this->demand_table_name.client_id = $this->user_table_name.id");
                 $this->db->where('user_id', $user_id);
-
+                if($type_id == 4)
+                    $this->db->where('demand_id', 1);
                 $this->db->where('type_id', $type_id);
                 $this->db->where('read_status', 0);
                 $data = $this->db->get()->result();
@@ -307,10 +308,31 @@ class Payment_model extends CI_Model
                 exit();*/
                 return $data;
             }
-
+            
+            public function getlitigationnotification($user_id, $project_id)
+            {   
+                $this->db->select("notification.*");
+                $this->db->from('notification');
+                $this->db->where('user_id', $user_id);
+                $this->db->where('user_type', $project_id);
+                $this->db->where('type_id', 4);
+                $this->db->where('demand_id', 2);
+                $this->db->where('read_status', 0);
+                $data = $this->db->get()->result();
+                return $data;
+            }
+            public function getoffernotification($user_id, $project_id)
+            {
+                $this->db->select("notification.*");
+                $this->db->from('notification');
+                $this->db->where('user_id', $user_id);
+                $this->db->where('user_type', $project_id);
+                $this->db->where('type_id', 3);
+                $data = $this->db->get()->result();
+                return $data;
+            }
             public function getPaymentOut($user_id)
             {
-
                 $this->db->select("transaction.*");
                 $this->db->from('transaction');
                 $this->db->where('transaction.status', 1);

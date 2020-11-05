@@ -36,8 +36,6 @@ class Withdrawpayment_model extends CI_Model
     return $insert?$this->db->insert_id():false;
   }
 
-
-
     /* update user data*/
 
   public function update($data , $id) 
@@ -63,9 +61,9 @@ class Withdrawpayment_model extends CI_Model
     //return the status
     return $delete?true:false;
   }
-public function getUserList($from_date,$to_date) 
+  public function getUserList($from_date,$to_date) 
   {
-   $this->db->select("$this->withdrawpayment.mission_id, $this->withdrawpayment.id, mission.mission_title, $this->withdrawpayment.mission_amount,$this->withdrawpayment.offer_amount,$this->withdrawpayment.amount_to_pay,$this->withdrawpayment.pay_status,$this->withdrawpayment.date_created,$this->withdrawpayment.date_of_pay,$this->withdrawpayment.date_updated,$this->withdrawpayment.mission_status,$this->withdrawpayment.employer_id,$this->withdrawpayment.emplyee_id as employee_id,transection_id");
+    $this->db->select("$this->withdrawpayment.mission_id, $this->withdrawpayment.id, mission.mission_title, $this->withdrawpayment.mission_amount,$this->withdrawpayment.offer_amount,$this->withdrawpayment.amount_to_pay,$this->withdrawpayment.pay_status,$this->withdrawpayment.date_created,$this->withdrawpayment.date_of_pay,$this->withdrawpayment.date_updated,$this->withdrawpayment.mission_status,$this->withdrawpayment.employer_id,$this->withdrawpayment.emplyee_id as employee_id,transection_id");
     $this->db->from($this->withdrawpayment);
     $this->db->join("mission","$this->withdrawpayment.mission_id = mission.mission_id");
     $this->db->where('date_created >=', $from_date);
@@ -73,8 +71,8 @@ public function getUserList($from_date,$to_date)
     $this->db->order_by("$this->withdrawpayment.id","desc");
     //$this->db->from($this->userTbl);
 
-   $data = $this->db->get()->result_array();
-return $data;
+    $data = $this->db->get()->result_array();
+    return $data;
 
   }
   public function UserList() 
@@ -125,7 +123,7 @@ return $data;
                        $this->withdrawpayment.employer_id,
                        $this->withdrawpayment.emplyee_id,
                        transection_id");
-                       
+
     $this->db->from($this->withdrawpayment);
     $this->db->join("mission","$this->withdrawpayment.mission_id = mission.mission_id");
     $this->db->order_by("$this->withdrawpayment.id","desc");

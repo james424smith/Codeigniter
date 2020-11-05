@@ -343,7 +343,6 @@
                           <td><?= $latest_project->publish_descrition ?></td>
                           <td><?= $latest_project->product_caterory_name ?></td>
                           <td><?= empty($latest_project->currency)?'':$latest_project->currency ?><?= $latest_project->budget ?></td>
-                          
                         </tr>
                        <?php endforeach; ?>
                       </tbody>
@@ -377,8 +376,7 @@
                           <td><?= $latest_user_list->first_name ?></td>
                           <td><?= $latest_user_list->last_name ?></td>
                           <td><?= $latest_user_list->email ?></td>
-                          <td><?= $latest_user_list->mobile_no ?></td>
-                          
+                          <td><?= $latest_user_list->mobile_no ?></td>                          
                         </tr>
                        <?php endforeach; ?>
                       </tbody>

@@ -204,11 +204,8 @@
                 </div>                
                 <div class="nav-links">
                   <a href="<?php echo base_url('Front/home')?>" >Home</a>
-                  <!-- <a href="<?php //echo base_url('Front/about')?>">About Us</a> -->
                   <a href="<?php echo base_url('Front/home/post_demand')?>" style="font-size:15px;">Publier une demande</a>
                   <a href="<?php echo base_url('Front/home/find_mission')?>" style="font-size:15px;">Trouver une mission</a>
-                  <!-- <a href="#">Mes demandes</a> -->
-                  <!-- <a href="<?php //echo base_url('Front/contact')?>">Contact Us</a> -->
                   <a href="<?php echo base_url('Front/Home/search')?>" style="font-size:15px;">Trouver un Heelper</a>
                   <?php if($this->session->userdata['id']){?>
                      <a href="<?php echo base_url('Front/home/logout')?>" style="font-size:15px;">Se déconnecter</a>                 
@@ -321,7 +318,7 @@
                       <ul class="dropdown-menu animated fadeInUp ">
                         <li>
                           <?php
-                            $obj=&get_instance();
+                            $obj = &get_instance();
                             $obj->load->model('Front/RegisterModel');
                             //$profile_url = $obj->RegisterModel->PictureUrl();
                             $user=$obj->RegisterModel->GetUserData();

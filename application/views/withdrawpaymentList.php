@@ -28,89 +28,86 @@ div#dtBasicExample_length {
                 </ul>
             </div>
          </form>
-        
             <div class="card-body">
               <div class="table-responsive">
                 <table id="dtBasicExample" class="table table-striped  table-sm" cellspacing="0" width="100%">
                   <thead class=" text-primary">
                     <!-- <th><?=('id')?></th>  -->
                     <th><?=('Date of Request')?></th>
-                   
                     <th><?=('Project Id')?></th>
-                    <th><?=('Transection Id')?></th>
                     <th><?=('Mission Status')?></th> 
                     <th><?=('Amount to Pay')?></th>
                     <th><?=('Employer')?></th>
                     <th><?=('Employee')?></th> 
                     <th><?=('Pay Status')?></th>
-                   <!--  <th><?=('Account Number')?></th>
-                    <th><?=('Ifsc Code')?></th> -->
                     <th><?=('Action')?></th>
                   </thead>
                   
                   <tbody>
-
-
                     <?php 
-
                      foreach($withdrawpaymentlist as $user){ 
-                      $newDate = date("dmy", strtotime($user->date_created));
-
-                      $invID = str_pad($user->mission_id, 5, '0', STR_PAD_LEFT);
-
-                      ?>
-
-                  <tr>
-                 <!--  <td ><?php echo $user->id;?> </td> -->
-                  <td><?php echo date("d-m-Y", strtotime($user->date_created)); ?> </td>
-                 <!--  <td> <?php echo $user->mission_title;?> </td> -->
-                 <td> <?php echo $newDate . $invID;?>
-                  <td> <?php echo $user->transection_id;?> </td>
-                  <td> <?php if($user->mission_status == 0) { echo "Proposed";} else if($user->mission_status == 1) { echo "In Progress";}  else if($user->mission_status == 2) { echo "Delivered";}  else if($user->mission_status == 3) { echo "Completed";}  else if($user->mission_status == 4) { echo "Dispute";} ?> </td>
-                  <td> <?php echo "€" . $user->amount_to_pay;?> </td>
-                  <td> 
-                    <?php
-                      $this->db->select("username");
-                      $this->db->from("users");
-                      $this->db->where('id', $user->employer_id);
-                      $data = $this->db->get()->result();
-                      echo $data[0]->username;?></td>
-                                                          <td> <?php
-                      $this->db->select("username");
-                      $this->db->from("users");
-                      $this->db->where('id', $user->emplyee_id);
-                      $data = $this->db->get()->result();
-                      echo $data[0]->username;?></td> 
-                      <?php
-                      if($value['pay_status'] == 1)
-                      {
-                          $pay_status = "Paid";
-                      }
-                      else{
-                          $pay_status = "Unpaid";
-                      }
+                        $newDate = date("dmy", strtotime($user->date_created));
+                        $invID = str_pad($user->mission_id, 5, '0', STR_PAD_LEFT);
                     ?>
-                  <td> <?php echo $pay_status;?> </td>
-
-                <!--  <td> <?php echo $user->account_number;?> </td>
-                <td> <?php echo $user->ifsc_code;?> </td> -->
-
-
-                  <td>
-                    <a href='<?=base_url("withdrawpaymentList/edit_withdrawpayment/$user->id");?>' onclick="return confirm('Are you sure you want to edit this item?');"><i class="fa fa-edit"></i></a>
-                    <a href='<?php echo base_url("withdrawpaymentList/delete_withdrawpayment/$user->id");?>'><i class="fa fa-trash" onclick="return confirm('Are you sure you want to delete this item?');"></i></a></td>
-
-                  </tr>   
-                      <?php }?>                 
-                  </tbody>
-                
+                  <tr>
+                      <td><?php echo date("d-m-Y", strtotime($user->date_created)); ?> </td>
+                      <td> <?php echo $user->mission_id;//$newDate . $invID;?>
+                      <td> 
+                        <?php 
+                          if($user->mission_status == 0) 
+                          { echo "Proposed";} 
+                          else if($user->mission_status == 1) 
+                          { echo "In Progress";}  
+                          else if($user->mission_status == 2) 
+                          { echo "Delivered";}  
+                          else if($user->mission_status == 3) 
+                          { echo "Completed";}  
+                          else if($user->mission_status == 4) 
+                          { echo "Dispute";} 
+                        ?> 
+                      </td>
+                      <td> <?php echo "€" . $user->amount_to_pay;?> </td>
+                      <td> 
+                        <?php
+                          $this->db->select("username");
+                          $this->db->from("users");
+                          $this->db->where('id', $user->employer_id);
+                          $data = $this->db->get()->result();
+                          echo $data[0]->username;
+                        ?>
+                      </td>
+                      <td> <?php
+                          $this->db->select("username");
+                          $this->db->from("users");
+                          $this->db->where('id', $user->emplyee_id);
+                          $data = $this->db->get()->result();
+                          echo $data[0]->username;?>
+                      </td> 
+                          <?php
+                          //var_dump($value['pay_status']);die();
+                          if($user->pay_status == 2)
+                          {
+                              $pay_status = "Paid";
+                          }
+                          else
+                          {
+                              $pay_status = "Unpaid";
+                          }
+                        ?>
+                      <td> <?php echo $pay_status;?> </td>
+                      <td>
+                        <a href='<?=base_url("withdrawpaymentList/edit_withdrawpayment/$user->id");?>' onclick="return confirm('Are you sure you want to edit this item?');"><i class="fa fa-edit"></i></a>
+                        <a href='<?php echo base_url("withdrawpaymentList/delete_withdrawpayment/$user->id");?>'><i class="fa fa-trash" onclick="return confirm('Are you sure you want to delete this item?');"></i></a></td>
+                    </tr>   
+                    <?php }?>                 
+                  </tbody>                
                 </table>
               </div>
             </div>
             <div id="myModal" class="modal fade" role="dialog">
             <div class="modal-dialog">
 
-    <!-- Modal content-->
+            <!-- Modal content-->
               <div class="modal-content">
                 <div class="modal-header">
                   <button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -123,7 +120,6 @@ div#dtBasicExample_length {
                   <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                 </div> -->
               </div>
-
             </div>
           </div>
         </div>
@@ -149,12 +145,6 @@ div#dtBasicExample_length {
     "paging": true, // false to disable pagination (or any other option)
     "pageLength": 10   
     });
-  });
-  
+  });  
 </script>
-
-
-
-
-
 <!-- Modal -->

@@ -137,7 +137,8 @@ class ChatController extends CI_Controller {
         $status_dispute = $this->ChatModel->updateHighlight($self_id, $send_id);
         $taken_data1 = $this->ChatModel->gettokendata($this->OuthModel->Encryptor('decrypt', $self_id));
         $this->firebase->send_notification($claim_msg_first ,$taken_data1);
-        //$this->firebase->insertMessage(array('user_type'=> 1, "demand_id" => 1, 'user_id'=> $self_id, 'notification' => "Unread Message.", 'type_id' => 4));
+        //usertype =  proejct_id
+        $this->firebase->insertMessage(array('user_type'=> $this->input->post('project_id'), "demand_id" => 2, 'user_id'=> $self_id, 'notification' => "Unread Message.", 'type_id' => 4));
 
 
         $query2 = $this->ChatModel->SendTxtMessage($this->OuthModel->xss_clean($data_admin_second));
@@ -145,7 +146,7 @@ class ChatController extends CI_Controller {
         $status_dispute = $this->ChatModel->updateHighlight($oppsite_id, $send_id);
         $taken_data2 = $this->ChatModel->gettokendata($this->OuthModel->Encryptor('decrypt', $oppsite_id));
         $this->firebase->send_notification($claim_msg_second ,$taken_data2);
-        //$this->firebase->insertMessage(array('user_type'=> 1, "demand_id" => 1, 'user_id'=> $oppsite_id, 'notification' => "Unread Message.", 'type_id' => 4));
+        $this->firebase->insertMessage(array('user_type'=> $this->input->post('project_id'), "demand_id" => 2, 'user_id'=> $oppsite_id, 'notification' => "Unread Message.", 'type_id' => 4));
 
         
         $query3 = $this->ChatModel->SendTxtMessage($this->OuthModel->xss_clean($data)); 

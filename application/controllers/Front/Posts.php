@@ -122,7 +122,7 @@ class Posts extends CI_Controller
             return null;
         }
         $this->Posts_model->pushNotification($this->session->userdata['id'], 3, "Votre offre a été envoyée avec succès.");
-        $this->Posts_model->pushNotification($this->input->post('client_id'), 3, "Vous avez reçu une offre");
+        $this->Posts_model->pushNotificationoffer($this->input->post('client_id'), $this->input->post('project_id'), 3, "Vous avez reçu une offre");
 
         $this->Posts_model->mission($project_data);
         redirect('Front/home/mymissions');
@@ -140,7 +140,7 @@ class Posts extends CI_Controller
       $offer_budget = $this->input->post('offer_budget');
       $this->load->model('Front/Posts_model');
       $this->Posts_model->mission_update($mission_id, $message, $offer_budget);
-      $this->Posts_model->pushNotification($this->session->userdata['id'], 2, "You offer was updated successfully.");
+      $this->Posts_model->pushNotification($this->session->userdata['id'], 2, "Votre offre a été mise à jour avec succès.");
       
       redirect('Front/home/mission_posted_details/' . $mission_id);
       //var_dump($mission_id);die();
