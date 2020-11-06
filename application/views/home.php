@@ -1,4 +1,9 @@
 
+<?php if($this->session->flashdata('password_update_success')){ ?>
+  <script>
+    swal("Your password has been changed successfully.");
+  </script> 
+<?php } ?>
 <div class="main-panel">
   <div class="content">
           <div class="container-fluid">

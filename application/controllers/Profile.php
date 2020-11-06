@@ -116,12 +116,19 @@ class Profile extends CI_Controller {
 		$post['ip_address'] = $this->input->ip_address();
 		$post['modified'] = date('Y-m-d H:i:s');
 
-         
 
+		//$update_data = array(
+		//	'first_name' => $post['first_name'],
+		//	'last_name' => $post['last_name'],
+		//	'name' => $post['name'],
+		//	'email' => $post['email'],
+		//	'mobile_no' => $post['mobile_no'],
+		//	'address' => 
 
+		//);
 		// $query =  $this->OveModel->UpdateData($this->OuthModel->xss_clean($post));
-		$this->db->where('id',$admin_id);
-		$query = $this->db->update('users',$post);
+		$this->db->where('id', $admin_id);
+		$query = $this->db->update('users', $post);
 		if($query == true){ 
 			$message = [
 			'status' => 1,

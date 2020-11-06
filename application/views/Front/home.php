@@ -15,7 +15,7 @@
 <!-- banner_sec -->
 <?php if($this->session->flashdata('success')){ ?>
   <script>
-    swal("Registration has been done successfully.");
+    swal("L'enregistrement a été effectué avec succès.");
   </script> 
 <?php } ?>
 <section class="banner_section">

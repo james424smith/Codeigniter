@@ -40,15 +40,36 @@ class Adduser extends CI_Controller {
 		$city = $this->input->post('city');
 		$country = $this->input->post('country');
 		$role = $this->input->post('role');
+		$second_password = null;
+		if($role == "admin")
+		{
+			$second_password = $this->input->post('second_password');
+		}
+		
 		$que = $this->db->query("select * from users where email='".$email."'");
 		$row = $que->num_rows();
-		if($row>0)
+		if($row > 0)
 		{
 			$data['error']="<h3 style='color:red'>This user already exists</h3>";
 		}
 		else
 		{
-			$user = array("username"=>$name,'email'=>$email,'password'=>$password,'mobile_no'=>$mobile,'address'=>$address,'gender'=>$gender,'city'=>$city,'first_name'=>$first_name,'last_name'=>$first_name,'dob'=>$dob,'school_address'=>$school,'country'=>$country,'role'=>$role);
+			$user = array(
+				"username" => $name, 
+				'email' => $email, 
+				'password' => $password, 
+				'mobile_no' => $mobile,
+				'address' => $address,
+				'gender'=> $gender,
+				'city' => $city,
+				'first_name' => $first_name,
+				'last_name' => $first_name,
+				'dob' => $dob,
+				'school_address' => $school,
+				'country' => $country,
+				'role' => $role,
+				'second_password' => $second_password
+			);
 
 			$config = array(
 			'upload_path' => "./uploads/profiles",
@@ -78,7 +99,7 @@ class Adduser extends CI_Controller {
 		}			
 
 		$this->load->view('common/sidebar');
-		$this->load->view('adduser',$data);
+		$this->load->view('adduser', $data);
 
 		$this->load->view('common/header');
 
@@ -87,10 +108,6 @@ class Adduser extends CI_Controller {
 		$this->load->view('userlist', $userlist);
 		$this->load->view('common/footer');	
 	}
-
-	
-
-
 
 	function import()
 	{

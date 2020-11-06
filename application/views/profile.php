@@ -10,8 +10,8 @@
       <div class="row">
         <section class="content-header">
           <h1>
-            <?= $this->lang->line('Profile Settings')?>
-            <small><?= $this->lang->line('Control panel')?></small>
+            <?= ('Profile Settings')?>
+            <small><?= ('Control panel')?></small>
           </h1>
           <ol class="breadcrumb">
             <li>
@@ -27,10 +27,10 @@
               <div class="box box-primary" id="element_overlap">
                 <div class="box-body box-profile">
                   <?php
-                  $obj=&get_instance();
-                  $obj->load->model('UserModel');
-                  $profile_url = $obj->UserModel->PictureUrl();
-                  $user=$obj->UserModel->GetUserData();
+                    $obj = &get_instance();
+                    $obj->load->model('UserModel');
+                    $profile_url = $obj->UserModel->PictureUrl();
+                    $user = $obj->UserModel->GetUserData();
                   ?>
                   <img class="profile-user-img img-responsive img-circle profileImgUrl" src="<?=$profile_url;?>" alt="<?=$user['name'];?>">
 
@@ -38,8 +38,7 @@
 
                   <p class="text-muted text-center">Member since <?=date('M. Y',strtotime($this->session->userdata['id']) );?>  </p>
 
-
-                  <a href="javascript:void(0);" data-backdrop="static" data-keyboard="false" data-toggle="modal" data-target="#myModal" class="btn btn-primary btn-block"><b><?= $this->lang->line('Upload Photo')?></b></a>
+                  <a href="javascript:void(0);" data-backdrop="static" data-keyboard="false" data-toggle="modal" data-target="#myModal" class="btn btn-primary btn-block"><b><?=('Upload Photo')?></b></a>
 
                   <p id="ErrorMessage" style="padding: 5px;"></p>
                 </div>
@@ -55,67 +54,65 @@
                 <div class="tab-content">
                   <div class="active tab-pane" id="activity">
                     <form class="form-horizontal UpdateDetails">
-                      <div class="form-group">
+                      <!--<div class="form-group">
                         <label for="" class="col-sm-2 control-label"><?= $this->lang->line('Admin ID')?></label>
                         <div class="col-sm-10">
-                          <input type="text" class="form-control" id="admin_id" name="id" value="<?=$user['id']?>" readonly>
+                          
+                        </div>
+                      </div>-->
+                      <input type="hidden" class="form-control" id="admin_id" name="id" value="<?=$user['id']?>" readonly>
+                      <div class="form-group">
+                        <label for="" class="col-sm-2 control-label"><?= ('First Name')?></label>
+                        <div class="col-sm-5">
+                          <input type="text" class="form-control" name="first_name" value="<?=$user['first_name']?>" placeholder="First Name">
+                        </div>
+                        <br>
+                        <div class="col-sm-5">
+                          <input type="text" class="form-control" name="last_name" value="<?=$user['last_name']?>" placeholder="Last Name">
                         </div>
                       </div>
 
-                      <div class="form-group">
-                        <label for="" class="col-sm-2 control-label"><?= $this->lang->line('Name')?></label>
-                        <div class="col-sm-5">
-                          <input type="text" class="form-control" name="first_name" value="<?=$user['first_name']?>" placeholder="Prénom">
-                        </div>
-                        <div class="col-sm-5">
-                          <input type="text" class="form-control" name="last_name" value="<?=$user['last_name']?>" placeholder="Nom">
-                        </div>
-                      </div>
-
 
                       <div class="form-group">
-                        <label for="inputEmail" class="col-sm-2 control-label"><?= $this->lang->line('Email')?></label>
+                        <label for="inputEmail" class="col-sm-2 control-label"><?= ('Email')?></label>
                         <div class="col-sm-10">
                           <input type="email" class="form-control" name="email" value="<?=$user['email']?>" placeholder="Email">
                         </div>
                       </div>
 
                       <div class="form-group">
-                        <label for="" class="col-sm-2 control-label"><?= $this->lang->line('Mobile Number') ?></label>
+                        <label for="" class="col-sm-2 control-label"><?= ('Mobile Number') ?></label>
                         <div class="col-sm-10">
-                          <input type="number" class="form-control" name="mobile_no" value="<?=$user['mobile_no']?>" placeholder="mobile Non.">
+                          <input type="number" class="form-control" name="mobile_no" value="<?=$user['mobile_no']?>" placeholder="Mobile Number.">
                         </div>
                       </div>
 
                       <div class="form-group">
-                        <label for="inputExperience" class="col-sm-2 control-label"><?= $this->lang->line('Address')?></label>
+                        <label for="inputExperience" class="col-sm-2 control-label"><?= ('Address')?></label>
 
                         <div class="col-sm-10">
-                          <textarea class="form-control" name="address" placeholder="Adresse"><?=$user['address']?></textarea>
+                          <textarea class="form-control" name="address" placeholder="Address"><?=$user['address']?></textarea>
                         </div>
                       </div>
 
                       <div class="form-group">
-                        <label for="" class="col-sm-2 control-label"><?= $this->lang->line('Pincode')?> </label>
+                        <label for="" class="col-sm-2 control-label"><?= ('Pincode')?> </label>
                         <div class="col-sm-10">
                           <input type="number" class="form-control" name="pincode" value="<?=$user['pincode']?>" placeholder="Code PIN">
                         </div>
                       </div>
 
-
-
                       <div class="form-group">
-                        <label for="inputExperience" class="col-sm-2 control-label"><?= $this->lang->line('About')?></label>
+                        <label for="inputExperience" class="col-sm-2 control-label"><?= ('About')?></label>
 
                         <div class="col-sm-10">
-                          <textarea class="form-control" name="about" placeholder="A propos de toi"><?=$user['about']?></textarea>
+                          <textarea class="form-control" name="about" placeholder="About"><?=$user['about']?></textarea>
                         </div>
                       </div>
                     
-
                       <div class="form-group">
                         <div class="col-sm-offset-2 col-sm-10">
-                          <button type="submit" class="btn btn-danger"><?= $this->lang->line('OK')?></button>
+                          <button type="submit" class="btn btn-primary" style="width:100px;"><?=('OK')?></button>
                         </div>
                       </div>
                     </form>
@@ -132,20 +129,21 @@
         </section>
         <!-- /.content -->
       <div class="modal fade" id="myModal" role="dialog">
-        <div class="modal-dialog modal-sm">
+        <div class="modal-dialog modal-dialog-centered">
           <!-- Modal content-->
           <div class="modal-content">
             <form class="UploadForm">
               <div class="modal-header">
+                <h4 class="modal-title" id="document_name"><?=('Change your Profile Photo')?></h4>
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title" id="document_name"><?= $this->lang->line('Change Profile Photo')?></h4>
+                
               </div>
               <div class="modal-body">
                 <input type="file" required id="userImage">
               </div>
               <div class="modal-footer">
-                <button type="button" id="change_profile" class="btn btn-info Upload"><?= $this->lang->line('Upload')?></button>
-                <button type="button" class="btn btn-default" data-dismiss="modal"><?= $this->lang->line('Close')?></button>
+                <button type="button" id="change_profile" class="btn btn-info Upload"><?=('Upload')?></button>
+                <button type="button" class="btn btn-default" data-dismiss="modal"><?=('Close')?></button>
               </div>
             </form>
           </div>
@@ -182,8 +180,8 @@ function LoginWith(url){
              data:form_data,
              processData:false,
              contentType:false,
-              success: function(data){
-               window.location.reload();
+             success: function(data){
+                window.location.reload();
            }
          });
     
@@ -219,7 +217,7 @@ function LoginWith(url){
 
   
  $(".UpdateDetails").submit('on',function(e){
-  e.preventDefault();
+            e.preventDefault();
  
             // $("#element_overlap1").LoadingOverlay("show");
 
@@ -238,6 +236,7 @@ function LoginWith(url){
                   }
                   if(data.status == 1)
                   {
+                      swal("Your profile has been changed succesfully.");
                       $('#ErrorMessageU').html(data.message);
                       $('.NameEdt').html(data.updateName);
                       

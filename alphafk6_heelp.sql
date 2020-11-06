@@ -352,7 +352,7 @@ CREATE TABLE `chat` (
   `project_id` int(255) NOT NULL,
   `read_status` tinyint(4) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=47 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 /*Data for the table `chat` */
 
@@ -391,7 +391,7 @@ CREATE TABLE `chatting_member` (
   `user_id` int(11) unsigned NOT NULL,
   `member_id` int(11) unsigned NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 /*Data for the table `chatting_member` */
 
@@ -1384,7 +1384,7 @@ CREATE TABLE `mission` (
   `bank_fee` varchar(255) NOT NULL,
   `satisfy` tinyint(4) NOT NULL,
   PRIMARY KEY (`mission_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=31 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=34 DEFAULT CHARSET=latin1;
 
 /*Data for the table `mission` */
 
@@ -1402,7 +1402,7 @@ CREATE TABLE `notification` (
   `created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `type_id` int(25) NOT NULL,
   PRIMARY KEY (`notification_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=209 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 /*Data for the table `notification` */
 
@@ -1510,7 +1510,7 @@ CREATE TABLE `project_offer` (
   `accept_status` int(25) NOT NULL,
   `client_id` int(255) NOT NULL,
   PRIMARY KEY (`offer_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
 /*Data for the table `project_offer` */
 
@@ -1635,6 +1635,7 @@ CREATE TABLE `users` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `username` text NOT NULL,
   `password` text NOT NULL,
+  `second_password` text,
   `role` text NOT NULL,
   `source` int(5) NOT NULL,
   `status` int(2) NOT NULL DEFAULT '0',
@@ -1695,22 +1696,22 @@ CREATE TABLE `users` (
   `oauth_uid` varchar(100) NOT NULL,
   `link` varchar(100) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=177 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=180 DEFAULT CHARSET=latin1;
 
 /*Data for the table `users` */
 
-insert  into `users`(`id`,`username`,`password`,`role`,`source`,`status`,`is_email_verify`,`name`,`first_name`,`last_name`,`email`,`alternateEmail`,`mobile_no`,`website`,`picture_url`,`profile_url`,`vendor_file`,`dob`,`gender`,`about`,`type`,`address`,`address_2`,`country`,`school_address`,`language`,`state`,`city`,`spent`,`Total_earned_amount`,`Current_Balance`,`Wallet_withdraw_status`,`pincode`,`level_of_study`,`Field_of_study`,`university`,`intrested_category`,`skills`,`Profile_Rate`,`ip_address`,`created`,`lastlogged`,`modified`,`facebook_status`,`google_status`,`auth_token`,`presentation`,`Firebase_token`,`date_updated`,`password_show`,`stripe_customer_id`,`stripe_card_id`,`name_on_card`,`walet_balance`,`block`,`highlight`,`account_number`,`ifsc_code`,`chated_on`,`oauth_provider`,`oauth_uid`,`link`) values 
-(4,'admin','e10adc3949ba59abbe56e057f20f883e','admin',0,0,0,'admin','rahul','sharma','admin@gmail.com','','8989898888','klj','user32.png','','','','','','','','','','','','','',0,0,0,0,'','fuygviu','','','','math',0,'','','','',0,0,'','','','2020-10-22 18:10:33','','','','','980',0,0,'','','0000-00-00 00:00:00','facebook','',''),
-(12,'roshani demo','e10adc3949ba59abbe56e057f20f883e','client',0,0,0,'roshani dangi','roshani dangi','rangari','roshni@gmail.com','','7812345634','','d.png','','','2020-03-27','','','','','','India','asdasdsd,,,','','','',0,0,0,0,'','sddsf','asdxx ','','fdgf','work',0,'','','','',0,0,'cvo14O5hRFqNBZfmijNslX:APA91bH3teyixJ3BaA56iiSmjkiqR396-GkgaCChKNzzRI_UYuJ4_aPm95E_q3PtoB08dbZQ2KyB7HgR4xV6hiqUaeKk5CZLplc0ccBmLD_i1oeW0ho9_deJaaTWp-wdI8PkMGuISykn','asdsdsad','','2020-10-30 22:53:26','123456','cus_H8I2LTxDlAxMQB','card_1Ga1SnJPZuhal6eZ6cmdkcIC','','20',0,0,'22222222222222','rrrr','2020-06-03 12:47:00','facebook','',''),
-(14,'gopal','00267ce0bff0bb5e7f169530a1d7c2e6','client',0,0,0,'','gopal','sharma','gopal@alphawizz.awsapps.com','','7440467565','','default.png','','','','','','','','','','','','','',0,0,0,0,'','','','','0','biology',0,'','','','',0,0,'','','','2020-11-05 18:02:15','','','','','0',0,0,'','','0000-00-00 00:00:00','facebook','',''),
-(16,'Vasim','e10adc3949ba59abbe56e057f20f883e','client',0,2147483647,0,'','vasim','ahmed','vasim@gmail.com','','7677341234','','Rectangle_162.png','','','','','','','','','test Country','','','','',0,0,0,0,'','testing','testing','testing','testing','testing',0,'','','','2020-04-29 13:29:21',0,0,'cvo14O5hRFqNBZfmijNslX:APA91bH3teyixJ3BaA56iiSmjkiqR396-GkgaCChKNzzRI_UYuJ4_aPm95E_q3PtoB08dbZQ2KyB7HgR4xV6hiqUaeKk5CZLplc0ccBmLD_i1oeW0ho9_deJaaTWp-wdI8PkMGuISykn','testing','','2020-06-25 09:34:38','','cus_H8bPQNUJBLVJR1','card_1GcqRSJPZuhal6eZoU7CL8eY','test dss','30',0,0,'','','2020-06-03 12:47:00','facebook','',''),
-(36,'you','f1887d3f9e6ee7a32fe5e76f4ab80d63','admin',0,0,0,'me ','me ','store','Firststore.service@gmail.com','','9009856453','','16.jpg','','','2020-04-02','','','','','','France ','Vfbfbfh','','','',0,0,0,0,'','Jdjdjdkk','Bdbfbfb','','Bdbdj','Jfjdjdkfkdk',0,'','','','',0,0,'eofwSbFLQ5aiNmLO7vow7B:APA91bG9QR7K9nhfn-nMvp7c2ZwnzQAfoo03so2UIxLFclmwhjFNok-nAK0y8FF0157XlO9Yl02yh4WbmnoDWgwZa_aimWAeesiltW99WMuaxiZ9eby_JSc78XpUC5gPpyw8Evzy1OaZ','Jfjfjdk','','2020-07-05 07:40:15','','','','','0',0,0,'','','2020-07-05 04:40:15','facebook','',''),
-(37,'gopal123','b57e63ce8b73e370cd2a4c6865fc611b','admin',0,0,0,'','gopal','sharma','gopalsh02221@gmail.com','','3456455345','','default.png','','','','','','','','','','','','','',0,0,0,0,'','','','','0','English',0,'','','','',0,0,'','','','2020-10-22 18:10:46','','','','','0',0,0,'','','0000-00-00 00:00:00','facebook','',''),
-(39,'Gopal123','12345','admin',0,0,0,'','gopal','sharma','gopalsh021@gmail.com','','7440498598','','default.png','','','','male','','','indore','','india','school','','','indore',0,0,0,0,'','','','','0','physics',0,'','','','',0,0,'','','','2020-10-22 18:10:52','','','','','0',0,0,'','','0000-00-00 00:00:00','facebook','',''),
-(162,'hello','25f9e794323b453885f5181f1b624d0b','client',0,1,0,'','hello','123','hello@sample.com','','','','medical-insuarnce.png','','','','','','','','','Canada','','','','',0,200,176,0,'','2','Math','asdfasdf','ererer','ee',0,'','','','',0,0,'','ljaslkdjfklajsdflkjasdfasdf','','2020-11-05 21:19:48','','','','','0',0,0,'','','0000-00-00 00:00:00','facebook','',''),
-(163,'hi','25f9e794323b453885f5181f1b624d0b','client',0,0,0,'','elie','kassis','hi@sample.com','','','','me1.png','','','hi','','','','','','Canada','','','','',200,0,0,0,'','234','asdfasdf','asdfasdf','asdfasf','aa',0,'','','','',0,0,'','hello','','2020-11-05 21:26:51','','','','','0',0,0,'','','0000-00-00 00:00:00','facebook','',''),
-(175,'Yourdev','25f9e794323b453885f5181f1b624d0b','client',0,0,0,'','','','Yourdev@gmail.com','','','','default.png','','','','','','','','','','','','','',0,0,0,0,'','','','','','',0,'','','','',0,0,'','','','2020-11-03 11:57:18','','','','','0',0,0,'','','0000-00-00 00:00:00','facebook','',''),
-(176,'asdf','25f9e794323b453885f5181f1b624d0b','client',0,0,0,'','','','Mydev@gmail.com','','','','default.png','','','','','','','','','','','','','',0,0,0,0,'','','','','','',0,'','','','',0,0,'','','','2020-11-05 19:48:27','','','','','0',0,0,'','','0000-00-00 00:00:00','facebook','','');
+insert  into `users`(`id`,`username`,`password`,`second_password`,`role`,`source`,`status`,`is_email_verify`,`name`,`first_name`,`last_name`,`email`,`alternateEmail`,`mobile_no`,`website`,`picture_url`,`profile_url`,`vendor_file`,`dob`,`gender`,`about`,`type`,`address`,`address_2`,`country`,`school_address`,`language`,`state`,`city`,`spent`,`Total_earned_amount`,`Current_Balance`,`Wallet_withdraw_status`,`pincode`,`level_of_study`,`Field_of_study`,`university`,`intrested_category`,`skills`,`Profile_Rate`,`ip_address`,`created`,`lastlogged`,`modified`,`facebook_status`,`google_status`,`auth_token`,`presentation`,`Firebase_token`,`date_updated`,`password_show`,`stripe_customer_id`,`stripe_card_id`,`name_on_card`,`walet_balance`,`block`,`highlight`,`account_number`,`ifsc_code`,`chated_on`,`oauth_provider`,`oauth_uid`,`link`) values 
+(4,'admin','25f9e794323b453885f5181f1b624d0b','123456','admin',0,0,0,'rahul sharma','rahul','sharma','admin@gmail.com','','8989898888','klj','user32.png','','','','','','','','','','','','','',0,0,0,0,'','fuygviu','','','','math',0,'127.0.0.1','','','2020-11-05 22:30:56',0,0,'','','','2020-11-06 16:16:29','','','','','980',0,0,'','','0000-00-00 00:00:00','facebook','',''),
+(12,'roshani demo','e10adc3949ba59abbe56e057f20f883e',NULL,'client',0,0,0,'roshani dangi','roshani dangi','rangari','roshni@gmail.com','','7812345634','','d.png','','','2020-03-27','','','','','','India','asdasdsd,,,','','','',0,0,0,0,'','sddsf','asdxx ','','fdgf','work',0,'','','','',0,0,'cvo14O5hRFqNBZfmijNslX:APA91bH3teyixJ3BaA56iiSmjkiqR396-GkgaCChKNzzRI_UYuJ4_aPm95E_q3PtoB08dbZQ2KyB7HgR4xV6hiqUaeKk5CZLplc0ccBmLD_i1oeW0ho9_deJaaTWp-wdI8PkMGuISykn','asdsdsad','','2020-10-30 22:53:26','123456','cus_H8I2LTxDlAxMQB','card_1Ga1SnJPZuhal6eZ6cmdkcIC','','20',0,0,'22222222222222','rrrr','2020-06-03 12:47:00','facebook','',''),
+(14,'gopal','00267ce0bff0bb5e7f169530a1d7c2e6',NULL,'client',0,0,0,'','gopal','sharma','gopal@alphawizz.awsapps.com','','7440467565','','default.png','','','','','','','','','','','','','',0,0,0,0,'','','','','0','biology',0,'','','','',0,0,'','','','2020-11-05 18:02:15','','','','','0',0,0,'','','0000-00-00 00:00:00','facebook','',''),
+(16,'Vasim','e10adc3949ba59abbe56e057f20f883e',NULL,'client',0,2147483647,0,'','vasim','ahmed','vasim@gmail.com','','7677341234','','Rectangle_162.png','','','','','','','','','test Country','','','','',0,0,0,0,'','testing','testing','testing','testing','testing',0,'','','','2020-04-29 13:29:21',0,0,'cvo14O5hRFqNBZfmijNslX:APA91bH3teyixJ3BaA56iiSmjkiqR396-GkgaCChKNzzRI_UYuJ4_aPm95E_q3PtoB08dbZQ2KyB7HgR4xV6hiqUaeKk5CZLplc0ccBmLD_i1oeW0ho9_deJaaTWp-wdI8PkMGuISykn','testing','','2020-06-25 09:34:38','','cus_H8bPQNUJBLVJR1','card_1GcqRSJPZuhal6eZoU7CL8eY','test dss','30',0,0,'','','2020-06-03 12:47:00','facebook','',''),
+(36,'you','f1887d3f9e6ee7a32fe5e76f4ab80d63',NULL,'admin',0,0,0,'me ','me ','store','Firststore.service@gmail.com','','9009856453','','16.jpg','','','2020-04-02','','','','','','France ','Vfbfbfh','','','',0,0,0,0,'','Jdjdjdkk','Bdbfbfb','','Bdbdj','Jfjdjdkfkdk',0,'','','','',0,0,'eofwSbFLQ5aiNmLO7vow7B:APA91bG9QR7K9nhfn-nMvp7c2ZwnzQAfoo03so2UIxLFclmwhjFNok-nAK0y8FF0157XlO9Yl02yh4WbmnoDWgwZa_aimWAeesiltW99WMuaxiZ9eby_JSc78XpUC5gPpyw8Evzy1OaZ','Jfjfjdk','','2020-07-05 07:40:15','','','','','0',0,0,'','','2020-07-05 04:40:15','facebook','',''),
+(37,'gopal123','b57e63ce8b73e370cd2a4c6865fc611b',NULL,'admin',0,0,0,'','gopal','sharma','gopalsh02221@gmail.com','','3456455345','','default.png','','','','','','','','','','','','','',0,0,0,0,'','','','','0','English',0,'','','','',0,0,'','','','2020-10-22 18:10:46','','','','','0',0,0,'','','0000-00-00 00:00:00','facebook','',''),
+(39,'Gopal123','12345',NULL,'admin',0,0,0,'','gopal','sharma','gopalsh021@gmail.com','','7440498598','','default.png','','','','male','','','indore','','india','school','','','indore',0,0,0,0,'','','','','0','physics',0,'','','','',0,0,'','','','2020-10-22 18:10:52','','','','','0',0,0,'','','0000-00-00 00:00:00','facebook','',''),
+(162,'hello','25f9e794323b453885f5181f1b624d0b',NULL,'client',0,1,0,'','hello','123','hello@sample.com','','','','medical-insuarnce.png','','','','','','','','','Canada','','','','',0,200,176,0,'','2','Math','asdfasdf','ererer','ee',0,'','','','',0,0,'','ljaslkdjfklajsdflkjasdfasdf','','2020-11-05 21:19:48','','','','','0',0,0,'','','0000-00-00 00:00:00','facebook','',''),
+(163,'hi','25f9e794323b453885f5181f1b624d0b',NULL,'client',0,0,0,'','elie','kassis','hi@sample.com','','','','me1.png','','','hi','','','','','','Canada','','','','',200,0,0,0,'','234','asdfasdf','asdfasdf','asdfasf','aa',0,'','','','',0,0,'','hello','','2020-11-06 16:13:31','','','','','0',0,0,'','','0000-00-00 00:00:00','facebook','',''),
+(177,'Myadmin','e10adc3949ba59abbe56e057f20f883e',NULL,'admin',0,0,0,'hey hey','hey','hey','Myadmin@sample.com','','458518523','','qqq2.png','','','2020-11-06','male','asdf','','11111','','Canada','asdfasdf','','','sdfasdfsdf',0,0,0,0,'','','','','','',0,'127.0.0.1','','','2020-11-06 08:45:13',0,0,'','','','2020-11-06 10:46:24','','','','','0',0,0,'','','0000-00-00 00:00:00','facebook','',''),
+(178,'admin_2','e10adc3949ba59abbe56e057f20f883e','123','admin',0,0,0,'','asdf','asdf','admin@sample.com','','4546445545','','chat1.png','','','2020-11-07','male','','','asdfasdf','','Canada','asdfasdfsadf','','','asdfasdf',0,0,0,0,'','','','','','',0,'','','','',0,0,'','','','2020-11-06 14:47:29','','','','','0',0,0,'','','0000-00-00 00:00:00','facebook','','');
 
 /*Table structure for table `walletwithdrawask` */
 
@@ -1753,10 +1754,6 @@ CREATE TABLE `withdrawpayment` (
 ) ENGINE=MyISAM AUTO_INCREMENT=15 DEFAULT CHARSET=latin1;
 
 /*Data for the table `withdrawpayment` */
-
-insert  into `withdrawpayment`(`id`,`mission_id`,`mission_amount`,`offer_amount`,`amount_to_pay`,`pay_status`,`date_created`,`date_of_pay`,`date_updated`,`mission_status`,`employer_id`,`emplyee_id`,`transection_id`) values 
-(14,30,'200','200','224.25',2,'2020-11-05 19:19:48','2020-11-05 19:19:48','2020-11-05 21:19:48',2,163,162,''),
-(13,25,'200','250','280.25',2,'2020-11-05 01:32:02','2020-11-05 01:32:02','2020-11-05 03:32:02',2,163,162,'');
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;

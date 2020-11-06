@@ -30,6 +30,7 @@
             });
           });
         </script>-->
+        <input type="hidden" id="second_password" value="<?php echo $selfadmin->second_password; ?>" >
             <div class="card-body table-responsive">
             
                 <table  id="dtBasicExample" class="table table-striped table-sm" cellspacing="0" width="100%">
@@ -146,12 +147,15 @@ $(document).ready(function () {
 
 function onClickEditUser(idx)
 {
+    var pwd = $('#second_password').val();
+    //alert(pwd);
     var str = prompt("What's your second password?");
-    if(str == 'hello')
+    if(str == pwd)
       location.href = $('#edit_url' + idx).val();
 }
 function onClickBlockUser(idx)
 {
+    var pwd = $('#second_password').val();
     var msg = "";
     if($('#block_status' + idx).val() == 0)
       msg = "Are you sure to block this user?";
@@ -159,14 +163,15 @@ function onClickBlockUser(idx)
       msg = "Are you sure to remove block this user?";
     
     var str = prompt(msg);
-    if(str == 'hello')
+    if(str == pwd)
       location.href = $('#block_url' + idx).val();
 }  
 
 function onClickDeleteUser(idx)
 {
+    var pwd = $('#second_password').val();
     var str = prompt("Are you sure to delete this user?");
-    if(str == 'hello')
+    if(str == pwd)
       location.href = $('#delete_url' + idx).val();
 }
 

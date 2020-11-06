@@ -23,6 +23,7 @@ class Table extends CI_Controller {
         /*Display user list*/
         // if($role =='Admin' ){
         $userlist['userlist'] = $this->Register_model->UserList();
+        $userlist['selfadmin'] = $this->Register_model->getSelfUser();
         // echo '<pre>';print_r($userlist['userlist']);exit;
         $this->load->view('userlist', $userlist); 
         $this->load->view('common/footer');

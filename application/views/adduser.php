@@ -3,6 +3,9 @@
 input#date {
     padding: 17px 5px;
 }
+.bmd-label-floating{
+  margin:10 !important;
+}
 </style>
 
 <div class="main-panel">
@@ -26,9 +29,6 @@ input#date {
               </form>
             </div> -->  
             </div>
-
-           
-
             </div>
             <div class="card-body">
               <form name="registration" class="form-valide add_user_form" action="<?php echo base_url('Adduser/user/')?>" enctype="multipart/form-data" method="post" accept-charset="utf-8" id="upload_form">
@@ -100,68 +100,66 @@ input#date {
 
 
                   <div class="row">
-                  <div class="col-md-6">
-                    <div class="form-group">
-                      <label class="bmd-label-floating"><?= ('Date of birth')?></label>
-                      <input type="date" id="date" class="form-control" name="dob">
-                    </div>
-
-                  </div>
-                  <div class="col-md-6">
-                      <div class="form-group">
-                      <label class="bmd-label-floating"><?= ('School address')?></label>
-                      <input type="text" class="form-control" name="sa">
-                    </div>
-                  </div>
-                  </div>
-
-
-
-                  <div class="row">
                     <div class="col-md-6">
                       <div class="form-group">
-                        <label class="bmd-label-floating"><?= ('Country')?></label>
-                        <input type="text"  class="form-control" name="country">
+                        <label class="" style="color:grey;"><?= ('Date of birth')?></label>
+                        <input type="date" id="date" class="form-control" name="dob">
                       </div>
                     </div>
 
-                   <div class="col-md-6">
-                      <div class="form-group">
-                        <label class="bmd-label-floating"><?= ('Role')?></label>
-                        
-                        <select class="form-control" name="role">
-                          <option value="admin"><?= ('Admin')?></option>
-                          <option value="client"><?=('Client')?></option>
-                        </select>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                        <label class="bmd-label-floating"><?= ('School address')?></label>
+                        <input type="text" class="form-control" name="sa">
                       </div>
                     </div>
-                 
-                    </div>
+                  </div>
 
+                  <div class="row">
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label class="bmd-label-floating"><?= ('Country')?></label>
+                          <input type="text"  class="form-control" name="country">
+                        </div>
+                      </div>
+
+                      <div class="col-md-6" style="margin-top:-27px;">
+                        <div class="form-group">
+                          <label class=""><?= ('Role')?></label>
+                            <select class="form-control" name="role" id="role">
+                              <option value="admin"><?= ('Admin')?></option>
+                              <option value="client"><?=('Client')?></option>
+                            </select>
+                          </div>
+                        </div>
+                    </div>
                   <div class="row">
                   <div class="col-md-6">
                      <div class="form-group add_user_radio">
                       <label class="bmd-label-floating"><?= ('Gender') ?></label>
-                      <input type="radio" name="gender"  class="form-control-radio" value="male"/><?= ('Male') ?>
+                      <input type="radio" name="gender"  class="form-control-radio" value="male" checked="checked"/><?= ('Male') ?>
                       <input type="radio" name="gender" class="form-control-radio" value="female" /><?= ('Female') ?>
                     </div>
                   </div>
 
                   <div class="col-md-6">
-                    <div class="input-group mt-3 input_file_type">
-                     
-                        <!-- <label class="custom-file-label" for="inputGroupFile01"></label> -->
-
+                    <div class="input-group mt-3 input_file_type">         
+                      <!-- <label class="custom-file-label" for="inputGroupFile01"></label> -->
                          <label class="bmd-label-floating"><?= ('Upload Image')?></label>
                           <!-- <img class="avatar avatar-32 img-circle" src="<?= base_url() ?>uploads/profiles/user.jpg"/> -->
                         <input type="file" class="form-control" name="image" id="inputGroupFile01"
                         aria-describedby="inputGroupFileAddon01">
-                    
                     </div>
                   </div>
-
                 </div>
-
+                <div class="row second-password">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label class="bmd-label-floating"><?= ('Second Password') ?></label>
+                      <input type="password" class="form-control" name="second_password" required>
+                    </div>
+                  </div>
+                </div>
                 <input type="submit" name="register" value="Register Me"  class="btn btn-primary pull-right"/>
                 <div class="clearfix"></div>
               </form>
@@ -183,8 +181,6 @@ input#date {
      //  alert('hii');
      // })
 
-
-
  $('#import_form').on('submit', function(event){
   event.preventDefault();
   $.ajax({
@@ -202,10 +198,17 @@ input#date {
   })
  });
 
-    $(function() {  
+ $("#role").change(function (){
+   if($("#role").val() == "admin")
+    $(".second-password").show();
+  else 
+      $(".second-password").hide();
+    //alert();
+ });
 
-      $("form[name='registration']").validate({
-// Specify validation rules
+
+ $(function() {  
+  $("form[name='registration']").validate({
 rules: {
   username: "required",
   password: "required",

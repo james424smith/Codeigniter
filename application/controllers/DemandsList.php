@@ -20,7 +20,8 @@ class DemandsList extends CI_Controller {
         /*Display user list*/
         
         $demandslist['demandslist'] = $this->Demands_model->MissionList();
-       
+        $demandslist['selfadmin'] = $this->Demands_model->getSelfUser();
+
         $this->load->view('demandsList', $demandslist); 
         $this->load->view('common/footer');
 

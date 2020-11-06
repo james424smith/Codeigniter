@@ -42,6 +42,7 @@ div#dtBasicExample_length {
                   });
               });
           </script>-->
+          <input type="hidden" id="second_password" value="<?php echo $selfadmin->second_password; ?>" >
             <div class="card-body table-responsive">
                 <table id="dtBasicExample" class="table table-striped table-sm" cellspacing="0" width="100%">
                   <thead class="text-primary" style="cursor: pointer;">
@@ -121,8 +122,14 @@ div#dtBasicExample_length {
                         echo $total_amount; ?>
                     </td>
                     <td>
-                      <a href='<?=base_url("demandsList/edit_demands/$user->mission_id");?>' onclick="return confirm('Are you sure you want to edit this item?');"><i class="fa fa-edit"></i></a>
-                      <a href='<?php echo base_url("demandsList/delete_demands/$user->mission_id");?>' onclick="return confirm('Are you sure you want to delete this item?');"><i class="fa fa-trash"></i></a>
+                      <a onclick="onClickEditUser(<?=$user->mission_id?>)">
+                        <input type="hidden" id="<?php echo "edit_url" . $user->mission_id?>" value="<?=base_url("demandsList/edit_demands/$user->mission_id");?>">
+                        <i class="fa fa-edit"></i>
+                      </a>
+                      <a onclick="onClickDeleteUser(<?=$user->mission_id?>)">
+                        <input type="hidden" id="<?php echo "delete_url" . $user->mission_id?>" value="<?php echo base_url("demandsList/delete_demands/$user->mission_id");?>">
+                        <i class="fa fa-trash"></i>
+                      </a>
                     </td>
                   </tr>   
                       <?php }?>                 
@@ -172,7 +179,23 @@ div#dtBasicExample_length {
       "paging": true, // false to disable pagination (or any other option)
       "pageLength": 10,   
     });
-  })
+  });
+
+  function onClickEditUser(idx)
+  { 
+    var pwd = $('#second_password').val();
+    var str = prompt("What's your second password?");
+    if(str == pwd)
+      location.href = $('#edit_url' + idx).val();
+  }
+  function onClickDeleteUser(idx)
+  {
+    var pwd = $('#second_password').val();
+    var str = prompt("Are you sure to delete this user?");
+    if(str == pwd)
+      location.href = $('#delete_url' + idx).val();
+  }
+
 </script>
 
 
