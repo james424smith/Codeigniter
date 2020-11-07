@@ -88,8 +88,13 @@
                                 </label>
                                 <br>
                                 <div class="col-md-9">
-                                    <input type="radio" name="status"  class="form-control-radio" value="1" checked="checked" style="width:25px;"/><?= ('Open') ?>&nbsp;&nbsp;&nbsp;
-                                    <input type="radio" name="status"  class="form-control-radio" value="0" style="width:25px;"/><?= ('Close') ?>
+                                    <?php if($litigations_edit[0]['open_close_status'] == 1) { ?>
+                                        <input type="radio" name="status"  class="form-control-radio" value="1" checked="checked" style="width:25px;"/><?= ('Open') ?>&nbsp;&nbsp;&nbsp;
+                                        <input type="radio" name="status"  class="form-control-radio" value="0" style="width:25px;"/><?= ('Close') ?>
+                                    <?php } else {?>
+                                        <input type="radio" name="status"  class="form-control-radio" value="1" style="width:25px;"/><?= ('Open') ?>&nbsp;&nbsp;&nbsp;
+                                        <input type="radio" name="status"  class="form-control-radio" value="0" checked="checked" style="width:25px;"/><?= ('Close') ?>
+                                    <?php } ?>
                                 </div>
                             </div>
                             <div class="form-group row">
