@@ -16,7 +16,6 @@
 	//$project_offer = $this->db->query("select * from project_offer where project_id=".$mission->mission_id)->row();
 	$obj->load->model('Front/User');
 	$self_user = $obj->User->getSelfUser();
-
 	$class_star = $obj->User->getRatingClassName($user_id);
 ?> 
 
@@ -25,7 +24,6 @@
     <div class="container">
       <div class="top-side about_title">
 	  		<img src="<?php  echo base_url('assets/Front/img/demand_in_progress.png'); ?>"/>
-
         </div>
     </div>
   </div>
@@ -123,7 +121,7 @@
 								<?php 
 									if($each_comment['project_files'])
 										echo $each_comment['project_files'] . " <i class='fas fa-download'></i>";
-								?> 
+								?>
 						</a>
 					</div>
 				</div><hr>
@@ -164,11 +162,14 @@
 				</p>
 				<form action="<?php echo base_url('ChatController/claim_chat')?>" method="post">
 					<div class="">
-						<textarea placeholder="La description..." name="description" required></textarea>
+						<textarea placeholder="La description..." name="comment" required></textarea>
+						<input type="hidden" name="description" value="<?php echo $mission->description ?>">	
 						<input type="hidden" name="user_id" value="<?php echo $mission->accepted_by ?>">	
 						<input type="hidden" name="project_id" value="<?php echo $mission->mission_id ?>">	
 						<input type="hidden" name="title" value="<?php echo $mission->mission_title ?>">	
-						<input type="hidden" name="user_email" value="<?php echo $comment->email ?>">
+						<input type="hidden" name="user_email" value="<?php echo $self_user[0]['email'] ?>">
+						<input type="hidden" name="mission_status" value="<?php echo $mission->mission_status ?>">
+
 					</div>
 			</div>
 		</div>

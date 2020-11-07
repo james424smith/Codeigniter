@@ -32,7 +32,6 @@ input#date {
             </div>
             <div class="card-body">
               <form name="registration" class="form-valide add_user_form" action="<?php echo base_url('Adduser/user/')?>" enctype="multipart/form-data" method="post" accept-charset="utf-8" id="upload_form">
-
                 <div class="row">
                   <div class="col-sm-12"><?php echo @$error; ?></div>
                   <div class="col-md-6">
@@ -80,8 +79,6 @@ input#date {
                     </div>
                   </div>
                   </div>
-
-
                   <div class="row">
                   <div class="col-md-6">
                     <div class="form-group">

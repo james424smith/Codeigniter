@@ -73,7 +73,14 @@ div#dtBasicExample_length {
                   <td><?php  echo $newDate . "0000:" . $invID; ?> </td>
                   <td><?php echo $user->category_title;?> </td>
                   <td><?php echo $user->mission_title;?> </td>
-                  <td><?php echo $user->description;?> </td>
+                  <td>
+                    <?php 
+									    $show_text = $user->description;
+									    if(strlen($show_text) > 15)
+										    $show_text = substr($show_text, 0, 15) . "...";
+									    echo $show_text;
+								    ?> 
+                  </td>
                   <td><?php  if($user->mission_status==0) { echo "Posted"; } if($user->mission_status==1) { echo "In Progress"; } if($user->mission_status==2) { echo "Delivered"; } if($user->mission_status==3) { echo "Completed"; } if($user->mission_status==4) { echo "Dispute"; } ?> </td>
                   <td> 
                     <?php
@@ -105,21 +112,17 @@ div#dtBasicExample_length {
                   </td>
                   <td>
                       <?php 
-                        $this->db->select("offer_budget");
-                        $this->db->from("project_offer");
-                        $this->db->where('project_id', $user->mission_id);
-                        $this->db->where('user_id', $user->accepted_by);
+                        $this->db->select("amount_to_pay");
+                        $this->db->from("withdrawpayment");
+                        $this->db->where('mission_id', $user->mission_id);
+                        $this->db->where('emplyee_id', $user->accepted_by);
 
-                        $data = $this->db->get()->result();
-                        $data[0]->offer_budget;
-                        $offer_budget = $data[0]->offer_budget;
-                        $amount_12 =($offer_budget*12)/100;
-
-                        $amount_with_tax = $offer_budget+0.25;
-
-                        $total_amount = round($amount_with_tax + $amount_12);
-
-                        echo $total_amount; ?>
+                        $data = $this->db->get()->result_array();
+                        if(count($data) != 0)
+                          echo $data[0]['amount_to_pay'];
+                        else
+                          echo '0'; 
+                    ?>
                     </td>
                     <td>
                       <a onclick="onClickEditUser(<?=$user->mission_id?>)">

@@ -46,8 +46,6 @@
                                 </div>
                             </div>
 
-
-
                             <div class="form-group row">
                                 <label class="col-md-3 "><?= ('User Email')?> <span class="text-danger">*</span>
                                 </label>
@@ -56,27 +54,28 @@
                                     <input type="text"  id="user_email" name="user_email" value="<?php echo $litigations_edit[0]['user_email'];?>">
                                 </div>
                             </div>
+                            <input type="hidden"  id="before_status" name="before_status" value="<?php echo $litigations_edit[0]['before_status'];?>">
 
-
-                           <div class="form-group row">
+                           <!--<div class="form-group row">
                                 <label class="col-md-3 "><?= ('Title')?> <span class="text-danger">*</span>
                                 </label>
                                 <br>
                                 <div class="col-md-9">
                                     <input type="text"  id="title" name="title" value="<?php echo $litigations_edit[0]['title'];?>">
                                 </div>
-                            </div>
+                            </div>-->
+                            <input type="hidden"  id="title" name="title" value="<?php echo $litigations_edit[0]['title'];?>">
 
                              <div class="form-group row">
-                                <label class="col-md-3 "><?= ('Description')?> <span class="text-danger">*</span>
+                                <label class="col-md-3 "><?= ('Description(read only)')?> <span class="text-danger">*</span>
                                 </label>
                                 <br>
                                 <div class="col-md-9">
-                                    <input type="text"  id="description" name="description" value="<?php echo $litigations_edit[0]['description'];?>">
+                                    <textarea id="description" disabled><?php echo $litigations_edit[0]['description'];?></textarea>
                                 </div>
                             </div>
-                              
-                             <div class="form-group row">
+                            <input type="hidden"  id="description" name="description" value="<?php echo $litigations_edit[0]['description'];?>">
+                            <div class="form-group row">
                                 <label class="col-md-3 "><?= ('Comment')?> <span class="text-danger">*</span>
                                 </label>
                                 <br>
@@ -84,12 +83,18 @@
                                     <input type="text"  id="comment" name="comment" value="<?php echo $litigations_edit[0]['comment'];?>">
                                 </div>
                             </div>
-                            
-
+                            <div class="form-group row">
+                                <label class="col-md-3 "><?= ('Status')?> <span class="text-danger">*</span>
+                                </label>
+                                <br>
+                                <div class="col-md-9">
+                                    <input type="radio" name="status"  class="form-control-radio" value="1" checked="checked" style="width:25px;"/><?= ('Open') ?>&nbsp;&nbsp;&nbsp;
+                                    <input type="radio" name="status"  class="form-control-radio" value="0" style="width:25px;"/><?= ('Close') ?>
+                                </div>
+                            </div>
                             <div class="form-group row">
                                 <div class="col-lg-8 ml-auto">
                                     <input type="hidden" name="id" value="<?php echo $litigations_edit[0]['id']; ?>">
-                                    
                                     <button type="submit" class="btn btn-primary"><?= ('Submit')?></button>
                                 </div>
                             </div>

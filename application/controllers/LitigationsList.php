@@ -58,19 +58,38 @@ class LitigationsList extends CI_Controller {
         // print_r($this->input->post());exit;
         $post = $this->input->post();
         $id = $this->input->post('id');
+        $before_status = $this->input->post('before_status');
 
-
-        $litigations_update = array('project_id'=>$post['project_id'],'user_email'=>$post['user_email'],'title'=>$post['title'],'description'=>$post['description'],'comment'=>$post['comment']);
-        
+        $litigations_update = array(
+            'project_id' => $post['project_id'],
+            'user_email' => $post['user_email'],
+            'title' => $post['title'],
+            'description' => $post['description'],
+            'comment' => $post['comment'],
+            'open_close_status' => $post['status']
+        );
             
-            $this->db->where('id',$id);
-            $this->db->update('litigations',$litigations_update);
-            redirect('litigationsList');    
+        $this->db->where('id', $id);
+        $this->db->update('litigations', $litigations_update);
+
+        if($post['status'] == 0)
+        {
+            $mission_status_update = array("mission_status" => $before_status);
+            $this->db->where('mission_id', $post['project_id']);
+            $this->db->update('mission', $mission_status_update);
+        }
+        else
+        {
+            $mission_status_update = array("mission_status" => 4);
+            $this->db->where('mission_id', $post['project_id']);
+            $this->db->update('mission', $mission_status_update);
+        }
+
+        redirect('litigationsList');    
     }
 
-
     public function export_csv(){ 
-$post = $this->input->post();
+        $post = $this->input->post();
         $from_date = $this->input->post('from_date');
         $from_date_new = date('Y-m-d', strtotime($from_date)); 
     

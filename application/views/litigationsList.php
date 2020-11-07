@@ -1,4 +1,7 @@
-
+<?php
+  $obj = &get_instance();
+  $obj->load->model('UserModel')
+?>
     <style>
   .modal-content {
     width: 625px;
@@ -45,12 +48,13 @@ div#dtBasicExample_length {
             <div class="card-body table-responsive">
                 <table id="dtBasicExample" class="table table-striped  table-sm" cellspacing="0" width="100%">
                   <thead class=" text-primary">
-                    <th><?=('Date of litigation')?></th> 
-                    <th><?=('Project id')?></th>
-                    <th><?=('User who open litigation')?></th>
-                    <th><?=('Title')?></th>
-                    <th><?=('Description of litigation')?></th> 
-                    <th><?=('Comment')?></th>
+                    <th><?=('Litigation Date')?></th> 
+                    <th><?=('Project Id')?></th>
+                    <th><?=('Litigation Opener')?></th>
+                    <th><?=('Opponet User')?></th>
+                    <th><?=('Project Description')?></th> 
+                    <th><?=('Status')?></th>
+                    <th><?=('Admin Comment')?></th>
                     <th><?=('Action')?></th> 
                   </thead>                  
                   <tbody>
@@ -62,17 +66,42 @@ div#dtBasicExample_length {
                   <tr>
                   <td ><?php echo date("d-m-Y", strtotime($user->date_created)); ?> </td>
                   <!-- <td><?php echo $user->project_id;?> </td> -->
-                  <td> <?php echo $newDate . $invID ;?> </td>
-                  <td> <?php echo $user->user_email;?> </td>
-                  <td> <?php echo $user->title;?> </td>
-                  <td> <?php echo $user->description;?> </td>
+                  <td> <?php echo $newDate . "0000:" . $invID; ?> </td>
+                  <td>
+                   <?php 
+                      //echo $user->opener_id;
+                      $opener = $obj->UserModel->GetUserDataById($user->opener_id);
+                      echo $opener->username;
+                   ?> 
+                   </td>
+                  <td>
+                    <?php 
+                      //echo $user->opener_id;
+                      $opponent = $obj->UserModel->GetUserDataById($user->opponent_id);
+                      echo $opponent->username;
+                   ?> 
+                  </td>
+                  <td> 
+                    <?php 
+									    $show_text = $user->description;
+									    if(strlen($show_text) > 30)
+										    $show_text = substr($show_text, 0, 30) . "...";
+									    echo $show_text;
+								    ?>
+                  </td>
+                  <td> 
+                    <?php
+                      if($user->open_close_status == 1)
+                        echo "Open";
+                      else
+                        echo "Close"; 
+                    ?> 
+                  </td>
                   <td> <?php echo $user->comment;?> </td>
-                  <!-- <td> <?php echo $user->date_created;?> </td> -->
                   <td>
                     <a href='<?=base_url("litigationsList/edit_litigations/$user->id");?>' onclick="return confirm('Are you sure you want to edit this item?');"><i class="fa fa-edit"></i></a>
                     <a href='<?php echo base_url("litigationsList/delete_litigations/$user->id");?>' onclick="return confirm('Are you sure you want to delete this item?');"><i class="fa fa-trash"></i></a>
                   </td>
-
                   </tr>   
                       <?php }?>                 
                   </tbody>
@@ -81,7 +110,6 @@ div#dtBasicExample_length {
             </div>
             <div id="myModal" class="modal fade" role="dialog">
                     <div class="modal-dialog">
-
                       <!-- Modal content-->
                       <div class="modal-content">
                         <div class="modal-header">
@@ -95,7 +123,6 @@ div#dtBasicExample_length {
                           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                         </div> -->
                       </div>
-
                     </div>
                   </div>
         </div>

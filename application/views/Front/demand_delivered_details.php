@@ -167,11 +167,13 @@
 				</p>
 				<form action="<?php echo base_url('ChatController/claim_chat')?>" method="post">
 					<div class="">
-						<textarea placeholder="La description..." name="description"></textarea>
+						<textarea placeholder="La description..." name="comment"></textarea>
+						<input type="hidden" name="description" value="<?php echo $mission->description ?>">	
 						<input type="hidden" name="user_id" value="<?php echo $mission->accepted_by ?>">	
 						<input type="hidden" name="project_id" value="<?php echo $mission->mission_id ?>">	
 						<input type="hidden" name="title" value="<?php echo $mission->mission_title ?>">	
 						<input type="hidden" name="user_email" value="<?php echo $self_user[0]['email'] ?>">
+						<input type="hidden" name="mission_status" value="<?php echo $mission->mission_status ?>">
 					</div>
 					
 				<!-- <a href="#" class="btn btn-default">Retour</a> -->

@@ -84,7 +84,7 @@ div#dtBasicExample_length {
                       </td> 
                           <?php
                           //var_dump($value['pay_status']);die();
-                          if($user->pay_status == 2)
+                          if($user->pay_status == 1)
                           {
                               $pay_status = "Paid";
                           }

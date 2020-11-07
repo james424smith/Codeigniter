@@ -54,14 +54,12 @@
                                     <input type="text"  id="mission_title" name="mission_title" value="<?php echo $demands_edit[0]->mission_title;?>">
                                 </div>
                             </div>
-
-
                            <div class="form-group row">
                                 <label class="col-md-3 "><?= ('Description')?> <span class="text-danger">*</span>
                                 </label>
                                 <br>
                                 <div class="col-md-9">
-                                    <input type="text"  id="mission_description" name="mission_description" value="<?php echo $demands_edit[0]->description;?>">
+                                    <textarea id="mission_description" name="mission_description"><?php echo $demands_edit[0]->description;?></textarea>
                                 </div>
                             </div>
 

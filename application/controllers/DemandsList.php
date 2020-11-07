@@ -95,7 +95,7 @@ class DemandsList extends CI_Controller {
         $id = $this->input->post('mission_id');
         $demands_update = array(
             'mission_title' => $post['mission_title'],
-            'mission_description' => $post['mission_description'],
+            'description' => $post['mission_description'],
             'budget' => $post['budget'],
             'mission_status' => $post['mission_status']
         );

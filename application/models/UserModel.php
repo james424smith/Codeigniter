@@ -256,7 +256,7 @@ class UserModel extends CI_Model {
 
 	{  
 
- 		$this->db->select('id,name,first_name,last_name,email,about,mobile_no,address,address_2,state,city,country,picture_url,pincode');
+ 		$this->db->select('*');
 
 		$this->db->from($this->User);
 
@@ -268,7 +268,7 @@ class UserModel extends CI_Model {
 
  		if ($query) {
 
-			 return $query->row_array();
+			 return $query->row();
 
 		 } else {
 

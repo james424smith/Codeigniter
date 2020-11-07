@@ -9,7 +9,7 @@ class Litigations_model extends CI_Model
     $this->load->database();
     $this->userTbl = 'users';
     $this->proCat ='project_category';
-    $this->publishTable = 'publishDemand';
+    $this->publishTable = 'publishdemand';
     $this->litigations = 'litigations';
   }
   
@@ -177,7 +177,7 @@ $this->db->where('date_created <=', $to_date);
   public function getDemandCount()
   {
     $this->db->select("*");
-    $this->db->from('publishDemand');
+    $this->db->from('publishdemand');
     $count = $this->db->get()->num_rows();
     return $count;
   }
