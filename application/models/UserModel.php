@@ -10,31 +10,26 @@ class UserModel extends CI_Model {
 
   	public function __construct()
 
-        {
+	{
 
-                parent::__construct();
+		parent::__construct();
 
                 // Your own constructor code
 
-        }
+	}
 
 	
 
-	private $User = 'users';
-
- 
-
-	
+	private $User = 'users';	
 
   	public function GetUserData()
-
 	{  
- //print_r($this->session->all_userdata());die();
+ 
  		$this->db->select('*');
 
 		$this->db->from($this->User);
 
-		$this->db->where("id",$this->session->userdata['id']);
+		$this->db->where("id", $this->session->userdata['admin_id']);
 
 		$this->db->limit(1);
 
@@ -88,7 +83,7 @@ class UserModel extends CI_Model {
 
 		$this->db->from($this->User);
 
-		$this->db->where("id",$this->session->userdata['id']);
+		$this->db->where("id",$this->session->userdata['admin_id']);
 
 		$this->db->limit(1);
 

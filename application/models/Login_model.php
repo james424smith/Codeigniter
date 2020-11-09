@@ -9,7 +9,7 @@ class Login_model extends CI_Model
     $this->db->where('password', $password);  
     $query = $this->db->get('users');  
     $id = $query->result_array()[0]['id'];
-    $this->session->set_userdata('id',$id);
+    $this->session->set_userdata('admin_id', $id);
    // SELECT * FROM users WHERE username = '$username' AND password = '$password'  
     if($query->num_rows() > 0)  
     {  
