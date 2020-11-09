@@ -90,7 +90,7 @@ class ChatController extends CI_Controller {
                             Veuillez noter que le traitement de vos messages peut prendre quelques jours.<br> Merci.";
         
         $data_admin_first = [
-            'sender_id' => 1,
+            'sender_id' => 4,
             'receiver_id' => $self_id,
             'message' => $claim_msg_first,
             'attachment_name' => "",
@@ -101,7 +101,7 @@ class ChatController extends CI_Controller {
             'project_id' => $this->input->post('project_id')
         ];
         $data_admin_second = [
-            'sender_id' => 1,
+            'sender_id' => 4,
             'receiver_id' => $oppsite_id,
             'message' => $claim_msg_second,
             'attachment_name' => "",
@@ -114,7 +114,7 @@ class ChatController extends CI_Controller {
 
         $data = [
             'sender_id' => $this->session->userdata('id'),
-            'receiver_id' => 1,
+            'receiver_id' => 4,
             'message' => $messageTxt,
             'attachment_name' => "",
             'file_ext' => "",
@@ -143,8 +143,8 @@ class ChatController extends CI_Controller {
         
         $query3 = $this->ChatModel->SendTxtMessage($this->OuthModel->xss_clean($data)); 
         $send_id = array('highlight' => 0);
-        $status_dispute = $this->ChatModel->updateHighlight(1, $send_id);
-        $taken_data3 = $this->ChatModel->gettokendata($this->OuthModel->Encryptor('decrypt', 1));
+        $status_dispute = $this->ChatModel->updateHighlight(4, $send_id);
+        $taken_data3 = $this->ChatModel->gettokendata($this->OuthModel->Encryptor('decrypt', 4));
         $this->firebase->send_notification($messageTxt ,$taken_data3);
 
         $this->firebase->insertMessage(array('user_type'=> 1, "demand_id" => 1, 'user_id'=> 1, 'notification' => "Unread Message.", 'type_id' => 4));

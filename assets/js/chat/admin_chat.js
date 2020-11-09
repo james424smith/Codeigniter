@@ -237,7 +237,7 @@ function GetChatHistory(receiver_id){
 					{
 						if(element['read_status'] == 0)
 						{
-							str += '<span style="color:#44e41c;">' + element['message'] + '</span>';
+							str += '<span style="color:#44e41c;">' + element['message'] + '</span>' + '<br></span> <span style="font-size:10px;">-----Unread-----</span>';
 						}
 						else
 						{

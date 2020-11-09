@@ -224,7 +224,6 @@ public function getUserList($from_date, $to_date)
     $query = $this->db->get();
     return $query->row();
   }
-
 }
 
 ?>
