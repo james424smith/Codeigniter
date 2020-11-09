@@ -195,6 +195,7 @@ public function getUserList($from_date, $to_date)
   {
     $this->db->select("*");
     $this->db->from('users');
+    $this->db->where('role', "client");
     $count = $this->db->get()->num_rows();
     return $count;
   }
@@ -217,12 +218,10 @@ public function getUserList($from_date, $to_date)
   public function getSelfUser()
   {
     $user_id = $this->session->userdata['id'];
-    //var_dump($user_id);die();
     $this->db->select('*');
     $this->db->from('users');
     $this->db->where('id', $user_id);
     $query = $this->db->get();
-    //var_dump($query->result_array());die();
     return $query->row();
   }
 
