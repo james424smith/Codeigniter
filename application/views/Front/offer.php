@@ -21,8 +21,6 @@
 					</p>	
 					<div class="smile_box">
 						<img src="<?php echo base_url('assets/Front/img/smile.png')?>">
-						<p>Share the app and earn money <a href="#" class=""><i class="fas fa-share-alt"></i></a>	</p>
-
 					</div>
 					<!-- <p>Already done ? ask for your cash  here</p> -->				
 				</div>
@@ -32,5 +30,6 @@
 		</div>
 	</div>
 </section>
+<br>
 
 <?php $this->load->view('Front/common/footer');  ?>

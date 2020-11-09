@@ -8,18 +8,57 @@
 	$demands=$obj->Posts_model->demand_posted($id);
 	//var_dump($id);die();
 	foreach ($demands as $value) {
-		$demands_froeac1[] = array('offer_id'=>$value['offer_id'],'message'=>$value['message'],'project_id'=>$value['project_id'],'user_id'=>$value['user_id'],'status'=>$value['status'],'accept_budget'=>$value['accept_budget'],'offer_budget'=>$value['offer_budget'],'created_date'=>$value['created_date'],'accept_status'=>$value['accept_status'],'client_id'=>$value['client_id'],'username'=>$value['username'],'picture_url'=>$value['picture_url'],'sort'=>'note');
+		$demands_froeac1[] = array(
+			'offer_id' => $value['offer_id'],
+			'message' => $value['message'],
+			'project_id' => $value['project_id'],
+			'user_id' => $value['user_id'],
+			'status' => $value['status'],
+			'accept_budget' => $value['accept_budget'],
+			'offer_budget' => $value['offer_budget'],
+			'created_date' => $value['created_date'],
+			'accept_status' => $value['accept_status'],
+			'client_id' => $value['client_id'],
+			'username' => $value['username'],
+			'picture_url' => $value['picture_url'],
+			'sort' => 'note');
 	}
 	$demands1 = $obj->Posts_model->demand_posted2($id);
 
 	foreach ($demands1 as $value) {
-		$demands_froeac2[] = array('offer_id'=>$value['offer_id'],'message'=>$value['message'],'project_id'=>$value['project_id'],'user_id'=>$value['user_id'],'status'=>$value['status'],'accept_budget'=>$value['accept_budget'],'offer_budget'=>$value['offer_budget'],'created_date'=>$value['created_date'],'accept_status'=>$value['accept_status'],'client_id'=>$value['client_id'],'username'=>$value['username'],'picture_url'=>$value['picture_url'],'sort'=>'budget');
+		$demands_froeac2[] = array(
+			'offer_id' => $value['offer_id'],
+			'message' => $value['message'],
+			'project_id' => $value['project_id'],
+			'user_id' => $value['user_id'],
+			'status' => $value['status'],
+			'accept_budget' => $value['accept_budget'],
+			'offer_budget' => $value['offer_budget'],
+			'created_date' => $value['created_date'],
+			'accept_status' => $value['accept_status'],
+			'client_id' => $value['client_id'],
+			'username' => $value['username'],
+			'picture_url' => $value['picture_url'],
+			'sort' => 'budget');
 	}
 
 	$demands2 = $obj->Posts_model->demand_posted3($id);
 
 	foreach ($demands2 as $value) {
-		$demands_froeac3[] = array('offer_id'=>$value['offer_id'],'message'=>$value['message'],'project_id'=>$value['project_id'],'user_id'=>$value['user_id'],'status'=>$value['status'],'accept_budget'=>$value['accept_budget'],'offer_budget'=>$value['offer_budget'],'created_date'=>$value['created_date'],'accept_status'=>$value['accept_status'],'client_id'=>$value['client_id'],'username'=>$value['username'],'picture_url'=>$value['picture_url'],'sort'=>'date');
+		$demands_froeac3[] = array(
+			'offer_id' => $value['offer_id'],
+			'message' => $value['message'],
+			'project_id' => $value['project_id'],
+			'user_id' => $value['user_id'],
+			'status' => $value['status'],
+			'accept_budget' => $value['accept_budget'],
+			'offer_budget' => $value['offer_budget'],
+			'created_date' => $value['created_date'],
+			'accept_status' => $value['accept_status'],
+			'client_id' => $value['client_id'],
+			'username' => $value['username'],
+			'picture_url' => $value['picture_url'],
+			'sort' => 'date');
 	}
 	if($demands_froeac1 != null && $demands_froeac2 != null && $demands_froeac3 != null)
 		$arr3 = array_merge($demands_froeac1, $demands_froeac2, $demands_froeac3);
@@ -39,7 +78,7 @@
 	<div class="section portfolio">
 		<main id="main" class="container">
 			<nav class="nav">
-			    <a href="#" class="nav-item active" data-rel="option-1">Remarque</a>
+			    <a href="#" class="nav-item active" data-rel="option-1">Avis</a>
 			    <a href="#" class="nav-item" data-rel="option-2">Budget</a>
 			    <a href="#" class="nav-item" data-rel="option-3">Date</a>
 		  </nav>
@@ -105,8 +144,8 @@
 			                <h5>
 								<?php 
 									$show_text = $value['message'];
-									if(strlen($show_text) > 30)
-										$show_text = substr($show_text, 0, 30) . "...";
+									if(strlen($show_text) > 20)
+										$show_text = substr($show_text, 0, 20) . "...";
 									echo $show_text;
 								?>
 							</h5>

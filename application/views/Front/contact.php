@@ -106,7 +106,7 @@
                               </div>
                               
                               <div class="wrap-input2 validate-input">
-                                 <input placeholder="Entrer un nombre" class="mc-field-group" type="text" name="contact_no" pattern="[1-9]{1}[0-9]{9}" minlength="10"  maxlength="10" id="" value="<?php echo set_value('contact_no'); ?>" required>          
+                                 <input placeholder="Entrez votre numéro de téléphone" class="mc-field-group" type="text" name="contact_no" pattern="[1-9]{1}[0-9]{9}" minlength="10"  maxlength="10" id="" value="<?php echo set_value('contact_no'); ?>" required>          
                                 </div>
                                   <!-- <input class="wrap-input2 validate-input" type="number" name="contact_no" min_length="10" max_length="10" pattern="[1-9]{1}[0-9]{9}" value=" <?php echo !empty($postData['contact_no'])?$postData['contact_no']:''; ?>"  placeholder="Enter Number" required>
                                   <?php echo form_error('contact_no','<p class="field-error">','</p>'); ?>
@@ -130,8 +130,9 @@
 <!-- contact form end -->
 <script type="text/javascript">
          function initMap() {
-            var latitude = 34.397;
-            var longitude = 150.644;
+            var latitude = 2.5191432
+            
+            var longitude = 48.9265328;
 
             // The location of Uluru
             var uluru = {lat: -latitude, lng: longitude};

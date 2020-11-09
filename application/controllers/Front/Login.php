@@ -88,14 +88,21 @@ class Login extends CI_Controller {
                 $from = $this->config->item('smtp_user');
                 $to = $email;
 
-                $subject   =  'Reset Password';
+                $subject   =  'Nouveau Mot de Passe';
                 $message   =  '<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>';
                 $message  .= '<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>';
                 $message  .=  '<div class="container">';
                 $message  .=  '<div class="container">';
                 $message  .=  '<div class="jumbotron text-center">';
                 $message  .=  '<h1>Hi, '.$admin_info['first_name'].'</h1>';
-                $message  .=  '<p class="content">You Recently Requested to reset password for your doctor admin account </br> we reset your password and your new password for username '.$admin_info['username'].' is '.$password;
+//                $message  .=  '<p class="content">You Recently Requested to reset password for your doctor admin account </br> we reset your password and your new password for username '.$admin_info['username'].' is '.$password;
+                $message  .=  '<p class="content">Bonjour,<br>
+                              Vous venez de faire une demande de réinitialisation de votre Mot de Passe de votre compte « Heelp ».<br>
+                              Votre nouveau Mot de Passe est : ' . $password . '<br>
+                              Nous vous conseillons de le modifier dès votre prochaine connexion.<br>
+                              Cordialement,<br>
+                              Service Client Heelp.</p>';
+
                 $message .= '</div>';
                 $message .= '</div>';
                 

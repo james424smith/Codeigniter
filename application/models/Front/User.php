@@ -52,6 +52,36 @@ class User extends CI_Model{
         return $query->result_array();
     }
 
+    public function saveProfileRatingValueById($id)
+    {
+        $this->db->select('*');
+        $this->db->from('user_review');
+        $this->db->where('to_user_id', $id);
+        $query = $this->db->get();
+        $avg = $query->result();
+
+        $count = 0;
+        $total = 0;
+        for($j = 0; $j < count($avg); $j++)
+        {
+            $total += $avg[$j]->rating;
+            $count++;
+        }
+        if($count != 0)
+        {
+            $av = $total/$count;
+            $user_detail = number_format($av, 2, '.', '');
+        }
+        else
+        {
+            $user_detail = 0;
+        }
+        
+        
+        $update_data = array('Profile_Rate' => $user_detail);
+        $this->db->where('id', $id);
+        $this->db->update('users', $update_data);
+    }
     public function getRatingClassName($id) {
         $this->db->select('*');
         $this->db->from('user_review');

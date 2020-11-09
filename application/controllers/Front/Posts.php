@@ -341,6 +341,9 @@ class Posts extends CI_Controller
         {
           $this->Posts_model->saveRating($rating_data);
           $this->Posts_model->pushNotification($this->input->post('employee_id'), 5,  "Vous avez reçu un avis de votre client.");
+          
+          $this->load->model('Front/User');
+          $this->User->saveProfileRatingValueById($this->input->post('employee_id'));
         }
         
       redirect('Front/home/mydemands');

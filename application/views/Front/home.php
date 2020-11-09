@@ -21,15 +21,15 @@
 <section class="banner_section">
     <div class="container">
         <div class="row">
-        <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+        <div id="carouselExampleControls" class="carousel slide" data-ride="carousel" data-pause="false">
         <div class="carousel-inner">
-          <div class="carousel-item active">
+          <div class="carousel-item active" data-interval="2000">
             <img class="d-block w-100" src="<?php echo base_url('assets/Front/img/Slide 1.png');?>" alt="First slide">
           </div>
-          <div class="carousel-item">
+          <div class="carousel-item" data-interval="2000">
             <img class="d-block w-100" src="<?php echo base_url('assets/Front/img/Slide 2.png');?>" alt="Second slide">
           </div>
-          <div class="carousel-item">
+          <div class="carousel-item" data-interval="2000">
             <img class="d-block w-100" src="<?php echo base_url('assets/Front/img/Slide 3.png');?>" alt="Third slide">
           </div>
           <div class="carousel-item">
@@ -37,11 +37,11 @@
           </div>
         </div>
         <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <i class="fas fa-angle-left" style="color:black; font-size:40px; padding-right: 200px;"></i>
           <span class="sr-only">Previous</span>
         </a>
         <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <i class="fas fa-angle-right" style="color:black; font-size:40px; padding-left: 200px;"></i>
           <span class="sr-only">Suivant</span>
         </a>
       </div>

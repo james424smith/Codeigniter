@@ -50,6 +50,18 @@
     margin-left: 2px;
     font-weight: bolder;
   }
+  .badge_2 {
+    position: absolute;
+    font-size: 50%;
+    border-radius: 50%;
+    background-color: #fd9d39;
+    color: white;
+    padding-left: 4px;
+    padding-right: 3.5px;
+    margin-top: 2px;
+    margin-left: 2px;
+    font-weight: bolder;
+  }
   @media (max-width:600px) {
     .top_right_side_icon {
       margin-right: 40px;
@@ -238,7 +250,7 @@
                       <a href="javascript:void(0)" class="dropdown-toggle btn btn-primary" data-toggle="dropdown" aria-expanded="false">
                         <i class="far fa-bell"></i>
                         <?php if($total_notification_count != 0)  { ?>
-                          <span class="notification-number badge"><?php echo $total_notification_count; ?></span>
+                          <span class="notification-number badge_2"><?php echo $total_notification_count; ?></span>
                         <?php } ?>
                       </a>
                     <?php } else {?>

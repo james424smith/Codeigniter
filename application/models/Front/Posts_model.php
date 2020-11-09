@@ -237,7 +237,8 @@ class Posts_model extends CI_Model
         $this->db->from('project_offer'); 
         // $this->db->where('client_id',$this->session->userdata['id']);
         $this->db->join('users','users.id = project_offer.user_id');
-        $this->db->where('project_offer.project_id',$project);
+        $this->db->where('project_offer.project_id', $project);
+        $this->db->order_by('Profile_Rate', 'DESC');
         $result= $this->db->get()->result_array();           
         return $result;
     }
@@ -254,50 +255,49 @@ class Posts_model extends CI_Model
         
         return $result;
     }
-         public function demand_posted2($project){
+    public function demand_posted2($project){
 
-             $this->db->select('project_offer.*,users.username,users.picture_url');
-            $this->db->from('project_offer'); 
-            // $this->db->where('client_id',$this->session->userdata['id']);
-             $this->db->join('users','users.id = project_offer.user_id');
-             $this->db->where('project_offer.project_id',$project);
-             $this->db->order_by("project_offer.offer_budget", "DESC");
-            $result= $this->db->get()->result_array();           
+        $this->db->select('project_offer.*,users.username,users.picture_url');
+        $this->db->from('project_offer'); 
+        // $this->db->where('client_id',$this->session->userdata['id']);
+        $this->db->join('users','users.id = project_offer.user_id');
+        $this->db->where('project_offer.project_id', $project);
+        $result= $this->db->get()->result_array();           
             
-            return $result;
-        }
-         public function demand_posted3($project){
+        return $result;
+    }
+    public function demand_posted3($project){
 
-             $this->db->select('project_offer.*,users.username,users.picture_url');
-            $this->db->from('project_offer'); 
-            // $this->db->where('client_id',$this->session->userdata['id']);
-             $this->db->join('users','users.id = project_offer.user_id');
-             $this->db->where('project_offer.project_id',$project);
-            
-             $this->db->order_by("project_offer.created_date", "DESC");
-            $result= $this->db->get()->result_array();           
-            // /echo ($this->db->last_query());die();
-            return $result;
-        }
-
-        public function offeraccept($user_id){
-            $data= array('accept_status' => 2);
-            $this->db->set($data);
-            $this->db->where('user_id', $user_id);
-            $status = $this->db->update('project_offer');
-
-            if($status) {
-                $data= array('mission_status' => 1);
-                $this->db->set($data);
-                $this->db->where('user_id', $user_id); 
-                $this->db->update('mission');
-                return true ;
-            }
-            else {
-                 return false ;
-            }           
-        }
+        $this->db->select('project_offer.*,users.username,users.picture_url');
+        $this->db->from('project_offer'); 
+        // $this->db->where('client_id',$this->session->userdata['id']);
+        $this->db->join('users','users.id = project_offer.user_id');
+        $this->db->where('project_offer.project_id',$project);
         
+        $this->db->order_by("project_offer.created_date", "DESC");
+        $result= $this->db->get()->result_array();           
+        // /echo ($this->db->last_query());die();
+        return $result;
+    }
+
+    public function offeraccept($user_id){
+        $data= array('accept_status' => 2);
+        $this->db->set($data);
+        $this->db->where('user_id', $user_id);
+        $status = $this->db->update('project_offer');
+
+        if($status) {
+            $data= array('mission_status' => 1);
+            $this->db->set($data);
+            $this->db->where('user_id', $user_id); 
+            $this->db->update('mission');
+            return true ;
+        }
+        else {
+                return false ;
+        }           
+    }
+    
         public function deliver_demand($project_data, $user_id) {
             //var_dump($project_data); die();
             $this->db->insert('litigations', $project_data);
@@ -322,7 +322,7 @@ class Posts_model extends CI_Model
         {
             $status = $this->db->insert('user_review', $rating_data);
         }
-
+        
         public function deliver_paym_demand($project_data){
 
             $status = $this->db->insert('withdrawpayment', $project_data);

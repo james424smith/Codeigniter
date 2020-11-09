@@ -24,13 +24,13 @@
 					<p>Merci de préciser la nature de votre contact dans le titre :</p>
 					<form action="<?= base_url() ?>Front/Support/send" method="post">
 					  <div class="form-group">
-					    <input type="text" placeholder="Nom" name="name" class="form-control" id="">
+					    <input type="text" placeholder="Titre" name="name" class="form-control" id="">
 					  </div>
 					  <div class="form-group">
 					    <input type="email" required="please enter mail" placeholder="Email" name="email" class="form-control" id="">
 					  </div>
 					  <div class="form-group">
-					    <textarea placeholder="Déscription" class="form-control" name ="description" rows="5" id=""></textarea>
+					    <textarea placeholder="Description" class="form-control" name ="description" rows="5" id=""></textarea>
 					  </div>
 					  <!-- <a href="" class="Submit_btn">OK</a> -->
 					  <button type="submit" class="Submit_btn" >OK</button>

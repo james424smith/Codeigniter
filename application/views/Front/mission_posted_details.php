@@ -53,8 +53,8 @@
 			                <h5>
 								<?php 
 									$show_text = $value['message'];
-									if(strlen($show_text) > 30)
-										$show_text = substr($show_text, 0, 30) . "...";
+									if(strlen($show_text) > 20)
+										$show_text = substr($show_text, 0, 20) . "...";
 									echo $show_text;
 								?>
 							</h5>

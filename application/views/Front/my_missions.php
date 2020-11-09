@@ -21,13 +21,16 @@
    $obj->load->model('Front/Payment_model');
 ?> 
 <style>
-  .badge_1 {
+  .badge_3 {
       position: absolute;
       font-size: 100% !important;
       border-radius: 50%;
       background-color: #fd9d39;
       color: white !important;
       margin-top: -25px;
+      padding-left: 4px;
+      padding-right: 3.5px;
+      margin-left: 2px;
   }
 </style>
 <section>
@@ -113,7 +116,7 @@
                         <?php
                            $litigation_count = count($obj->Payment_model->getlitigationnotification($user_id, $value['mission_id']));
                         ?>
-                        <span class="badge_1"><?php echo $litigation_count;?></span>
+                        <span class="badge_3"><?php echo $litigation_count;?></span>
                      </p>
                   <?php } ?>
                   <div class="col-md-12 img_box">

@@ -20,7 +20,7 @@ $(function() {
     }
 });
 
-$('.btnSend').click(function() {
+$('.send_btn').click(function() {
 
 	if(chat_reciver_id == "") {
 		alert("Please select your partner..");
