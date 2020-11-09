@@ -14,35 +14,30 @@ class Chat extends CI_Controller {
 		$data['strsubTitle']='';
 		$list=[];
 		/*if($this->session->userdata['Admin']['role'] == 'Client_cs'){*/
-			$list = $this->UserModel->VendorsList();
-			$data['strTitle']='All Vendors';
-			$data['strsubTitle']='Vendors';
-			$data['chatTitle']='Select Vendor with Chat';
 
-			//print_r($list);
-		/*}else{
-			$list = $this->UserModel->ClientsListCs();
-			$data['strTitle']='All Connected Clients';
-			$data['strsubTitle']='Clients';
-			$data['chatTitle']='Select Client with Chat';
- 
-		}*/
+		$list = $this->UserModel->VendorsList();
+		$self = $this->UserModel->GetUserDataById($this->session->userdata['id']);
+		$data['strTitle'] = 'All Vendors';
+		$data['strsubTitle'] = 'Vendors';
+		$data['chatTitle'] = 'Select Vendor with Chat';
+		$data['self'] = $self;
+
 		$vendorslist=[];
 		foreach($list as $u){
-			$vendorslist[]=
+			$vendorslist[] =
 			[
-				'id' => $this->OuthModel->Encryptor('encrypt', $u['id']),
+				'id' => $u['id'],
 				'username' => $u['username'],
+				'first_name' => $u['first_name'],
+				'last_name' => $u['last_name'],
+				'email' => $u['email'],
 				'picture_url' => $this->UserModel->PictureUrlById($u['id']),
 				'highlight' => $u['highlight'],
 			];
 		}
-		$data['vendorslist']=$vendorslist;
-		 
-		 
- 		$this->load->view('chat',$data);
+		$data['vendorslist'] = $vendorslist;
+ 		$this->load->view('chat', $data);
     }
-	
 	
 	public function send_text_message(){
 		$post = $this->input->post();
@@ -58,10 +53,10 @@ class Chat extends CI_Controller {
 			$file_ext = $AttachmentData['file_ext'];
 			$mime_type = $AttachmentData['file_type'];
 			 
-		}else{
+		}
+		else{
 			$messageTxt = reduce_multiples($post['messageTxt'],' ');
 		}	
-		 
 				$data=[
  					'sender_id' => $this->session->userdata('id'),
 					'receiver_id' => $this->OuthModel->Encryptor('decrypt', $post['receiver_id']),
@@ -84,8 +79,6 @@ class Chat extends CI_Controller {
  		   echo json_encode($response);
 	}
 	public function ChatAttachmentUpload(){
-		 
-		
 		$file_data='';
 		if(isset($_FILES['attachmentfile']['name']) && !empty($_FILES['attachmentfile']['name'])){	
 				$config['upload_path']          = './uploads/myattachments';
@@ -131,19 +124,19 @@ class Chat extends CI_Controller {
 				$messageBody='';
             	if($message=='NULL'){ //fetach media objects like images,pdf,documents etc
 					$classBtn = 'right';
-					if($Logged_sender_id==$sender_id){$classBtn = 'left';}
+					if($Logged_sender_id == $sender_id){$classBtn = 'left';}
 					
 					$attachment_name = $chat['attachment_name'];
 					$file_ext = $chat['file_ext'];
-					$mime_type = explode('/',$chat['mime_type']);
+					$mime_type = explode('/', $chat['mime_type']);
 					
 					$document_url = base_url('uploads/myattachments/'.$attachment_name);
 					
-				  if($mime_type[0]=='image'){
- 					$messageBody.='<img src="'.$document_url.'" onClick="ViewAttachmentImage('."'".$document_url."'".','."'".$attachment_name."'".');" class="attachmentImgCls">';	
+				  if($mime_type[0] == 'image'){
+ 					$messageBody .= '<img src="'.$document_url.'" onClick="ViewAttachmentImage('."'".$document_url."'".','."'".$attachment_name."'".');" class="attachmentImgCls">';	
 				  }else{
-					$messageBody='';
-					 $messageBody.='<div class="attachment">';
+					$messageBody = '';
+					 $messageBody .= '<div class="attachment">';
                           $messageBody.='<h4>Attachments:</h4>';
                            $messageBody.='<p class="filename">';
                             $messageBody.= $attachment_name;
@@ -159,10 +152,7 @@ class Chat extends CI_Controller {
 				}else{
 					$messageBody = $message;
 				}
-			?>
-            
-            
-        
+			?>s
              <?php if($Logged_sender_id!=$sender_id){?>     
                   <!-- Message. Default to the left -->
                     <div class="direct-chat-msg">

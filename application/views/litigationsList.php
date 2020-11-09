@@ -52,6 +52,7 @@ div#dtBasicExample_length {
                     <th><?=('Project Id')?></th>
                     <th><?=('Litigation Opener')?></th>
                     <th><?=('Opponet User')?></th>
+                    <th><?=('Project Title')?></th>
                     <th><?=('Project Description')?></th> 
                     <th><?=('Status')?></th>
                     <th><?=('Admin Comment')?></th>
@@ -66,20 +67,28 @@ div#dtBasicExample_length {
                   <tr>
                   <td ><?php echo date("d-m-Y", strtotime($user->date_created)); ?> </td>
                   <!-- <td><?php echo $user->project_id;?> </td> -->
-                  <td> <?php echo $newDate . "0000:" . $invID; ?> </td>
+                  <td> <?php echo $newDate . $invID; ?> </td>
                   <td>
                    <?php 
                       //echo $user->opener_id;
                       $opener = $obj->UserModel->GetUserDataById($user->opener_id);
-                      echo $opener->username;
+                      echo $opener->email;
                    ?> 
                    </td>
                   <td>
                     <?php 
                       //echo $user->opener_id;
                       $opponent = $obj->UserModel->GetUserDataById($user->opponent_id);
-                      echo $opponent->username;
+                      echo $opponent->email;
                    ?> 
+                  </td>
+                  <td>
+                      <?php
+                      $show_text = $user->title;
+									    if(strlen($show_text) > 30)
+										    $show_text = substr($show_text, 0, 30) . "...";
+									    echo $show_text; 
+                      ?>
                   </td>
                   <td> 
                     <?php 

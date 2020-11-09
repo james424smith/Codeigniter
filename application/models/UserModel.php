@@ -396,7 +396,7 @@ class UserModel extends CI_Model {
 
 	{  
 
- 		$this->db->select('id,username,picture_url,highlight');
+ 		$this->db->select('*');
 
 		$this->db->from($this->User);
 

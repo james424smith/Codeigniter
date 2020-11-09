@@ -1,12 +1,16 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');?>
 <?php $this->load->view('common/header');
-if(isset($_POST['submit']))
-{
-$name = $_POST['search_name'];
+   if(isset($_POST['submit']))
+   {
+      $name = $_POST['search_name'];
+      //var_dump($name);
+   }
 
-}
+   //var_dump($vendorslist);die();
 
 ?>
+<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/Front/css/custom.css')?>">
+
 <style>
    .fileDiv {
    position: relative;
@@ -37,142 +41,118 @@ $name = $_POST['search_name'];
 </style>
 <?php $this->load->view('common/sidebar');?>
 <div class="main-panel">
-<div class="content">
-<div class="container-fluid">
-<div class="row">
-   <div class="col-md-8" id="chatSection">
-      <!-- DIRECT CHAT -->
-      <div class="box box-warning direct-chat direct-chat-primary">
-         <div class="box-header with-border">
-            <h3 class="box-title" id="ReciverName_txt"><?=$chatTitle;?></h3>
-            <div class="box-tools pull-right">
-               <span data-toggle="tooltip" title="Clear Chat" class="ClearChat"><i class="fa fa-comments"></i></span>
-            </div>
-         </div>
-         <!-- /.box-header -->
-         <div class="box-body">
-            <!-- Conversations are loaded here -->
-            <div class="direct-chat-messages" id="content">
-               <!-- /.direct-chat-msg -->
-               <div id="dumppy"></div>
-            </div>
-            <!--/.direct-chat-messages-->
-         </div>
-         <!-- /.box-body -->
-         <div class="box-footer">
-            <!--<form action="#" method="post">-->
-            <div class="input-group">
-               <?php
-                  $obj = &get_instance();
-                  $obj->load->model('UserModel');
-                  $profile_url = $obj->UserModel->PictureUrl();
-                  $user =$obj->UserModel->GetUserData();
-               ?>
-               <input type="hidden" id="Sender_Name" value="<?=$user['name'];?>">
-               <input type="hidden" id="Sender_ProfilePic" value="<?=$profile_url;?>">
-               <input type="hidden" id="ReciverId_txt">
-               <input type="text" name="message" placeholder="Type de message ..." class="form-control message">
-               <span class="input-group-btn">
-                  <button type="button" class="btn btn-success btn-flat btnSend" id="nav_down">Envoyer</button>
-                  <div class="fileDiv btn btn-info btn-flat"> <i class="fa fa-upload"></i> 
-                     <input type="file" name="file" class="upload_attachmentfile"/>
+   <div class="content">
+      <div class="container-fluid">
+            <div class="row" style="margin-top:50px;">
+               <div class="col-md-3">
+                     <!-- USERS LIST -->
+                     <div class="box box-danger" style="height:500px;">
+                        <div class="box-header with-border">
+                           <h3 class="box-title"><?=$strTitle;?></h3>
+                        </div>
+                        <!-- /.box-header -->
+                        <div class="box-body no-padding">
+                           <form name="search_user" method="post">
+                              <input type="text" name="search_name">
+                              <input type="submit" name="submit" value="submit">
+                              <!--<a href="<?php echo base_url();?>chat">Reset</a>-->
+                           </form>
+                           <hr>
+                           <input type="hidden" class="self-img" value="<?php echo base_url('uploads/profiles/' . $self->picture_url);  ?>" >
+                           <ul class="users-list clearfix">
+                                 <?php if(!empty($vendorslist)){
+                                          foreach($vendorslist as $v):
+                                             if($name)
+                                             {
+                                                if($v['username'] == $name || $v['first_name'] == $name || $v['last_name'] == $name || $v['email'] == $name)
+                                                {
+                                 ?>
+
+                                       <li class="selectVendor" id="<?=$v['id'];?>" title="<?=$v['username'];?>">
+                                          <img src="<?=$v['picture_url'];?>" alt="<?=$v['username'];?>" title="<?=$v['username'];?>">
+                                          <a class="users-list-name" href="#">
+                                             <?php if($v['highlight'] == 1) { echo "<span></span>"; } ?>
+                                             <?=$v['username'];?>
+                                          </a>
+                                          <!--<span class="users-list-date">Yesterday</span>-->
+                                       </li>
+
+                                 <?php } }
+                                 else{ ?>
+                                 <li class="selectVendor" id="<?=$v['id'];?>" title="<?=$v['username'];?>">
+                                    <img src="<?=$v['picture_url'];?>" alt="<?=$v['username'];?>" title="<?=$v['username'];?>">
+                                    <input type="hidden" id="<?php echo 'img_' . $v['id'];?>" value="<?=$v['picture_url'];?>">
+                                    <a class="users-list-name" href="#">
+                                       <?php if($v['highlight'] == 1) { echo "<span></span>"; } ?>
+                                       <?=$v['username'];?>
+                                    </a>
+                                 <!--<span class="users-list-date">Yesterday</span>-->
+                                 </li>
+                                 <?php }
+                                 ?>
+                              <?php endforeach;?>
+                              <?php } else{?>
+                              <li>
+                                 <a class="users-list-name" href="#">No Vendor's Find...</a>
+                              </li>
+                              <?php } ?>
+                           </ul>
+                           <!-- /.users-list -->
+                        </div>
+                        <!-- /.box-body -->
+                     </div>
+                     <!--/.box -->
+               </div>
+               <div class="col-md-8" id="chatSection" >
+                  <!-- DIRECT CHAT -->
+                  <div class="box box-warning direct-chat direct-chat-primary">
+                     <div class="box-header">
+                        <h3 class="box-title" id="ReciverName_txt" style="font-size:30px;"><?=$chatTitle;?></h3>
+                        <div class="box-tools pull-right">
+                           <span data-toggle="tooltip" title="Clear Chat" class="ClearChat"><i class="fa fa-comments"></i></span>
+                        </div>
+                     </div>
+                     <!-- /.box-header -->
+                     <div class="box-body">
+                        <!-- Conversations are loaded here -->
+                        <div class="direct-chat-messages" id="content" style="height:350px;">
+                           <!-- /.direct-chat-msg -->
+                           <div id="dumppy">                           
+                           </div>
+                        </div>
+                        <!--/.direct-chat-messages-->
+                     </div>
+                     <!-- /.box-body -->
+                     <div class="box-footer" style="margin-top:50px">
+                        <!--<form action="#" method="post">-->
+                        <div class="input-group">
+                           <?php
+                              $obj = &get_instance();
+                              $obj->load->model('UserModel');
+                              $profile_url = $obj->UserModel->PictureUrl();
+                              $user = $obj->UserModel->GetUserData();
+                           ?>
+                           <input type="hidden" id="Sender_Name" value="<?=$user['name'];?>">
+                           <input type="hidden" id="Sender_ProfilePic" value="<?=$profile_url;?>">
+                           <input type="hidden" id="ReciverId_txt">
+                           <input type="text" name="message" placeholder="Type de message ..." class="form-control message">
+                           <span class="input-group-btn">
+                              <button type="button" class="btn btn-success btn-flat btnSend" id="nav_down" style="margin-top:-5px;">Send</button>
+                              <div class="fileDiv btn btn-info btn-flat" style="margin-top:-5px;"> <i class="fa fa-upload"></i> 
+                                 <input type="file" name="file" class="upload_attachmentfile"/>
+                              </div>
+                           </span>
+                        </div>
+                        <!--</form>-->
+                     </div>
+                     <!-- /.box-footer-->
                   </div>
-               </span>
+                  <!--/.direct-chat -->
+               </div>
             </div>
-            <!--</form>-->
-         </div>
-         <!-- /.box-footer-->
       </div>
-      <!--/.direct-chat -->
    </div>
-   <div class="col-md-4">
-      <!-- USERS LIST -->
-      <div class="box box-danger">
-         <div class="box-header with-border">
-            <h3 class="box-title"><?=$strTitle;?></h3>
-            <div class="box-tools pull-right">
-               <span class="label label-danger"><?=count($vendorslist);?> <?=$strsubTitle;?></span>
-               <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
-               </button>
-               <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i>
-               </button>
-            </div>
-         </div>
-         <!-- /.box-header -->
-         <div class="box-body no-padding">
-            <form name="search_user" method="post">
-               <input type="text" name="search_name">
-               <input type="submit" name="submit" value="submit">
-               <a href="<?php echo base_url();?>chat">Reset</a>
-            </form>
-            <ul class="users-list clearfix">
-                  <?php if(!empty($vendorslist)){
-                  foreach($vendorslist as $v):
-                  if($name)
-                  {
-                  if($v['username'] == $name)
-                  {
-                  ?>
-
-                  <li class="selectVendor" id="<?=$v['id'];?>" title="<?=$v['username'];?>">
-                  <img src="<?=$v['picture_url'];?>" alt="<?=$v['username'];?>" title="<?=$v['username'];?>">
-                  <a class="users-list-name" href="#">
-                  <?php if($v['highlight'] == 1) { echo "<span></span>"; } ?>
-                  <?=$v['username'];?></a>
-                  <!--<span class="users-list-date">Yesterday</span>-->
-                  </li>
-
-                  <?php
-                  }
-
-      
-
-                  }
-                  else{ ?>
-                  <li class="selectVendor" id="<?=$v['id'];?>" title="<?=$v['username'];?>">
-                  <img src="<?=$v['picture_url'];?>" alt="<?=$v['username'];?>" title="<?=$v['username'];?>">
-                  <a class="users-list-name" href="#">
-                  <?php if($v['highlight'] == 1) { echo "<span></span>"; } ?>
-                  <?=$v['username'];?></a>
-                  <!--<span class="users-list-date">Yesterday</span>-->
-                  </li>
-                  <?php }
-                  ?>
-               <?php endforeach;?>
-               <?php }else{?>
-               <li>
-                  <a class="users-list-name" href="#">No Vendor's Find...</a>
-               </li>
-               <?php } ?>
-            </ul>
-            <!-- /.users-list -->
-         </div>
-         <!-- /.box-body -->
-      </div>
-      <!--/.box -->
-   </div>
-   <!-- /.col -->            
 </div>
-<!-- Modal -->
-<div class="modal fade" id="myModalImg">
-<div class="modal-dialog modal-lg">
-<div class="modal-content">
-   <!-- Modal Header -->
-   <div class="modal-header">
-      <h4 class="modal-title" id="modelTitle">Modal Heading</h4>
-      <button type="button" class="close" data-dismiss="modal">&times;</button>
-   </div>
-   <!-- Modal body -->
-   <div class="modal-body">
-      <img id="modalImgs" src="uploads/myattachments/21_preview.png" class="img-thumbnail" alt="Cinque Terre">
-   </div>
-   <!-- Modal footer -->
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-
+<script src="<?php echo base_url('assets/js/chat/admin_chat.js');?>"></script>
 <!-- Modal -->
 <?php $this->load->view('common/footer');?>
