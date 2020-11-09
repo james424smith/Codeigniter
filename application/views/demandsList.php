@@ -46,7 +46,7 @@ div#dtBasicExample_length {
             <div class="card-body table-responsive">
                 <table id="dtBasicExample" class="table table-striped table-sm" cellspacing="0" width="100%">
                   <thead class="text-primary" style="cursor: pointer;">
-                  	<th><?=('Id')?></th> 
+                  	<th><?=('No')?></th> 
                     <th><?=('Creation date')?></th> 
                     <th><?=('Project Id')?></th>
                     <th><?=('Category')?></th>
@@ -63,14 +63,16 @@ div#dtBasicExample_length {
                   
                   <tbody>
                     <?php 
+                     $idx = 0;
                       foreach($demandslist as $user) {
                         $newDate = date("dmy", strtotime($user->created_date));
                         $invID = str_pad($user->mission_id, 5, '0', STR_PAD_LEFT);
+
                       ?>
                   <tr>
-                  <td style="width:15px !important;"> <?php echo $user->mission_id; ?>	</td>
+                  <td style="width:15px !important;"> <?php echo ++ $idx; ?>	</td>
                   <td><?php echo date("d-m-Y", strtotime($user->created_date)); ?> </td>
-                  <td><?php  echo $newDate . "0000:" . $invID; ?> </td>
+                  <td><?php  echo $newDate . $invID; ?> </td>
                   <td><?php echo $user->category_title;?> </td>
                   <td><?php echo $user->mission_title;?> </td>
                   <td>
