@@ -123,10 +123,11 @@ input#date {
                       <div class="col-md-6" style="margin-top:-27px;">
                         <div class="form-group">
                           <label class=""><?= ('Role')?></label>
-                            <select class="form-control" name="role" id="role">
+                            <select class="form-control" id="role" disabled>
                               <option value="admin"><?= ('Admin')?></option>
-                              <option value="client"><?=('Client')?></option>
+                              <option value="client" selected><?=('Client')?></option>
                             </select>
+                            <input type="hidden" name="role" value="client">
                           </div>
                         </div>
                     </div>
@@ -149,7 +150,7 @@ input#date {
                     </div>
                   </div>
                 </div>
-                <div class="row second-password">
+                <div class="row second-password" style="display:none;">
                   <div class="col-md-6">
                     <div class="form-group">
                       <label class="bmd-label-floating"><?= ('Second Password') ?></label>

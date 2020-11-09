@@ -42,7 +42,7 @@ div#dtBasicExample_length {
                   });
               });
           </script>-->
-          <input type="hidden" id="second_password" value="<?php echo $selfadmin->second_password; ?>" >
+            <input type="hidden" id="second_password" value="<?php echo $selfadmin->second_password; ?>" >
             <div class="card-body table-responsive">
                 <table id="dtBasicExample" class="table table-striped table-sm" cellspacing="0" width="100%">
                   <thead class="text-primary" style="cursor: pointer;">

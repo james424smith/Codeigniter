@@ -26,7 +26,9 @@
 }
 
 </style>
-<?php //var_dump($users_edit[0]->id);die();?>
+<?php 
+
+?>
 <div class="col-md-9">
 <div class="dashboard-wrapper">
     <div class="container  dashboard-content">
@@ -35,7 +37,8 @@
                 <div class="card_admin">
                     <div class="card-header"><h5 class="mb-0"></h5></div>
                     <div class="card-body">
-                        <form class="form-valide" action="<?php echo base_url('table/save_users')?>" enctype="multipart/form-data" method="post" accept-charset="utf-8">
+                        <input type="hidden" id="second_password" value="<?php echo $selfadmin->second_password; ?>" >
+                        <form class="form-valide" action="<?php echo base_url('table/save_users')?>" enctype="multipart/form-data" method="post" accept-charset="utf-8" id="myform">
                      
                             <input type="hidden"  id="id" name="user_id" value="<?php echo $users_edit[0]->id;?>">
 
@@ -119,17 +122,33 @@
                             </div> 
 
                             <div class="form-group row">
-                                <label class="col-md-3 "><?= ('Current Balance')?> <span class="text-danger">*</span>
+                                <label class="col-md-3 "><?= ('Spent')?><span class="text-danger">*</span>
                                 </label>
                                 <br>
                                 <div class="col-md-9">
-                                    <input type="text"  id="Current_Balance" name="Current_Balance" value="<?php echo $users_edit[0]->Current_Balance;?>">
+                                    <input type="text"  id="spent" name="spent" value="<?php echo $users_edit[0]->spent;?>">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-md-3 "><?= ('Stripe User Id')?>
+                                </label>
+                                <br>
+                                <div class="col-md-9">
+                                    <input type="text"  id="stripe_customer_id" name="stripe_customer_id" value="<?php echo $users_edit[0]->stripe_customer_id;?>">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-md-3 "><?= ('Stripe Card Id')?> 
+                                </label>
+                                <br>
+                                <div class="col-md-9">
+                                    <input type="text"  id="stripe_card_id" name="stripe_card_id" value="<?php echo $users_edit[0]->stripe_card_id;?>">
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <div class="col-lg-8 ml-auto">
                                     <input type="hidden" name="id" value="<?php echo $users_edit[0]->misssion_id;?>">  
-                                    <button type="submit" class="btn btn-primary"><?= ('Submit')?></button>
+                                    <button type="button" class="btn btn-primary" id="submit_btn"><?= ('Submit')?></button>
                                 </div>
                             </div>
                         </form>
@@ -146,17 +165,30 @@
   crossorigin="anonymous"></script> 
 <script>
     function readURL(input) {
-  if (input.files && input.files[0]) {
-    var reader = new FileReader();
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function(e) {
+                $('#preview_image').attr('src', e.target.result);
+            }
     
-    reader.onload = function(e) {
-      $('#preview_image').attr('src', e.target.result);
+            reader.readAsDataURL(input.files[0]);
+        }
     }
-    
-    reader.readAsDataURL(input.files[0]);
-  }
-}
 
-$("#image").change(function() {
-  readURL(this);
-});</script>
+    $("#image").change(function() {
+        readURL(this);
+    });
+
+    $("#submit_btn").click(function () {
+        var pwd = $('#second_password').val();
+        var str = prompt("Are you sure to update this user data?");
+        if(str == pwd)
+        {
+            $("#myform").submit();
+        }
+        else
+        {
+            alert("Wrong second password.");
+        }
+    });
+</script>

@@ -45,7 +45,8 @@ class Table extends CI_Controller {
         $this->db->from("users");
         $this->db->where('id', $id);
         $data['users_edit'] = $this->db->get()->result();
-        
+        $data['selfadmin'] = $this->Register_model->getSelfUser();
+
         $this->load->view('common/sidebar');
         $this->load->view('common/header');
         $this->load->view("edit_users", $data);  
@@ -67,7 +68,9 @@ class Table extends CI_Controller {
             'country' => $post['country'],
             'Profile_Rate' => $post['Profile_Rate'],
             'Total_earned_amount' => $post['Total_earned_amount'],       
-            'Current_Balance' => $post['Current_Balance'],
+            'spent' => $post['spent'],
+            'stripe_customer_id' => $post['stripe_customer_id'],
+            'stripe_card_id' => $post['stripe_card_id']
         );
 
         $this->db->set($user_update);
