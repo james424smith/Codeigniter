@@ -33,7 +33,6 @@ class Login extends CI_Controller {
     }  
     else  
     { 
-
       $username = $this->input->post('username');  
       $password = md5($this->input->post('password'));  
 

@@ -130,12 +130,12 @@
 <!-- contact form end -->
 <script type="text/javascript">
          function initMap() {
-            var latitude = 2.5191432
+            var latitude = 48.9265328; 
             
-            var longitude = 48.9265328;
+            var longitude = 2.5191432;
 
             // The location of Uluru
-            var uluru = {lat: -latitude, lng: longitude};
+            var uluru = {lat: latitude, lng: longitude};
             // The map, centered at Uluru
             
             var map = new google.maps.Map(
