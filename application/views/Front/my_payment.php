@@ -5,12 +5,11 @@
   <div class="top_bnr section post_demand">
     <div class="container">
       <div class="top-side about_title">
-          <h4 class="title">Mes Paiment</h4>
+          <h3 class="title" style="color:blue;">Paiment</h3>
         </div>
     </div>
   </div>
 </section>
-
 
 <section class="my_payment_section">
   <div class="Payment">
@@ -29,7 +28,7 @@
                             <p><a href="<?php echo base_url('Front/home/my_wallet')?>" class="btn btn_default">Wallet</a></p>
                           </div>
                         </div> -->
-
+                        <div class="col-md-2"></div>
                         <div class="col-md-4">
                           <div class="rdio rdio-primary radio-inline">                          
                             <label for="radio2">
