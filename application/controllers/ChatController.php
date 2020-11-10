@@ -6,7 +6,7 @@ class ChatController extends CI_Controller {
 
         $this->load->model(['ChatModel','OuthModel','UserModel']);
         $this->load->helper('string');
-        if(!empty($this->session->userdata('id'))){
+        if(!empty($this->session->userdata('id')) || !empty($this->session->userdata('admin_id'))){
 
         }
         else {
@@ -416,6 +416,8 @@ class ChatController extends CI_Controller {
         $post = $this->input->post();
         $sender_id = $post['receiver_id'];
         $receiver_id = $this->session->userdata['id'];
+        if($post['admin'])
+        $receiver_id = $this->session->userdata['admin_id'];
         //echo  $sender_id;
         return $this->ChatModel->setReadStatus($sender_id, $receiver_id);
     }

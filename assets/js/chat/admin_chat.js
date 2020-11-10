@@ -114,6 +114,7 @@ $('.ClearChat').click(function(){
 		//alert($("#recive_id").val());
 		$.post("/unreadmessage",
 		{
+			admin:"true",
 			receiver_id: chat_reciver_id
 		},
 		function(res){
