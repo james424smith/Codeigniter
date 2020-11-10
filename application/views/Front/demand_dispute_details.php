@@ -4,15 +4,17 @@
 	$obj->load->model('Front/Posts_model');
 	$id = $this->uri->segment(4);
 	//$profile_url = $obj->RegisterModel->PictureUrl();
-
 	$self_user_id = $this->session->userdata['id'];
-	//$profile_url = $obj->RegisterModel->PictureUrl();
+	
 	$all_comments = $this->db->query("select project_status.* from project_status where project_id=" . $id . " and client_id=" . $self_user_id)->result_array();
 
 	$mission = $this->db->query("select mission.*,users.picture_url from mission inner join users on mission.accepted_by=users.id  where mission.mission_id=".$id)->row();
 	$comment = $this->db->query("select project_status.* from project_status where project_id=".$id . " order by id desc")->row();
+	
+	//var_dump($mission);die();
 	/*echo "select project_status.* from project_status where project_id=".$id . " order by id desc";
 	exit();*/
+	//var_dump($mission->mission_id);die();
 	$obj->load->model('Front/User');
 	$self_user = $obj->User->getSelfUser();
 
@@ -28,7 +30,6 @@
     </div>
   </div><hr>
 </section>
-
 
 <section class="demand_deails_section">
 	<div class="container">
@@ -73,12 +74,7 @@
 						<b style="color:red;">&nbsp;&nbsp;&nbsp;Offre: <?php echo $mission->mission_budget;?> <i class="fas fa-euro-sign"></i></b>
 					 </p>
 				</div><br>
-				<div class="demand_check_box" style="margin-left:-10px;">					
-					<form action="<?php echo base_url('ChatController/claim_chat')?>" method="post">
-						<input type="hidden" name="chat_customer" value="true">	
-						<button type="submit" class="btn btn-default" >discuter avec le service client</button>&nbsp;&nbsp;
-					</form>	
-				</div>
+				
 			</div>
 			<div class="col-md-6">
 				<div class="row post_demand_inner_row">
@@ -125,7 +121,32 @@
 				<?php } ?>				
 			  </div>
 			</div>
+		</div><br><br>
+		<div class="row">
+			<div class="col-md-6 text-center">
+				<div class="demand_check_box" style="margin-left:-10px;">					
+					<form action="<?php echo base_url('ChatController/claim_chat')?>" method="post">
+						<input type="hidden" name="chat_customer" value="true">	
+						<button type="submit" class="btn btn-default" >Accéder à votre messagerie Service client</button>&nbsp;&nbsp;
+					</form>
+				</div>			
+			</div>
+			<div class="col-md-6">
+				<input type="hidden" id="close_url" value="<?php echo base_url('Front/Posts/close_dispute/' . $mission->mission_id . '/' . $mission->accepted_by  . '/0')?>">
+				<?php
+					//var_dump();die();
+					$missionId = $mission->mission_id;
+					$obj->load->model('Front/Posts_model');
+					$isOpener = $obj->Posts_model->isDisputeOpener($missionId, $self_user_id);
+				
+					if ($isOpener) { 
+				?>
+					<button type="button" id="close_dispute" class="btn btn-default" >Proche</button>
+				<?php } ?>
+			</div>
+
 		</div>
+	</div>
 	</div>
 </section>
 
@@ -162,3 +183,17 @@
   </div>
 
 <?php $this->load->view('Front/common/footer');  ?>
+<link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.min.css'>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.all.min.js"></script>
+
+<script>
+	$('#close_dispute').click(function(){
+		var warning = 'Are you sure you want to do this?';
+		if (confirm(warning)) {
+			location.href = $("#close_url").val();
+ 		}
+		else {
+			// Do something else
+		}
+	});
+</script>

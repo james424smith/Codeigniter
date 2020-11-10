@@ -59,12 +59,7 @@
 						<b style="color:red;">&nbsp;&nbsp;&nbsp;Offre: <?php echo $mission->mission_budget;?> <i class="fas fa-euro-sign"></i></b>
 					 </p>
 				</div>
-				<div class="demand_check_box" style="margin-left:-10px;">					
-					<form action="<?php echo base_url('ChatController/claim_chat')?>" method="post">
-						<input type="hidden" name="chat_customer" value="true">	
-						<button type="submit" class="btn btn-default" >discuter avec le service client</button>&nbsp;&nbsp;
-					</form>	
-				</div>
+				
 			</div>
 			<div class="col-md-6">
 				<div class="row post_demand_inner_row" style="min-height:30px;">
@@ -107,7 +102,27 @@
 			</div>
 		</div>
 		<div class="row">
-			
+			<div class="col-md-6 text-center">
+				<div class="demand_check_box" style="margin-left:-10px;">					
+					<form action="<?php echo base_url('ChatController/claim_chat')?>" method="post">
+						<input type="hidden" name="chat_customer" value="true">	
+						<button type="submit" class="btn btn-default" >discuter avec le service client</button>&nbsp;&nbsp;
+					</form>	
+				</div>
+			</div>
+			<div class="col-md-6">
+				<input type="hidden" id="close_url" value="<?php echo base_url('Front/Posts/close_dispute/' . $mission->mission_id . '/' . $mission->accepted_by . '/1' )?>">
+				<?php
+					//var_dump();die();
+					$missionId = $mission->mission_id;
+					$obj->load->model('Front/Posts_model');
+					$isOpener = $obj->Posts_model->isDisputeOpener($missionId, $self_user_id);
+				
+					if ($isOpener) { 
+				?>
+					<button type="button" id="close_dispute" class="btn btn-default" >Proche</button>
+				<?php } ?>	
+			</div>
 		</div>
 	</div>
 </section>
@@ -145,3 +160,14 @@
 
 
 <?php $this->load->view('Front/common/footer');  ?>
+<script>
+	$('#close_dispute').click(function(){
+		var warning = 'Are you sure you want to do this?';
+		if (confirm(warning)) {
+			location.href = $("#close_url").val();
+ 		}
+		else {
+			// Do something else
+		}
+	});
+</script>

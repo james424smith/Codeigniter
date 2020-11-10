@@ -90,7 +90,7 @@ CREATE TABLE `add_discuss` (
 /*Data for the table `add_discuss` */
 
 insert  into `add_discuss`(`id`,`reciver_id`,`sender_id`,`date_created`) values 
-(3,162,163,'2020-11-10 02:24:45');
+(3,162,163,'2020-11-10 05:22:19');
 
 /*Table structure for table `addons` */
 
@@ -356,9 +356,20 @@ CREATE TABLE `chat` (
   `project_id` int(255) NOT NULL,
   `read_status` tinyint(4) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=47 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=71 DEFAULT CHARSET=latin1;
 
 /*Data for the table `chat` */
+
+insert  into `chat`(`id`,`sender_id`,`receiver_id`,`message`,`attachment_name`,`file_ext`,`mime_type`,`message_date_time`,`ip_address`,`project_id`,`read_status`) values 
+(62,4,162,'Nous sommes désolés de votre insatisfaction.<br>\r\n                            Cependant, votre litige a été ouvert avec succès, Le délai moyen de traitement est de 14 jours ouvrés.<br>\r\n                            Vous pouvez desormais, nous contacter via ce service de Chat si vous vous êtes arranger amicalement avec le Heelper concerné, ou si vous avez d\'autres informations à nous envoyer.<br>\r\n                            Veuillez noter que le traitement de vos messages peut prendre quelques jours.<br> Merci.','','','','2020-11-10 09:36:57','127.0.0.1',47,1),
+(63,4,163,'Un litige concernant une de vous Demande/Mission a été ouvert.<br> \r\n                            Le délai moyen de traitement est de 14 jours ouvrés.<br>\r\n                            Nous vous invitons à nous comuniquer dès maintenant toute information que vous jugez importante par rapport à ce litige via ce service de chat.<br>\r\n                            Veuillez noter que le traitement de vos messages peut prendre quelques jours.<br> Merci.','','','','2020-11-10 09:36:57','127.0.0.1',47,1),
+(64,162,4,'sdafasdf','','','','2020-11-10 09:36:57','127.0.0.1',47,0),
+(65,4,163,'Nous sommes désolés de votre insatisfaction.<br>\r\n                            Cependant, votre litige a été ouvert avec succès, Le délai moyen de traitement est de 14 jours ouvrés.<br>\r\n                            Vous pouvez desormais, nous contacter via ce service de Chat si vous vous êtes arranger amicalement avec le Heelper concerné, ou si vous avez d\'autres informations à nous envoyer.<br>\r\n                            Veuillez noter que le traitement de vos messages peut prendre quelques jours.<br> Merci.','','','','2020-11-10 09:38:05','127.0.0.1',46,1),
+(66,4,162,'Un litige concernant une de vous Demande/Mission a été ouvert.<br> \r\n                            Le délai moyen de traitement est de 14 jours ouvrés.<br>\r\n                            Nous vous invitons à nous comuniquer dès maintenant toute information que vous jugez importante par rapport à ce litige via ce service de chat.<br>\r\n                            Veuillez noter que le traitement de vos messages peut prendre quelques jours.<br> Merci.','','','','2020-11-10 09:38:05','127.0.0.1',46,1),
+(67,163,4,'asdfasdf','','','','2020-11-10 09:38:05','127.0.0.1',46,0),
+(68,4,162,'Nous sommes désolés de votre insatisfaction.<br>\r\n                            Cependant, votre litige a été ouvert avec succès, Le délai moyen de traitement est de 14 jours ouvrés.<br>\r\n                            Vous pouvez desormais, nous contacter via ce service de Chat si vous vous êtes arranger amicalement avec le Heelper concerné, ou si vous avez d\'autres informations à nous envoyer.<br>\r\n                            Veuillez noter que le traitement de vos messages peut prendre quelques jours.<br> Merci.','','','','2020-11-10 10:04:04','127.0.0.1',47,1),
+(69,4,163,'Un litige concernant une de vous Demande/Mission a été ouvert.<br> \r\n                            Le délai moyen de traitement est de 14 jours ouvrés.<br>\r\n                            Nous vous invitons à nous comuniquer dès maintenant toute information que vous jugez importante par rapport à ce litige via ce service de chat.<br>\r\n                            Veuillez noter que le traitement de vos messages peut prendre quelques jours.<br> Merci.','','','','2020-11-10 10:04:04','127.0.0.1',47,0),
+(70,162,4,'sdafasdf','','','','2020-11-10 10:04:04','127.0.0.1',47,0);
 
 /*Table structure for table `chat_files` */
 
@@ -385,19 +396,6 @@ CREATE TABLE `chat_image` (
 ) ENGINE=MyISAM AUTO_INCREMENT=38 DEFAULT CHARSET=latin1;
 
 /*Data for the table `chat_image` */
-
-/*Table structure for table `chatting_member` */
-
-DROP TABLE IF EXISTS `chatting_member`;
-
-CREATE TABLE `chatting_member` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `user_id` int(11) unsigned NOT NULL,
-  `member_id` int(11) unsigned NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
-/*Data for the table `chatting_member` */
 
 /*Table structure for table `colors` */
 
@@ -1293,6 +1291,19 @@ CREATE TABLE `links` (
 
 /*Data for the table `links` */
 
+/*Table structure for table `litigation_permission` */
+
+DROP TABLE IF EXISTS `litigation_permission`;
+
+CREATE TABLE `litigation_permission` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `mission_id` int(11) unsigned NOT NULL,
+  `user_id` int(11) unsigned NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+
+/*Data for the table `litigation_permission` */
+
 /*Table structure for table `litigations` */
 
 DROP TABLE IF EXISTS `litigations`;
@@ -1312,7 +1323,7 @@ CREATE TABLE `litigations` (
   `date_modified` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `open_close_status` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=27 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=34 DEFAULT CHARSET=latin1;
 
 /*Data for the table `litigations` */
 
@@ -1393,7 +1404,7 @@ CREATE TABLE `mission` (
   `bank_fee` varchar(255) NOT NULL,
   `satisfy` tinyint(4) NOT NULL,
   PRIMARY KEY (`mission_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=43 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=48 DEFAULT CHARSET=latin1;
 
 /*Data for the table `mission` */
 
@@ -1411,7 +1422,7 @@ CREATE TABLE `notification` (
   `created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `type_id` int(25) NOT NULL,
   PRIMARY KEY (`notification_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=157 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=230 DEFAULT CHARSET=latin1;
 
 /*Data for the table `notification` */
 
@@ -1519,7 +1530,7 @@ CREATE TABLE `project_offer` (
   `accept_status` int(25) NOT NULL,
   `client_id` int(255) NOT NULL,
   PRIMARY KEY (`offer_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
 
 /*Data for the table `project_offer` */
 
@@ -1539,7 +1550,7 @@ CREATE TABLE `project_status` (
   `project_image` text NOT NULL,
   `client_id` int(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=21 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=24 DEFAULT CHARSET=latin1;
 
 /*Data for the table `project_status` */
 
@@ -1616,7 +1627,7 @@ CREATE TABLE `transaction` (
   `mission_id` int(25) NOT NULL,
   `status` int(25) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=29 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=35 DEFAULT CHARSET=latin1;
 
 /*Data for the table `transaction` */
 
@@ -1714,7 +1725,7 @@ insert  into `users`(`id`,`username`,`password`,`second_password`,`role`,`source
 (12,'roshani demo','e10adc3949ba59abbe56e057f20f883e',NULL,'client',0,0,0,'roshani dangi','roshani dangi','rangari','roshni@gmail.com','','7812345634','','d.png','','','2020-03-27','','','','','','India','asdasdsd,,,','','','',0,0,0,0,'','sddsf','asdxx ','','fdgf','work',0,'','','','',0,0,'cvo14O5hRFqNBZfmijNslX:APA91bH3teyixJ3BaA56iiSmjkiqR396-GkgaCChKNzzRI_UYuJ4_aPm95E_q3PtoB08dbZQ2KyB7HgR4xV6hiqUaeKk5CZLplc0ccBmLD_i1oeW0ho9_deJaaTWp-wdI8PkMGuISykn','asdsdsad','','2020-10-30 22:53:26','123456','cus_H8I2LTxDlAxMQB','card_1Ga1SnJPZuhal6eZ6cmdkcIC','','20',0,0,'22222222222222','rrrr','2020-06-03 12:47:00','facebook','',''),
 (14,'gopal','00267ce0bff0bb5e7f169530a1d7c2e6',NULL,'client',0,0,0,'','gopal','sharma','gopal@alphawizz.awsapps.com','','7440467565','','default.png','','','','','','','','','','','','','',0,0,0,0,'','','','','0','biology',0,'','','','',0,0,'','','','2020-11-05 18:02:15','','','','','0',0,0,'','','0000-00-00 00:00:00','facebook','',''),
 (16,'Vasim','e10adc3949ba59abbe56e057f20f883e',NULL,'client',0,2147483647,0,'','vasim','ahmed','vasim@gmail.com','','7677341234','','Rectangle_162.png','','','','','','','','','test Country','','','','',0,0,0,0,'','testing','testing','testing','testing','testing',0,'','','','2020-04-29 13:29:21',0,0,'cvo14O5hRFqNBZfmijNslX:APA91bH3teyixJ3BaA56iiSmjkiqR396-GkgaCChKNzzRI_UYuJ4_aPm95E_q3PtoB08dbZQ2KyB7HgR4xV6hiqUaeKk5CZLplc0ccBmLD_i1oeW0ho9_deJaaTWp-wdI8PkMGuISykn','testing','','2020-06-25 09:34:38','','cus_H8bPQNUJBLVJR1','card_1GcqRSJPZuhal6eZoU7CL8eY','test dss','30',0,0,'','','2020-06-03 12:47:00','facebook','',''),
-(162,'hello','25f9e794323b453885f5181f1b624d0b',NULL,'client',0,1,0,'','hello','123','hello@sample.com','','','','medical-insuarnce.png','','','','','','','','','Canada','','','','',0,622,547.36,0,'','2','Math','asdfasdf','ererer','ee',3,'','','','',0,0,'','ljaslkdjfklajsdflkjasdfasdf','','2020-11-09 16:17:37','','','','','0',0,0,'','','0000-00-00 00:00:00','facebook','',''),
+(162,'hello','25f9e794323b453885f5181f1b624d0b',NULL,'client',0,1,0,'','hello','123','hello@sample.com','','','','medical-insuarnce.png','','','','','','','','','Canada','','','','',0,622,547.36,0,'','2','Math','asdfasdf','ererer','ee',3,'','','','',0,0,'','ljaslkdjfklajsdflkjasdfasdf','','2020-11-10 11:31:48','','','','','0',0,0,'','','0000-00-00 00:00:00','facebook','',''),
 (163,'hi','25f9e794323b453885f5181f1b624d0b',NULL,'client',0,0,0,'','elie','kassis','hi@sample.com','','','','me1.png','','','hi','','','','','','Canada','','','','',622,0,0,0,'','234','asdfasdf','asdfasdf','asdfasf','aa',0,'','','','',0,0,'','hello','','2020-11-09 16:17:37','','23423','666','','0',0,0,'','','0000-00-00 00:00:00','facebook','',''),
 (179,'234','25f9e794323b453885f5181f1b624d0b',NULL,'client',0,0,0,'','asdf','asdf','speare88@gmail.com','','456465484','','7.png','','','2020-11-09','male','','','asdfasdf','','asdfasdf','sdfasdf','','','asdfasdf',0,0,0,0,'','','','','','',0,'','','','',0,0,'','','','2020-11-09 06:11:47','','','','','0',0,0,'','','0000-00-00 00:00:00','facebook','',''),
 (180,'asf','25f9e794323b453885f5181f1b624d0b',NULL,'client',0,0,0,'','','','Mydev@gmail.com','','','','default.png','','','','','','','','','','','','','',0,0,0,0,'','','','','','',0,'','','','',0,0,'','','','2020-11-09 16:10:18','','','','','0',0,0,'','','0000-00-00 00:00:00','facebook','','');

@@ -386,10 +386,30 @@ class Posts extends CI_Controller
 
        public function Notification(){
          $this->load->view('Front/common/header');
-        $this->load->view('Front/notification');
+         $this->load->view('Front/notification');
          $this->load->view('Front/common/footer');  
        }
 
+       public function close_dispute()
+       {
+          $mission_id = $this->uri->segment(4);
+          $opponent_id = $this->uri->segment(5);
+          $flag = $this->uri->segment(6);
+
+          $this->load->model('Front/User');
+          $selfUser = $this->User->getSelfUser();
+          
+          $this->load->model('Front/Posts_model');
+          $this->Posts_model->setCloseDispute($mission_id, $selfUser[0]['id']);
+          
+          $this->Posts_model->pushNotification($this->session->userdata['id'], 2, "Le litige est clos.");
+          $this->Posts_model->pushNotification($opponent_id, 2, "Le litige est clos.");
+
+          if($flag == 0)
+            redirect('Front/home/mydemands');
+          else 
+            redirect('Front/home/mymissions');
+       }
 
 }
 ?>

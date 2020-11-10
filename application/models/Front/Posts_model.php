@@ -323,6 +323,50 @@ class Posts_model extends CI_Model
             $status = $this->db->insert('user_review', $rating_data);
         }
         
+        public function isDisputeOpener($missonId, $user_id){
+            //var_dump($user_id);die();
+            $this->db->select("*");
+            $this->db->from("litigations");
+            $this->db->where('project_id', $missonId);
+            $this->db->where('opener_id', $user_id);
+            $this->db->where('open_close_status', 1);
+            $count1 = $this->db->get()->num_rows();
+
+            $this->db->select("*");
+            $this->db->from("litigation_permission");
+            $this->db->where('mission_id', $missonId);
+            $this->db->where('user_id', $user_id);
+            $count2 = $this->db->get()->num_rows();
+
+            if($count1 > 0 && $count2 == 0)
+                return true;
+            return false;
+        }
+        public function setCloseDispute($mission_Id, $openerId)
+        {
+            $this->db->select("before_status");
+            $this->db->from("litigations");
+            $this->db->where('project_id', $mission_Id);
+            $this->db->where('opener_id', $openerId);
+            $before_status = $this->db->get()->row()->before_status;
+
+            $data = array("open_close_status" => 0);
+            $this->db->where('project_id', $mission_Id);
+            $this->db->where('opener_id', $openerId);
+            $this->db->update('litigations', $data);
+
+            $mission_status_update = array("mission_status" => $before_status);
+            $this->db->where('mission_id', $mission_Id);
+            $this->db->update('mission', $mission_status_update);
+
+            $permission_data = array(
+                'mission_id' => $mission_Id,
+                'user_id' => $openerId
+            );
+            $this->db->insert('litigation_permission', $permission_data);
+        }
+
+
         public function deliver_paym_demand($project_data){
 
             $status = $this->db->insert('withdrawpayment', $project_data);
