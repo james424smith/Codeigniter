@@ -68,7 +68,7 @@
                                 </label>
                                 <br>
                                 <div class="col-md-9">
-                                    <select name="status" id="status">
+                                    <select name="mission_status" id="status">
                                         <option value="0" <?php if($demands_edit[0]->mission_status == 0) { ?> selected <?php } ?>>Posted</option>
                                         <option value="1" <?php if($demands_edit[0]->mission_status == 1) { ?> selected <?php } ?>>In Progress</option>
                                         <option value="2" <?php if($demands_edit[0]->mission_status == 2) { ?> selected <?php } ?>>Delivered</option>

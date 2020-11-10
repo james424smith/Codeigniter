@@ -189,6 +189,7 @@ div#dtBasicExample_length {
   function onClickEditUser(idx)
   { 
     var pwd = $('#second_password').val();
+    //alert(pwd);
     var str = prompt("What's your second password?");
     if(str == pwd)
       location.href = $('#edit_url' + idx).val();
