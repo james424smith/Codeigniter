@@ -15,7 +15,7 @@ class ContactContent_model extends CI_Model {
 
     // Display services
     function display_contact_section1(){
-        $query = $this->db->query("select * from contact_content");
+        $query = $this->db->query("select * from contact");
         return $query->result();
 
     }

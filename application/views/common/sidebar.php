@@ -71,6 +71,13 @@
             </a>
           </li>
 
+          <li class="nav-item <?php if($currentpage == "ContactContent") { echo "active"; } ?> ">
+            <a class="nav-link" href="<?php echo base_url('ContactContent');?>">
+              <i class="material-icons">list</i>
+              <p><?= ('Contact List') ?></p>
+            </a>
+          </li>
+
           <li class="nav-item <?php if($currentpage=="withdrawpaymentList") { echo "active"; } ?> ">
             <a class="nav-link" href="<?php echo base_url('withdrawpaymentList');?>">
               <i class="material-icons">list</i>

@@ -1,6 +1,11 @@
 <!-- top sec -->
 <?php $admin_url = $this->config->item('base_url'); 
 ?>
+<?php if($this->session->flashdata('sucess_contact')){ ?>
+  <script>
+    swal("vous avez contacté l'administrateur avec succès.");
+  </script> 
+<?php } ?>
 <section class="contact_bnr">
    <div class="container">
         <div class="row">
@@ -92,7 +97,7 @@
                           
                           <!-- Contact form -->
 
-                          <form class="contact2-form validate-form" action="" method="post">
+                          <form class="contact2-form validate-form" action="<?php echo base_url('Front/Posts/saveContact'); ?>" method="post">
                               <h3>Contactez-nous</h3>
 
                               <div class="wrap-input2 validate-input">

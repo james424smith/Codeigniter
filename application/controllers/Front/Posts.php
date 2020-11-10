@@ -401,7 +401,7 @@ class Posts extends CI_Controller
           
           $this->load->model('Front/Posts_model');
           $this->Posts_model->setCloseDispute($mission_id, $selfUser[0]['id']);
-          
+
           $this->Posts_model->pushNotification($this->session->userdata['id'], 2, "Le litige est clos.");
           $this->Posts_model->pushNotification($opponent_id, 2, "Le litige est clos.");
 
@@ -409,6 +409,21 @@ class Posts extends CI_Controller
             redirect('Front/home/mydemands');
           else 
             redirect('Front/home/mymissions');
+       }
+
+       public function saveContact()
+       {
+         $data = array(
+           'title' => $this->input->post('name'),
+           'description' => $this->input->post('message'),
+           'number' => $this->input->post('contact_no'),
+           'email' => $this->input->post('email')
+         );
+
+         $this->db->insert('contact', $data);
+         $this->session->set_flashdata('sucess_contact', "success_contact");  
+         redirect('Front/contact');
+
        }
 
 }

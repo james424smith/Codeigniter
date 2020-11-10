@@ -38,8 +38,8 @@
 							<input type="number" class="number-input" id="integer" placeholder="Budget" name="budget" required>
 						</div>
 						<div class="post_form_content">
-							<label>Déscription</label>
-							<textarea name="description" placeholder="Déscription" required></textarea>
+							<label>Description</label>
+							<textarea name="description" placeholder="Description" required></textarea>
 						</div>	
 						<div class="post_form_content">
 							<div class="post_inner_upload_file">

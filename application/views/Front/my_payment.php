@@ -5,7 +5,7 @@
   <div class="top_bnr section post_demand">
     <div class="container">
       <div class="top-side about_title">
-          <h3 class="title" style="color:blue;">Paiment</h3>
+          <h3 class="title" style="color:blue;">Paiement</h3>
         </div>
     </div>
   </div>
