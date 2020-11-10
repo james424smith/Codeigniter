@@ -109,6 +109,8 @@ $('.ClearChat').click(function(){
 
 	$(".message").focus(function(){
 		//alert(chat_reciver_id);
+		//alert("d");
+
 		if(chat_reciver_id == "")
 			return;
 		//alert($("#recive_id").val());
@@ -118,8 +120,9 @@ $('.ClearChat').click(function(){
 			receiver_id: chat_reciver_id
 		},
 		function(res){
-	
+			$('#unread_msg' + chat_reciver_id).hide();
 		});
+		
 	});
 
 });	///end of jquery

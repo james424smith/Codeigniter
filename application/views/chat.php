@@ -5,6 +5,8 @@
       $name = $_POST['search_name'];
       //var_dump($name);
    }
+   $obj = &get_instance();
+   $obj->load->model('ChatModel');
 
    //var_dump($vendorslist);die();
 
@@ -12,6 +14,20 @@
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/Front/css/custom.css')?>">
 
 <style>
+   
+   .badge_5 {
+		position: absolute;
+		font-size: 100%;
+		border-radius: 50%;
+		background-color: red;
+		color: white;
+		padding-left: 6px;
+		padding-right: 5px;
+		margin-top: 2px;
+		margin-left: 2px;
+		font-weight: bolder;
+      margin-left: 60px;
+  }
    .fileDiv {
    position: relative;
    overflow: hidden;
@@ -69,17 +85,30 @@
                                  ?>
 
                                        <li class="selectVendor" id="<?=$v['id'];?>" title="<?=$v['username'];?>">
+                                          <?php
+                                             $unread_msg_count = $obj->ChatModel->getUnReadMsgCountWithAdmin($v['id']);
+                                             if($unread_msg_count > 0) {
+                                          ?>
+                                             <span class="badge_5" id="unread_msg<?=$v['id']?>"><?=$unread_msg_count?></span>
+                                          <?php }?>
                                           <img src="<?=$v['picture_url'];?>" alt="<?=$v['username'];?>" title="<?=$v['username'];?>">
                                           <a class="users-list-name" href="#">
                                              <?php if($v['highlight'] == 1) { echo "<span></span>"; } ?>
                                              <?=$v['username'];?>
                                           </a>
+                                          
                                           <!--<span class="users-list-date">Yesterday</span>-->
                                        </li>
 
                                  <?php } }
                                  else if ($v['id'] != $this->session->userdata('admin_id')){ ?>
                                  <li class="selectVendor" id="<?=$v['id'];?>" title="<?=$v['username'];?>">
+                                       <?php
+                                             $unread_msg_count = $obj->ChatModel->getUnReadMsgCountWithAdmin($v['id']);
+                                             if($unread_msg_count > 0) {
+                                       ?>
+                                          <span class="badge_5" id="unread_msg<?=$v['id']?>"><?=$unread_msg_count?></span>
+                                       <?php }?>
                                     <img src="<?=$v['picture_url'];?>" alt="<?=$v['username'];?>" title="<?=$v['username'];?>">
                                     <input type="hidden" id="<?php echo 'img_' . $v['id'];?>" value="<?=$v['picture_url'];?>">
                                     <a class="users-list-name" href="#">

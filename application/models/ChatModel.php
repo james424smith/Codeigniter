@@ -189,4 +189,18 @@
 		//var_dump($count);die();
 		return $count;
 	}
+
+	public function getUnReadMsgCountWithAdmin($opp_ID)
+	{
+		//var_dump($opp_ID);die();
+		$self_user_id = $this->session->userdata['admin_id'];
+		$this->db->select("*");
+		$this->db->from($this->Table);
+		$this->db->where('sender_id', $opp_ID);
+		$this->db->where('receiver_id', $self_user_id);
+		$this->db->where('read_status', 0);
+		$count = $this->db->get()->num_rows();
+		//var_dump($count);die();
+		return $count;
+	}
  }
