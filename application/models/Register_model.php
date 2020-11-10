@@ -217,7 +217,7 @@ public function getUserList($from_date, $to_date)
   }
   public function getSelfUser()
   {
-    $user_id = $this->session->userdata['id'];
+    $user_id = $this->session->userdata['admin_id'];
     $this->db->select('*');
     $this->db->from('users');
     $this->db->where('id', $user_id);

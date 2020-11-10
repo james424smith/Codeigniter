@@ -45,6 +45,7 @@ div#dtBasicExample_length {
                     });
                 });
               </script>-->
+            <input type="hidden" id="second_password" value="<?php echo $selfadmin->second_password; ?>" >
             <div class="card-body table-responsive">
                 <table id="dtBasicExample" class="table table-striped  table-sm" cellspacing="0" width="100%">
                   <thead class=" text-primary">
@@ -59,10 +60,12 @@ div#dtBasicExample_length {
                     <th><?=('Action')?></th> 
                   </thead>                  
                   <tbody>
-                    <?php  
+                    <?php 
+                      $no = 0;
                       foreach($litigationslist as $user){
-                      $newDate = date("dmy", strtotime($user->date_created));
-                      $invID = str_pad($user->project_id, 5, '0', STR_PAD_LEFT);
+                        ++$no;
+                        $newDate = date("dmy", strtotime($user->date_created));
+                        $invID = str_pad($user->project_id, 5, '0', STR_PAD_LEFT);
                     ?>
                   <tr>
                   <td ><?php echo date("d-m-Y", strtotime($user->date_created)); ?> </td>
@@ -85,16 +88,16 @@ div#dtBasicExample_length {
                   <td>
                       <?php
                       $show_text = $user->title;
-									    if(strlen($show_text) > 30)
-										    $show_text = substr($show_text, 0, 30) . "...";
+									    if(strlen($show_text) > 20)
+										    $show_text = substr($show_text, 0, 20) . "...";
 									    echo $show_text; 
                       ?>
                   </td>
                   <td> 
                     <?php 
 									    $show_text = $user->description;
-									    if(strlen($show_text) > 30)
-										    $show_text = substr($show_text, 0, 30) . "...";
+									    if(strlen($show_text) > 20)
+										    $show_text = substr($show_text, 0, 20) . "...";
 									    echo $show_text;
 								    ?>
                   </td>
@@ -106,10 +109,23 @@ div#dtBasicExample_length {
                         echo "Close"; 
                     ?> 
                   </td>
-                  <td> <?php echo $user->comment;?> </td>
+                  <td> <?php 
+									    $show_text = $user->admin_comment;
+									    if(strlen($show_text) > 20)
+										    $show_text = substr($show_text, 0, 20) . "...";
+									    echo $show_text;
+								    ?> 
+                  </td>
                   <td>
-                    <a href='<?=base_url("litigationsList/edit_litigations/$user->id");?>' onclick="return confirm('Are you sure you want to edit this item?');"><i class="fa fa-edit"></i></a>
-                    <a href='<?php echo base_url("litigationsList/delete_litigations/$user->id");?>' onclick="return confirm('Are you sure you want to delete this item?');"><i class="fa fa-trash"></i></a>
+                    <a onclick="onClickEditUser(<?=$no?>)">
+                      <input type="hidden" id="<?php echo "edit_url" . $no?>" value="<?=base_url("litigationsList/edit_litigations/$user->id");?>">
+                      <i class="fa fa-edit"></i>
+                    </a>
+
+                    <a onclick="onClickDeleteUser(<?=$no?>)">
+                      <input type="hidden" id="<?php echo "delete_url" . $no?>" value="<?php echo base_url("litigationsList/delete_litigations/$user->id");?>">
+                      <i class="fa fa-trash"></i>
+                    </a>
                   </td>
                   </tr>   
                       <?php }?>                 
@@ -159,7 +175,21 @@ $(document).ready(function(){
    
   });
 })
-  
+function onClickEditUser(idx)
+{
+    var pwd = $('#second_password').val();
+    //alert(pwd);
+    var str = prompt("What's your second password?");
+    if(str == pwd)
+      location.href = $('#edit_url' + idx).val();
+}
+function onClickDeleteUser(idx)
+{
+    var pwd = $('#second_password').val();
+    var str = prompt("Are you sure to delete this item?");
+    if(str == pwd)
+      location.href = $('#delete_url' + idx).val();
+}
 </script>
 
 

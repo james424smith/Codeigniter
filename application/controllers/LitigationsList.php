@@ -4,7 +4,7 @@ class LitigationsList extends CI_Controller {
     {
         parent::__construct();
         $this->load->model('Litigations_model');
-        if(!empty($this->session->userdata('id'))){
+        if(!empty($this->session->userdata('admin_id'))){
 
 
         }
@@ -20,7 +20,7 @@ class LitigationsList extends CI_Controller {
         /*Display user list*/
 
         $litigationslist['litigationslist'] = $this->Litigations_model->LitigationsList();
-       
+        $litigationslist['selfadmin'] = $this->Litigations_model->getSelfUser();
         $this->load->view('litigationsList', $litigationslist); 
         $this->load->view('common/footer');
 
@@ -66,6 +66,7 @@ class LitigationsList extends CI_Controller {
             'title' => $post['title'],
             'description' => $post['description'],
             'comment' => $post['comment'],
+            'admin_comment' => $post['admin_comment'],
             'open_close_status' => $post['status']
         );
             

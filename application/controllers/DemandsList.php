@@ -4,7 +4,7 @@ class DemandsList extends CI_Controller {
     {
         parent::__construct();
         $this->load->model('Demands_model');
-        if(!empty($this->session->userdata('id'))){
+        if(!empty($this->session->userdata('admin_id'))){
 
 
         }

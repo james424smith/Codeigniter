@@ -80,7 +80,15 @@
                                 </label>
                                 <br>
                                 <div class="col-md-9">
-                                    <input type="text"  id="comment" name="comment" value="<?php echo $litigations_edit[0]['comment'];?>">
+                                    <textarea id="comment" name="comment"> <?php echo $litigations_edit[0]['comment'];?></textarea>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-md-3 "><?= ('Admin Comment')?> <span class="text-danger">*</span>
+                                </label>
+                                <br>
+                                <div class="col-md-9">
+                                    <textarea id="comment" name="admin_comment"> <?php echo $litigations_edit[0]['admin_comment'];?></textarea>
                                 </div>
                             </div>
                             <div class="form-group row">

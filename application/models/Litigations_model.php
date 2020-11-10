@@ -190,6 +190,15 @@ $this->db->where('date_created <=', $to_date);
     return $count;
   }
 
+  public function getSelfUser()
+  {
+    $user_id = $this->session->userdata['admin_id'];
+    $this->db->select('*');
+    $this->db->from('users');
+    $this->db->where('id', $user_id);
+    $query = $this->db->get();
+    return $query->row();
+  }
 
 }
 

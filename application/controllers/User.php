@@ -14,7 +14,7 @@ class User extends CI_Controller {
 		
 		
 		
-		if(!empty($this->session->userdata('id'))){
+		if(!empty($this->session->userdata('admin_id'))){
 
 
 		}

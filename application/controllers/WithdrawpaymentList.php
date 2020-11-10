@@ -5,7 +5,7 @@ class WithdrawpaymentList extends CI_Controller {
         parent::__construct();
         $this->load->model('Withdrawpayment_model');
         $this->withdrawpayment = 'withdrawpayment';
-        if(!empty($this->session->userdata('id'))){
+        if(!empty($this->session->userdata('admin_id'))){
 
 
         }

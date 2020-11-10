@@ -8,7 +8,7 @@ class Table extends CI_Controller {
         $this->load->model('Register_model');
         
 
-        if(!empty($this->session->userdata('id'))){
+        if(!empty($this->session->userdata('admin_id'))){
         }
         else {
             redirect('Login');

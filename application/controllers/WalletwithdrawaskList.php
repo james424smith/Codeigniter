@@ -4,7 +4,7 @@ class WalletwithdrawaskList extends CI_Controller {
     {
         parent::__construct();
         $this->load->model('Walletwithdrawask_model');
-        if(!empty($this->session->userdata('id'))){
+        if(!empty($this->session->userdata('admin_id'))){
 
 
         }

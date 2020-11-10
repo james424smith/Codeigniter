@@ -67,7 +67,7 @@
                       <td>
                           <a onclick="onClickEditUser(<?=$no?>)">
                             <input type="hidden" id="<?php echo "edit_url" . $no?>" value="<?=base_url("table/edit_users/$user->id");?>">
-                            <i class="fa fa-edit"></i>
+                            <input type="hidden" id="<?php echo "edit_url" . $no?>" value="<?=base_url("table/edit_users/$user->id");?>">
                           </a>
                           <a href="" data-toggle="modal" data-target="#myModal<?php echo $user->id;?>">
                             <i class="fa fa-eye"></i>
