@@ -152,13 +152,10 @@
         <!-- Modal body -->
         <div class="modal-body">
 			<div class="post_demand_details_popup">
-				<h4>Do you want to open a dispute?</h4>
+				<h4>Etes vous sûr de vouloir ouvrir un litige ?</h4>
 				<p>
-					Si oui merci de préciser la nature du problème
-
-					Si non,  pour toute autre demande merci de nous écrire via
-					 
-					la page de contact en cliquant ici: <a href="<?php echo base_url('Front/contact')?>" class="btn btn-primary">contactez ici</a>
+				Si vous souhaitez ouvrir un litige, veuillez renseigner le champs de description.
+				Pour toute autre demande merci de nous écrire vie le formulaire de contact en cliquant ici:  <a href="<?php echo base_url('Front/contact')?>" class="btn btn-primary">Contact ici</a>
 				</p>
 				<form action="<?php echo base_url('ChatController/claim_chat')?>" method="post">
 					<div class="">
