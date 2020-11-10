@@ -64,7 +64,7 @@
                                           foreach($vendorslist as $v):
                                              if($name)
                                              {
-                                                if($v['username'] == $name || $v['first_name'] == $name || $v['last_name'] == $name || $v['email'] == $name)
+                                                if($v['id'] != $this->session->userdata('admin_id') && ($v['username'] == $name || $v['first_name'] == $name || $v['last_name'] == $name || $v['email'] == $name))
                                                 {
                                  ?>
 
@@ -78,7 +78,7 @@
                                        </li>
 
                                  <?php } }
-                                 else{ ?>
+                                 else if ($v['id'] != $this->session->userdata('admin_id')){ ?>
                                  <li class="selectVendor" id="<?=$v['id'];?>" title="<?=$v['username'];?>">
                                     <img src="<?=$v['picture_url'];?>" alt="<?=$v['username'];?>" title="<?=$v['username'];?>">
                                     <input type="hidden" id="<?php echo 'img_' . $v['id'];?>" value="<?=$v['picture_url'];?>">

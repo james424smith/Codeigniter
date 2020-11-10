@@ -16,7 +16,7 @@ class Chat extends CI_Controller {
 		/*if($this->session->userdata['Admin']['role'] == 'Client_cs'){*/
 
 		$list = $this->UserModel->VendorsList();
-		$self = $this->UserModel->GetUserDataById($this->session->userdata['id']);
+		$self = $this->UserModel->GetUserDataById($this->session->userdata['admin_id']);
 		$data['strTitle'] = 'All Vendors';
 		$data['strsubTitle'] = 'Vendors';
 		$data['chatTitle'] = 'Select Vendor with Chat';

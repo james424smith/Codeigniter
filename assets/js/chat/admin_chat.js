@@ -76,6 +76,7 @@ $('.upload_attachmentfile').change( function(e) {
     form_data.append('attachmentfile', file_data);
 	form_data.append('type', 'Attachment');
 	form_data.append('receiver_id', chat_reciver_id);
+	form_data.append('admin', 'true');
 		  
 	 $.ajax({
 		type:"POST",    
@@ -177,6 +178,7 @@ function sendTxtMessage(message){
 		 
 		$.post("/send-message",
 		{
+			admin:"true",
 			receiver_id: chat_reciver_id,
 			messageTxt: messageTxt
 		},
@@ -197,6 +199,7 @@ function GetChatHistory(receiver_id){
 
 	$.get("/get-chat-history-vendor",
 		{
+			admin:"true",
 			receiver_id: receiver_id,
 		},
 		function(data){

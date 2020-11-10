@@ -176,6 +176,10 @@ class ChatController extends CI_Controller {
             $file_ext = '';
             $mime_type = '';
             
+            $user_id = $this->session->userdata('id');
+            if($post['admin'])
+                $user_id = $this->session->userdata('admin_id');
+
             if(isset($post['type']) == 'Attachment'){ 
                 //echo "fff"; die();
                 $AttachmentData = $this->ChatAttachmentUpload();
@@ -190,7 +194,7 @@ class ChatController extends CI_Controller {
             $get_project_id = $this->ChatModel->get_project_id($post['receiver_id']); 
 
             $data = [
-                        'sender_id' => $this->session->userdata('id'),
+                        'sender_id' => $user_id,
                         'receiver_id' => $post['receiver_id'],
                         'message' =>   $messageTxt,
                         'attachment_name' => $attachment_name,
@@ -291,8 +295,9 @@ class ChatController extends CI_Controller {
 
         $receiver_id =  $this->input->get('receiver_id');
         $Logged_sender_id = $this->session->userdata('id');
-
-        $history = $this->ChatModel->GetReciverChatHistory($receiver_id);        
+        if($this->input->get('admin'))
+            $Logged_sender_id = $this->session->userdata('admin_id'); 
+        $history = $this->ChatModel->GetReciverChatHistory($receiver_id, $Logged_sender_id);        
       
         echo json_encode($history);die();
 
