@@ -152,7 +152,7 @@
 	</div>
 </section>
 
- <!-- The Modal -->
+ <!-- The Modal inprogress -->
   <div class="modal" id="myModal2">
     <div class="modal-dialog">
       <div class="modal-content">
@@ -162,13 +162,10 @@
         <!-- Modal body -->
         <div class="modal-body">
 			<div class="post_demand_details_popup">
-				<h4>Do you want to open a dispute?</h4>
+				<h4> Etes vous sûr de vouloir ouvrir un litige ?</h4>
 				<p>
-					Si oui merci de préciser la nature du problème
-
-					Si non,  pour toute autre demande merci de nous écrire via
-					 
-					la page de contact en cliquant ici: <a href="#" class="btn btn-primary">Contactez ici</a>
+					Si vous souhaitez ouvrir un litige, veuillez renseigner le champs de description.
+					Pour toute autre demande merci de nous écrire vie le formulaire de contact en cliquant ici: <a href="#" class="btn btn-primary">Contactez ici</a>
 				</p>
 				<form>
 					<div class="">

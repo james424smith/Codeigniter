@@ -77,7 +77,7 @@
 											</p>
 											<form action="<?php echo base_url('Front/Posts/mission_update')?>" enctype="multipart/form-data" method="post">
 											<div class="from-group">
-												<Label><h6>Déscription</h6></Label>
+												<Label><h6>Description</h6></Label>
 												<textarea class="form-control" name="message"><?php echo $value['message']; ?></textarea>
 											</div>
 											<br>  
