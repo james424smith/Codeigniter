@@ -18,16 +18,18 @@ $("li").click(function(){
 		$(this).addClass("active");
 		chat_reciver_id = $(this).attr('class');
 		chat_reciver_id = chat_reciver_id.replace(" active", "");
-
+		//$(".select-id").val(chat_reciver_id);
 		var className_img = "img-" + $(this).attr('class');
 		className_img = className_img.replace(" active", "");
 		$(".select-img").attr("src", $("." + className_img).attr("src"));
 		chat_reciver_img_src = $("." + className_img).attr("src");
 
+		$("#status").attr("class", $(".online-" + $(this).attr('class').replace(" active", "")).val());
+		//alert($(".online-" + $(this).attr('class').replace(" active", "")).val());
 		var className_username = "username-" + $(this).attr('class');
 		className_username = className_username.replace(" active", "");
 		$(".select-username").html($("." + className_username).html());
-
+		
 		GetChatHistory(chat_reciver_id); 				
 		ScrollDown();
 	}
@@ -113,13 +115,12 @@ $('.ClearChat').click(function(){
 		//alert(chat_reciver_id);
 		if(chat_reciver_id == "")
 			return;
-		//alert($("#recive_id").val());
 		$.post("/unreadmessage",
 		{
 			receiver_id: chat_reciver_id
 		},
 		function(res){
-	
+			$('#unread_msg' + chat_reciver_id).hide();
 		});
 	});
 

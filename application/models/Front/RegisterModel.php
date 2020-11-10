@@ -25,14 +25,27 @@ class RegisterModel extends CI_Model {
       //return true;
       if($query->num_rows() > 0)  
       {  
+        $status = array('status' => 1);
+        
+        $this->db->where('id', $id);  
+        $this->db->update('users', $status);
+
         return true;  
       }  
       else  
       {  
         return false;       
       }  
-   }  
-    public function GetUserData()
+   } 
+   
+   public function setHighlightForLogout()
+   {
+    $status = array('status' => 0);
+    //var_dump($this->session->userdata['id']);die();
+    $this->db->where('id', $this->session->userdata['id']);  
+    $this->db->update('users', $status);
+   }
+  public function GetUserData()
   {  
  //print_r($this->session->all_userdata());die();
     $this->db->select('*');

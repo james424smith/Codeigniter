@@ -764,6 +764,16 @@ img.chat_icn {
     right: 0em;
     border: 1.5px solid white;
 }
+.offline_icon {
+    position: absolute;
+    height: 12px;
+    width: 12px;
+    background-color: #9da09c;
+    border-radius: 50%;
+    top: 0.4em;
+    right: 0em;
+    border: 1.5px solid white;
+}
 .card-header {
     background-color: #52C4EC;
     background-image: linear-gradient(to right, #FFFB94 , #FFFDD5);

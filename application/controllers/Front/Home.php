@@ -56,11 +56,13 @@ $this->load->library("pagination");
     }
 
     public function logout()  
-      {  
+    {  
+        $this->load->model('Front/RegisterModel');
+        $this->RegisterModel->setHighlightForLogout();
         // print_r($this->session->userdata('user'));exit;
         $this->session->unset_userdata('id');  
         redirect(base_url() . 'Front/home/login');  
-      }  
+    }  
         
     public function login(){
         $this->load->view('Front/login');  

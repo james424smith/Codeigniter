@@ -176,4 +176,17 @@
 		$this->db->update($this->Table);
 		return true;
 	}
+
+	public function getUnReadMsgCount($opp_ID)
+	{
+		$self_user_id = $this->session->userdata['id'];
+		$this->db->select("*");
+		$this->db->from($this->Table);
+		$this->db->where('sender_id', $opp_ID);
+		$this->db->where('receiver_id', $self_user_id);
+		$this->db->where('read_status', 0);
+		$count = $this->db->get()->num_rows();
+		//var_dump($count);die();
+		return $count;
+	}
  }

@@ -14,8 +14,7 @@
 	<div class="my_profile heelpr-profile">
 		<div class="container">
 			<div class="row">
-				<?php foreach ($pro as  $member) {					
-				   ?>
+				<?php foreach ($pro as  $member) { ?>
 				<div class="col-md-2"></div>
 				<div class="col-md-8">
 					<div class="my_profile_box">
@@ -159,7 +158,11 @@
 			<div class="d-flex bd-highlight">
 				<div class="img_cont">
 					<img src="<?php echo base_url("uploads/profiles/" . $pro[0]['picture_url']);?>" class="rounded-circle user_img">
-					<span class="online_icon"></span>
+					<?php if($pro[0]['status'] == 1) { ?>
+						<span class="online_icon"></span>
+					<?php } else { ?>
+						<span class="offline_icon"></span>
+					<?php } ?>
 				</div>
 				<div class="user_info">
 					<span><?php echo $pro[0]['username']; ?></span>
