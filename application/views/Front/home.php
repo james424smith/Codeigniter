@@ -37,11 +37,11 @@
           </div>
         </div>
         <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-          <i class="fas fa-angle-left" style="color:black; font-size:40px; padding-right: 200px;"></i>
+          <i class="fas fa-angle-left" style="color:black; font-size:40px;"></i>
           <span class="sr-only">Previous</span>
         </a>
         <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-          <i class="fas fa-angle-right" style="color:black; font-size:40px; padding-left: 200px;"></i>
+          <i class="fas fa-angle-right" style="color:black; font-size:40px;"></i>
           <span class="sr-only">Suivant</span>
         </a>
       </div>
@@ -131,7 +131,7 @@
                       </div>
                       <div class="col-md-8 cat_content">
                         <?php
-                    	    $now = time(); // or your date as well
+                            $now = time(); // or your date as well
                       	  $your_date = strtotime($row->created_date);
                       	  $datediff = $now - $your_date;
                         ?>

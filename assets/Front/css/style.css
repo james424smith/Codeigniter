@@ -173,6 +173,9 @@ div#user_profile button.btn.btn-default {
     height: calc(100vh - 50px);
     overflow-y: auto;
   }
+  .slick-next {
+    right: -15px !important;
+}
 }
 .top_right_side_icon ul li {
     display: inline-block;
@@ -2558,6 +2561,7 @@ section.our_approch_bg {
 }
 .nav.top_nav {
     z-index: 9;
+    margin-top:30px;
 }
 
 .top_header .nav > .nav-links > a {
@@ -3091,13 +3095,13 @@ section.about_section {
     padding-bottom: 10px;
 }
 .logo img {
-    width: 70px;
+    width: 80px;
 }
 .top_right_side_icon {
     padding: 20px 0px;
     position: absolute;
-    right: 40px;
-    top: -77px;
+    right: 15px;
+    top: -70px;
 }  
 footer#footer-nav .col-md-7 {
     padding: 0px;

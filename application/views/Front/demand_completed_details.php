@@ -16,7 +16,6 @@
 	$obj->load->model('Front/User');
 	$self_user = $obj->User->getSelfUser();
 //print_r($user);die();
-
 ?> 
 
 <section>
