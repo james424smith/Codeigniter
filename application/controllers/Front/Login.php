@@ -47,11 +47,11 @@ class Login extends CI_Controller {
          } 
          else
          {
-          $user_data = array(
-            'email' => "",
-            'password' => ""
-        );
-        $this->session->set_userdata($user_data);
+            $user_data = array(
+              'email' => "",
+              'password' => ""
+            );
+            $this->session->set_userdata($user_data);
          }
         redirect(base_url() . 'Front/home');  
       }  

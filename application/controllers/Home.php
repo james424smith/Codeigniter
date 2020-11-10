@@ -7,7 +7,7 @@ class Home extends CI_Controller
    {
 		parent::__construct();
 		$this->load->model('Register_model');
-		if(!empty($this->session->userdata('id'))){
+		if(!empty($this->session->userdata('admin_id'))){
 		}
 		else 
 		{

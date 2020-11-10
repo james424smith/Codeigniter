@@ -13,12 +13,10 @@ class Login extends CI_Controller {
     if(!empty($this->session->userdata('admin_id'))){
       // redirect('home');
       redirect('home');
-       
     }
     else {
       $this->load->view('login');
     }       
-
   }
 
   function login_validation()  
@@ -73,18 +71,8 @@ class Login extends CI_Controller {
   function enter(){  
     $this->load->view('common/sidebar');
     //var_dump($this->session->userdata('username'));die();
-    if($this->session->userdata('username') != '')  
-    {  
-      ?><div class="dashboard" margin-top: 100px; align="center"><?php 
-      echo '<h2>Welcome - '.$this->session->userdata('username').'</h2>';  
-      echo '<label><a href="'.base_url().'login/logout">Se déconnecter</a></label>';  
-    }  
-    else  
-    {  
       redirect(base_url() . 'login');  
-    }  
-    ?> </div>
-    <?php
+  
   }  
 
 
