@@ -114,8 +114,8 @@ $this->db->where('date_created <=', $to_date);
   //delete project list by id
   public function did_delete_projectrow($project_id)
   {
-    $this->db-> where('project_id', $project_id);
-    return $this->db->delete($this->proCat);
+    $this->db->where('id', $project_id);
+    return $this->db->delete($this->litigations);
   }
 
   public function getProjectCategories(){

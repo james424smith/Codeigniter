@@ -188,7 +188,10 @@ function onClickDeleteUser(idx)
     var pwd = $('#second_password').val();
     var str = prompt("Are you sure to delete this item?");
     if(str == pwd)
-      location.href = $('#delete_url' + idx).val();
+      {
+        //alert("ddd");
+        location.href = $('#delete_url' + idx).val();
+      }
 }
 </script>
 

@@ -29,6 +29,7 @@ class LitigationsList extends CI_Controller {
 // delete data
     public function delete_litigations($id) {
         $this->load->model("Litigations_model");
+        //var_dump($id);die();
         $this->Litigations_model->did_delete_projectrow($id);
         $projectlist['litigationslist'] = $this->Litigations_model->LitigationsList();
         redirect('litigationsList');
