@@ -353,7 +353,7 @@ CREATE TABLE `chat` (
   `project_id` int(255) NOT NULL,
   `read_status` tinyint(4) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=80 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=111 DEFAULT CHARSET=latin1;
 
 /*Data for the table `chat` */
 
@@ -549,15 +549,14 @@ DROP TABLE IF EXISTS `contact`;
 CREATE TABLE `contact` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(45) NOT NULL,
-  `description` varchar(45) NOT NULL,
+  `description` text NOT NULL,
+  `number` varchar(45) NOT NULL,
   `email` varchar(45) NOT NULL,
+  `response` text,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 
 /*Data for the table `contact` */
-
-insert  into `contact`(`id`,`title`,`description`,`email`) values 
-(1,'abcd','this is contact form','sonali@gmail.com');
 
 /*Table structure for table `contact_content` */
 
@@ -581,7 +580,7 @@ CREATE TABLE `contact_content` (
 /*Data for the table `contact_content` */
 
 insert  into `contact_content`(`id`,`contact_section_title1`,`contact_section_image1`,`contact_section_content1`,`contact_map`,`address_title`,`address_content`,`call_us_title`,`call_us_content`,`email_title`,`email_content`) values 
-(1,'Contact us','Contact_img1.png','<p><span style=\"vertical-align: inherit;\"><span style=\"vertical-align: inherit;\"><span style=\"vertical-align: inherit;\"><span style=\"vertical-align: inherit;\">We are a design studio partnering with brands of multiple industries scattered all across the globe. </span></span></span><span style=\"vertical-align: inherit;\"><span style=\"vertical-align: inherit;\"><span style=\"vertical-align: inherit;\">Our work is to build.</span></span></span></span></p>','','Address','<p>Freinville 93270 Sevran-France</p>','Call Us','<p>(+33)09 75 61 33 38</p>\r\n','E-Mail','<p>Contact@heelp.fr</p>');
+(1,'111','contact_img1.png','<p>asdfasdfasdf</p>\r\n','','Address','<p>Freinville 93270 Sevran-France</p>','Call Us','<p>(+33)09 75 61 33 38</p>\r\n','E-Mail','<p>Contact@heelp.fr</p>');
 
 /*Table structure for table `conversations` */
 
@@ -1286,9 +1285,13 @@ CREATE TABLE `litigation_permission` (
   `mission_id` int(11) unsigned NOT NULL,
   `user_id` int(11) unsigned NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 
 /*Data for the table `litigation_permission` */
+
+insert  into `litigation_permission`(`id`,`mission_id`,`user_id`) values 
+(4,53,163),
+(5,52,163);
 
 /*Table structure for table `litigations` */
 
@@ -1309,9 +1312,15 @@ CREATE TABLE `litigations` (
   `date_modified` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `open_close_status` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=34 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=42 DEFAULT CHARSET=latin1;
 
 /*Data for the table `litigations` */
+
+insert  into `litigations`(`id`,`project_id`,`user_email`,`title`,`description`,`comment`,`admin_comment`,`opener_id`,`opponent_id`,`before_status`,`date_created`,`date_modified`,`open_close_status`) values 
+(39,52,'hi@sample.com','test litigation','asdfasdf','hello\r\n',NULL,163,162,1,'2020-11-11 03:58:25','2020-11-11 09:02:50',0),
+(41,53,'hi@sample.com','asdf','asdfasdf','hello',NULL,163,162,1,'2020-11-11 07:04:38','2020-11-11 07:04:38',1),
+(40,53,'hi@sample.com','asdf','asdfasdf','Hi',NULL,163,162,1,'2020-11-11 04:01:28','2020-11-11 09:02:37',0),
+(38,51,'hi@sample.com','hello','asdfasdf','Hello',NULL,163,162,1,'2020-11-11 03:28:21','2020-11-11 03:28:21',1);
 
 /*Table structure for table `manual_payment_methods` */
 
@@ -1390,7 +1399,7 @@ CREATE TABLE `mission` (
   `bank_fee` varchar(255) NOT NULL,
   `satisfy` tinyint(4) NOT NULL,
   PRIMARY KEY (`mission_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=48 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=55 DEFAULT CHARSET=latin1;
 
 /*Data for the table `mission` */
 
@@ -1408,7 +1417,7 @@ CREATE TABLE `notification` (
   `created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `type_id` int(25) NOT NULL,
   PRIMARY KEY (`notification_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=239 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=330 DEFAULT CHARSET=latin1;
 
 /*Data for the table `notification` */
 
@@ -1516,7 +1525,7 @@ CREATE TABLE `project_offer` (
   `accept_status` int(25) NOT NULL,
   `client_id` int(255) NOT NULL,
   PRIMARY KEY (`offer_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=latin1;
 
 /*Data for the table `project_offer` */
 
@@ -1536,7 +1545,7 @@ CREATE TABLE `project_status` (
   `project_image` text NOT NULL,
   `client_id` int(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=24 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=27 DEFAULT CHARSET=latin1;
 
 /*Data for the table `project_status` */
 
@@ -1613,7 +1622,7 @@ CREATE TABLE `transaction` (
   `mission_id` int(25) NOT NULL,
   `status` int(25) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=35 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=42 DEFAULT CHARSET=latin1;
 
 /*Data for the table `transaction` */
 
@@ -1702,7 +1711,7 @@ CREATE TABLE `users` (
   `oauth_uid` varchar(100) NOT NULL,
   `link` varchar(100) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=181 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=182 DEFAULT CHARSET=latin1;
 
 /*Data for the table `users` */
 
@@ -1711,10 +1720,11 @@ insert  into `users`(`id`,`username`,`password`,`second_password`,`role`,`source
 (12,'roshani demo','e10adc3949ba59abbe56e057f20f883e',NULL,'client',0,0,0,'roshani dangi','roshani dangi','rangari','roshni@gmail.com','','7812345634','','d.png','','','2020-03-27','','','','','','India','asdasdsd,,,','','','',0,0,0,0,'','sddsf','asdxx ','','fdgf','work',0,'','','','',0,0,'cvo14O5hRFqNBZfmijNslX:APA91bH3teyixJ3BaA56iiSmjkiqR396-GkgaCChKNzzRI_UYuJ4_aPm95E_q3PtoB08dbZQ2KyB7HgR4xV6hiqUaeKk5CZLplc0ccBmLD_i1oeW0ho9_deJaaTWp-wdI8PkMGuISykn','asdsdsad','','2020-10-30 22:53:26','123456','cus_H8I2LTxDlAxMQB','card_1Ga1SnJPZuhal6eZ6cmdkcIC','','20',0,0,'22222222222222','rrrr','2020-06-03 12:47:00','facebook','',''),
 (14,'gopal','00267ce0bff0bb5e7f169530a1d7c2e6',NULL,'client',0,0,0,'','gopal','sharma','gopal@alphawizz.awsapps.com','','7440467565','','default.png','','','','','','','','','','','','','',0,0,0,0,'','','','','0','biology',0,'','','','',0,0,'','','','2020-11-05 18:02:15','','','','','0',0,0,'','','0000-00-00 00:00:00','facebook','',''),
 (16,'Vasim','e10adc3949ba59abbe56e057f20f883e',NULL,'client',0,0,0,'','vasim','ahmed','vasim@gmail.com','','7677341234','','Rectangle_162.png','','','','','','','','','test Country','','','','',0,0,0,0,'','testing','testing','testing','testing','testing',0,'','','','2020-04-29 13:29:21',0,0,'cvo14O5hRFqNBZfmijNslX:APA91bH3teyixJ3BaA56iiSmjkiqR396-GkgaCChKNzzRI_UYuJ4_aPm95E_q3PtoB08dbZQ2KyB7HgR4xV6hiqUaeKk5CZLplc0ccBmLD_i1oeW0ho9_deJaaTWp-wdI8PkMGuISykn','testing','','2020-11-10 12:38:30','','cus_H8bPQNUJBLVJR1','card_1GcqRSJPZuhal6eZoU7CL8eY','test dss','30',0,0,'','','2020-06-03 12:47:00','facebook','',''),
-(162,'hello','25f9e794323b453885f5181f1b624d0b',NULL,'client',0,0,0,'','hello','123','hello@sample.com','','','','medical-insuarnce.png','','','','','','','','','Canada','','','','',0,622,547.36,0,'','2','Math','asdfasdf','ererer','ee',3,'','','','',0,0,'','ljaslkdjfklajsdflkjasdfasdf','','2020-11-10 15:50:11','','','','','0',0,0,'','','0000-00-00 00:00:00','facebook','',''),
-(163,'hi','25f9e794323b453885f5181f1b624d0b',NULL,'client',0,0,0,'','elie','kassis','hi@sample.com','','','','me1.png','','','hi','','','','','','Canada','','','','',622,0,0,0,'','234','asdfasdf','asdfasdf','asdfasf','aa',0,'','','','',0,0,'','hello','','2020-11-10 15:45:54','','23423','666','','0',0,0,'','','0000-00-00 00:00:00','facebook','',''),
+(162,'hello','25f9e794323b453885f5181f1b624d0b',NULL,'client',0,0,0,'','hello','123','hello@sample.com','','','','medical-insuarnce.png','','','','','','','','','Canada','','','','',200,822,723.36,0,'','2','Math','asdfasdf','ererer','ee',3,'','','','',0,0,'','ljaslkdjfklajsdflkjasdfasdf','','2020-11-11 23:05:54','','','','','0',0,0,'','','0000-00-00 00:00:00','facebook','',''),
+(163,'hi','25f9e794323b453885f5181f1b624d0b',NULL,'client',0,0,0,'','elie','kassis','hi@sample.com','','','','me1.png','','','hi','','','','','','Canada','','','','',822,200,176,0,'','234','asdfasdf','asdfasdf','asdfasf','aa',0,'','','','',0,0,'','hello','','2020-11-11 21:22:46','','23423','666','','0',0,0,'','','0000-00-00 00:00:00','facebook','',''),
 (179,'234','25f9e794323b453885f5181f1b624d0b',NULL,'client',0,0,0,'','asdf','asdf','speare88@gmail.com','','456465484','','7.png','','','2020-11-09','male','','','asdfasdf','','asdfasdf','sdfasdf','','','asdfasdf',0,0,0,0,'','','','','','',0,'','','','',0,0,'','','','2020-11-09 06:11:47','','','','','0',0,0,'','','0000-00-00 00:00:00','facebook','',''),
-(180,'asf','25f9e794323b453885f5181f1b624d0b',NULL,'client',0,0,0,'','','','Mydev@gmail.com','','','','default.png','','','','','','','','','','','','','',0,0,0,0,'','','','','','',0,'','','','',0,0,'','','','2020-11-09 16:10:18','','','','','0',0,0,'','','0000-00-00 00:00:00','facebook','','');
+(180,'asf','25f9e794323b453885f5181f1b624d0b',NULL,'client',0,0,0,'','','','Mydev@gmail.com','','','','default.png','','','','','','','','','','','','','',0,0,0,0,'','','','','','',0,'','','','',0,0,'','','','2020-11-09 16:10:18','','','','','0',0,0,'','','0000-00-00 00:00:00','facebook','',''),
+(181,'elie','25f9e794323b453885f5181f1b624d0b',NULL,'client',0,0,0,'','','','eliekassis.dev@gmail.com','','','','default.png','','','','','','','','','','','','','',0,0,0,0,'','','','','','',0,'','','','',0,0,'','','','2020-11-11 23:06:33','','','','','0',0,0,'','','0000-00-00 00:00:00','facebook','','');
 
 /*Table structure for table `walletwithdrawask` */
 
@@ -1754,7 +1764,7 @@ CREATE TABLE `withdrawpayment` (
   `emplyee_id` int(25) NOT NULL,
   `transection_id` text NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=17 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=19 DEFAULT CHARSET=latin1;
 
 /*Data for the table `withdrawpayment` */
 
