@@ -229,7 +229,7 @@ public function getUserList($from_date, $to_date)
   {
     $total_paid = 0;
     $this->db->select("amount_to_pay");
-    $this->db->from('Withdrawpayment');
+    $this->db->from('withdrawpayment');
     $data = $this->db->get()->result_array();
 
     foreach ($data as $v)
