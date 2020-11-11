@@ -106,7 +106,7 @@
 				<div class="demand_check_box" style="margin-left:-10px;">					
 					<form action="<?php echo base_url('ChatController/claim_chat')?>" method="post">
 						<input type="hidden" name="chat_customer" value="true">	
-						<button type="submit" class="btn btn-default" >discuter avec le service client</button>&nbsp;&nbsp;
+						<button type="submit" class="btn btn-default" >Messagerie Service client</button>&nbsp;&nbsp;
 					</form>	
 				</div>
 			</div>
@@ -120,7 +120,7 @@
 				
 					if ($isOpener) { 
 				?>
-					<button type="button" id="close_dispute" class="btn btn-default" >Proche</button>
+					<button type="button" id="close_dispute" class="btn btn-default" >Fermer le litige</button>
 				<?php } ?>	
 			</div>
 		</div>
@@ -160,14 +160,28 @@
 
 
 <?php $this->load->view('Front/common/footer');  ?>
+<script src="https://common.olemiss.edu/_js/sweet-alert/sweet-alert.min.js"></script>
 <script>
 	$('#close_dispute').click(function(){
-		var warning = 'Are you sure you want to do this?';
-		if (confirm(warning)) {
-			location.href = $("#close_url").val();
- 		}
-		else {
+		//var warning = 'Are you sure you want to do this?';
+		//if (confirm(warning)) {
+		//	location.href = $("#close_url").val();
+ 		//}
+		//else {
 			// Do something else
-		}
+			swal({
+				title: "Êtes-vous sûr ?",
+				text: "Nous sommes heureux d'apprendre de votre arrangement amical avec le Heelper ! Si vous fermez le litige, votre Demande ou Mission serait à nouveau active.",
+				
+				showCancelButton: true,
+				confirmButtonColor: "#DD6B55",
+				confirmButtonText: "Ok",
+				cancelButtonText: "Annuler",
+				closeOnConfirm: false
+			},
+			function(){
+				  //swal("Deleted!", "Your imaginary file has been deleted.", "success");
+				  location.href = $("#close_url").val();
+			});
 	});
 </script>

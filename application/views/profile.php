@@ -96,13 +96,6 @@
                       </div>
 
                       <div class="form-group">
-                        <label for="" class="col-sm-2 control-label"><?= ('Pincode')?> </label>
-                        <div class="col-sm-10">
-                          <input type="number" class="form-control" name="pincode" value="<?=$user['pincode']?>" placeholder="Code PIN">
-                        </div>
-                      </div>
-
-                      <div class="form-group">
                         <label for="inputExperience" class="col-sm-2 control-label"><?= ('About')?></label>
 
                         <div class="col-sm-10">
