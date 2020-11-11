@@ -54,9 +54,11 @@ div#dtBasicExample_length {
                         </tr>
                     </thead>                                 
                     <tbody>
-                        <?php foreach ($contact_data as $row) { ?> 
+                        <?php
+                        $num = 0; 
+                        foreach ($contact_data as $row) { ?> 
                         <tr>
-                            <td> <?php echo $row->id;?></td>                    
+                            <td> <?php echo ++$num;?></td>                    
                             <td> <?php echo $row->title;?></td>
                             <td> 
                               <?php 
