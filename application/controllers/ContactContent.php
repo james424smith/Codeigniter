@@ -79,7 +79,7 @@ class ContactContent extends CI_Controller
         //var_dump($to);die();
         if ($this->email->send()) 
         { 
-            var_dump("ddd");die();
+            //var_dump("ddd");die();
         } 
         else 
         {
