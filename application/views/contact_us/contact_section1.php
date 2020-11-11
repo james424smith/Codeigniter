@@ -11,6 +11,11 @@ div#dtBasicExample_length {
 </style>
   
 </style>
+<?php if($this->session->flashdata('faild_send_email')){ ?>
+  <script>
+    swal("Incapable d'envoyer des emails.");
+  </script> 
+<?php } ?>
 <div class="main-panel">
   <div class="content">
     <div class="container-fluid">
@@ -42,6 +47,8 @@ div#dtBasicExample_length {
                             <th>id</th>
                             <th>Title</th>
                             <th>Description</th>
+                            <th>Admin Response</th>
+                            <th>Mobile Number</th>
                             <th>Email</th>
                             <th>Action</th>
                         </tr>
@@ -51,7 +58,23 @@ div#dtBasicExample_length {
                         <tr>
                             <td> <?php echo $row->id;?></td>                    
                             <td> <?php echo $row->title;?></td>
-                            <td> <?php echo $row->description;?></td>
+                            <td> 
+                              <?php 
+                                $show_text = $row->description;
+                                if(strlen($show_text) > 20)
+                                  $show_text = substr($show_text, 0, 20) . "...";
+                                echo $show_text;
+                              ?> 
+                            </td>
+                            <td> 
+                              <?php 
+                                $show_text = $row->response;
+                                if(strlen($show_text) > 20)
+                                  $show_text = substr($show_text, 0, 20) . "...";
+                                echo $show_text;
+                              ?> 
+                            </td>
+                            <td> <?php echo $row->number;?></td>
                             <td> <?php echo $row->email;?></td></td>
                             <td><a href='<?=base_url("ContactContent/edit_section1/$row->id");?>'><i class="fa fa-edit"></i></a> 
                             <!--  <a href='<?php //echo site_url("post_list/delete_row/$row->id");?>'><i class="fa fa-trash"></i></a> -->

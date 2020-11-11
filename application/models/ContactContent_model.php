@@ -71,6 +71,13 @@ class ContactContent_model extends CI_Model {
         return true;
      
     }   
-   
+    
+    public function update_contact($contact_id, $contact_data){
+        $this->db->set($contact_data);
+        $this->db->where('id', $contact_id);
+        $this->db->update('contact', $contact_data);
+        //var_dump(); die();
+        return true;
+    } 
 }
 ?>

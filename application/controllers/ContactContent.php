@@ -21,7 +21,7 @@ class ContactContent extends CI_Controller
         $this->load->model('ContactContent_model');
         $this->load->view('common/sidebar');
         $id  = $this->uri->segment(3);
-        $contact_data = $this->db->query("select * from  contact_content  where id=" . $id);
+        $contact_data = $this->db->query("select * from  contact  where id=" . $id);
         // $data_projects['project_edit'] = $data_projects->result_array();
         $data['edit_section1'] = $contact_data->result_array();
        // print_r($data['services_edit']);exit;
@@ -29,6 +29,63 @@ class ContactContent extends CI_Controller
         
     }
     
+    public function save_contact() {
+      $this->load->model('ContactContent_model'); 
+      
+      $response =  $this->input->post('response');
+      $contact_data = array(
+        'title' => $this->input->post('title'),
+        'description' => $this->input->post('description'),
+        'number' => $this->input->post('mobile_number'),
+        'email' => $this->input->post('email'),
+        'response' =>  $response,                 
+      );
+      $contact_id = $this->input->post('contact_id');
+      //var_dump($contact_id);die(); 
+      $this->ContactContent_model->update_contact($contact_id, $contact_data);
+      if( $response != "" &&  $response != null)
+        $this->send_response_email( $response, $this->input->post('email'));
+      redirect("ContactContent");
+    }
+
+
+    public function send_response_email($text, $email){
+        $this->load->config('email');
+        $this->load->library('email');
+        $from = $this->config->item('smtp_user');
+        $to = $email;
+
+        $subject   =  'Contact Response.';
+        $message   =  '<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>';
+        $message  .= '<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>';
+        $message  .=  '<div class="container">';
+        $message  .=  '<div class="container">';
+        $message  .=  '<div class="jumbotron text-center">';
+        $message  .=  '<h1>Hi</h1>';
+//                $message  .=  '<p class="content">You Recently Requested to reset password for your doctor admin account </br> we reset your password and your new password for username '.$admin_info['username'].' is '.$password;
+        $message  .=  '<p class="content">'. $text . '.</p>';
+
+        $message .= '</div>';
+        $message .= '</div>';
+        
+        // $message = 'For your Username '.$admin_info['data']['username'].' Your New Password is '.$password;        
+        $this->email->set_header('Content-type', 'text/html');
+        $this->email->set_newline("\r\n");
+        $this->email->from($from);
+        $this->email->to($to);
+        $this->email->subject($subject);
+        $this->email->message($message);
+
+        //var_dump($to);die();
+        if ($this->email->send()) 
+        { 
+            var_dump("ddd");die();
+        } 
+        else 
+        {
+            $this->session->set_flashdata('faild_send_email', "Incapable d'envoyer des emails.");
+        }
+    }
     // save edit services list data
     public function save_section1(){
         
