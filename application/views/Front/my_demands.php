@@ -36,7 +36,11 @@
     swal("vous avez reçu une demande de modification.");
   </script> 
 <?php } ?>
-
+<?php if($this->session->flashdata('warning_litigation')){ ?>
+  <script>
+    swal("Vous avez déjà ouvert le litige.", "error");
+  </script> 
+<?php } ?>
    <div class="top_bnr section post_demand">
       <div class="container">
          <div class="row top-side about_title">

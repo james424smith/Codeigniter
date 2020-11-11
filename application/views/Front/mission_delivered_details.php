@@ -150,7 +150,7 @@
 				</p>
 				<form action="<?php echo base_url('ChatController/claim_chat')?>" method="post">
 					<div class="">
-						<textarea placeholder="Déscription..." name="comment"></textarea>
+						<textarea placeholder="Description..." name="comment"></textarea>
 						<input type="hidden" name="user_id" value="<?php echo $self_user[0]['id'] ?>" >	
 						<input type="hidden" name="project_id" value="<?php echo $mission->mission_id ?>" >
 						<input type="hidden" name="description" value="<?php echo $mission->description ?>" >	

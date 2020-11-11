@@ -299,7 +299,19 @@ class Posts_model extends CI_Model
     }
     
         public function deliver_demand($project_data, $user_id) {
-            //var_dump($project_data); die();
+            //$this->db->select("*");
+            //$this->db->from('litigations');
+            //$this->db->where('project_id', $project_data['project_id']);
+            //$this->db->where('opener_id', $project_data['opener_id']);
+            //$this->db->where('opponent_id', $project_data['opponent_id']);
+            //$this->db->where('before_status', 4);
+            //$this->db->where('open_close_status', 1);
+            //$count = $this->db->get()->num_rows();
+            //var_dump($count);die();
+            if($project_data['before_status'] == 4)
+            {
+                return false;
+            }
             $this->db->insert('litigations', $project_data);
             $data= array('mission_status' => 4);
             $this->db->set($data);

@@ -34,12 +34,16 @@
   }
 </style>
 <section>
-    <?php if($this->session->flashdata('delivery_success')){ 
-    ?>
+    <?php if($this->session->flashdata('delivery_success')){ ?>
 			<script>
 				swal("Votre livraison a été envoyée avec succès.");
 			</script>
-		<?php } ?>
+    <?php } ?>
+    <?php if($this->session->flashdata('warning_litigation')){ ?>
+      <script>
+        swal("Vous avez déjà ouvert le litige.", "error");
+      </script> 
+    <?php } ?>
    <div class="top_bnr section post_demand">
       <div class="container">
          <div class="top-side about_title">
@@ -59,7 +63,6 @@
             <a href="#" class="nav-item" data-rel="option-3" style="color:#39ec0c;">Complétée</a>
             <a href="#" class="nav-item" data-rel="option-4" style="color:#ff1800;">Litige</a> 
          </nav>
-
       <?php
         if(count($missions) == 0)
         { 

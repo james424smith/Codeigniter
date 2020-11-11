@@ -51,6 +51,7 @@ class ChatController extends CI_Controller {
 
     public function claim_chat()
     {
+        //var_dump($this->input->post('comment')); die();
         //var_dump($this->input->post('user_email'));die();
         $self_id = $this->session->userdata('id');
         $oppsite_id = $this->input->post('user_id');
@@ -60,24 +61,58 @@ class ChatController extends CI_Controller {
             $this->load->view('Front/claim_chat');
             return;
         }
+        if($this->input->post('mission_dispute') == "mission_dispute")
+        {
+            $oppsite_id = $this->input->post('mission_client');
+        }
+        else
+        {
+            $oppsite_id = $this->input->post('user_id');
+        }
+
         //var_dump($this->input->post('user_id'));die();
         $this->load->model('Front/Posts_model');
+
+        $project_data = array(
+            'project_id' => $this->input->post('project_id'),
+            'user_email' => $this->input->post('user_email'),
+            'title' => $this->input->post('title'),
+            'description' => $this->input->post('description'),
+            'comment' => $this->input->post('comment'),
+            'opener_id' =>  $self_id,
+            'opponent_id' => $oppsite_id,
+            'before_status' => $this->input->post('mission_status'),          
+            'date_created' => date('Y-m-d H:i:s'),
+            'date_modified' =>  date('Y-m-d H:i:s'),
+            'open_close_status' => 1  // 1:open 0:close 
+        ); 
+        if(!$this->Posts_model->deliver_demand($project_data, $this->input->post('user_id')))
+        {
+            $this->session->set_flashdata('warning_litigation', "Vous avez déjà ouvert le litige.");
+            if($this->input->post('mission_dispute') == "mission_dispute")
+            {
+                redirect('Front/home/mymissions');
+            }
+            else
+            {
+                redirect('Front/home/mydemands');
+            }
+            
+        }
 
         if($this->input->post('mission_dispute') == "mission_dispute")
         {
             $this->Posts_model->pushNotification($self_id, 2, "Un litige concernant une de vos Mission a été ouvert!");
             $this->Posts_model->pushNotification($this->input->post('mission_client'), 2, "Un litige concernant une de vos Demande a été ouvert!"); 
-            $oppsite_id = $this->input->post('mission_client');
         }
         else
         {
             $this->Posts_model->pushNotification($self_id, 2, "Un litige concernant une de vos Demande a été ouvert!");
             $this->Posts_model->pushNotification($this->input->post('user_id'), 2, "Un litige concernant une de vos Mission a été ouvert!");    
-            $oppsite_id = $this->input->post('user_id');
         }
 
 
-        $messageTxt = reduce_multiples($this->input->post('description'), ' ');
+        $messageTxt = reduce_multiples($this->input->post('comment'), ' ');
         
         $claim_msg_first = "Nous sommes désolés de votre insatisfaction.<br>
                             Cependant, votre litige a été ouvert avec succès, Le délai moyen de traitement est de 14 jours ouvrés.<br>
@@ -151,20 +186,7 @@ class ChatController extends CI_Controller {
         
         $this->load->model('Front/Posts_model');
 
-        $project_data = array(
-            'project_id' => $this->input->post('project_id'),
-            'user_email' => $this->input->post('user_email'),
-            'title' => $this->input->post('title'),
-            'description' => $this->input->post('description'),
-            'comment' => $this->input->post('comment'),
-            'opener_id' =>  $self_id,
-            'opponent_id' => $oppsite_id,
-            'before_status' => $this->input->post('mission_status'),          
-            'date_created' => date('Y-m-d H:i:s'),
-            'date_modified' =>  date('Y-m-d H:i:s'),
-            'open_close_status' => 1  // 1:open 0:close 
-        ); 
-        $this->Posts_model->deliver_demand($project_data, $this->input->post('user_id'));
+        
         $this->load->view('Front/claim_chat');
     }
     public function send_text_message(){
