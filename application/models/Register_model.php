@@ -224,6 +224,44 @@ public function getUserList($from_date, $to_date)
     $query = $this->db->get();
     return $query->row();
   }
+
+  public function getTotalPaid()
+  {
+    $total_paid = 0;
+    $this->db->select("amount_to_pay");
+    $this->db->from('Withdrawpayment');
+    $data = $this->db->get()->result_array();
+
+    foreach ($data as $v)
+    {
+      $total_paid += $v['amount_to_pay'];
+    }
+    return $total_paid;
+
+  }
+  public function getContactCount()
+  {
+    $this->db->select("*");
+    $this->db->from('contact');
+    $count = $this->db->get()->num_rows();
+    return $count;
+  }
+  public function getOpenedLitigationCount()
+  {
+    $this->db->select("*");
+    $this->db->from('litigations');
+    $this->db->where('open_close_status', 1);
+    $count = $this->db->get()->num_rows();
+    return $count;
+  }
+  public function getClosedLitigationCount()
+  {
+    $this->db->select("*");
+    $this->db->from('litigations');
+    $this->db->where('open_close_status', 0);
+    $count = $this->db->get()->num_rows();
+    return $count;
+  }
 }
 
 ?>

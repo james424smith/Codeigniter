@@ -19,6 +19,12 @@ class Home extends CI_Controller
 	{ 
 		$data['user'] = $this->Register_model->getUserCount();
 		$data['demand'] = $this->Register_model->getDemandCount();
+	
+		$data['total_paid'] = $this->Register_model->getTotalPaid();
+		$data['contacts'] = $this->Register_model->getContactCount();
+		$data['opened_litigation'] = $this->Register_model->getOpenedLitigationCount();
+		$data['closed_litigation'] = $this->Register_model->getClosedLitigationCount();
+
 		$data['project'] = $this->Register_model->getProjectCount();
 		$data['latest_project_list'] = $this->Register_model->getLatestProject();
 		$data['latest_user_list'] = $this->Register_model->getLatestUserList();

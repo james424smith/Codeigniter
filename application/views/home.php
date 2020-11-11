@@ -15,9 +15,7 @@
                       <i class="material-icons">person</i>
                     </div>
                     <p class="card-category"><?= ('Number of Users')?></p>
-                    <h3 class="card-title"><?= $user ?>
-                      <small></small>
-                    </h3>
+                    <h3 class="card-title"><?= $user ?></h3>
                   </div>
                   <div class="card-footer">
                     <div class="stats">
@@ -28,13 +26,29 @@
                 </div>
               </div>
               <div class="col-lg-6 col-md-6 col-sm-6">
+                  <div class="card card-stats">
+                    <div class="card-header card-header-info card-header-icon">
+                      <div class="card-icon match-box">
+                        <i class="fa fa-twitter"></i>
+                      </div>
+                      <p class="card-category"><?= ('Numbers of Contacts')?></p>
+                      <h3 class="card-title"><?= $contacts ?></h3>
+                    </div>
+                    <div class="card-footer">
+                     
+                    </div>
+                  </div>
+                </div> 
+              <div class="col-lg-6 col-md-6 col-sm-6">
                 <div class="card card-stats">
                   <div class="card-header card-header-success card-header-icon">
                     <div class="card-icon match-box">
                       <i class="material-icons">business</i>
                     </div>
-                    <p class="card-category"><?= ('Number Of Projects') ?></p>
+                    <p class="card-category"><?= ('Number of Projects') ?></p>
                     <h3 class="card-title"><?= $project ?></h3>
+                    <p class="card-category"><?= ('Total of Amount Paid') ?></p>
+                    <h3 class="card-title"><?= $total_paid ?></h3>
                   </div>
                   <div class="card-footer">
                     <div class="stats">
@@ -43,38 +57,24 @@
                   </div>
                 </div>
               </div>
-                <!-- <div class="col-lg-3 col-md-6 col-sm-6">
+               <div class="col-lg-6 col-md-6 col-sm-6">
                   <div class="card card-stats">
                     <div class="card-header card-header-danger card-header-icon">
-                      <div class="card-icon">
+                      <div class="card-icon match-box">
                         <i class="material-icons">info_outline</i>
                       </div>
-                      <p class="card-category">Number Of Demands</p>
-                      <h3 class="card-title"><?= $demand ?></h3>
+                      <p class="card-category">Number of Opened Litigations</p>
+                      <h3 class="card-title"><?= $opened_litigation ?></h3>
+                      <p class="card-category">Number of Closed Litigations</p>
+                      <h3 class="card-title"><?= $closed_litigation ?></h3>
                     </div>
                     <div class="card-footer">
                       <div class="stats">
-                        <i class="material-icons">local_offer</i> Tracked from Github
                       </div>
                     </div>
                   </div>
-                </div> -->
-                <!-- <div class="col-lg-4 col-md-6 col-sm-6">
-                  <div class="card card-stats">
-                    <div class="card-header card-header-info card-header-icon">
-                      <div class="card-icon">
-                        <i class="fa fa-twitter"></i>
-                      </div>
-                      <p class="card-category"><?= ('Followers')?></p>
-                      <h3 class="card-title">+245</h3>
-                    </div>
-                    <div class="card-footer">
-                      <div class="stats">
-                        <i class="material-icons">update</i> Just Updated
-                      </div>
-                    </div>
-                  </div>
-                </div> -->
+                </div> 
+
             </div>
         
             <div class="row">
