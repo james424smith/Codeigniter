@@ -79,8 +79,9 @@ div#dtBasicExample_length {
                             <td> <?php echo $row->number;?></td>
                             <td> <?php echo $row->email;?></td></td>
                             <td><a href='<?=base_url("ContactContent/edit_section1/$row->id");?>'><i class="fa fa-edit"></i></a> 
-                            <!--  <a href='<?php //echo site_url("post_list/delete_row/$row->id");?>'><i class="fa fa-trash"></i></a> -->
+                             <a href='<?php echo base_url("ContactContent/delete_contact/$row->id");?>'><i class="fa fa-trash"></i></a>
                             </td>
+
                         </tr>  
                         <?php } ?>         
                     </tbody>

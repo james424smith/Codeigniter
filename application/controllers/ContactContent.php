@@ -16,6 +16,13 @@ class ContactContent extends CI_Controller
         
     }
     // edit project list data
+    public function delete_contact()
+    {
+      $id  = $this->uri->segment(3);
+      $this->db->where('id', $id);
+      $this->db->delete('contact');
+      redirect("ContactContent");
+    }
     
     public function edit_section1(){
         $this->load->model('ContactContent_model');
