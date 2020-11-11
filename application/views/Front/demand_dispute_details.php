@@ -193,8 +193,8 @@
 		//else {
 			// Do something else
 			swal({
-				title: "Êtes-vous sûr ?",
-				text: "Nous sommes heureux d'apprendre de votre arrangement amical avec le Heelper ! Si vous fermez le litige, votre Demande ou Mission serait à nouveau active.",
+				title: "Nous sommes heureux d'apprendre de votre arrangement amical avec le Heelper ! ",
+				text: "Si vous fermez le litige, votre Demande ou Mission serait à nouveau active.",
 				showCancelButton: true,
 				confirmButtonColor: "#DD6B55",
 				confirmButtonText: "Ok",
