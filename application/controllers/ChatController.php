@@ -111,7 +111,6 @@ class ChatController extends CI_Controller {
             $this->Posts_model->pushNotification($this->input->post('user_id'), 2, "Un litige concernant une de vos Mission a été ouvert!");    
         }
 
-
         $messageTxt = reduce_multiples($this->input->post('comment'), ' ');
         
         $claim_msg_first = "Nous sommes désolés de votre insatisfaction.<br>

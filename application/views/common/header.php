@@ -1,7 +1,7 @@
 <style>
   .profile_class {
     position: relative;
-    margin-left:1150px;
+    margin-left:0px;
 }
 </style>
 
