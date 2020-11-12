@@ -131,7 +131,7 @@ $('.ClearChat').click(function(){
 			receiver_id: chat_reciver_id
 		},
 		function(res){
-			$('#unread_msg' + chat_reciver_id).hide();
+			$('#unread_msg' + chat_reciver_id).remove();
 		});
 	});
 

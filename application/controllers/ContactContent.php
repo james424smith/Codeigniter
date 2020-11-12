@@ -71,7 +71,7 @@ class ContactContent extends CI_Controller
         $message  .=  '<div class="container">';
         $message  .=  '<div class="jumbotron text-center">';
         //                $message  .=  '<p class="content">You Recently Requested to reset password for your doctor admin account </br> we reset your password and your new password for username '.$admin_info['username'].' is '.$password;
-        $message  .=  $text;
+        $message  .=   $text;
 
         $message .= '</div>';
         $message .= '</div>';

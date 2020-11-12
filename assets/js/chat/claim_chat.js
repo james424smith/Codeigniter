@@ -141,6 +141,7 @@ function DisplayMessage(message){
 function sendTxtMessage(message){
 	//alert(chat_reciver_id);
 	var messageTxt = message.trim();
+	//alert(messageTxt);
 	if(messageTxt != ''){
 		DisplayMessage(messageTxt);
 		 

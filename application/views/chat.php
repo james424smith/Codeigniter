@@ -59,7 +59,7 @@
 <div class="main-panel">
    <div class="content">
       <div class="container-fluid">
-            <div class="row" style="margin-top:50px;">
+            <div class="row" style="margin-top:90px;">
                <div class="col-md-6">
                      <!-- USERS LIST -->
                      <div class="box box-danger" style="height:500px;">
@@ -69,10 +69,12 @@
                         <!-- /.box-header -->
                         <div class="box-body no-padding">
                            <form name="search_user" method="post">
-                              <input type="text" name="search_name">
-                              <input type="submit" name="submit" value="submit">
+                              <input type="text" name="search_name" placeholder="Search">
+                              <input type="submit" name="submit" value="submit" style="display:none;">
+                              <input type="button" name="unread" class="btn btn-info unread" value="UnRead" style="float:right; margin-right:10px;">
                               <!--<a href="<?php echo base_url();?>chat">Reset</a>-->
                            </form>
+
                            <hr>
                            <input type="hidden" class="self-img" value="<?php echo base_url('uploads/profiles/' . $self->picture_url);  ?>" >
                            <ul class="users-list clearfix">
@@ -164,10 +166,10 @@
                            <input type="hidden" id="Sender_Name" value="<?=$user['name'];?>">
                            <input type="hidden" id="Sender_ProfilePic" value="<?=$profile_url;?>">
                            <input type="hidden" id="ReciverId_txt">
-                           <input type="text" name="message" placeholder="Type de message ..." class="form-control message">
+                           <textarea name="" class="form-control message" placeholder="Type the message ..." id="message"></textarea>
                            <span class="input-group-btn">
-                              <button type="button" class="btn btn-success btn-flat btnSend" id="nav_down" style="margin-top:-5px;">Send</button>
-                              <div class="fileDiv btn btn-info btn-flat" style="margin-top:-5px;"> <i class="fa fa-upload"></i> 
+                              <button type="button" class="btn btn-success btn-flat btnSend" id="nav_down" style="margin-top:5px;">Send</button>
+                              <div class="fileDiv btn btn-info btn-flat" style="margin-top:5px;"> <i class="fa fa-upload"></i> 
                                  <input type="file" name="file" class="upload_attachmentfile"/>
                               </div>
                            </span>
@@ -185,3 +187,21 @@
 <script src="<?php echo base_url('assets/js/chat/admin_chat.js');?>"></script>
 <!-- Modal -->
 <?php $this->load->view('common/footer');?>
+<script>
+   $(".unread").click(function(){
+      $('.users-list > li').each(function(){
+         var isUnread = false;
+         if($(this).has('span').length)
+         { 
+            isUnread = true;
+         }
+            
+         //alert("  dd  : " + currentLiText);
+
+         //showCurrentLi = currentLiText != "";
+
+         $(this).toggle(isUnread);
+
+      });     
+   });
+</script>

@@ -277,7 +277,7 @@ input.upload_attachment {
 .navbar.navbar-absolute {
     position: fixed;
     width: 100%;
-    padding-top: 0px;
+    /*padding-top: 0px;*/
     z-index: 1029;
 }
 .perfect-scrollbar-on .sidebar, .perfect-scrollbar-on .main-panel {

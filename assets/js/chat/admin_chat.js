@@ -41,7 +41,7 @@ $("li").click(function(){
 $(function() {
 	$('.message').keypress(function(event) {
 		var keycode = (event.keyCode ? event.keyCode : event.which);		
-    	if(keycode == '13') {
+    	if(keycode == '20000') {
 			if(chat_reciver_id == "") {
 				alert("Please select your partner..");
 				$('.message').val('');
@@ -128,7 +128,7 @@ $('.ClearChat').click(function(){
 			receiver_id: chat_reciver_id
 		},
 		function(res){
-			$('#unread_msg' + chat_reciver_id).hide();
+			$('#unread_msg' + chat_reciver_id).remove();
 		});
 		
 	});
