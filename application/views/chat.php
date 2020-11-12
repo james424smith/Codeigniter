@@ -60,11 +60,11 @@
    <div class="content">
       <div class="container-fluid">
             <div class="row" style="margin-top:50px;">
-               <div class="col-md-3">
+               <div class="col-md-6">
                      <!-- USERS LIST -->
                      <div class="box box-danger" style="height:500px;">
                         <div class="box-header with-border">
-                           <h3 class="box-title"><?=$strTitle;?></h3>
+                           <h3 class="box-title" style="font-size:20px;"><?=$strTitle;?></h3>
                         </div>
                         <!-- /.box-header -->
                         <div class="box-body no-padding">
@@ -80,7 +80,7 @@
                                           foreach($vendorslist as $v):
                                              if($name)
                                              {
-                                                if($v['id'] != $this->session->userdata('admin_id') && ($v['username'] == $name || $v['first_name'] == $name || $v['last_name'] == $name || $v['email'] == $name))
+                                                if($v['id'] != $this->session->userdata('admin_id') && ($v['username'] == $name || $v['name'] == $name || $v['email'] == $name))
                                                 {
                                  ?>
 
@@ -122,7 +122,7 @@
                               <?php endforeach;?>
                               <?php } else{?>
                               <li>
-                                 <a class="users-list-name" href="#">No Vendor's Find...</a>
+                                 <a class="users-list-name" href="#">No Heelper's Find...</a>
                               </li>
                               <?php } ?>
                            </ul>
@@ -132,11 +132,11 @@
                      </div>
                      <!--/.box -->
                </div>
-               <div class="col-md-8" id="chatSection" >
+               <div class="col-md-6" id="chatSection" >
                   <!-- DIRECT CHAT -->
                   <div class="box box-warning direct-chat direct-chat-primary">
                      <div class="box-header">
-                        <h3 class="box-title" id="ReciverName_txt" style="font-size:30px;"><?=$chatTitle;?></h3>
+                        <h4 class="box-title" id="ReciverName_txt" style="font-size:20px;"><?=$chatTitle;?></h4>
                         <div class="box-tools pull-right">
                            <span data-toggle="tooltip" title="Clear Chat" class="ClearChat"><i class="fa fa-comments"></i></span>
                         </div>

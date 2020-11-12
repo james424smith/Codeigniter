@@ -397,7 +397,7 @@ class UserModel extends CI_Model {
 
 		//$this->db->where("role !=","admin");
 
-		//$this->db->where("status","1");
+		$this->db->order_by("chated_on", "DESC");
 
    		$query = $this->db->get();
 

@@ -55,6 +55,8 @@ $route['translate_uri_dashes'] = FALSE;
 
 $route['send-message']['POST'] = 'ChatController/send_text_message';
 $route['addChatMember']['POST'] = 'ChatController/addChatMember';
+$route['admin_chat_date_update']['POST'] = 'ChatController/admin_chat_date_update';
+
 $route['unreadmessage']['POST'] = 'ChatController/setChatReadStatus';
 
 

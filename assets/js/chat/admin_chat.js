@@ -25,6 +25,14 @@ $("li").click(function(){
 		className_username = className_username.replace(" active", "");
 		$(".select-username").html($("." + className_username).html());
 
+		$.post("/admin_chat_date_update",
+		{
+			receiver_id: chat_reciver_id
+		},
+		function(res){
+			//alert("ddd");
+		});
+
 		GetChatHistory(chat_reciver_id); 				
 		ScrollDown();
 	}

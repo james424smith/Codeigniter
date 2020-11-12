@@ -17,9 +17,9 @@ class Chat extends CI_Controller {
 
 		$list = $this->UserModel->VendorsList();
 		$self = $this->UserModel->GetUserDataById($this->session->userdata['admin_id']);
-		$data['strTitle'] = 'All Vendors';
-		$data['strsubTitle'] = 'Vendors';
-		$data['chatTitle'] = 'Select Vendor with Chat';
+		$data['strTitle'] = 'All Heelpers';
+		$data['strsubTitle'] = 'Heelpers';
+		$data['chatTitle'] = 'Select a Heelper';
 		$data['self'] = $self;
 
 		$vendorslist=[];
@@ -99,7 +99,6 @@ class Chat extends CI_Controller {
 					return $file_data;
 				}
 		    }
- 		 
 	}
 	
 	public function get_chat_history_by_vendor(){

@@ -47,14 +47,29 @@ class ChatController extends CI_Controller {
             $this->parser->parse('construction_services/chat_template',$data);
     }
 
+    public function admin_chat_date_update(){
+        $id = $this->input->post('receiver_id');
+        $update_chat_date = array('chated_on' => date('Y-m-d H:i:s'));
+        $this->db->where('id', $id);
+        $this->db->update('users', $update_chat_date);
+        
+        return 'success';
+
+    }
     
 
     public function claim_chat()
     {
         //var_dump($this->input->post('comment')); die();
         //var_dump($this->input->post('user_email'));die();
+
         $self_id = $this->session->userdata('id');
         $oppsite_id = $this->input->post('user_id');
+
+        $update_chat_date = array('chated_on' => date('Y-m-d H:i:s'));
+        $this->db->where('id', $self_id);
+        $this->db->update('users', $update_chat_date);
+
         if($this->input->post('chat_customer') == "true")
         {
             //var_dump("")

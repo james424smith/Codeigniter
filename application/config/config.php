@@ -467,7 +467,8 @@ $config['csrf_exclude_uris'] = array('ChatController/send_text_message',
                                      'ChatController/get_chat_history_by_vendor', 
                                      'ChatController/chat_clear_client_cs', 
                                      'ChatController/addChatMember', 
-                                     'ChatController/setChatReadStatus');
+                                     'ChatController/setChatReadStatus',
+                                     'ChatController/admin_chat_date_update');
 
 
 /*
