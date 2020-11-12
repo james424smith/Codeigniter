@@ -11,7 +11,6 @@
 	$obj->load->model('ChatModel');
 	$all_users = $obj->ChatModel->getChattingMembers();
 
-
 	//var_dump($all_users);die();
 ?>
 <style>
@@ -46,7 +45,9 @@
 								</div>
 							</div>
 							<div class="card-body contacts_body" style="border-radius:0px">
-							   
+							   <input type="hidden" id="sender_id" value="<?php echo $self_user[0]['id']?>" >
+							   <input type="hidden" id="reciever_id" value="" >
+
 								<ui class="contacts">
 									<?php foreach ($all_users as $user) {
 											if($user_id == $user['sender_id']) {
@@ -152,6 +153,11 @@
 
 <?php $this->load->view('Front/common/footer');  ?>
 <script src='../../assets/js/chat/chat.js'></script>
+<script>
+	$("li").click(function(){
+		
+	});
+</script>
 
 
         

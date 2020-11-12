@@ -81,7 +81,6 @@ div#dtBasicExample_length {
                             <td><a href='<?=base_url("ContactContent/edit_section1/$row->id");?>'><i class="fa fa-edit"></i></a> 
                              <a href='<?php echo base_url("ContactContent/delete_contact/$row->id");?>'><i class="fa fa-trash"></i></a>
                             </td>
-
                         </tr>  
                         <?php } ?>         
                     </tbody>

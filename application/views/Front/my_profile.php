@@ -22,19 +22,18 @@
 					<div class="my_profile_box">
 						<div class="my_prfl_cont">
 							<div class="view_profile">
-	                            	<img  class="my_pro" src="<?php  echo base_url()?>/uploads/profiles/<?php echo $user['picture_url']?>">
-	                              	<span> <a href="#" data-toggle="modal" data-target="#user_profile"><img src="<?php  echo base_url()?>/assets/Front/img/edit.png"></a>
-	                              	</span>
-	                         </div>
-	                         
-	                        	<div class="profile_dtls">
-	                          		<span><a href="#" data-toggle="modal" data-target="#edit_profile">Modifier le profil</a></span>
-	                                <h4><?=empty($user['username'])?'':$user['username']?></h4>
-	                                <p><?=empty($user['skills'])?'':$user['skills']?></p>	                               
-	                          	</div>
-								<a href="<?php echo base_url('Front/home/review_profile/' . $user['id'])?>">
-	                        		<span class="stars-container <?php echo $class_star;?>">★★★★★</span>
-								</a>                       
+								<img  class="my_pro" src="<?php  echo base_url()?>/uploads/profiles/<?php echo $user['picture_url']?>">
+								<span> <a href="#" data-toggle="modal" data-target="#user_profile"><img src="<?php  echo base_url()?>/assets/Front/img/edit.png"></a>
+								</span>
+							</div>
+							<div class="profile_dtls">
+								<span><a href="#" data-toggle="modal" data-target="#edit_profile">Modifier le profil</a></span>
+								<h4><?=empty($user['username'])?'':$user['username']?></h4>
+								<p><?=empty($user['skills'])?'':$user['skills']?></p>	                               
+							</div>
+							<a href="<?php echo base_url('Front/home/review_profile/' . $user['id'])?>">
+								<span class="stars-container <?php echo $class_star;?>">★★★★★</span>
+							</a>                       
 						</div>
 					</div>
 					<div class="Presentation">

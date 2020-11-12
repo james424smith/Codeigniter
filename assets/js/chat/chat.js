@@ -18,7 +18,8 @@ $("li").click(function(){
 		$(this).addClass("active");
 		chat_reciver_id = $(this).attr('class');
 		chat_reciver_id = chat_reciver_id.replace(" active", "");
-		//$(".select-id").val(chat_reciver_id);
+		$("#reciever_id").val(chat_reciver_id);
+		
 		var className_img = "img-" + $(this).attr('class');
 		className_img = className_img.replace(" active", "");
 		$(".select-img").attr("src", $("." + className_img).attr("src"));
@@ -29,10 +30,20 @@ $("li").click(function(){
 		var className_username = "username-" + $(this).attr('class');
 		className_username = className_username.replace(" active", "");
 		$(".select-username").html($("." + className_username).html());
-		
+
+		$.post("/addChatMember",
+		{
+			sender_id: $("#sender_id").val(),
+			receiver_id: chat_reciver_id
+		},
+		function(res){
+			//alert("ddd");
+		});;
 		GetChatHistory(chat_reciver_id); 				
 		ScrollDown();
 	}
+
+	
 });
   
 $(function() {

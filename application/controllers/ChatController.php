@@ -245,7 +245,6 @@ class ChatController extends CI_Controller {
                 $response = ['status' => 0 ,'message' => 'sorry we re having some technical problems. please try again !'                       ];
             }
             
-            
             echo json_encode($response);
         }
 
@@ -427,7 +426,8 @@ class ChatController extends CI_Controller {
             'reciver_id' => $post['receiver_id'],
             'date_created' => date('Y-m-d H:i:s')
         ];
-        $this->ChatModel->insertChattingMember($data);
+        if($user_id != 0 && $post['receiver_id'] != 0)
+            $this->ChatModel->insertChattingMember($data);
         //redirect(base_url("Front/home/chat"));
         return "success";
     }
