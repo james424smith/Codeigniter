@@ -14,6 +14,7 @@
 	$client_user = $obj->User->getUserByID($mission->client_id);
 
 ?> 
+<link rel="stylesheet" type="text/css" href="https://common.olemiss.edu/_js/sweet-alert/sweet-alert.css">
 
 <section>
   <div class="top_bnr section post_demand">
