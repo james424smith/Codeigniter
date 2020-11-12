@@ -17,7 +17,7 @@
                                                      <form class="form-valide" action="<?php echo base_url('ContactContent/save_contact')?>" enctype="multipart/form-data" method="post" accept-charset="utf-8">
                                                         <input type="hidden" name="contact_id" value="<?= $edit_section1[0]['id']?>">
                                                         <div class="form-group row">
-                                                           <label class="col-md-3 col-form-label" for="val-username">Title Of Contact <span class="text-danger">*</span>
+                                                           <label class="col-md-3 col-form-label" for="val-username">Name <span class="text-danger">*</span>
                                                            </label>
                                                            <div class="col-md-9">
                                                               <input type="text" class="form-control" id="title" name="title" value="<?php echo $edit_section1[0]['title']?>">

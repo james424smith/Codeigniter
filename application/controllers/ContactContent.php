@@ -7,13 +7,15 @@ class ContactContent extends CI_Controller
 
         $this->load->model('ContactContent_model');
         $this->load->view('common/sidebar');
+        $this->load->view('common/header');
 
         /*Display service*/
 
         $contact_data['contact_data'] = $this->ContactContent_model->display_contact_section1();
-        //print_r($contact_data);die();
+
         $this->load->view('contact_us/contact_section1', $contact_data);       
-        
+        $this->load->view('common/footer');
+
     }
     // edit project list data
     public function delete_contact()
@@ -62,14 +64,13 @@ class ContactContent extends CI_Controller
         $from = $this->config->item('smtp_user');
         $to = $email;
 
-        $subject   =  'Contact Response.';
+        $subject   =  ' Réponse à votre demande.';
         $message   =  '<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>';
         $message  .= '<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>';
         $message  .=  '<div class="container">';
         $message  .=  '<div class="container">';
         $message  .=  '<div class="jumbotron text-center">';
-        $message  .=  '<h1>Hi</h1>';
-//                $message  .=  '<p class="content">You Recently Requested to reset password for your doctor admin account </br> we reset your password and your new password for username '.$admin_info['username'].' is '.$password;
+        //                $message  .=  '<p class="content">You Recently Requested to reset password for your doctor admin account </br> we reset your password and your new password for username '.$admin_info['username'].' is '.$password;
         $message  .=  '<p class="content">'. $text . '.</p>';
 
         $message .= '</div>';
@@ -78,7 +79,7 @@ class ContactContent extends CI_Controller
         // $message = 'For your Username '.$admin_info['data']['username'].' Your New Password is '.$password;        
         $this->email->set_header('Content-type', 'text/html');
         $this->email->set_newline("\r\n");
-        $this->email->from($from);
+        $this->email->from($from, 'Heelp');
         $this->email->to($to);
         $this->email->subject($subject);
         $this->email->message($message);

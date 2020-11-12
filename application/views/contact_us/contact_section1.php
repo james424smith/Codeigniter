@@ -27,31 +27,17 @@ div#dtBasicExample_length {
           <p class="card-category"><?= ('Here is a subtitle for this table')?></p>
           </div>
           
-              <!--<script type="text/javascript">
-                $(function () {
-                    $('#from_date').datetimepicker({
-                      format: 'DD/MM/YYYY'
-                    });
-                });
-                $(function () {
-                    $('#to_date').datetimepicker({
-                      format: 'DD/MM/YYYY'
-                    });
-                });
-              </script>-->
             <input type="hidden" id="second_password" value="<?php echo $selfadmin->second_password; ?>" >
             <div class="card-body table-responsive">
-                <table id="dtBasicExample" class="table table-striped  table-sm" cellspacing="0" width="100%">
-                    <thead>
-                        <tr>
+            <table  id="dtBasicExample" class="table table-striped table-sm" cellspacing="0" width="100%">
+                  <thead class="text-primary" style="cursor:pointer;">
                             <th>id</th>
-                            <th>Title</th>
+                            <th>Name</th>
                             <th>Description</th>
                             <th>Admin Response</th>
                             <th>Mobile Number</th>
                             <th>Email</th>
                             <th>Action</th>
-                        </tr>
                     </thead>                                 
                     <tbody>
                         <?php
@@ -86,23 +72,6 @@ div#dtBasicExample_length {
                     </tbody>
                 </table>
             </div>
-            <div id="myModal" class="modal fade" role="dialog">
-                    <div class="modal-dialog">
-                      <!-- Modal content-->
-                      <div class="modal-content">
-                        <div class="modal-header">
-                          <button type="button" class="close" data-dismiss="modal">&times;</button>
-                          <h4 class="modal-title">Modal Header</h4>
-                        </div>
-                        <div class="modal-body">
-                          <img src="" width="100%" height="inherit" id="target_element"> </div>
-                        </div>
-                        <!-- <div class="modal-footer">
-                          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                        </div> -->
-                      </div>
-                    </div>
-                  </div>
         </div>
       </div>
     </div>

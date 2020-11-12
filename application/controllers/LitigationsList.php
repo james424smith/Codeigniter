@@ -51,8 +51,7 @@ class LitigationsList extends CI_Controller {
         $this->load->view('common/header');
         $this->load->view("edit_litigations", $data);  
         $this->load->view('common/footer');
-        
-        
+               
     }
 
     public function save_litigations(){
