@@ -48,7 +48,7 @@
                                                            <label class="col-md-3 col-form-label" for="val-password">Admin Response
                                                            </label>
                                                            <div class="col-md-9">
-                                                              <textarea class="form-control" name="response"><?php echo $edit_section1[0]['response']?></textarea>
+                                                              <textarea class="tinymce" id="texteditor" name="response"><?php echo $edit_section1[0]['response']?></textarea>
                                                            </div>
                                                         </div>
                                                         <div class="form-group row">

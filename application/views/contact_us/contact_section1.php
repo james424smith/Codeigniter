@@ -56,7 +56,7 @@ div#dtBasicExample_length {
                             </td>
                             <td> 
                               <?php 
-                                $show_text = $row->response;
+                                $show_text = strip_tags($row->response);
                                 if(strlen($show_text) > 20)
                                   $show_text = substr($show_text, 0, 20) . "...";
                                 echo $show_text;
