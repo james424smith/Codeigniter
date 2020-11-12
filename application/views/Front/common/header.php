@@ -372,7 +372,7 @@
                         </li>
                         <?php }?>
                         <li>
-                          <a href="<?php echo base_url('Front/home/support_contact')?>" class="hvr-bounce-to-right">
+                          <a href="<?php echo base_url('Front/contact')?>" class="hvr-bounce-to-right">
                               <div class="not_icon">
                                 <span><img src="<?php echo base_url();?>/assets/Front/img/drover5.png"></span>
                                 Support

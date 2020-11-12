@@ -163,9 +163,8 @@
                         </div>
                   </div>
                   <?php
-                     $now = time(); // or your date as well
-                     $your_date = strtotime($value['created_date']);
-                     $datediff = $now - $your_date;
+                     $now = date('Y-m-d'); // or your date as well
+                     $datediff = strtotime($now) - strtotime($value['created_date']);
                   ?>
                   <p class="cat_date">Il y a <?php echo round($datediff / (60 * 60 * 24)); ?> jours</p>
                   
