@@ -71,6 +71,8 @@
                            <form name="search_user" method="post">
                               <input type="text" name="search_name" placeholder="Search">
                               <input type="submit" name="submit" value="submit" style="display:none;">
+
+                              <input type="hidden" id="is_unread" value="false" />
                               <input type="button" name="unread" class="btn btn-info unread" value="UnRead" style="float:right; margin-right:10px;">
                               <!--<a href="<?php echo base_url();?>chat">Reset</a>-->
                            </form>
@@ -189,19 +191,28 @@
 <?php $this->load->view('common/footer');?>
 <script>
    $(".unread").click(function(){
-      $('.users-list > li').each(function(){
-         var isUnread = false;
-         if($(this).has('span').length)
-         { 
-            isUnread = true;
-         }
-            
-         //alert("  dd  : " + currentLiText);
-
-         //showCurrentLi = currentLiText != "";
-
-         $(this).toggle(isUnread);
-
-      });     
+      if($("#is_unread").val() == 'false')
+      {
+         $('.users-list > li').each(function(){
+            var isUnread = false;
+            if($(this).has('span').length)
+            {   
+               isUnread = true;
+            }
+            $(this).toggle(isUnread);
+         });
+         $(".unread").val('All Users');
+         $("#is_unread").val('true'); 
+      }
+      else
+      {
+         $('.users-list > li').each(function(){
+            $(this).toggle(true);
+         });
+         $(".unread").val('UnRead');
+         $("#is_unread").val('false');
+      }
+      
+          
    });
 </script>
