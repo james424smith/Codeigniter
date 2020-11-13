@@ -226,7 +226,7 @@ class Posts extends CI_Controller
         $this->Posts_model->inprogress_mission($project_data);
 
         $this->Posts_model->pushNotification($this->input->post('client_id'), 2, "Vous avez reçu un nouveau livrable.");
-        $this->Posts_model->pushNotification($this->session->userdata['id'], 2, "Votre nouveau livrable a bien été transmis.");
+        $this->Posts_model->pushNotification($this->session->userdata['id'], 2, "Votre livrable a été envoyé avec succès.");
 
         $this->session->set_flashdata('delivery_success', 'Votre livraison a été envoyée avec succès.');
         redirect('Front/home/mymissions');
@@ -334,8 +334,8 @@ class Posts extends CI_Controller
          //print_r( $project_data);die();
         $this->load->model('Front/Posts_model');
         $this->Posts_model->deliver_paym_demand($project_data);
-        $this->Posts_model->pushNotification($this->input->post('employee_id'), 1, "Paiement effectué avec succés.");
-        $this->Posts_model->pushNotification($this->session->userdata['id'], 1, "Votre paiement a bien été prise en compte.");
+        $this->Posts_model->pushNotification($this->input->post('employee_id'), 1, "Un nouveau paiement vous a été transmis.");
+        $this->Posts_model->pushNotification($this->session->userdata['id'], 1, "Votre paiement a bien été transmis au Heelper.");
 
         if($this->input->post('rating') != 0)
         {

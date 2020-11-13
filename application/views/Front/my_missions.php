@@ -36,7 +36,7 @@
 <section>
     <?php if($this->session->flashdata('delivery_success')){ ?>
 			<script>
-				swal("Votre livraison a été envoyée avec succès.");
+				swal("Votre livrable a été envoyé avec succès.");
 			</script>
     <?php } ?>
     <?php if($this->session->flashdata('warning_litigation')){ ?>
