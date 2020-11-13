@@ -7,7 +7,7 @@
   <div class="top_bnr section post_demand">
     <div class="container">
       <div class="top-side about_title">
-          <h4 class="title">Carte bancaire</h4>
+          <h4 class="title" style="color:#6d6dfb;">Carte bancaire</h4>
         </div>
     </div>
   </div>

@@ -14,7 +14,7 @@
   <div class="top_bnr section post_demand">
     <div class="container">
       <div class="top-side about_title">
-          <h4 class="title">Transactions</h4>
+          <h4 class="title" style="color:#6d6dfb;">Transactions</h4>
         </div>
     </div>
   </div>
@@ -50,10 +50,12 @@
           {
             $class = "red option-2";
             $img = "assets/Front/img/out.png";
+            $fee = ($value['amount'] * 0.12) + 0.25;
           }
           else{
             $class = "green option-1";
             $img = "assets/Front/img/in.png";
+            $fee = ($value['amount'] * 0.09) + 0.25;
           }
         ?>
           <li class="project red <?php echo $class; ?> all">
@@ -63,11 +65,14 @@
                     </div>            
                     <div class="col-md-8 cat_content">
                           <h5><?php echo $value['project_title']; ?></h5>
-                          <p>Project de : <?php echo $value['sent_from_username']; ?></p>
+                          <p style="color:grey;">Réalisé par : <?php echo $value['sent_from_username']; ?></p>
                           <div class="row">
-                            <div class="col-md-12 status Delivred">
-                              <p>$ <?php echo  $value['amount']; ?></p>
+                            <div class="col-md-3 status Delivred">                             
+                              <p>€ <?php echo $value['amount']; ?></p>
                             </div>              
+                            <div class="col-md-9">
+                              <span style="font-size:12px; color:grey;">Frais bancaire et de service : € <?php echo $fee;?></span>
+                            </div>
                           </div>                      
                     </div>
                     <?php
