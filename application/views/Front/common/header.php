@@ -215,14 +215,14 @@
                   </label>
                 </div>                
                 <div class="nav-links">
-                  <a href="<?php echo base_url('Front/home')?>" >Home</a>
-                  <a href="<?php echo base_url('Front/home/post_demand')?>" style="font-size:15px;">Publier une demande</a>
-                  <a href="<?php echo base_url('Front/home/find_mission')?>" style="font-size:15px;">Trouver une mission</a>
-                  <a href="<?php echo base_url('Front/Home/search')?>" style="font-size:15px;">Trouver un Heelper</a>
+                  <a href="<?php echo base_url('Front/home')?>" style="font-size:14px;">Home</a>
+                  <a href="<?php echo base_url('Front/home/post_demand')?>" style="font-size:14px;">Publier une demande</a>
+                  <a href="<?php echo base_url('Front/home/find_mission')?>" style="font-size:14px;">Trouver une mission</a>
+                  <a href="<?php echo base_url('Front/Home/search')?>" style="font-size:14px;">Trouver un Heelper</a>
                   <?php if($this->session->userdata['id']){?>
-                     <a href="<?php echo base_url('Front/home/logout')?>" style="font-size:15px;">Se déconnecter</a>                 
+                     <a href="<?php echo base_url('Front/home/logout')?>" style="font-size:14px;">Se déconnecter</a>                 
                   <?php } else {?>                    
-                      <a href="<?php echo base_url('Front/home/login')?>" style="font-size:15px;">Se connecter</a>
+                      <a href="<?php echo base_url('Front/home/login')?>" style="font-size:14px;">Connexion/Inscription</a>
                    <?php } ?>           
                 </div>
               </div>

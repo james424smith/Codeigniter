@@ -211,8 +211,6 @@
          });
          $(".unread").val('UnRead');
          $("#is_unread").val('false');
-      }
-      
-          
+      }   
    });
 </script>
