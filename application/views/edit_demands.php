@@ -31,7 +31,7 @@
 <div class="dashboard-wrapper">
     <div class="container  dashboard-content">
         <div class="row">
-            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12" style="margin-top:50px; margin-left:20px;">
                 <div class="card_admin">
                     <div class="card-header"><h5 class="mb-0"></h5></div>
                     <div class="card-body">
@@ -42,7 +42,7 @@
                                 </label>
                                 <br>
                                 <div class="col-md-9">
-                                    <input type="text"  id="mission_id" name="mission_id" value="<?php echo $demands_edit[0]->mission_id;?>" >
+                                    <input type="text"  id="mission_id" name="mission_id" value="<?php echo $demands_edit[0]->mission_id;?>" readonly>
                                 </div>
                             </div>
 
@@ -51,7 +51,7 @@
                                 </label>
                                 <br>
                                 <div class="col-md-9">
-                                    <input type="text"  id="mission_title" name="mission_title" value="<?php echo $demands_edit[0]->mission_title;?>">
+                                    <input type="text"  id="mission_title" name="mission_title" value="<?php echo $demands_edit[0]->mission_title;?>" readonly>
                                 </div>
                             </div>
                            <div class="form-group row">
@@ -59,7 +59,7 @@
                                 </label>
                                 <br>
                                 <div class="col-md-9">
-                                    <textarea id="mission_description" name="mission_description"><?php echo $demands_edit[0]->description;?></textarea>
+                                    <textarea id="mission_description" name="mission_description" readonly><?php echo $demands_edit[0]->description;?></textarea>
                                 </div>
                             </div>
 
@@ -88,7 +88,7 @@
                                         $this->db->where('id', $demands_edit[0]->client_id);
                                         $data = $this->db->get()->result();
                                     ?>
-                                    <input type="text"  id="client_id" name="client_id" value="<?php echo $data[0]->username;?>">
+                                    <input type="text"  id="client_id" name="client_id" value="<?php echo $data[0]->username;?>" readonly>
                                 </div>
                             </div>
 
@@ -104,7 +104,7 @@
                                     $this->db->where('id', $demands_edit[0]->accepted_by);
                                     $data = $this->db->get()->result();
                                 ?>
-                                    <input type="text"  id="accepted_by" name="accepted_by" value="<?php echo $data[0]->username;?>">
+                                    <input type="text"  id="accepted_by" name="accepted_by" value="<?php echo $data[0]->username;?>" readonly>
                                 </div>
                             </div>
                             <div class="form-group row">
@@ -112,7 +112,7 @@
                                 </label>
                                 <br>
                                 <div class="col-md-9">
-                                    <input type="text"  id="budget" name="budget" value="<?php echo $demands_edit[0]->budget;?>">
+                                    <input type="text"  id="budget" name="budget" value="<?php echo $demands_edit[0]->budget;?>" readonly>
                                 </div>
                             </div>
 
@@ -121,7 +121,7 @@
                                 </label>
                                 <br>
                                 <div class="col-md-9">
-                                    <input type="text"  id="category_title" name="category_title" value="<?php echo $demands_edit[0]->category_title;?>">
+                                    <input type="text"  id="category_title" name="category_title" value="<?php echo $demands_edit[0]->category_title;?>" readonly>
                                 </div>
                             </div>
 
@@ -130,7 +130,7 @@
                                 </label>
                                 <br>
                                 <div class="col-md-9">
-                                    <input type="date"  id="created" name="created" value="<?php echo $demands_edit[0]->created_date;?>">
+                                    <input type="date"  id="created" name="created" value="<?php echo $demands_edit[0]->created_date;?>" readonly>
                                 </div>
                             </div>
                             <div class="form-group row">

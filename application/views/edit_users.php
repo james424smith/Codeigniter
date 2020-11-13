@@ -33,7 +33,7 @@
 <div class="dashboard-wrapper">
     <div class="container  dashboard-content">
         <div class="row">
-            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12" style="margin-top:50px; margin-left:20px;">
                 <div class="card_admin">
                     <div class="card-header"><h5 class="mb-0"></h5></div>
                     <div class="card-body">
@@ -47,7 +47,7 @@
                                 </label>
                                 <br>
                                 <div class="col-md-9">
-                                    <input type="text"  id="first_name" name="first_name" value="<?php echo $users_edit[0]->first_name;?>">
+                                    <input type="text"  id="first_name" name="first_name" value="<?php echo $users_edit[0]->first_name;?>" readonly>
                                 </div>
                             </div>
 
@@ -56,7 +56,7 @@
                                 </label>
                                 <br>
                                 <div class="col-md-9">
-                                    <input type="text"  id="last_name" name="last_name" value="<?php echo $users_edit[0]->last_name;?>">
+                                    <input type="text"  id="last_name" name="last_name" value="<?php echo $users_edit[0]->last_name;?>" readonly>
                                 </div>
                             </div>
                             <div class="form-group row">
@@ -64,7 +64,7 @@
                                 </label>
                                 <br>
                                 <div class="col-md-9">
-                                    <input type="text"  id="text" name="username" value="<?php echo $users_edit[0]->username;?>">
+                                    <input type="text"  id="text" name="username" value="<?php echo $users_edit[0]->username;?>" readonly>
                                 </div>
                             </div> 
                            <div class="form-group row">
@@ -72,7 +72,7 @@
                                 </label>
                                 <br>
                                 <div class="col-md-9">
-                                    <input type="text"  id="email" name="email" value="<?php echo $users_edit[0]->email;?>">
+                                    <input type="text"  id="email" name="email" value="<?php echo $users_edit[0]->email;?>" readonly>
                                 </div>
                             </div>
 
@@ -81,7 +81,7 @@
                                 </label>
                                 <br>
                                 <div class="col-md-9">
-                                    <input type="text"  id="dob" name="dob" value="<?php echo $users_edit[0]->dob;?>">
+                                    <input type="text"  id="dob" name="dob" value="<?php echo $users_edit[0]->dob;?>" readonly>
                                 </div>
                             </div>
 
@@ -90,7 +90,7 @@
                                 </label>
                                 <br>
                                 <div class="col-md-9">
-                                    <input type="text"  id="school_address" name="school_address" value="<?php echo $users_edit[0]->school_address;?>">
+                                    <input type="text"  id="school_address" name="school_address" value="<?php echo $users_edit[0]->school_address;?>" readonly>
                                 </div>
                             </div>
 
@@ -99,7 +99,7 @@
                                 </label>
                                 <br>
                                 <div class="col-md-9">
-                                    <input type="text"  id="country" name="country" value="<?php echo $users_edit[0]->country;?>">
+                                    <input type="text"  id="country" name="country" value="<?php echo $users_edit[0]->country;?>" readonly>
                                 </div>
                             </div>
 
@@ -108,7 +108,7 @@
                                 </label>
                                 <br>
                                 <div class="col-md-9">
-                                    <input type="text"  id="Profile_Rate" name="Profile_Rate" value="<?php echo $users_edit[0]->Profile_Rate;?>">
+                                    <input type="text"  id="Profile_Rate" name="Profile_Rate" value="<?php echo $users_edit[0]->Profile_Rate;?>" readonly>
                                 </div>
                             </div>
                             
@@ -117,7 +117,7 @@
                                 </label>
                                 <br>
                                 <div class="col-md-9">
-                                    <input type="text"  id="Total_earned_amount" name="Total_earned_amount" value="<?php echo $users_edit[0]->Total_earned_amount;?>">
+                                    <input type="text"  id="Total_earned_amount" name="Total_earned_amount" value="<?php echo $users_edit[0]->Total_earned_amount;?>" readonly>
                                 </div>
                             </div> 
 
@@ -126,7 +126,7 @@
                                 </label>
                                 <br>
                                 <div class="col-md-9">
-                                    <input type="text"  id="spent" name="spent" value="<?php echo $users_edit[0]->spent;?>">
+                                    <input type="text"  id="spent" name="spent" value="<?php echo $users_edit[0]->spent;?>" readonly>
                                 </div>
                             </div>
                             <div class="form-group row">

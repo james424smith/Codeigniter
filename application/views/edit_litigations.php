@@ -31,7 +31,7 @@
 <div class="dashboard-wrapper">
     <div class="container  dashboard-content">
         <div class="row">
-            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12" style="margin-top:50px; margin-left:20px;">
                 <div class="card_admin">
                     <div class="card-header"><h5 class="mb-0"></h5></div>
                     <div class="card-body">
@@ -42,7 +42,7 @@
                                 </label>
                                 <br>
                                 <div class="col-md-9">
-                                    <input type="text"  id="project_id" name="project_id" value="<?php echo $litigations_edit[0]['project_id'];?>">
+                                    <input type="text" id="project_id" name="project_id" value="<?php echo $litigations_edit[0]['project_id'];?>" readonly>
                                 </div>
                             </div>
 
@@ -51,7 +51,7 @@
                                 </label>
                                 <br>
                                 <div class="col-md-9">
-                                    <input type="text"  id="user_email" name="user_email" value="<?php echo $litigations_edit[0]['user_email'];?>">
+                                    <input type="text"  id="user_email" name="user_email" value="<?php echo $litigations_edit[0]['user_email'];?>" readonly>
                                 </div>
                             </div>
                             <input type="hidden"  id="before_status" name="before_status" value="<?php echo $litigations_edit[0]['before_status'];?>">
@@ -67,20 +67,19 @@
                             <input type="hidden"  id="title" name="title" value="<?php echo $litigations_edit[0]['title'];?>">
 
                              <div class="form-group row">
-                                <label class="col-md-3 "><?= ('Description(read only)')?> <span class="text-danger">*</span>
+                                <label class="col-md-3 "><?= ('Description')?> <span class="text-danger">*</span>
                                 </label>
                                 <br>
                                 <div class="col-md-9">
-                                    <textarea id="description" disabled><?php echo $litigations_edit[0]['description'];?></textarea>
+                                    <textarea id="description" name="description" readonly><?php echo $litigations_edit[0]['description'];?></textarea>
                                 </div>
                             </div>
-                            <input type="hidden"  id="description" name="description" value="<?php echo $litigations_edit[0]['description'];?>">
                             <div class="form-group row">
                                 <label class="col-md-3 "><?= ('Comment')?> <span class="text-danger">*</span>
                                 </label>
                                 <br>
                                 <div class="col-md-9">
-                                    <textarea id="comment" name="comment"> <?php echo $litigations_edit[0]['comment'];?></textarea>
+                                    <textarea id="comment" name="comment" readonly> <?php echo $litigations_edit[0]['comment'];?></textarea>
                                 </div>
                             </div>
                             <div class="form-group row">

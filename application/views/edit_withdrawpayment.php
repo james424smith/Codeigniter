@@ -36,7 +36,6 @@
                     <div class="card-header"><h5 class="mb-0"></h5></div>
                     <div class="card-body">
                         <form class="form-valide" action="<?php echo base_url('withdrawpaymentList/save_withdrawpayment')?>" enctype="multipart/form-data" method="post" accept-charset="utf-8">
-
                              <div class="form-group row">
                                 <label class="col-md-3 "><?= ('Date of Request')?> <span class="text-danger">*</span>
                                 </label>
