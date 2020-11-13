@@ -50,37 +50,37 @@ div#dtBasicExample_length {
                     ?>
                   <tr>
                       <td><?php echo date("d-m-Y", strtotime($user->date_created)); ?> </td>
-                      <td> <?php echo $newDate . "0000:" . $invID;?>
+                      <td> <?php echo $newDate . $invID;?>
                       <td> 
                         <?php 
-                          if($user->mission_status == 0) 
-                          { echo "Proposed";} 
-                          else if($user->mission_status == 1) 
-                          { echo "In Progress";}  
-                          else if($user->mission_status == 2) 
-                          { echo "Delivered";}  
-                          else if($user->mission_status == 3) 
+                          //if($user->mission_status == 0) 
+                          //{ echo "Proposed";} 
+                          //else if($user->mission_status == 1) 
+                          //{ echo "In Progress";}  
+                          //else if($user->mission_status == 2) 
+                          //{ echo "Delivered";}  
+                          //else if($user->mission_status == 3) 
                           { echo "Completed";}  
-                          else if($user->mission_status == 4) 
-                          { echo "Dispute";} 
+                          //else if($user->mission_status == 4) 
+                          //{ echo "Dispute";} 
                         ?> 
                       </td>
-                      <td> <?php echo "€" . $user->amount_to_pay;?> </td>
+                      <td> <?php echo "€" . (($user->mission_amount * 0.91) - 0.25);?> </td>
                       <td> 
                         <?php
-                          $this->db->select("username");
+                          $this->db->select("email");
                           $this->db->from("users");
                           $this->db->where('id', $user->employer_id);
                           $data = $this->db->get()->result();
-                          echo $data[0]->username;
+                          echo $data[0]->email;
                         ?>
                       </td>
                       <td> <?php
-                          $this->db->select("username");
+                          $this->db->select("email");
                           $this->db->from("users");
                           $this->db->where('id', $user->emplyee_id);
                           $data = $this->db->get()->result();
-                          echo $data[0]->username;?>
+                          echo $data[0]->email;?>
                       </td> 
                           <?php
                           //var_dump($value['pay_status']);die();
