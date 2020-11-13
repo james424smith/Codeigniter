@@ -193,7 +193,8 @@
       $count_Reviews = count($getreviewsNotification);
 
       $total_notification_count = $count_payment + $count_missionanddemands + $count_Offers + $count_Reviews;
-
+      
+      $total_amount = $obj->Payment_model->get_sum_in_transaction($user_id);
       $obj->load->model('Front/User');
       $self_user = $obj->User->getSelfUser();
    ?>
@@ -346,7 +347,7 @@
                           </div>
                           <div class="profile_dtls">
                                 <h4><?=empty($user['username']) ? '' : $user['username'] ?></h4>
-                                <p><b><?= $user['Current_Balance'] ?></b> <i class="fas fa-euro-sign"></i></p>
+                                <p><b><?= $total_amount ?></b> <i class="fas fa-euro-sign"></i></p>
                           </div>
                           <a class="prfl_btn" href="<?php echo base_url('Front/home/my_profile')?>" style="width:120px !important;">Voir mon profil</a>
                           <a class="my_demands" href="<?php echo base_url('Front/home/mydemands')?>">Mes demandes</a>

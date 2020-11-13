@@ -466,5 +466,20 @@ class Payment_model extends CI_Model
         $this->db->update("users");
         return true;
     }
+
+    public function get_sum_in_transaction($user_id)
+    {
+        $amount = 0;
+        $this->db->select('amount_to_pay');
+        $this->db->from('withdrawpayment');
+        $this->db->where('emplyee_id', $user_id);
+        $result = $this->db->get()->result_array();
+
+        foreach ($result as $v)
+        {
+            $amount += $v['amount_to_pay'];
+        }
+        return $amount;
+    }
 }
 ?>
