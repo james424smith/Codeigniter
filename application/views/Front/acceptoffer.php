@@ -28,7 +28,7 @@
     <div class="container">
     
       <div class="top-side about_title">
-          <h4 class="title">Paiement</h4>
+          <h4 class="title" style="color:#6d6dfb;">Paiement</h4>
         </div>
     </div>
   </div>
@@ -46,15 +46,15 @@
                       </thead>
                       <tbody>
                         <tr>
-                          <td>Montante</td>
+                          <td>Montant</td>
                           <td><?php echo $get_offer_amount; ?> €</td>
                         </tr>
                         <tr>
-                          <td>Frais de service</td>
+                          <td>Frais bancaire et de service</td>
                           <td><?php echo $amount_12 . " €"; ?></td>
                         </tr>
                         <tr>
-                          <td>frais bancaires</td>
+                          <td>Frais de transaction</td>
                           <td>0.25 €</td>
                         </tr>
                       </tbody>
