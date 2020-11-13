@@ -10,8 +10,6 @@
     </div>
   </div>
 </section>
-
-
 <section>
   <div class="Payment">
     <div class="container">
@@ -66,10 +64,8 @@
                           </div>
                     </div>
             </div>
-
         </div>
-    </div>
-      
+    </div>      
   </div>
 </section>
 

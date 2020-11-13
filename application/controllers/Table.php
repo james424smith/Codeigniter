@@ -107,7 +107,7 @@ class Table extends CI_Controller {
         header("Content-Disposition: attachment; filename=$filename"); 
         header("Content-Type: application/csv; ");
        // get data 
-        $usersData = $this->Register_model->getUserList($from_date_new,$to_date_new);
+        $usersData = $this->Register_model->getUserList($from_date_new, $to_date_new);
         // file creation 
         $file = fopen('php://output','w');
         $header = array("Date of profile creation","First name","Last name", "email","Date of Birth","University/School", "Country","Profil Rate (based on reviews rates)","Total earned amount","Current Balance (wallet)"); 

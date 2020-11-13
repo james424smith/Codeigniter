@@ -24,7 +24,7 @@ div#dtBasicExample_length {
           <h3><?= ('Litigations List') ?></h3>
           <p class="card-category"><?= ('Here is a subtitle for this table')?></p>
           </div>
-          <form method="post" action="<?php echo base_url('table/export_csv')?>">
+          <form method="post" action="<?php echo base_url('LitigationsList/export_csv')?>">
             <div class="from_to_date_picker">             
               <ul>
                 <li><label>From Date:</label> <input type="date" name="from_date" id="from_date" value="" required=""></li>

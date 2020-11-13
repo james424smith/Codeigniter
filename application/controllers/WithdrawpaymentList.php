@@ -86,7 +86,7 @@ else{
     }
 
     public function export_csv(){ 
-$post = $this->input->post();
+        $post = $this->input->post();
         $from_date = $this->input->post('from_date');
         $from_date_new = date('Y-m-d', strtotime($from_date)); 
     
@@ -105,29 +105,29 @@ $post = $this->input->post();
 
             $amount_to_pay = $value['amount_to_pay'];
 
-$this->db->select("username");
-$this->db->from("users");
-$this->db->where('id', $value['employer_id']);
-$data1 = $this->db->get()->result();
-$employer = $data1[0]->username;
+            $this->db->select("username");
+            $this->db->from("users");
+            $this->db->where('id', $value['employer_id']);
+            $data1 = $this->db->get()->result();
+            $employer = $data1[0]->username;
 
-$this->db->select("username");
-$this->db->from("users");
-$this->db->where('id', $value['employee_id']);
-$data1 = $this->db->get()->result();
-$employee = $data1[0]->username;
+            $this->db->select("username");
+            $this->db->from("users");
+            $this->db->where('id', $value['employee_id']);
+            $data1 = $this->db->get()->result();
+            $employee = $data1[0]->username;
 
-if($value['pay_status'] == 1)
-{
-    $pay_status = "Paid";
-}
-else{
-    $pay_status = "Unpaid";
-}
+            if($value['pay_status'] == 1)
+            {
+                $pay_status = "Paid";
+            }
+            else{
+                $pay_status = "Unpaid";
+            }
 
-$transection_id = $value['transection_id'];
+            $transection_id = $value['transection_id'];
 
-$tesd[] = array("date"=>$date, "miss_sta"=>$miss_sta, "mission"=>$mission, "amount_to_pay"=>$amount_to_pay, 'employer'=> $employer, 'employee'=>$employee,'pay_status'=>$pay_status,'transection_id'=>$transection_id,'account_number'=>$account_number,'transection_id'=>$transection_id);
+            $tesd[] = array("date"=>$date, "miss_sta"=>$miss_sta, "mission"=>$mission, "amount_to_pay"=>$amount_to_pay, 'employer'=> $employer, 'employee'=>$employee,'pay_status'=>$pay_status,'transection_id'=>$transection_id,'account_number'=>$account_number,'transection_id'=>$transection_id);
 
         }
 
