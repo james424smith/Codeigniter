@@ -21,7 +21,7 @@ div#dtBasicExample_length {
     <div class="container-fluid">
       <div class="row">
         <div class="col-md-12">
-          <div class="card ">
+          <div class="card match-card">
           <div class="card-header card-header-primary match-box">
           <h3><?= ('Contact List') ?></h3>
           <p class="card-category"><?= ('Here is a subtitle for this table')?></p>
