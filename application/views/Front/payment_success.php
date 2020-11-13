@@ -40,8 +40,9 @@
     // item details for which payment made
     $itemName = "Mission" .$get_offer_mission_name;
     $itemNumber = $get_offer_project_id;
-    $itemPrice = $get_offer_amount;
+    $itemPrice = $get_offer_amount * 100;
     $currency = "EUR";
+    //var_dump($itemPrice);die();
     $orderID = "Heelporidd" . $get_offer_project_id;    
     // details for which payment performed
     $payDetails = \Stripe\Charge::create(array(

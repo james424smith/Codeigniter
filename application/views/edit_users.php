@@ -38,10 +38,8 @@
                     <div class="card-header"><h5 class="mb-0"></h5></div>
                     <div class="card-body">
                         <input type="hidden" id="second_password" value="<?php echo $selfadmin->second_password; ?>" >
-                        <form class="form-valide" action="<?php echo base_url('table/save_users')?>" enctype="multipart/form-data" method="post" accept-charset="utf-8" id="myform">
-                     
+                        <form class="form-valide" action="<?php echo base_url('table/save_users')?>" enctype="multipart/form-data" method="post" accept-charset="utf-8" id="myform">                     
                             <input type="hidden"  id="id" name="user_id" value="<?php echo $users_edit[0]->id;?>">
-
                              <div class="form-group row">
                                 <label class="col-md-3 "><?= ('First Name')?> <span class="text-danger">*</span>
                                 </label>

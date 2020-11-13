@@ -1,5 +1,5 @@
 // set your stripe publishable key
-Stripe.setPublishableKey('pk_test_IKgHpz7lpleTM3rcFSnyoxC700UDOoixI7');
+Stripe.setPublishableKey('pk_live_uCA4uxOsl9sM5e534oDNRbJK00mGBuYjsW');
 $(document).ready(function() {
     $("#paymentForm").submit(function(event) {
         $('#makePayment').attr("disabled", "disabled");
