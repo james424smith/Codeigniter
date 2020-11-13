@@ -17,7 +17,8 @@ class RegisterModel extends CI_Model {
   	{
       //echo "Login Model";die();  
       $this->db->where('email', $email);  
-      $this->db->where('password', $password);  
+      $this->db->where('password', $password);
+      $this->db->where('block', 0);  
       $query = $this->db->get('users');  
       $id = $query->result_array()[0]['id'];
       $this->session->set_userdata('id', $id);

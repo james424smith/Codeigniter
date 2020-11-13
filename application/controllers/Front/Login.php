@@ -58,7 +58,7 @@ class Login extends CI_Controller {
       else  
       {
         //echo "3";die();  
-        $this->session->set_flashdata('error', "Invalid username and password.");  
+        $this->session->set_flashdata('error', "Nom d'utilisateur et mot de passe invalides.");  
         redirect(base_url() . 'Front/home/login');  
       }  
 
@@ -68,8 +68,6 @@ class Login extends CI_Controller {
   function logout()  
   {  
     //print_r($this->session->userdata('user'));exit;
-
-
     $this->session->unset_userdata('id');  
     $this->session->unset_userdata('email');
     $this->session->unset_userdata('password'); 

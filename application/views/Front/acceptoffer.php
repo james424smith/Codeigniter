@@ -145,10 +145,7 @@
 					</div>
 					<button type="submit" class="btn btn-default">OK</button>
 				</form>
-
-				<!-- <a href="#" class="btn btn-default">Retour</a> -->
 			</div>
-
       </div>
       
     </div>

@@ -9,7 +9,7 @@
                     <?php if($this->session->flashdata('error')){ ?>
                     <div class="alert alert-danger">
                         <a href="#" class="close" data-dismiss="alert">&times;</a>
-                        <strong>Error!</strong> <?php echo $this->session->flashdata('error'); ?>
+                        <strong>Erreur!</strong> <?php echo $this->session->flashdata('error'); ?>
                     </div>
                     <?php } ?>
                 </p>
