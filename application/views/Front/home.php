@@ -75,9 +75,6 @@
                       <span><img  src="<?= $admin_url ?>/uploads/project_image/<?php echo $row->picture_url ?>"></span>
                       <h3> <?php echo $row->title;?></h3>
                       </div>
-                      <p>
-                        <?php echo $row->description;?>
-                      </p> 
                     </div>                    
                 </div>
                 </a>
@@ -131,7 +128,7 @@
                       </div>
                       <div class="col-md-8 cat_content">
                         <?php
-                            $now = time(); // or your date as well
+                          $now = time(); // or your date as well
                       	  $your_date = strtotime($row->created_date);
                       	  $datediff = $now - $your_date;
                         ?>

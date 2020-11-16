@@ -31,19 +31,19 @@
                         <strong>Error!</strong> <?php echo $this->session->flashdata('sec_faild_old'); ?>
                     </div>
                <?php } ?>
-               <div class="card">
+               <div class="card match-card">
                   <div class="card-body p-0">
                      <div class="container-fluid">
                         <div class="row justify-content-center">
                            <div class="col-lg-12">
-                              <div class="card">
+                              <div class="card" >
                                  <div class="card-body">
                                     <?php if($this->session->flashdata('result')){?>
                                        <div class="alert alert-success">
                                           <?php echo $this->session->flashdata('result'); } ?>
                                        </div>
                                     <div class="table-responsive">
-                                       <h2 style="margin-left:15px;">First Password</h2><hr>
+                                       <h2 style="margin-left:15px;">Admin Pass</h2><hr>
                                        <div class="form-validation">
                                           <form class="form-valide" action="<?php echo base_url('UserSetting/updatePwd')?>" enctype="multipart/form-data" method="post" accept-charset="utf-8">
                                              <div class="form-group row">
@@ -75,13 +75,13 @@
                                              </div>
                                              <div class="form-group row">
                                                 <div class="col-lg-9 ml-auto">
-                                                   <button type="submit" class="btn btn-primary"><?=('Update First Password')?></button>
+                                                   <button type="submit" class="btn btn-primary"><?=('Update Admin Pass')?></button>
                                                 </div>
                                              </div>
                                           </form>
                                        </div>
                                        <br>
-                                       <h2 style="margin-left:15px;">Second Password</h2><hr>
+                                       <h2 style="margin-left:15px;">Safty Pass</h2><hr>
                                        <div class="form-validation">
                                           <form class="form-valide" action="<?php echo base_url('UserSetting/updateSecPwd')?>" enctype="multipart/form-data" method="post" accept-charset="utf-8">
                                              <div class="form-group row">
@@ -113,7 +113,7 @@
                                              </div>
                                              <div class="form-group row">
                                                 <div class="col-lg-9 ml-auto">
-                                                   <button type="submit" class="btn btn-primary"><?=('Update Second Password')?></button>
+                                                   <button type="submit" class="btn btn-primary"><?=('Update Safty Pass')?></button>
                                                 </div>
                                              </div>
                                           </form>

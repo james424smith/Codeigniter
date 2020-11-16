@@ -30,7 +30,7 @@ div#dtBasicExample_length {
          </form>
             <div class="card-body table-responsive">
                 <table id="dtBasicExample" class="table table-striped  table-sm" cellspacing="0" width="100%">
-                  <thead class=" text-primary">
+                  <thead class="text-primary">
                     <!-- <th><?=('id')?></th>  -->
                     <th><?=('Date of Request')?></th>
                     <th><?=('Project Id')?></th>
