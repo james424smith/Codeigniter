@@ -64,7 +64,7 @@ class ContactContent extends CI_Controller
         $from = $this->config->item('smtp_user');
         $to = $email;
 
-        $subject   =  'Réponse à votre demande';
+        $subject   =  '<h3>Réponse à votre demande</h3>';
         $message   =  '<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>';
         $message  .= '<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>';
         $message  .=  '<div class="container">';

@@ -18,8 +18,11 @@ class RegisterModel extends CI_Model {
       //echo "Login Model";die();  
       $this->db->where('email', $email);  
       $this->db->where('password', $password);
-      $this->db->where('block', 0);  
-      $query = $this->db->get('users');  
+      //$this->db->where('block', 0);  
+      $query = $this->db->get('users');
+      
+      if($query->row()->block == 1)
+        return 0; //block
       $id = $query->result_array()[0]['id'];
       $this->session->set_userdata('id', $id);
      // SELECT * FROM users WHERE username = '$username' AND password = '$password'  
@@ -30,12 +33,11 @@ class RegisterModel extends CI_Model {
         
         $this->db->where('id', $id);  
         $this->db->update('users', $status);
-
-        return true;  
+        return 1;  // success
       }  
       else  
       {  
-        return false;       
+        return -1; // no member
       }  
    } 
    

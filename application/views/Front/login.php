@@ -12,6 +12,12 @@
                         <strong>Erreur!</strong> <?php echo $this->session->flashdata('error'); ?>
                     </div>
                     <?php } ?>
+                    <?php if($this->session->flashdata('block')){ ?>
+                    <div class="alert alert-danger">
+                        <a href="#" class="close" data-dismiss="alert">&times;</a>
+                        <strong>Erreur!</strong> <?php echo $this->session->flashdata('block'); ?>
+                    </div>
+                    <?php } ?>
                 </p>
                 <div class="login-form">
                     <div class="login-form">

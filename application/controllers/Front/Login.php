@@ -18,19 +18,17 @@ class Login extends CI_Controller {
  
     if($this->form_validation->run()== FALSE)  
     { 
-
-      //echo "1";die();
       $this->load->view('Front/login');
-
     }  
     else  
     { 
-
       $email = $this->input->post('email');  
       $password = md5($this->input->post('password'));
 
-      $this->load->model('Front/RegisterModel');  
-      if($this->RegisterModel->can_login($email, $password))  
+      $this->load->model('Front/RegisterModel');
+      
+      $can_login = $this->RegisterModel->can_login($email, $password);
+      if($can_login == 1)  
       {  
         //echo "Login"; die();
         $session_data = array(  
@@ -54,7 +52,12 @@ class Login extends CI_Controller {
             $this->session->set_userdata($user_data);
          }
         redirect(base_url() . 'Front/home');  
-      }  
+      } 
+      else if ($can_login == 0)
+      {
+        $this->session->set_flashdata('block', " Votre compte a été suspendu.<br> Pour plus d'information, contactez le service client via la page de contact.");  
+        redirect(base_url() . 'Front/home/login'); 
+      }
       else  
       {
         //echo "3";die();  
