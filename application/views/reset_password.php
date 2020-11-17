@@ -81,7 +81,7 @@
                                           </form>
                                        </div>
                                        <br>
-                                       <h2 style="margin-left:15px;">Safty Pass</h2><hr>
+                                       <h2 style="margin-left:15px;">Safety Pass</h2><hr>
                                        <div class="form-validation">
                                           <form class="form-valide" action="<?php echo base_url('UserSetting/updateSecPwd')?>" enctype="multipart/form-data" method="post" accept-charset="utf-8">
                                              <div class="form-group row">
@@ -113,7 +113,7 @@
                                              </div>
                                              <div class="form-group row">
                                                 <div class="col-lg-9 ml-auto">
-                                                   <button type="submit" class="btn btn-primary"><?=('Update Safty Pass')?></button>
+                                                   <button type="submit" class="btn btn-primary"><?=('Update Safety Pass')?></button>
                                                 </div>
                                              </div>
                                           </form>
