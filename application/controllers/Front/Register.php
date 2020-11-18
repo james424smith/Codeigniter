@@ -50,6 +50,59 @@ class Register extends CI_Controller {
   
    }   
   } 
+
+  public function save_credit_card()
+  {
+     $data = array(
+      'user_id' => $this->session->userdata('id'),
+      'card_name' =>  $this->input->post('card_name'),
+      'card_number' => $this->input->post('card_number'),
+      'expiry' => $this->input->post('card_mm') . '/' . $this->input->post('card_yy'),
+      'cvv' => $this->input->post('card_cvv')
+     );
+     $this->RegisterModel->save_credit_card($data);
+
+     require(APPPATH.'/libraries/stripe-php/init.php');
+
+     $token = $this->input->post('stripeToken');
+     $stripe = array(
+      "secret_key"      => "sk_test_agIhwfWd0DII3LbPRvfHs0ws00IlypxkxU",
+      "publishable_key" => "pk_test_IKgHpz7lpleTM3rcFSnyoxC700UDOoixI7"
+    );
+
+    \Stripe\Stripe::setApiKey($stripe['secret_key']);  
+    $stripe = new \Stripe\StripeClient(
+      'sk_test_agIhwfWd0DII3LbPRvfHs0ws00IlypxkxU'
+    );
+    $stripe->tokens->create([
+      'person' => [
+        'first_name' => 'Jane',
+        'last_name' => 'Doe',
+        'relationship' => ['owner' => true],
+      ],
+    ]);
+    
+    $tokenResponse = $account->jsonSerialize();
+    var_dump($tokenResponse);die();
+      
+ /*   $account = \Stripe\Account::create([
+        'country' => 'FR',
+        'type' => 'custom',
+        'capabilities' => [
+          'card_payments' => [
+            'requested' => true,
+          ],
+          'transfers' => [
+            'requested' => true,
+          ],
+        ],
+        'account_token' => $token,
+      ]);
+
+      $accountResponse = $account->jsonSerialize();
+      var_dump($accountResponse);die();*/
+      
+  }
   function editprofile(){
      
       $first_name = $this->input->post('first_name');  

@@ -65,7 +65,11 @@
                     </div>            
                     <div class="col-md-8 cat_content">
                           <h5><?php echo $value['project_title']; ?></h5>
+                          <?php if($class == "red option-2") { ?>
+                            <p style="color:grey;">Réalisé par : <?php echo $value['sent_from_username']; ?></p>
+                          <?php } else { ?>
                           <p style="color:grey;">Réalisé pour : <?php echo $value['sent_from_username']; ?></p>
+                          <?php } ?>
                           <div class="row">
                             <div class="col-md-3 status Delivred">                             
                               <p>€ <?php echo $value['amount']; ?></p>

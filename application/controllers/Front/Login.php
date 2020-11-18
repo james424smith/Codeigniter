@@ -51,6 +51,7 @@ class Login extends CI_Controller {
             );
             $this->session->set_userdata($user_data);
          }
+         //var_dump($this->session->userdata('session_id'));die();
         redirect(base_url() . 'Front/home');  
       } 
       else if ($can_login == 0)

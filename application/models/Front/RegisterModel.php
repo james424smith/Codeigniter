@@ -186,5 +186,24 @@ class RegisterModel extends CI_Model {
     return false;
   }
 
+  public function save_credit_card($data)
+  {
+    $user_id = $this->session->userdata('id');
+    $this->db->select('*');
+    $this->db->from('withdrawcardinfo');
+    $this->db->where('user_id', $user_id);
+    $count = $this->db->get()->num_rows();
+    if($count > 0)
+    {
+      $this->db->where('user_id', $user_id);
+      $this->db->update('withdrawcardinfo', $data);
+    }
+    else
+    {
+      $this->db->insert('withdrawcardinfo', $data);
+    }
+    
+  }
+
 }
 ?>

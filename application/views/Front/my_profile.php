@@ -13,6 +13,9 @@
 	$class_star = $obj->User->getRatingClassName($user_id);
  ?>
 
+<script type="text/javascript" src="https://js.stripe.com/v2/"></script>
+<script type="text/javascript" src="../../../assets/js/custom_payment.js"></script>
+
 <section>
 	<div class="my_profile">
 		<div class="container">
@@ -33,7 +36,8 @@
 							</div>
 							<a href="<?php echo base_url('Front/home/review_profile/' . $user['id'])?>">
 								<span class="stars-container <?php echo $class_star;?>">★★★★★</span>
-							</a>                       
+							</a><br>
+							<span><a href="#" data-toggle="modal" data-target="#save_credit_card">WithDraw Credit Card Info</a></span>                       
 						</div>
 					</div>
 					<div class="Presentation">
@@ -99,7 +103,7 @@
 </div>
 </div>
 
-<!-- Modal -->
+<!-- Edit Profile Modal -->
 <div id="edit_profile" class="modal fade" role="dialog">
   <div class="modal-dialog">
 
@@ -178,6 +182,57 @@
   </div>
 </div>
 <!-- Modal -->
+
+<!-- Save Creidt Card -->
+<div id="save_credit_card" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header" style="padding-top:30px;">
+        <h4 class="modal-title">Credit Card</h4>
+		<button type="button" class="close" data-dismiss="modal">&times;</button>
+
+      </div>
+      <div class="modal-body">
+        <form action="<?php echo base_url('Front/Register/save_credit_card')?>" method="post" id="custom_form">
+        	<div class="row">
+				  <div class="form-group col-md-12">
+				    <label for="text">Nom de la carte:</label>
+				    <input type="text" class="form-control" name="card_name" id="card_name" required>
+				  </div>
+				  <div class="form-group col-md-12">
+				    <label for="text">Numéro de carte:</label>
+				    <input type="number" class="form-control" name="card_number" id="card_number" required>
+				  </div>
+				  <div class="form-group col-md-12">
+				    <label for="text">Expiry:</label>
+				  </div>
+				  <div class="form-group col-md-4">
+				    <input type="number" class="form-control" name="card_cvv" placeholder="CVV"  id="card_cvv" required>
+				  </div>
+				  <div class="form-group col-md-4">
+				    <input type="number" class="form-control" name="card_mm" placeholder="MM" id="card_mm" required>
+				  </div>
+				  <div class="form-group col-md-4">
+				    <input type="number" class="form-control" name="card_yy" placeholder="YY"  id="card_yy" required>
+				  </div>
+				  
+				  <input type="hidden" class="form-control" name="id" id="">
+
+		   	</div>
+      </div>
+      <div class="modal-footer">
+        <button type="submit" class="btn btn-default" id="make_custom_account">enregistrer</button>
+      </div>
+      </form>
+    </div>
+
+  </div>
+</div>
+<!-- Modal -->
+
+
 <?php $this->load->view('Front/common/footer');  ?>
 
 <script>
