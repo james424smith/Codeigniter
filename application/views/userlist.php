@@ -130,7 +130,7 @@
 </div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script> -->
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script> 
 
 
 <script>
@@ -145,34 +145,109 @@ $(document).ready(function () {
   $('.dataTables_length').addClass('bs-select');
 });
 
+
+
 function onClickEditUser(idx)
 {
-    var pwd = $('#second_password').val();
-    //alert(pwd);
-    var str = prompt("What's your second password?");
-    if(str == pwd)
+  swal({
+    title: 'Safety Pass',
+    html:'<input type="password" id="swal-input2" class="swal2-input">',
+    preConfirm: function () {
+      return new Promise(function (resolve) {
+        resolve([
+          $('#swal-input2').val()
+        ])
+      })
+    },
+    onOpen: function () {
+      $('#swal-input2').focus()
+    }
+  }).then(function (result) {
+  //var txt = result;
+    if(result.value[0] == $('#second_password').val())
+    {
       location.href = $('#edit_url' + idx).val();
+    }
+    else
+    {
+      swal("Safety password is wrong!");
+    }
+  }).catch(swal.noop)
+    //var pwd = $('#second_password').val();
+    //alert(pwd);
+    //var str = prompt("What's your second password?");
+    //if(str == pwd)
+    //  location.href = $('#edit_url' + idx).val();
 }
 function onClickBlockUser(idx)
 {
-    var pwd = $('#second_password').val();
-    var msg = "";
-    if($('#block_status' + idx).val() == 0)
-      msg = "Are you sure to block this user?";
-    else
-      msg = "Are you sure to remove block this user?";
-    
-    var str = prompt(msg);
-    if(str == pwd)
+  swal({
+    title: 'Safety Pass',
+    html:'<input type="password" id="swal-input2" class="swal2-input">',
+    preConfirm: function () {
+      return new Promise(function (resolve) {
+        resolve([
+          $('#swal-input2').val()
+        ])
+      })
+    },
+    onOpen: function () {
+      $('#swal-input2').focus()
+    }
+  }).then(function (result) {
+  //var txt = result;
+    if(result.value[0] == $('#second_password').val())
+    {
       location.href = $('#block_url' + idx).val();
+    }
+    else
+    {
+      swal("Safety password is wrong!");
+    }
+  }).catch(swal.noop)
+    //var pwd = $('#second_password').val();
+    //var msg = "";
+    //if($('#block_status' + idx).val() == 0)
+    //  msg = "Are you sure to block this user?";
+    //else
+    //  msg = "Are you sure to remove block this user?";
+    
+    //var str = prompt(msg);
+    //if(str == pwd)
+    //  location.href = $('#block_url' + idx).val();
 }  
 
 function onClickDeleteUser(idx)
 {
-    var pwd = $('#second_password').val();
-    var str = prompt("Are you sure to delete this user?");
-    if(str == pwd)
+
+  swal({
+    title: 'Safety Pass',
+    html:'<input type="password" id="swal-input2" class="swal2-input">',
+    preConfirm: function () {
+      return new Promise(function (resolve) {
+        resolve([
+          $('#swal-input2').val()
+        ])
+      })
+    },
+    onOpen: function () {
+      $('#swal-input2').focus()
+    }
+  }).then(function (result) {
+  //var txt = result;
+    if(result.value[0] == $('#second_password').val())
+    {
       location.href = $('#delete_url' + idx).val();
+    }
+    else
+    {
+      swal("Safety password is wrong!");
+    }
+  }).catch(swal.noop)
+   // var pwd = $('#second_password').val();
+   // var str = prompt("Are you sure to delete this user?");
+   // if(str == pwd)
+    //  location.href = $('#delete_url' + idx).val();
 }
 
 </script>

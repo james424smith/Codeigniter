@@ -171,6 +171,8 @@ div#dtBasicExample_length {
   src="https://code.jquery.com/jquery-3.4.1.js"
   integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
   crossorigin="anonymous"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script> 
+
 <script>
   $(document).ready(function(){
     $('.image').click(function(){
@@ -188,18 +190,66 @@ div#dtBasicExample_length {
 
   function onClickEditUser(idx)
   { 
-    var pwd = $('#second_password').val();
+    swal({
+      title: 'Safety Pass',
+      html:'<input type="password" id="swal-input2" class="swal2-input">',
+      preConfirm: function () {
+        return new Promise(function (resolve) {
+          resolve([
+            $('#swal-input2').val()
+          ])
+        })
+      },
+      onOpen: function () {
+        $('#swal-input2').focus()
+      }
+    }).then(function (result) {
+    //var txt = result;
+      if(result.value[0] == $('#second_password').val())
+      {
+        location.href = $('#edit_url' + idx).val();
+      }
+      else
+      {
+        swal("Safety password is wrong!");
+      }
+    }).catch(swal.noop)
+    //var pwd = $('#second_password').val();
     //alert(pwd);
-    var str = prompt("What's your second password?");
-    if(str == pwd)
-      location.href = $('#edit_url' + idx).val();
+    //var str = prompt("What's your second password?");
+    //if(str == pwd)
+    //  location.href = $('#edit_url' + idx).val();
   }
   function onClickDeleteUser(idx)
   {
-    var pwd = $('#second_password').val();
-    var str = prompt("Are you sure to delete this user?");
-    if(str == pwd)
-      location.href = $('#delete_url' + idx).val();
+    swal({
+      title: 'Safety Pass',
+      html:'<input type="password" id="swal-input2" class="swal2-input">',
+      preConfirm: function () {
+        return new Promise(function (resolve) {
+          resolve([
+            $('#swal-input2').val()
+          ])
+        })
+      },
+      onOpen: function () {
+        $('#swal-input2').focus()
+      }
+    }).then(function (result) {
+    //var txt = result;
+      if(result.value[0] == $('#second_password').val())
+      {
+        location.href = $('#delete_url' + idx).val();
+      }
+      else
+      {
+        swal("Safety password is wrong!");
+      }
+    }).catch(swal.noop)
+    //var pwd = $('#second_password').val();
+    //var str = prompt("Are you sure to delete this user?");
+    //if(str == pwd)
+    //  location.href = $('#delete_url' + idx).val();
   }
 
 </script>
