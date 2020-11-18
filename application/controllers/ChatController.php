@@ -129,8 +129,10 @@ class ChatController extends CI_Controller {
         $messageTxt = reduce_multiples($this->input->post('comment'), ' ');
         
         $claim_msg_first = "Nous sommes désolés de votre insatisfaction.<br>
-                            Cependant, votre litige a été ouvert avec succès, Le délai moyen de traitement est de 14 jours ouvrés.<br>
-                            Vous pouvez desormais, nous contacter via ce service de Chat si vous vous êtes arranger amicalement avec le Heelper concerné, ou si vous avez d'autres informations à nous envoyer.<br>
+                            Cependant, votre litige a été ouvert avec succès.<br>
+			    Le délai moyen de traitement est de 14 jours ouvrés.<br>
+                            Vous pouvez desormais, nous contacter via ce service de Chat si vous avez de nouvelles informations à nous transmettre.<br>
+			    Vous pouvez également fermer le litige à tout moment si vous vous êtes arrangé amicalement avec le Heelper.<br>
                             Veuillez noter que le traitement de vos messages peut prendre quelques jours.<br> Merci.";
         
         $claim_msg_second = "Un litige concernant une de vous Demande/Mission a été ouvert.<br> 
